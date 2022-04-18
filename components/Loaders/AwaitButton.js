@@ -1,13 +1,13 @@
 import PrimaryLoader from "./PrimaryLoader"
-import colors from '../../styles/colors.module.css'
+import styles from '../../styles/buttons.module.css'
 
 
 const AwaitButton =({states,children})=>{
-    const {awaitState,text,action} = states
+    const {awaitState,text,action,secondary} = states
     switch(awaitState){
         case "loading":
                 return (
-                    <div className="await_button">
+                    <div className={styles.await_button}>
                         <h3>
                             {text}
                         </h3>
@@ -19,29 +19,17 @@ const AwaitButton =({states,children})=>{
                 )
         case "disabled":
                 return (
-                    <div className="await_button">
+                    <div className={styles.await_button}>
                         <h3>
                             {text}
                         </h3>
                         {children}
                     </div>
                 )
-        case "none":
-            return (
-                <div 
-                className="checkout_button"
-                onClick={action?action:null}
-                >
-                    <h3>
-                        {text}
-                    </h3>
-                    {children}
-                </div>
-            )
         default:
             return (
                 <div 
-                className="checkout_button"
+                className={!secondary?styles.primary_button:styles.secondary_button}
                 onClick={action?action:null}
                 >
                     <h3>

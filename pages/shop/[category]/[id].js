@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/dist/client/router";
 import PageWrapper from "../../../components/PageWrapper";
 import styles from '../../../styles/Product.module.css'
@@ -18,14 +18,22 @@ const Product =()=>{
     const {userState} = useContext(Store)
     const [user,setUser] = userState
     const router = useRouter()
-    const id = router.query.id
-    const {isSpinning,fetchCart} = useCart()
-    const {data,isLoading} = useQuery('getProductById',()=>getProductById(id))
+    const [isLoading,setIsLoading] = useState(true)
+    const {isSpinning,fetchCart,getProductData,err,data} = useCart()
+    useEffect(()=>{
+        if(router.isReady){
+            const fetchProduct =async()=>{
+                await getProductData(router.query.id)
+                setIsLoading(false)
+            }
+            fetchProduct()
+        }
+    },[router.isReady])
     if(isLoading){
         return (
             <div className="page">
                 <Head>
-                    <title>{isLoading?"Loading..":data.name}</title>
+                    <title>{"Loading.."}</title>
                 </Head>
                 <PageWrapper>
                         <div className={styles.wrapper}>
@@ -65,7 +73,7 @@ const Product =()=>{
         return (
             <div className="page">
                 <Head>
-                    <title>{isLoading?"Loading..":data.name}</title>
+                    <title>{'auth'}</title>
                 </Head>
                 <PageWrapper>
                         <div className={styles.wrapper}>
@@ -93,6 +101,11 @@ const Product =()=>{
                                 }}>
                                     <h3>Add To Cart</h3>    
                             </button>*/}
+                            <div style={{
+                                display:'flex',
+                                flexDirection:'row',
+                                gap:'1rem'
+                            }}>
                             {
                                 user
                                 ?
@@ -105,16 +118,19 @@ const Product =()=>{
                                     })
                                 }}/>
                                 :
-                                <div className={styles.details_description}>
-                                    <Link href={'/user'}>
-                                        <div className="checkout_button">
-                                            <h3>
-                                                Login to use cart
-                                            </h3>
-                                        </div>
-                                    </Link>
-                                </div>
+                                <AwaitButton states={{
+                                    awaitState:'none',
+                                    text:"Login to use cart",
+                                    action:()=>router.push('/user')
+                                }}/>
                             }
+                            <AwaitButton states={{
+                                awaitState:'none',
+                                text:"Share",
+                                action:()=>navigator.clipboard.writeText(window.location.href),
+                                secondary:true
+                            }}/>
+                            </div>
                             </article>
                         </div>  
                 </PageWrapper>    
