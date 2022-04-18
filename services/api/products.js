@@ -15,7 +15,7 @@ export const getProductCategories =async()=>{
 
 export const getProductCategory =async(slug)=>{
     try{
-        const res = await fetch(`${API_URL}/products/category?slug=${slug}`,{
+        const res = await fetch(`https://antimatter-server.herokuapp.com/products/category?slug=${slug}`,{
             method:"GET",
             headers:{"Content-Type" :"application/json"},
         })
@@ -28,7 +28,7 @@ export const getProductCategory =async(slug)=>{
 
 export const getProductById =async(id)=>{
     try{
-        const res = await fetch(`${API_URL}/products/product?id=${id}`,{
+        const res = await fetch(`https://antimatter-server.herokuapp.com/products/product?id=${id}`,{
             method:"GET",
             headers:{"Content-Type" :"application/json"},
         })
