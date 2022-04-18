@@ -1,0 +1,35 @@
+.card,.card2{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 8px;
+    gap: 0.3rem;
+    box-shadow: var(--primary-box-shadow);
+}
+
+.card2{
+    position: static;
+    width: min(100%,20rem);
+}
+
+.image_wrapper{
+    max-height: 40rem;
+}
+
+
+
+.card_footer{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    border-radius: inherit;
+    padding: 0.4rem;
+    gap:0.3rem;
+}
+
+
+
+
+
+

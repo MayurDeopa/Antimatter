@@ -1,0 +1,37 @@
+.success_background{
+    background-color: var(--success);
+}
+
+.success_color{
+    color: var(--success);
+}
+
+.success_border{
+    border: solid 1px var(--success);
+}
+
+.error_background{
+    background-color: var(--error);
+}
+
+.error_color{
+    color: var(--error);
+}
+
+.error_border{
+    border: solid 1px var(--error);
+}
+
+.info_background{
+    background-color: var(--info);
+}
+
+.info_color{
+    color: var(--info);
+}
+
+.info_border{
+    border: solid 1px var(--info);
+}
+
+

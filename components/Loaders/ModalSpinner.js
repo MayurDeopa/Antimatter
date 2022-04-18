@@ -1,0 +1,21 @@
+import Panel from "../Panel"
+import Modal from "../Misc/Modal"
+import PrimaryLoader from '../../components/Loaders/PrimaryLoader'
+
+
+
+const ModalSpinner =()=>{
+    return (
+        <Modal>
+            <Panel attributes={{
+                radius:'50%'
+            }}>
+                <PrimaryLoader states={{
+                    light:false
+                }}/>
+            </Panel>
+        </Modal>
+    )
+}
+
+export default ModalSpinner;

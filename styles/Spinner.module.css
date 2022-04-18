@@ -1,0 +1,31 @@
+.wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    height: 2rem;
+    width: 2rem;
+    border: solid 2px var(--primary-theme-color);
+    border-bottom: transparent 2px solid ;
+    border-left: transparent 2px solid;
+    animation: spin linear 0.6s infinite;
+}
+
+.light{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    min-height: 2rem;
+    min-width: 2rem;
+    border: solid 2px var(--secondary-theme-color);
+    border-bottom: transparent 2px solid ;
+    border-left: transparent 2px solid;
+    animation: spin linear 0.6s infinite;
+}
+
+@keyframes spin {
+    100%{
+        transform: rotate(360deg);
+    }
+}

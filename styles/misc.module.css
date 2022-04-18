@@ -1,0 +1,68 @@
+.modal_wrapper{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color:rgb(46, 46, 46,0.5);
+    z-index: 9999;
+}
+
+
+
+.drawer{
+    position: absolute;
+    bottom: 0;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    padding: 1rem 2rem;
+    gap: 1rem;
+    border-radius:  16px 16px 0 0;
+    background-color: var(--primary-theme-color);
+    color: var(--secondary-theme-color);
+    animation: scroll 0.2s ease-in-out;
+}
+
+.toast{
+    position: fixed;
+    right: -20rem;
+    top: 6rem;
+    min-width: 8rem;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    background-color: var(--secondary-theme-color);
+    animation:toast-in 2s, toast-out 1s 8s;
+}
+
+@keyframes scroll {
+    0%{
+        transform: translateY(100%);
+    }
+}
+
+@keyframes toast-in {
+    from{
+        right: -20rem;
+    }
+    to{
+        right:2rem;
+    }
+}
+
+@keyframes toast-out {
+    from{
+        right: 2rem;
+    }
+    to{
+        right:-20rem;
+    }
+}
+
