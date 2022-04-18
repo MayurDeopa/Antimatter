@@ -16,8 +16,8 @@
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    min-height: 2rem;
-    min-width: 2rem;
+    height: 2rem;
+    width: 2rem;
     border: solid 2px var(--secondary-theme-color);
     border-bottom: transparent 2px solid ;
     border-left: transparent 2px solid;
@@ -29,3 +29,11 @@
         transform: rotate(360deg);
     }
 }
+
+@media screen and (max-width:600px) {
+    .wrapper,.light{
+      height: 1.2rem;
+      width: 1.2rem;
+      border-width: 1px;
+    }
+  }

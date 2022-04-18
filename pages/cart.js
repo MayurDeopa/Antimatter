@@ -133,9 +133,7 @@ const Cart =()=>{
                     <div className={styles.cart_section_log_header}>
                         <h2>Order Summary</h2>
                     </div>
-                    <div className={styles.cart_card_details}>
-
-                    </div>
+                    
                     <AwaitButton states={{
                         awaitState :isSpinning?"loading":'none',
                         text:"Checkout",
