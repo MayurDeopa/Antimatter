@@ -30,10 +30,3 @@
     }
 }
 
-@media screen and (max-width:600px) {
-    .wrapper,.light{
-      height: 1.2rem;
-      width: 1.2rem;
-      border-width: 1px;
-    }
-  }

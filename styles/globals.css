@@ -257,11 +257,7 @@ tranlate_page{
   }
 }
 
-@media screen and (max-width:600px) {
-  .await_button,.checkout_button{
-    height: 2rem;
-  }
-}
+
 
 @media screen and (max-width:500px) {
   .wrap_container{
