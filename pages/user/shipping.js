@@ -60,7 +60,7 @@ const Shipping =()=>{
                             </h3>
                         </div>
                         <>
-                        {names.map((n)=>{
+                        {names.map((n,i)=>{
                                     return <Input 
                                         value={{
                                             title:n,
@@ -70,6 +70,7 @@ const Shipping =()=>{
                                             editState:[edit,setEdit],
                                             form:[details,setDetails]
                                         }}
+                                        key={i}
                                         />
                                 })}
                         </>

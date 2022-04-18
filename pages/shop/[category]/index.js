@@ -66,12 +66,13 @@ const Categories = ()=>{
                                     return <Card details={p} key={p.id} link={`/shop/${router.query.category}/${p.id}`}/>
                                 })
                                 :
-                                sample.map((s)=>{
+                                sample.map((s,i)=>{
                                     return(
                                         <CardSkeleton
                                             attributes={{
                                                 loading:true
                                             }}
+                                            key={i}
                                         />
                                     )
                                 })
