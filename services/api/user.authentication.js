@@ -3,7 +3,7 @@ import {authentication} from '../../firebase/firebase.config'
 
 export const login =async(data)=>{
     try{
-        const res = await fetch(`${API_URL}/login`,{
+        const res = await fetch(`https://antimatter-server.herokuapp.com/login`,{
             method:"post",
             headers:{"Content-Type" :"application/json"},
             body:JSON.stringify({

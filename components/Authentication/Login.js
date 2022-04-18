@@ -37,7 +37,6 @@ const Login =()=>{
                     setErr(res.messsage)
                 }
             }catch(error){
-                console.log(error.name)
                 setErr(error.message)
             }
         }

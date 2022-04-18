@@ -1,7 +1,7 @@
 
 export const getProductCategories =async()=>{
     try{
-        const res = await fetch(`${API_URL}/products/categories`,{
+        const res = await fetch(`https://antimatter-server.herokuapp.com/products/categories`,{
             method:"GET",
             headers:{"Content-Type" :"application/json"},
         })
