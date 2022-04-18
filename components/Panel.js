@@ -6,7 +6,8 @@ const Panel =({children,attributes})=>{
             style={{
                 height:attributes?.height || 'auto',
                 width:attributes?attributes.width:"auto",
-                borderRadius:attributes?.radius||'auto'
+                borderRadius:attributes?.radius||'auto',
+                padding:attributes?.padding || '0'
             }}
             className={styles.card}>
             {children}
