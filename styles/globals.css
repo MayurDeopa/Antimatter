@@ -119,7 +119,7 @@ a {
 
 .checkout_button,.skeleton_button,.await_button{
   width: min(100%,30rem);
-  max-height: 3.2rem;
+  height: 2.7rem;
   display: flex;
   align-items: center;
   justify-content: center;
