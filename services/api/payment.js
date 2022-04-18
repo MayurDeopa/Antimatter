@@ -23,7 +23,7 @@ export const makePayment = async(param)=>{
       alert("Razorpay SDK Failed to load");
       return;
     }
-    const first = await fetch('http://localhost:8000/payment/create',{
+    const first = await fetch(`${API_URL}/payment/create`,{
       method:"POST",
       headers:{"Content-Type" :"application/json"},
       body:JSON.stringify(param)

@@ -2,7 +2,7 @@
 
 export const getDetails = async(id)=>{
     try{
-        const res = await fetch(`http://localhost:8000/details/?id=${id}`,{
+        const res = await fetch(`${API_URL}/details/?id=${id}`,{
             method:'get',
             headers:{"Content-Type" :"application/json"}
         })
@@ -16,7 +16,7 @@ export const getDetails = async(id)=>{
 
 export const sendPersonal =async(data)=>{
     try{
-        const res = await fetch('http://localhost:8000/details/personal',{
+        const res = await fetch(`${API_URL}/details/personal`,{
             method:"post",
             headers:{"Content-Type" :"application/json"},
             body:JSON.stringify(data)
@@ -31,7 +31,7 @@ export const sendPersonal =async(data)=>{
 
 export const sendShipping =async(data)=>{
     try{
-        const res = await fetch('http://localhost:8000/details/shipping',{
+        const res = await fetch(`${API_URL}/details/shipping`,{
             method:"post",
             headers:{"Content-Type" :"application/json"},
             body:JSON.stringify(data)

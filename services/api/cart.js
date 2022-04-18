@@ -1,6 +1,6 @@
 export const getCart =async(data)=>{
     try{
-        const res = await fetch(`http://localhost:8000/cart/?id=${data}`,{
+        const res = await fetch(`${API_URL}/cart/?id=${data}`,{
             method:"GET",
             headers:{"Content-Type" :"application/json"},
         })
@@ -13,7 +13,7 @@ export const getCart =async(data)=>{
 
 export const addToCart =async(data)=>{
     try{
-        const res = await fetch(`http://localhost:8000/cart/add`,{
+        const res = await fetch(`${API_URL}/cart/add`,{
             method:"post",
             headers:{"Content-Type" :"application/json"},
             body:JSON.stringify(data)
@@ -27,7 +27,7 @@ export const addToCart =async(data)=>{
 
 export const mutateQty =async(data)=>{
     try{
-        const res = await fetch(`http://localhost:8000/cart/mutate`,{
+        const res = await fetch(`${API_URL}/cart/mutate`,{
             method:"post",
             headers:{"Content-Type" :"application/json"},
             body:JSON.stringify(data)
