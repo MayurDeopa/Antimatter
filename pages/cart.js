@@ -19,6 +19,7 @@ import ModalSpinner from '../components/Loaders/ModalSpinner'
 import ModalDrawer from '../components/Misc/ModalDrawer'
 import Form from '../components/Misc/Form'
 import Skeleton from '../components/Loaders/Skeleton'
+import LinkBtn from '../components/Misc/LinkBtn'
 
 const Cart =()=>{
     const router = useRouter()
@@ -48,12 +49,10 @@ const Cart =()=>{
                             animated:false
                         }}>
                             <h3>You need to login to use cart</h3>
-                            <AwaitButton states={{
-                                loading:'none',
-                                text:"Login"
-                            }}>
-
-                            </AwaitButton>
+                            <LinkBtn link={{
+                                text:"Login",
+                                url:"/user"
+                            }}/>
                         </Form>
                     </EmptyState>
                 </PageWrapper>
