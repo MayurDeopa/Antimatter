@@ -15,7 +15,6 @@ const NestedOptions=({child,listStateHidden})=>{
                     child.link
                     ?
                     <Link  href={child.link} >
-                        <a href={child.link}>
                             <h3  className={styles.title}>
                             {child.name}
                         
@@ -26,7 +25,6 @@ const NestedOptions=({child,listStateHidden})=>{
                             null
                             }
                             </h3>
-                        </a>
                     </Link>
                     :
                     <h3  className={styles.title} onClick={child.hasChildren?()=>setHidden(!hidden):fun}>
@@ -44,7 +42,7 @@ const NestedOptions=({child,listStateHidden})=>{
                     <div className={hidden?`${styles.children_container} ${styles.hidden}`:styles.children_container}> 
                     
                     {child.children.map((c)=>{
-                        return <NestedOptions child={c} key={c.name}/>
+                        return <NestedOptions child={c} key={c.name} listStateHidden={listStateHidden}/>
                     })}
                     
                 
@@ -62,7 +60,7 @@ const NestedOptions=({child,listStateHidden})=>{
                     child.link
                     ?
                     <Link href={child.link}>
-                        <h3  className={styles.title}>
+                        <h3 className={styles.title}>
                         {child.name}
                     
                         {child.hasChildren
@@ -74,7 +72,7 @@ const NestedOptions=({child,listStateHidden})=>{
                         </h3>
                     </Link>
                     :
-                    <h3  className={styles.title} onClick={fun}>
+                    <h3 className={styles.title} onClick={fun}>
                         {child.name}
                     
                         {child.hasChildren

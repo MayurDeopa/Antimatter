@@ -8,9 +8,9 @@ const Input = ({value,state})=>{
     const [edit,setEdit] = editState
     return (
         <section className={styles.section}>
-            <h3 className={styles.section_header}>
+            <p className={styles.section_header}>
                 {firstLetterToUpperCase(value.title)}
-            </h3>
+            </p>
             <input 
                 type='text' 
                 className={edit?styles.section_label:styles.disabled} 

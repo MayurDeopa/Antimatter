@@ -35,17 +35,14 @@
     transition: 0.2s ease-in-out;
 }
 
-.section_label:hover{
-    border:1px solid #007FFF;
-}
 
 .section_label:focus{
-    border: none;
-    outline: 1px solid #007FFF;
+    outline: none;
+    border-color: #007FFF;
 }
 
 .disabled,.section_label{
-    padding: 0.7rem 0.2rem;
+    padding: 7px 2px;
 }
 
 .textarea{

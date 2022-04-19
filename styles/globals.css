@@ -112,8 +112,8 @@ a {
   padding: 0.3rem;
   display: grid;
   place-items: center;
-  grid-template-columns: 33% 34% 33%  ;
-  grid-row-gap: 4rem;
+  grid-template-columns: repeat(3,1fr)  ;
+  grid-gap: 4rem 2rem;
 }
 
 
@@ -224,7 +224,8 @@ tranlate_page{
 
 @media screen and (max-width:750px) {
   .wrap_container{
-    grid-template-columns: auto auto;
+    grid-template-columns: repeat(2,1fr);
+    grid-gap: 2rem;
   }
 }
 

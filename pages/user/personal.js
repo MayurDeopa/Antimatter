@@ -8,9 +8,11 @@ import Input from "../../components/Authentication/Input";
 import { Store, useStore } from "../../lib/drawer/context/StoreContext";
 import useForm from "../../lib/drawer/customhooks/useForm";
 import withAuth from "../../components/Authentication/withAuth";
+import Skeleton from "../../components/Loaders/Skeleton";
 
 
 const Personal =()=>{
+    const sample = [1,2,3]
     const {userState,userDetails} = useStore()
     const [user,setUser] = userState
     const {personal} = userDetails
@@ -33,9 +35,51 @@ const Personal =()=>{
                 </Head>
                 <PageWrapper>
                     <DashBoard>
-                        <div className='flex_center'>
-                            <PrimaryLoader/>
-                        </div>
+                    <form className={styles.form}>
+                            <div className={styles.header}>
+                                <Skeleton
+                                    attributes={{
+                                        height:"2rem",
+                                        width:'min(100%,15rem)'
+                                    }}
+                                />
+                                <h3
+                                    className="edit"
+                                    onClick={()=>setEdit(!edit)}
+                                >
+                                        {edit?"X":"Edit"}
+                                </h3>
+                            </div>
+                            <>
+                                {sample.map((s,i)=>{
+                                    return(
+                                        <>
+                                        <Skeleton
+                                            attributes={{
+                                                height:'1rem',
+                                                width:'min(100%,5rem)'
+                                            }}
+                                            key={i}
+                                        />
+                                        <Skeleton
+                                            key={i}
+                                            attributes={{
+                                                height:'2rem',
+                                                width:'min(100%,23rem)'
+                                            }}
+                                        />
+                                        </>
+                                    )
+                                })
+                                }
+                            </>
+                            <Skeleton
+                                attributes={{
+                                    height:'2rem',
+                                    width:'min(100%,5rem)'
+                                }}
+                            />
+                        </form>
                     </DashBoard>
                 </PageWrapper>
             </div>
