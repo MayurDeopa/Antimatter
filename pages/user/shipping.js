@@ -41,12 +41,12 @@ const Shipping =()=>{
                                         width:'min(100%,15rem)'
                                     }}
                                 />
-                                <h3
-                                    className="edit"
-                                    onClick={()=>setEdit(!edit)}
-                                >
-                                        {edit?"X":"Edit"}
-                                </h3>
+                                <Skeleton
+                                    attributes={{
+                                        height:"1.4rem",
+                                        width:'min(100%,3rem)'
+                                    }}
+                                />
                             </div>
                             <>
                                 {sample.map((s,i)=>{
