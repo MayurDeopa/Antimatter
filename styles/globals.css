@@ -83,7 +83,7 @@ a {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  gap: 2rem;
+  gap: 8px;
 }
 
 .wrapper{
@@ -170,8 +170,7 @@ a {
 }
 
 .large_svg{
-  font-size: 60px;
-  color:brown;
+  font-size: 100px;
 }
 
 .link_btn{

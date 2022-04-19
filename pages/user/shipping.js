@@ -12,7 +12,7 @@ import withAuth from "../../components/Authentication/withAuth";
 import Skeleton from "../../components/Loaders/Skeleton";
 
 const Shipping =()=>{
-    const sample =[1,2,5,6,7]
+    const sample =[1,2,5,6]
     const {userState} = useContext(Store)
     const [user,setUser] = userState
     const {awaiting,data,names,saveDetails} = useForm({
