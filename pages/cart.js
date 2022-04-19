@@ -22,6 +22,7 @@ import Skeleton from '../components/Loaders/Skeleton'
 import LinkBtn from '../components/Misc/LinkBtn'
 
 const Cart =()=>{
+    const sample = [1,2,3,4,5,5]
     const router = useRouter()
     const {userState,cartState} = useContext(Store)
     const [user,setUser] = userState
@@ -75,16 +76,20 @@ const Cart =()=>{
                         <p>Quantity</p>
                         <p>Total</p>
                     </div>
-                    <div className='flex_center'>
-                        <PrimaryLoader/>
-                    </div>
+                    {sample.map((s,i)=>{
+                        return (
+                            <CartProducts
+                            states={{
+                                loading:true
+                            }}
+                            key={i}
+                         />
+                        )
+                    })}
                 </div>
                 <div className={styles.checkout_card}>
                     <div className={styles.cart_section_log_header}>
                         <h2>Order Summary</h2>
-                    </div>
-                    <div className={styles.cart_card_details}>
-
                     </div>
                     <Skeleton
                         attributes={{

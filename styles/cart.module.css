@@ -34,10 +34,10 @@
 }
 
 .cart_section_logs{
-    position: relative;
     width: 100%;
     display: grid;
-    grid-template-columns: 20% 60% 20%;
+    place-items: center;
+    grid-template-columns: 30% 50% 20%;
     padding: 1.3rem 0.3rem;
 }
 
@@ -143,11 +143,7 @@
     }
 }
 
-@media screen and (max-width:660px) {
-    .cart_section_logs{
-        grid-template-columns: 25% 50% 25%;
-    }
-}
+
 
 @media screen and (max-width:420px) {
     .cart_container{
