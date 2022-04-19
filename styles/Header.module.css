@@ -126,6 +126,11 @@
     .drawer_wrapper{
         width: 90%;
     }
+
+    .drawer_hidden{
+        left: -30rem;
+    }
+
     .drawer_container{
         left: 90%;
     }

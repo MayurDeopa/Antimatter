@@ -8,9 +8,6 @@ const DashBoard =({children})=>{
     const router = useRouter()
     const {userState} = useContext(Store)
     const [user,setUser] = userState
-    useEffect(()=>{
-        if(!user) router.push('/user')
-    },[])
     return (
         <div className={styles.dashboard}>
             <NestedSideBar/>

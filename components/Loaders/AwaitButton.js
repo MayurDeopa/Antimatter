@@ -3,13 +3,13 @@ import styles from '../../styles/buttons.module.css'
 
 
 const AwaitButton =({states,children})=>{
-    const {awaitState,text,action,secondary} = states
+    const {awaitState,text,action,secondary,loadingText} = states
     switch(awaitState){
         case "loading":
                 return (
                     <div className={styles.await_button}>
                         <h3>
-                            {text}
+                            {loadingText?loadingText:text}
                         </h3>
                         {children}
                         <PrimaryLoader states={{

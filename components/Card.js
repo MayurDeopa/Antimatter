@@ -20,9 +20,9 @@ const Card = ({details,link})=>{
                             <h3>
                                 {details.name}
                             </h3>
-                            <h3>
+                            <p>
                                 {details.price.formatted_with_code}
-                            </h3>
+                            </p>
                         </>
                         :
                         <h3>

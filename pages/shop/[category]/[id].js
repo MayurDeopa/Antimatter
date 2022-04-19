@@ -57,12 +57,20 @@ const Product =()=>{
                                         width:'20rem'
                                     }}
                                 />
+                                <div className={styles.buttons_wrapper}>
                                 <Skeleton
                                     attributes={{
                                         height:'2.7rem',
                                         width:'min(100%,30rem)'
                                     }}
                                 />
+                                <Skeleton
+                                    attributes={{
+                                        height:'2.7rem',
+                                        width:'min(100%,30rem)'
+                                    }}
+                                />
+                                </div>
                             </article>
                         </div>    
                 </PageWrapper>    
@@ -101,16 +109,13 @@ const Product =()=>{
                                 }}>
                                     <h3>Add To Cart</h3>    
                             </button>*/}
-                            <div style={{
-                                display:'flex',
-                                flexDirection:'row',
-                                gap:'1rem'
-                            }}>
+                            <div className={styles.buttons_wrapper}>
                             {
                                 user
                                 ?
                                 <AwaitButton states={{
                                     awaitState:isSpinning?'loading':'none',
+                                    loadingText:'Adding',
                                     text:"Add to cart",
                                     action:()=>fetchCart({
                                             id:user.id,

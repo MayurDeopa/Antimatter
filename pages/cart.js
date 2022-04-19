@@ -81,12 +81,7 @@ const Cart =()=>{
                 </div>
                 <div className={styles.checkout_card}>
                     <div className={styles.cart_section_log_header}>
-                        <Skeleton
-                            attributes={{
-                                width:'min(15rem,100%)',
-                                height:'2rem'
-                            }}
-                        />
+                        <h2>Order Summary</h2>
                     </div>
                     <div className={styles.cart_card_details}>
 

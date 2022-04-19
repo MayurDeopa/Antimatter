@@ -10,9 +10,6 @@ const User =({ Component, pageProps })=>{
     const router = useRouter()
     const {userState} = useContext(Store)
     const [user,setUser] = userState
-    useEffect(()=>{
-        if(user) router.push('/user/personal')
-    },[user])
     return (
         <div className="page">
             <Head >
