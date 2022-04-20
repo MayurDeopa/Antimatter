@@ -92,7 +92,7 @@ const Product =()=>{
                 </Head>
                 <PageWrapper>
                         <div className={styles.wrapper}>
-                            <div className={styles.image}>
+                            <div className={'image_skeleton_aspect'}>
                                 <Image src={data.assets[0].url} layout='intrinsic' height={'600'} width={'600'}/>
                             </div>
                             <article className={styles.details}>

@@ -73,7 +73,6 @@
         flex-direction: column;
     }
     .image:empty{
-        height: 30rem;
         width: 100%;
     }
     .buttons_wrapper{
@@ -89,7 +88,6 @@
 
 @media screen and (max-width:400px) {
     .image:empty{
-        height: 15rem;
         width: 100%;
     }
 }
