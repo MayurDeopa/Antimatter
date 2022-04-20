@@ -37,7 +37,14 @@ const Product =()=>{
                 </Head>
                 <PageWrapper>
                         <div className={styles.wrapper}>
-                            <div className={styles.image}></div>
+                            <div className={"image_skeleton_aspect"}>
+                                <Skeleton
+                                    attributes={{
+                                        height:'100%',
+                                        width:'100%'
+                                    }}
+                                />
+                            </div>
                             <article className={styles.details}>
                                 <Skeleton
                                     attributes={{
