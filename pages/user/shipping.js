@@ -51,23 +51,20 @@ const Shipping =()=>{
                             <>
                                 {sample.map((s,i)=>{
                                     return(
-                                        <>
-                                        <Skeleton
-                                            attributes={{
-                                                height:'1rem',
-                                                width:'min(100%,5rem)'
-                                            }}
-                                            key={i}
-                                        />
-                                        <Skeleton
-                                            key={i}
-                                            attributes={{
-                                                height:'2rem',
-                                                width:'min(100%,23rem)'
-                                            }}
-                                        />
-                                        </>
-                                    )
+                                        <section className={styles.section}  key={i}>
+                                            <Skeleton
+                                                attributes={{
+                                                    height:'1rem',
+                                                    width:'min(100%,3rem)'
+                                                }}
+                                            />
+                                            <Skeleton
+                                                attributes={{
+                                                    height:'2rem',
+                                                    width:'min(100%,23rem)'
+                                                }}
+                                            />
+                                        </section>                                    )
                                 })
                                 }
                             </>

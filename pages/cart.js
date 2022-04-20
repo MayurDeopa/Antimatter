@@ -32,7 +32,6 @@ const Cart =()=>{
         const fetchCart = async()=>{
             const res= await getCart(user.id)
             setCart(res)
-            console.log(res)
         }
         if(user)fetchCart()
     },[])

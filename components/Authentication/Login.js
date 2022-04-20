@@ -16,7 +16,6 @@ import Message from '../basic/Message';
 const Login =()=>{
     const router = useRouter()
     const [authProviders,setAuthProviders] = useState(providers)
-    const [isLoading,setIsLoading] = useState(false)
     const {userState}= useContext(Store)
     const [user,setUser] = userState
     const [err,setErr] = useState(false)
@@ -40,7 +39,6 @@ const Login =()=>{
                 setErr(error.message)
             }
         }
-        setAuthProviders(providers)
     }
     
     return (

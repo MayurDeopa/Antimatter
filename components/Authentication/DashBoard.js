@@ -10,7 +10,6 @@ const DashBoard =({children})=>{
     const router = useRouter()
     const {userState} = useContext(Store)
     const [user,setUser] = userState
-    console.log(user)
     return (
         <div className={styles.dashboard}>
             <NestedSideBar/>
