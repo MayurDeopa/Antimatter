@@ -22,12 +22,13 @@ export const makePayment = async(param)=>{
       alert("Razorpay SDK Failed to load");
       return;
     }
-    const first = await fetch(`https://antimatter-server.herokuapp.com/payment/create`,{
+    const first = await fetch(`http://localhost:8000/payment/create`,{
       method:"POST",
       headers:{"Content-Type" :"application/json"},
       body:JSON.stringify(param)
     })
-    const data = await first.order.json()
+    const middle = await first.json()
+    const data = middle.order
     const options = {
 			key: "rzp_live_ZOEzXI1X91g4Sc",
 			currency: data.currency,
