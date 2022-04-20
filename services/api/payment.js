@@ -18,7 +18,6 @@ const initializeRazorpay = () => {
 
 export const makePayment = async(param)=>{
     const res = await initializeRazorpay();
-
     if (!res) {
       alert("Razorpay SDK Failed to load");
       return;
@@ -28,7 +27,7 @@ export const makePayment = async(param)=>{
       headers:{"Content-Type" :"application/json"},
       body:JSON.stringify(param)
     })
-    const data = await first.json()
+    const data = await first.order.json()
     const options = {
 			key: "rzp_live_ZOEzXI1X91g4Sc",
 			currency: data.currency,
