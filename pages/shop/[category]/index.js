@@ -21,7 +21,7 @@ const Categories = ()=>{
         if(!router.isReady) return;
         const fetchSome =async()=>{
             const data = await getProductCategory(router.query.category)
-            if(data.success){
+            if(data.status==='ok'){
                 setQuery(data.list)
             }
             else{
