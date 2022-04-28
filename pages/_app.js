@@ -48,15 +48,14 @@ function MyApp({ Component, pageProps }) {
       }
       {
         err
-        ?
+        &&
         <Toast>
           <Message states={{
             message:err,
             type:'failed'
           }}/>
         </Toast>
-        :
-        null
+        
       }
       </StoreContext>
     </QueryClientProvider>

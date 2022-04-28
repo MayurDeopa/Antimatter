@@ -9,7 +9,7 @@ import AwaitButton from "../../components/Loaders/AwaitButton";
 import Card from "../../components/Card";
 
 const Shop =()=>{
-    const sample =[1,2,3,4,5,6,7,8,9,10]
+    const sample =[1,2,3,4,5,6]
     const {data,isLoading,error} = useQuery('getProductCategories',getProductCategories)
     if(error){
         return (

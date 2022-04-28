@@ -22,7 +22,7 @@ import Skeleton from '../components/Loaders/Skeleton'
 import LinkBtn from '../components/Misc/LinkBtn'
 
 const Cart =()=>{
-    const sample = [1,2,3,4,5,5]
+    const sample = [1]
     const router = useRouter()
     const {userState,cartState} = useContext(Store)
     const [user,setUser] = userState

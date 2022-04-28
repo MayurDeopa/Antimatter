@@ -24,6 +24,10 @@
     animation: spin linear 0.6s infinite;
 }
 
+.svg_spinner{
+    color: var(--primary-theme-color);
+}
+
 @keyframes spin {
     100%{
         transform: rotate(360deg);

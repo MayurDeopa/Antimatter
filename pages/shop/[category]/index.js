@@ -16,7 +16,7 @@ const Categories = ()=>{
     const [err,setErr] = useState()
     const [query,setQuery] = useState()
     const router = useRouter()
-    const sample =[1,2,3,4,5,6,7,8,9]
+    const sample =[1,2,3,4,5,6]
     useEffect(async()=>{
         if(!router.isReady) return;
         const fetchSome =async()=>{

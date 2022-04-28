@@ -80,7 +80,7 @@ const Login =()=>{
             </div>
             {
                 err
-                ?
+                &&
                 <ErrorPopUp>
                     <h3>{err}</h3>
                     <AwaitButton
@@ -91,8 +91,7 @@ const Login =()=>{
                         }}
                     />
                 </ErrorPopUp>
-                :
-                null
+                
             }
         </div>
     )
