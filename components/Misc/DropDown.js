@@ -14,7 +14,7 @@ const DropDown =({states})=>{
             </h3>
             <div className={hidden?`${styles.dropdown_children}`:`${styles.dropdown_children} ${styles.nothidden} `}>
                 {children?.map((c,i)=>{
-                    return <p>Pne</p>
+                    return <p key={i}>Pne</p>
                 })}
             </div>
         </div>
