@@ -12,6 +12,7 @@
     "firebase": "^9.6.8",
     "jsonwebtoken": "^8.5.1",
     "next": "12.1.0",
+    "next-share": "^0.13.0",
     "nextjs-progressbar": "^0.0.14",
     "razorpay": "^2.8.1",
     "react": "17.0.2",

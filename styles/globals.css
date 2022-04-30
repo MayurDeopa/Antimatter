@@ -4,6 +4,7 @@
   --primary-color-light:#3f3f44;
   --secondary-theme-color:white;
   --primary-box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  --secondary-box-shadow:rgba(0, 0, 0, 0.16) 0px 1px 2px, rgb(51, 51, 51) 0px 0px 0px 2px;
   --success:rgb(4, 202, 120);
   --info:rgba(29,161,242,1.00);
   --error:rgb(194, 49, 49);
@@ -206,7 +207,7 @@ tranlate_page{
 }
 
 .image_skeleton_aspect{
-  width: 95%;
+  width: 80%;
   aspect-ratio: 1 / 1;
 }
 
@@ -233,6 +234,11 @@ tranlate_page{
   }
 }
 
+@media screen and (max-width:650px) {
+  .image_skeleton_aspect{
+    width: 100%;
+  }
+}
 
 
 @media screen and (max-width:500px) {

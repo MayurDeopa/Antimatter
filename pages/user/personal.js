@@ -27,6 +27,7 @@ const Personal =()=>{
         id:user?.id,
         formType:'personal'
     })
+    console.log(user)
     if(awaiting){
         return (
             <div className="page">

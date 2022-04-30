@@ -13,8 +13,11 @@ import AddToCart from "../../../components/Cart/AddToCart";
 import AwaitButton from "../../../components/Loaders/AwaitButton";
 import useCart from "../../../lib/drawer/customhooks/useCart";
 import Skeleton from "../../../components/Loaders/Skeleton";
+import FunctionalModalForm from "../../../components/Misc/FunctionalModalForm";
+
 
 const Product =()=>{
+    const [open,setOpen] = useState(false)
     const {userState} = useContext(Store)
     const [user,setUser] = userState
     const router = useRouter()
@@ -139,12 +142,44 @@ const Product =()=>{
                             <AwaitButton states={{
                                 awaitState:'none',
                                 text:"Share",
-                                action:()=>navigator.clipboard.writeText(window.location.href),
+                                action:()=>setOpen(true),
                                 secondary:true
                             }}/>
+                            
                             </div>
-                            </article>
-                        </div>  
+                        </article>
+                    </div>
+                    {
+                        open
+                        &&
+                        <FunctionalModalForm states={{
+                            title:'Share',
+                            hook:()=>setOpen()
+                        }}>
+                            <h3>Using</h3>
+                            <AwaitButton
+                                states={{
+                                    awaitState:'none',
+                                    text:"WhatsApp",
+                                    secondary:true
+                                }}
+                            />
+                            <AwaitButton
+                                states={{
+                                    awaitState:'none',
+                                    text:"Instagram",
+                                    secondary:true
+                                }}
+                            />
+                            <AwaitButton
+                                states={{
+                                    awaitState:'none',
+                                    text:"Twitter",
+                                    secondary:true
+                                }}
+                            />
+                        </FunctionalModalForm>
+                    }
                 </PageWrapper>    
             </div>
         )

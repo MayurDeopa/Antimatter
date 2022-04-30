@@ -32,17 +32,8 @@
     font-size: 20px;
 }
 
-.details_description{
 
-}
 
-.details_description:empty,.details_header:empty,.details_price:empty,.image:empty{
-    height: 1rem;
-    width: 70%;
-    background-image: linear-gradient(270deg,#eaeaea,#eaeaea,#fafafa,#eaeaea);
-    background-size: 200% 100%;
-    animation: oscillate 8s linear infinite;
-}
 
 
 .image:empty{
@@ -52,7 +43,7 @@
 
 .buttons_wrapper{
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     width: 90%;
     gap: 10px;
