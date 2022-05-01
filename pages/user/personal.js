@@ -1,33 +1,35 @@
-import DashBoard from "../../components/Authentication/DashBoard"
-import PageWrapper from "../../components/PageWrapper";
 import styles from '../../styles/form.module.css'
-import Head from 'next/head'
+
+
 import { useState } from "react";
-import PrimaryLoader from '../../components/Loaders/PrimaryLoader'
-import Input from "../../components/Authentication/Input";
 import { Store, useStore } from "../../lib/drawer/context/StoreContext";
 import useForm from "../../lib/drawer/customhooks/useForm";
+
+
+import Head from 'next/head'
+import Input from '../../components/Authentication/Input';
+import DashBoard from "../../components/Authentication/DashBoard"
+import PageWrapper from "../../components/PageWrapper";
 import withAuth from "../../components/Authentication/withAuth";
 import Skeleton from "../../components/Loaders/Skeleton";
+import AwaitButton from "../../components/Loaders/AwaitButton";
+import ErrorPopUp from "../../components/Misc/ErrorPopUp";
 
 
 const Personal =()=>{
     const sample = [1,2,3]
-    const {userState,userDetails} = useStore()
+    const {userState} = useStore()
     const [user,setUser] = userState
-    const {personal} = userDetails
-    const [personalDetails,setPersonalDetails] = personal
     const [details,setDetails] = useState({
         name:'',
         email:'',
         'phone number':''
     })
     const [edit,setEdit] = useState(false)
-    const {awaiting,data,names,saveDetails} = useForm({
+    const {awaiting,saveDetails,err} = useForm({
         id:user?.id,
         formType:'personal'
     })
-    console.log(user)
     if(awaiting){
         return (
             <div className="page">
@@ -84,6 +86,19 @@ const Personal =()=>{
             </div>
         )
     }
+    else if(err){
+        return(
+         <ErrorPopUp>
+             <h3>{err}</h3>
+             <AwaitButton
+                 states={{
+                     text:"Try again",
+                     action:()=>window.location.reload
+                 }}
+             />
+         </ErrorPopUp>
+        )
+    }
     else{
         return (
             <div className="page">
@@ -105,19 +120,23 @@ const Personal =()=>{
                                 </h3>
                             </div>
                             <>
-                                {names.map((n,i)=>{
-                                    return <Input 
-                                        value={{
-                                            title:n,
-                                            value:personalDetails[n]
-                                        }}
-                                        state={{
-                                            editState:[edit,setEdit],
-                                            form:[details,setDetails]
-                                        }}
-                                        key={i}
-                                        />
-                                })}
+                                {
+                                    Object.keys(user.details.personal).map((key,index)=>{
+                                        return(
+                                            <Input 
+                                                value={{
+                                                    title:key,
+                                                    value:user.details.personal[key]
+                                                }}
+                                                state={{
+                                                    editState:[edit,setEdit],
+                                                    form:[details,setDetails]
+                                                }}
+                                                key={index}
+                                            />
+                                        )
+                                    })
+                                }
                             </>
                                 <section className={styles.section}>
                                 {

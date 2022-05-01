@@ -14,7 +14,7 @@ const Input = ({value,state})=>{
             <input 
                 type='text' 
                 className={edit?styles.section_label:styles.disabled} 
-                value={value.value}
+                value={value?.value || ""}
                 disabled={edit?false:true}
                 onChange ={(e)=>setDetails({...details,[value]:e.target.value})}
             />

@@ -1,21 +1,25 @@
-import DashBoard from "../../components/Authentication/DashBoard"
-import PageWrapper from "../../components/PageWrapper";
 import styles from '../../styles/form.module.css'
+
+
 import { useState } from "react";
-import Input from "../../components/Authentication/Input";
-import Head from "next/head";
 import { useContext } from "react";
 import { Store } from "../../lib/drawer/context/StoreContext";
 import useForm from "../../lib/drawer/customhooks/useForm";
-import PrimaryLoader from "../../components/Loaders/PrimaryLoader";
+
+import DashBoard from "../../components/Authentication/DashBoard"
+import PageWrapper from "../../components/PageWrapper";
+import AwaitButton from '../../components/Loaders/AwaitButton'
 import withAuth from "../../components/Authentication/withAuth";
 import Skeleton from "../../components/Loaders/Skeleton";
+import ErrorPopUp from '../../components/Misc/ErrorPopUp'
+import Input from "../../components/Authentication/Input";
+import Head from "next/head";
 
 const Shipping =()=>{
     const sample =[1,2,5,6]
     const {userState} = useContext(Store)
-    const [user,setUser] = userState
-    const {awaiting,data,names,saveDetails} = useForm({
+    const [user] = userState
+    const {awaiting,saveDetails,err} = useForm({
         id:user?.id,
         formType:'shipping'
     })
@@ -25,6 +29,7 @@ const Shipping =()=>{
         'phone number':''
     })
     const [edit,setEdit] = useState(false)
+    console.log(err)
    if(awaiting){
     return (
         <div className="page">
@@ -64,7 +69,7 @@ const Shipping =()=>{
                                                     width:'min(100%,23rem)'
                                                 }}
                                             />
-                                        </section>                                    )
+                                        </section>)
                                 })
                                 }
                             </>
@@ -79,6 +84,19 @@ const Shipping =()=>{
             </PageWrapper>
         </div>
     )
+   }
+   else if(err){
+       return(
+        <ErrorPopUp>
+            <h3>{err}</h3>
+            <AwaitButton
+                states={{
+                    text:"Try again",
+                    action:()=>window.location.reload
+                }}
+            />
+        </ErrorPopUp>
+       )
    }
    else{
     return (
@@ -101,19 +119,23 @@ const Shipping =()=>{
                             </h3>
                         </div>
                         <>
-                        {names.map((n,i)=>{
-                                    return <Input 
+                        {
+                            Object.keys(user.details.shipping).map((key,index)=>{
+                                return(
+                                    <Input 
                                         value={{
-                                            title:n,
-                                            value:data[n]
+                                            title:key,
+                                            value:user.details.shipping[key]
                                         }}
                                         state={{
                                             editState:[edit,setEdit],
                                             form:[details,setDetails]
                                         }}
-                                        key={i}
-                                        />
-                                })}
+                                        key={index}
+                                    />
+                                )
+                            })
+                        }
                         </>
                         <section className={styles.section}>
                                 {

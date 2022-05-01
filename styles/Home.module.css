@@ -61,9 +61,10 @@
 }
 
 .home_buttons:hover{
-  color:rgb(206, 0, 0) ;
-  background-color: var(--secondary-theme-color);
+  color:var(--secondary-theme-color) ;
+  background-color: var(--primary-theme-color);
   border: solid 0.3px var(--secondary-theme-color);
+  transform: translateX(5px);
 }
 
 .home_image_text{
