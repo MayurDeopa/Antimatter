@@ -5,6 +5,8 @@ import { useState } from "react";
 import { useContext } from "react";
 import { Store } from "../../lib/drawer/context/StoreContext";
 import useForm from "../../lib/drawer/customhooks/useForm";
+import {useRouter} from 'next/router'
+
 
 import DashBoard from "../../components/Authentication/DashBoard"
 import PageWrapper from "../../components/PageWrapper";
@@ -17,6 +19,7 @@ import Head from "next/head";
 
 const Shipping =()=>{
     const sample =[1,2,5,6]
+    const router = useRouter()
     const {userState} = useContext(Store)
     const [user] = userState
     const {awaiting,saveDetails,err} = useForm({
@@ -92,7 +95,7 @@ const Shipping =()=>{
             <AwaitButton
                 states={{
                     text:"Try again",
-                    action:()=>window.location.reload
+                    action:()=>router.reload()
                 }}
             />
         </ErrorPopUp>

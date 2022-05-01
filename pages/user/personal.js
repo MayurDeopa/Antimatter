@@ -4,6 +4,7 @@ import styles from '../../styles/form.module.css'
 import { useState } from "react";
 import { Store, useStore } from "../../lib/drawer/context/StoreContext";
 import useForm from "../../lib/drawer/customhooks/useForm";
+import {useRouter} from 'next/router'
 
 
 import Head from 'next/head'
@@ -18,6 +19,7 @@ import ErrorPopUp from "../../components/Misc/ErrorPopUp";
 
 const Personal =()=>{
     const sample = [1,2,3]
+    const router = useRouter()
     const {userState} = useStore()
     const [user,setUser] = userState
     const [details,setDetails] = useState({
@@ -93,7 +95,7 @@ const Personal =()=>{
              <AwaitButton
                  states={{
                      text:"Try again",
-                     action:()=>window.location.reload
+                     action:()=>router.reload()
                  }}
              />
          </ErrorPopUp>
