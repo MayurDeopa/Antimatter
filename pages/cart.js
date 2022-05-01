@@ -5,10 +5,11 @@ import styles from '../styles/cart.module.css'
 import PageWrapper from '../components/PageWrapper'
 import Head from 'next/head'
 import PrimaryLoader from '../components/Loaders/PrimaryLoader'
-import { useContext, useEffect } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { Store } from '../lib/drawer/context/StoreContext'
 import { useRouter } from 'next/router'
 import { getCart } from '../services/api/cart'
+import { userDetails } from '../lib/drawer/userDetails'
 import Message from '../components/basic/Message'
 import useCart from '../lib/drawer/customhooks/useCart'
 import AwaitButton from '../components/Loaders/AwaitButton'
@@ -136,7 +137,6 @@ const Cart =()=>{
                     <AwaitButton states={{
                         awaitState :isSpinning?"loading":'none',
                         text:"Checkout",
-                        loadingText:'Processing...',
                         action:()=>checkout({
                             amount:200000,
                             currency:"INR"

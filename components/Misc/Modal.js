@@ -7,7 +7,7 @@ const Modal =({children,states})=>{
     if(setOpen){
         return (
             <div className={styles.modal_wrapper}>
-                <div className={styles.modal_close}  onClick={()=>setOpen(false)}>
+                <div className={styles.modal_close}  onClick={setOpen}>
                     <BiX/>
                 </div>
                 {children}

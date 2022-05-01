@@ -1,23 +1,29 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/dist/client/router";
-import PageWrapper from "../../../components/PageWrapper";
-import styles from '../../../styles/Product.module.css'
+import { useContext } from "react";
 import { useQuery } from "react-query";
+import useCart from "../../../lib/drawer/customhooks/useCart";
+
+import {TwitterIcon,TwitterShareButton,InstapaperIcon,InstapaperShareButton} from 'next-share'
+import styles from '../../../styles/Product.module.css'
 import { getProductById } from "../../../services/api/products";
+import { shareables } from "../../../lib/drawer/shareables";
+import { Store } from "../../../lib/drawer/context/StoreContext";
+
+
+import LinkBtn from '../../../components/Misc/LinkBtn'
+import ErrorPopUp from '../../../components/Misc/ErrorPopUp'
+import PageWrapper from "../../../components/PageWrapper";
 import Head from 'next/head'
 import Image from 'next/image'
-import { useContext } from "react";
-import { Store } from "../../../lib/drawer/context/StoreContext";
-import Link from "next/link";
-import AddToCart from "../../../components/Cart/AddToCart";
 import AwaitButton from "../../../components/Loaders/AwaitButton";
-import useCart from "../../../lib/drawer/customhooks/useCart";
 import Skeleton from "../../../components/Loaders/Skeleton";
 import FunctionalModalForm from "../../../components/Misc/FunctionalModalForm";
+import useModal from "../../../lib/drawer/customhooks/useModal";
 
 
 const Product =()=>{
-    const [open,setOpen] = useState(false)
+    const {open,toggleModal} = useModal()
     const {userState} = useContext(Store)
     const [user,setUser] = userState
     const router = useRouter()
@@ -32,6 +38,7 @@ const Product =()=>{
             fetchProduct()
         }
     },[router.isReady])
+    const url = window.location.href
     if(isLoading){
         return (
             <div className="page">
@@ -85,6 +92,17 @@ const Product =()=>{
                         </div>    
                 </PageWrapper>    
             </div>
+        )
+    }
+    else if(err){
+        return(
+            <ErrorPopUp>
+                <h3>{err}</h3>
+                <LinkBtn link={{
+                    url:'/shop',
+                    text:"Go back"
+                }}/>
+            </ErrorPopUp>
         )
     }
     else{
@@ -142,7 +160,7 @@ const Product =()=>{
                             <AwaitButton states={{
                                 awaitState:'none',
                                 text:"Share",
-                                action:()=>setOpen(true),
+                                action:toggleModal,
                                 secondary:true
                             }}/>
                             
@@ -154,30 +172,24 @@ const Product =()=>{
                         &&
                         <FunctionalModalForm states={{
                             title:'Share',
-                            hook:()=>setOpen()
+                            hook:toggleModal
                         }}>
-                            <h3>Using</h3>
-                            <AwaitButton
-                                states={{
-                                    awaitState:'none',
-                                    text:"WhatsApp",
-                                    secondary:true
-                                }}
-                            />
-                            <AwaitButton
-                                states={{
-                                    awaitState:'none',
-                                    text:"Instagram",
-                                    secondary:true
-                                }}
-                            />
-                            <AwaitButton
-                                states={{
-                                    awaitState:'none',
-                                    text:"Twitter",
-                                    secondary:true
-                                }}
-                            />
+                            <div style={{
+                                display:'flex',
+                                justifyContent:'space-around',
+                                width:'100%'
+                            }}>
+                                {shareables.map((s,i)=>{
+                                return (
+                                    <s.button
+                                        url={url}
+                                        key={i}
+                                    >
+                                        <s.icon size={45} round/>
+                                    </s.button>
+                                )
+                            })}
+                            </div>
                         </FunctionalModalForm>
                     }
                 </PageWrapper>    

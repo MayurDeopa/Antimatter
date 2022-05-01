@@ -94,14 +94,14 @@
 }
 
 .pop{
-    animation: pop 0.1s ease-in-out;
+    animation: pop 0.2s ease-in-out;
 }
 
 @keyframes pop {
     0%{
-        transform: translateY(-5px);
+        transform: translateY(-10px);
     }
     100%{
-        transform: scale(1);
+        transform: translateY(0);
     }
 }
