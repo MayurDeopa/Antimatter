@@ -20,9 +20,9 @@ const Header =({state})=>{
                 </div>
                 <Link href={'/'}>
                     <header className={styles.header_title}>
-                        <div className='svg_wrapper header_logo'>
-                            <GiCarnivoreMouth/>
-                        </div>
+                        <p className='svg_wrapper header_logo'>
+                            ANTI*MATTER
+                        </p>
                     </header>
                 </Link>
                 <ul className={styles.header_ul}>

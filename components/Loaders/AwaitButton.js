@@ -19,7 +19,7 @@ const AwaitButton =({states,children})=>{
                 )
         case "disabled":
                 return (
-                    <div className={styles.await_button}>
+                    <div className={styles.disabled}>
                         <h3>
                             {text}
                         </h3>

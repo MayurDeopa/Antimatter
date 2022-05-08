@@ -21,6 +21,9 @@ import Skeleton from "../../../components/Loaders/Skeleton";
 import FunctionalModalForm from "../../../components/Misc/FunctionalModalForm";
 import useModal from "../../../lib/drawer/customhooks/useModal";
 
+import  Toast  from "../../../components/Misc/Toast";
+import Message from '../../../components/basic/Message'
+
 
 const Product =()=>{
     const {open,toggleModal} = useModal()
@@ -28,7 +31,7 @@ const Product =()=>{
     const [user,setUser] = userState
     const router = useRouter()
     const [isLoading,setIsLoading] = useState(true)
-    const {isSpinning,fetchCart,getProductData,err,data} = useCart()
+    const {isSpinning,fetchCart,getProductData,err,data,cartMessage} = useCart()
     useEffect(()=>{
         if(router.isReady){
             const fetchProduct =async()=>{
@@ -191,6 +194,15 @@ const Product =()=>{
                             })}
                             </div>
                         </FunctionalModalForm>
+                    }
+                    {
+                        cartMessage
+                        &&
+                        <Toast>
+                            <Message
+                                states={cartMessage}
+                            />
+                        </Toast>
                     }
                 </PageWrapper>    
             </div>

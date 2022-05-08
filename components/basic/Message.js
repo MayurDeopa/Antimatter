@@ -11,7 +11,7 @@ const Message =({states})=>{
                     <div className={`svg_wrapper ${colors.success_color}`}>
                         <BiRocket/>
                     </div>
-                    <h3>{message}</h3>
+                    <p>{message}</p>
                 </div>
             )
         case "failed":

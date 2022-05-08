@@ -15,16 +15,16 @@ const NestedOptions=({child,listStateHidden})=>{
                     child.link
                     ?
                     <Link  href={child.link} >
-                            <h3  className={styles.title}>
+                        <a href={child.link}>
+                        <h3  className={styles.title}>
                             {child.name}
                         
                             {child.hasChildren
-                            ?
+                            &&
                             <MdArrowDropDown/>
-                            :
-                            null
                             }
                             </h3>
+                        </a>
                     </Link>
                     :
                     <h3  className={styles.title} onClick={child.hasChildren?()=>setHidden(!hidden):fun}>

@@ -1,6 +1,7 @@
 .wrapper{
     width: 100%;
     display: grid;
+    justify-content: center;
     grid-template-columns: 50% 50%; 
     grid-gap: 1rem;
     padding: 0.3rem;

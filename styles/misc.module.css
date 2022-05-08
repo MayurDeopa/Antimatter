@@ -39,14 +39,14 @@
 
 .toast{
     position: fixed;
-    right: -20rem;
+    right: -100%;
     top: 6rem;
     min-width: 8rem;
     display: flex;
     align-items: center;
     flex-direction: row;
-    background-color: var(--secondary-theme-color);
-    animation:toast-in 2s, toast-out 1s 8s;
+    background-color: transparent;
+    animation:toast-in 6s;
 }
 
 @keyframes scroll {
@@ -56,20 +56,16 @@
 }
 
 @keyframes toast-in {
-    from{
-        right: -20rem;
-    }
-    to{
-        right:2rem;
-    }
-}
-
-@keyframes toast-out {
-    from{
+    15%{
         right: 2rem;
     }
-    to{
-        right:-20rem;
+
+    85%{
+        right: 2rem;
+    }
+
+    100%{
+        right:-100%;
     }
 }
 

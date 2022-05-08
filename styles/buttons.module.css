@@ -1,4 +1,4 @@
-.primary_button,.secondary_button,.await_button{
+.primary_button,.secondary_button,.await_button,.disabled{
     width: min(100%,30rem);
     height: 2.7rem;
     display: flex;
@@ -14,7 +14,6 @@
     transition: 0.2s ease-in-out;
     cursor: pointer;
   }
-  
   .secondary_button{
     background-color: var(--secondary-theme-color);
     color: var(--primary-theme-color);
@@ -30,10 +29,15 @@
   box-shadow: var(--secondary-box-shadow);
 }
 
-  .await_button{
-    opacity: 0.2;
-    cursor: not-allowed;
-  }
+.await_button,.disabled{
+  opacity: 0.2;
+  cursor: not-allowed;
+}
+
+.disabled{
+  opacity: 0.2;
+}
+
 
 .small{
   width: min(100%,30rem);
