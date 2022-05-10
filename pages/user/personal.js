@@ -32,7 +32,20 @@ const Personal =()=>{
         id:user?.id,
         formType:'personal'
     })
-    if(awaiting){
+    if(err){
+        return(
+         <ErrorPopUp>
+             <h3>{err}</h3>
+             <AwaitButton
+                 states={{
+                     text:"Try again",
+                     action:()=>router.reload()
+                 }}
+             />
+         </ErrorPopUp>
+        )
+    }
+    else if(awaiting){
         return (
             <div className="page">
                 <Head>
@@ -86,19 +99,6 @@ const Personal =()=>{
                     </DashBoard>
                 </PageWrapper>
             </div>
-        )
-    }
-    else if(err){
-        return(
-         <ErrorPopUp>
-             <h3>{err}</h3>
-             <AwaitButton
-                 states={{
-                     text:"Try again",
-                     action:()=>router.reload()
-                 }}
-             />
-         </ErrorPopUp>
         )
     }
     else{

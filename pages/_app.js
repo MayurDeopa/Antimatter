@@ -11,7 +11,7 @@ import Message from '../components/basic/Message'
  
 function MyApp({ Component, pageProps }) {
   const queryClient = new QueryClient()
-  const {isLoading,data,err}= useToken()
+  const {isLoading,data,err,setErr}= useToken()
   const [user,setUser] = useState()
   const [cart,setCart] = useState()
   const [drawer,setDrawer] = useState(true)
@@ -33,6 +33,15 @@ function MyApp({ Component, pageProps }) {
       setUser(data)
     }
   },[data])
+
+  useEffect(()=>{
+    if(user){
+      setErr({
+        type:'success',
+        message:`Welcome ${user.username}`
+    })
+    }
+  },[user])
   return (
     <QueryClientProvider client={queryClient}>
       <StoreContext states={states}>

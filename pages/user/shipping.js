@@ -32,8 +32,20 @@ const Shipping =()=>{
         'phone number':''
     })
     const [edit,setEdit] = useState(false)
-    console.log(err)
-   if(awaiting){
+    if(err){
+        return(
+         <ErrorPopUp>
+             <h3>{err}</h3>
+             <AwaitButton
+                 states={{
+                     text:"Try again",
+                     action:()=>router.reload()
+                 }}
+             />
+         </ErrorPopUp>
+        )
+    }
+   else if(awaiting){
     return (
         <div className="page">
             <Head>
@@ -87,19 +99,6 @@ const Shipping =()=>{
             </PageWrapper>
         </div>
     )
-   }
-   else if(err){
-       return(
-        <ErrorPopUp>
-            <h3>{err}</h3>
-            <AwaitButton
-                states={{
-                    text:"Try again",
-                    action:()=>router.reload()
-                }}
-            />
-        </ErrorPopUp>
-       )
    }
    else{
     return (
