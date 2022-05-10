@@ -17,6 +17,7 @@ function MyApp({ Component, pageProps }) {
   const [drawer,setDrawer] = useState(true)
   const [shippingDetails,setShippingDetails] = useState()
   const [personalDetails,setPersonalDetails] = useState()
+  const [toasts,setToasts] = useState([])
     const states ={
       userState:[user,setUser],
       cartState:[cart,setCart],
@@ -24,6 +25,7 @@ function MyApp({ Component, pageProps }) {
         personal:[personalDetails,setPersonalDetails],
         shipping:[shippingDetails,setShippingDetails]
       },
+      toastState:[toasts,setToasts],
       drawerState:[drawer,setDrawer]
     }
   useEffect(()=>{
@@ -50,10 +52,7 @@ function MyApp({ Component, pageProps }) {
         err
         &&
         <Toast>
-          <Message states={{
-            message:err,
-            type:'failed'
-          }}/>
+          <Message states={err}/>
         </Toast>
         
       }

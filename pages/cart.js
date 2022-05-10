@@ -112,7 +112,7 @@ const Cart =()=>{
             </Head>
             <PageWrapper>
             {
-                cart.cart.length
+                cart.cart
                 ?
                 <div className={styles.cart_container}>
                 <div className={styles.cart_section}>

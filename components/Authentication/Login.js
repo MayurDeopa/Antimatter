@@ -29,14 +29,20 @@ const Login =()=>{
                 const res = await fun()
                 if(res.status==="ok"){
                     localStorage.setItem('key',JSON.stringify(res.user))
-                    setErr()
                     setUser(decodeJwt(res.user))
                 }
                 else{
-                    setErr(res.messsage)
+                    setErr({
+                        type:'failed',
+                        message:res.messsage
+                    })
                 }
             }catch(error){
-                setErr(error.message)
+                setErr({
+                    type:'failed',
+                    message:error.messsage
+                })
+                setAuthProviders(providers)
             }
         }
     }
@@ -81,17 +87,11 @@ const Login =()=>{
             {
                 err
                 &&
-                <ErrorPopUp>
-                    <h3>{err}</h3>
-                    <AwaitButton
-                        states={{
-                            text:"Try again",
-                            awaitState:'none',
-                            action:()=>router.reload()
-                        }}
+                <Toast>
+                    <Message
+                        states={err}
                     />
-                </ErrorPopUp>
-                
+                </Toast>
             }
         </div>
     )
