@@ -11,7 +11,10 @@ const FileStructure =({states})=>{
             <h4>{title}</h4>    
             {children.map((c,i)=>{
                 return (
-                    <Link href={c.link}>
+                    <Link 
+                        href={c.link}
+                        key={i}
+                        >
                         <p>{c.name}</p>
                     </Link>
                 )
