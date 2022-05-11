@@ -5,7 +5,7 @@
 }
 
 :root{
-  --primary-theme-color:#1e1e20;
+  --primary-theme-color:#141415;
   --primary-color-light:#3f3f44;
   --secondary-theme-color:white;
   --primary-box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
@@ -42,7 +42,7 @@ a {
   align-items: center;
   justify-content: center;
   width: 100%;
-  padding-top: 4rem;
+  padding-top: 3rem;
   background-color: var(--secondary-theme-color);
   z-index: 0;
 }
@@ -71,7 +71,7 @@ a {
 }
 
 .svg_wrapper{
-  font-size: 25px;
+  font-size: 20px;
   padding: 0.5rem;
   display: flex;
   align-items: center;
@@ -80,8 +80,7 @@ a {
 }
 
 .header_logo{
-  font-family: "Carnivalee Freakshow";
-  font-size: 40px;
+  font-size: 25px;
 }
 
 .empty_state{

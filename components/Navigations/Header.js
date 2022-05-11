@@ -1,28 +1,18 @@
 import styles from '../../styles/Header.module.css'
-import {FiShoppingBag,FiUser,FiSearch,FiMenu} from 'react-icons/fi'
-import {GiCarnivoreMouth} from 'react-icons/gi'
+import {FiShoppingBag,FiUser,FiSearch,FiMenu,FiX} from 'react-icons/fi'
 import Link from 'next/link'
 
 
 const Header =({state})=>{
     const [isHidden,setIsHidden] = state.drawerState
     return (
-        <nav className={styles.header_wrapper}>
+        <nav className={`${styles.header_wrapper} ${!isHidden && styles.light_wrapper}`}>
             <nav className={styles.header}>
-                <div 
-                    className={styles.header_menu}
-                    onClick={()=>setIsHidden(!isHidden)}>
-                    <div className='svg_wrapper' style={{
-                        justifyContent:'flex-start'
-                    }}>
-                        <FiMenu/>
-                    </div>
-                </div>
                 <Link href={'/'}>
                     <header className={styles.header_title}>
-                        <p className='svg_wrapper header_logo'>
+                        <h2 className='svg_wrapper header_logo'>
                             ANTI*MATTER
-                        </p>
+                        </h2>
                     </header>
                 </Link>
                 <ul className={styles.header_ul}>
@@ -46,6 +36,19 @@ const Header =({state})=>{
                                 <FiShoppingBag/>
                             </div>
                         </Link>
+                    </li>
+                    <li onClick={()=>setIsHidden(!isHidden)}>
+                            <div className='svg_wrapper' style={{
+                                justifyContent:'flex-start'
+                            }}>
+                                {
+                                    isHidden
+                                    ?
+                                    <FiMenu/>
+                                    :
+                                    <FiX/>
+                                }
+                            </div>
                     </li>
                 </ul>
             </nav>
