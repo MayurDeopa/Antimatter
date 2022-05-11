@@ -11,7 +11,7 @@ const User =({ Component, pageProps })=>{
     const {userState} = useContext(Store)
     const [user,setUser] = userState
     return (
-        <div className="page">
+        <>
             <Head >
                 <title>User</title>
             </Head>
@@ -22,7 +22,7 @@ const User =({ Component, pageProps })=>{
                     :
                     <Login/>
                 }
-        </div>
+        </>
     )
 }
 

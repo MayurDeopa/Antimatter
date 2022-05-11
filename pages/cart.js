@@ -39,7 +39,7 @@ const Cart =()=>{
     
     if(!user){
         return (
-            <div className='page'>
+            <>
                 <Head >
                     <title>{'Cart'}</title>
                 </Head>
@@ -57,13 +57,13 @@ const Cart =()=>{
                         </Form>
                     </EmptyState>
                 </PageWrapper>
-            </div>
+            </>
             )
     }
     
     else if(!cart){
         return (
-        <div className='page'>
+        <>
             <Head >
                 <title>{'Loading...'}</title>
             </Head>
@@ -101,12 +101,12 @@ const Cart =()=>{
             </div>
             :        
             </PageWrapper>
-        </div>
+        </>
         )
     }
     else{
         return (
-            <div className='page'>
+            <>
             <Head >
                 <title>{'Cart'}</title>
             </Head>
@@ -160,7 +160,7 @@ const Cart =()=>{
             </>
             }
             </PageWrapper>
-        </div>
+        </>
         )
     }
 }

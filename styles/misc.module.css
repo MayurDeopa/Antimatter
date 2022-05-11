@@ -59,17 +59,19 @@
 
 .image_slider{
     position: relative;
-    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow-x: scroll;
 }
 
-.image_container{
-    width: 100%;
+.image_container{   
+    height: 40rem;
+    width: 100rem;
     display: flex;
     justify-content: center;
     gap: 4px;
+
 }
 
 @keyframes scroll {

@@ -53,7 +53,7 @@ const Categories = ()=>{
 
     else{
         return (
-            <div className="page">
+            <>
                 <Head >
                     <title>{router.query.category}</title>
                 </Head>
@@ -79,7 +79,7 @@ const Categories = ()=>{
                             }
                         </Container>         
                 </PageWrapper>
-            </div>
+            </>
         )
     }
     

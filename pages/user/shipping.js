@@ -47,7 +47,7 @@ const Shipping =()=>{
     }
    else if(awaiting){
     return (
-        <div className="page">
+        <>
             <Head>
                 <title>Loading</title>
             </Head>
@@ -95,12 +95,12 @@ const Shipping =()=>{
                             />
                         </form>
                 </DashBoard>
-        </div>
+        </>
     )
    }
    else{
     return (
-        <div className="page">
+        <>
             <Head>
                 <title>Shipping</title>
             </Head>
@@ -162,7 +162,7 @@ const Shipping =()=>{
                                 </section>
                     </form>
                 </DashBoard>
-        </div> 
+        </> 
     )
    }
 }

@@ -13,7 +13,7 @@ const Shop =()=>{
     const {data,isLoading,error} = useQuery('getProductCategories',getProductCategories)
     if(error){
         return (
-            <div className="page">
+            <>
                 <Head >
                     <title>Shop</title>
                 </Head>
@@ -28,12 +28,12 @@ const Shop =()=>{
                             />    
                         </ErrorPopUp>                          
                     </PageWrapper>
-            </div>
+            </>
         )
     }
     else{
         return (
-            <div className="page">
+            <>
                 <Head >
                     <title>Shop</title>
                 </Head>
@@ -66,7 +66,7 @@ const Shop =()=>{
                                 </Container>
                             
                     </PageWrapper>
-            </div>
+            </>
         )
     }
 }

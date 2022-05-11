@@ -8,7 +8,7 @@ import styles from '../styles/Home.module.css'
 export default function Home() {
   
   return (
-    <div className='page'>
+    <>
       <Head >
         <title>Anti-Matter</title>
       </Head>
@@ -30,6 +30,6 @@ export default function Home() {
           </div>
           </PageWrapper>
       </div>
-    </div>
+    </>
   )
 }

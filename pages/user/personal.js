@@ -47,7 +47,7 @@ const Personal =()=>{
     }
     else if(awaiting){
         return (
-            <div className="page">
+            <>
                 <Head>
                     <title>Personal</title>
                 </Head>
@@ -96,12 +96,12 @@ const Personal =()=>{
                             />
                         </form>
                     </DashBoard>
-            </div>
+            </>
         )
     }
     else{
         return (
-            <div className="page">
+            <>
                 <Head>
                     <title>Personal</title>
                 </Head>
@@ -163,7 +163,7 @@ const Personal =()=>{
                                 </section>
                         </form>
                     </DashBoard>
-            </div>
+            </>
         )
     }
 }

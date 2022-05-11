@@ -44,7 +44,7 @@ const Product =()=>{
     const url = window.location.href
     if(isLoading){
         return (
-            <div className="page">
+            <>
                 <Head>
                     <title>{"Loading.."}</title>
                 </Head>
@@ -94,7 +94,7 @@ const Product =()=>{
                             </article>
                         </div>    
                 </PageWrapper>    
-            </div>
+            </>
         )
     }
     else if(err){
@@ -110,7 +110,7 @@ const Product =()=>{
     }
     else{
         return (
-            <div className="page">
+            <>
                 <Head>
                     <title>{'auth'}</title>
                 </Head>
@@ -205,7 +205,7 @@ const Product =()=>{
                         </Toast>
                     }
                 </PageWrapper>    
-            </div>
+            </>
         )
     }
 }
