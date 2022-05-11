@@ -12,6 +12,7 @@ import { useRouter } from 'next/router';
 import { providers } from '../../lib/drawer/AuthProvider';
 import Toast from '../Misc/Toast';
 import Message from '../basic/Message';
+import PageWrapper from '../PageWrapper';
 
 const Login =()=>{
     const router = useRouter()
@@ -48,7 +49,8 @@ const Login =()=>{
     }
     
     return (
-        <div className={styles.card}> 
+        <PageWrapper>
+            <div className={styles.card}> 
                 <div className={styles.card_header}>
                 <div className='svg_wrapper' style={{
                     fontSize:'60px'
@@ -94,6 +96,7 @@ const Login =()=>{
                 </Toast>
             }
         </div>
+        </PageWrapper>
     )
 }
 

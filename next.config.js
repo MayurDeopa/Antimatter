@@ -4,7 +4,8 @@ const nextConfig = {
   images:{
     domains:[
       'i.ytimg.com',
-      'cdn.chec.io'
+      'cdn.chec.io',
+      'i.ibb.co'
     ]
   }
 }

@@ -51,13 +51,12 @@ const Personal =()=>{
                 <Head>
                     <title>Personal</title>
                 </Head>
-                <PageWrapper>
                     <DashBoard>
                     <form className={styles.form}>
                             <div className={styles.header}>
                                 <Skeleton
                                     attributes={{
-                                        height:"2rem",
+                                        height:"1.4rem",
                                         width:'min(100%,15rem)'
                                     }}
                                 />
@@ -80,7 +79,7 @@ const Personal =()=>{
                                             />
                                             <Skeleton
                                                 attributes={{
-                                                    height:'2rem',
+                                                    height:'1.5rem',
                                                     width:'min(100%,23rem)'
                                                 }}
                                             />
@@ -97,7 +96,6 @@ const Personal =()=>{
                             />
                         </form>
                     </DashBoard>
-                </PageWrapper>
             </div>
         )
     }
@@ -107,7 +105,6 @@ const Personal =()=>{
                 <Head>
                     <title>Personal</title>
                 </Head>
-                <PageWrapper>
                     <DashBoard>
                         <form className={styles.form}>
                             <div className={styles.header}>
@@ -166,7 +163,6 @@ const Personal =()=>{
                                 </section>
                         </form>
                     </DashBoard>
-                </PageWrapper>
             </div>
         )
     }

@@ -50,12 +50,12 @@ function MyApp({ Component, pageProps }) {
         ?
         <ModalSpinner/>
         :
-        <Layout>
+        <>
           <NextNProgress 
-        color='var(--secondary-theme-color)'
-      />
-        <Component {...pageProps}/>
-        </Layout>
+            color='var(--primary-theme-color)'
+          />
+          <Component {...pageProps}/>
+        </>
       }
       {
         err

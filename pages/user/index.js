@@ -15,7 +15,6 @@ const User =({ Component, pageProps })=>{
             <Head >
                 <title>User</title>
             </Head>
-            <PageWrapper>
                 {
                     user
                     ?
@@ -23,7 +22,6 @@ const User =({ Component, pageProps })=>{
                     :
                     <Login/>
                 }
-            </PageWrapper>
         </div>
     )
 }

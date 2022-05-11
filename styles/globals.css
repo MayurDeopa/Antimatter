@@ -4,8 +4,10 @@
   src: url('../lib/drawer/CarnevaleeFreakshow/CarnevaleeFreakshow.ttf');
 }
 
+/*p = #141415*/
+
 :root{
-  --primary-theme-color:#141415;
+  --primary-theme-color:#2a2a2d;
   --primary-color-light:#3f3f44;
   --secondary-theme-color:white;
   --primary-box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
@@ -56,6 +58,7 @@ a {
   height: 100%;
   padding: 0.3rem 0.6rem;
   border-radius: 4px;
+  color: var(--primary-theme-color);
   background-color: var(--secondary-theme-color);
   box-shadow: var(--primary-box-shadow);
 }
@@ -140,7 +143,7 @@ a {
 
 .save,.await_save{
   background-color: #007FFF;
-  color: var(--secondary-theme-color);
+  color: var(--primary-theme-color);
   padding: 0.7rem 0.2rem;
   border:none;
   border-radius: 2px;

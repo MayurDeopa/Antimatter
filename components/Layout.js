@@ -5,8 +5,7 @@ import {useStore} from '../lib/drawer/context/StoreContext'
 
 
 const Layout =({children})=>{
-    const {drawerState} = useStore()
-    const [drawer,setDrawer] = drawerState
+    const [drawer,setDrawer] = useS
     return (
         <div className="layout">
             <Header state={{

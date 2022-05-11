@@ -12,7 +12,8 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-color: white;
+    background-color: var(--secondary-theme-color);
+    color: var(--primary-theme-color);
     padding: 0.5rem;
 }
 
@@ -25,7 +26,7 @@
 
 .checkout_card{
     position: sticky;
-    top: 6rem;
+    top: 5rem;
     height: 100%;
     width: 30%;
     gap: 1rem;

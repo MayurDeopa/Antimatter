@@ -51,13 +51,12 @@ const Shipping =()=>{
             <Head>
                 <title>Loading</title>
             </Head>
-            <PageWrapper>
                 <DashBoard>
                 <form className={styles.form}>
                             <div className={styles.header}>
                                 <Skeleton
                                     attributes={{
-                                        height:"2rem",
+                                        height:"1.4rem",
                                         width:'min(100%,15rem)'
                                     }}
                                 />
@@ -80,7 +79,7 @@ const Shipping =()=>{
                                             />
                                             <Skeleton
                                                 attributes={{
-                                                    height:'2rem',
+                                                    height:'1.5rem',
                                                     width:'min(100%,23rem)'
                                                 }}
                                             />
@@ -96,7 +95,6 @@ const Shipping =()=>{
                             />
                         </form>
                 </DashBoard>
-            </PageWrapper>
         </div>
     )
    }
@@ -106,7 +104,6 @@ const Shipping =()=>{
             <Head>
                 <title>Shipping</title>
             </Head>
-            <PageWrapper>
                 <DashBoard>
                     <form className={styles.form}>
                         <div className={styles.header}>
@@ -165,7 +162,6 @@ const Shipping =()=>{
                                 </section>
                     </form>
                 </DashBoard>
-            </PageWrapper>
         </div> 
     )
    }

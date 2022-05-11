@@ -67,6 +67,7 @@ z
     align-items: center;
     gap: 1rem;
     border-radius: 4px;
+    color: var(--primary-theme-color);
     background-color: var(--secondary-theme-color);
     box-shadow: var(--primary-box-shadow);
 }

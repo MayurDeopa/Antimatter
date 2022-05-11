@@ -49,6 +49,29 @@
     animation:toast-in 6s;
 }
 
+.button_group{
+    width: 100%;
+    max-width: 30rem;
+    display: flex;
+    justify-content: flex-start;
+    gap: 8px;
+}
+
+.image_slider{
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image_container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+}
+
 @keyframes scroll {
     0%{
         transform: translateY(100%);
