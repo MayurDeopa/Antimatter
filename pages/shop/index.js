@@ -7,6 +7,8 @@ import CardSkeleton from '../../components/Loaders/CardSkeleton'
 import ErrorPopUp from "../../components/Misc/ErrorPopUp";
 import AwaitButton from "../../components/Loaders/AwaitButton";
 import Card from "../../components/Card";
+import PrimarySpinner from "../../components/Loaders/PrimarySpinner";
+import EmptyState from "../../components/Misc/EmptyState";
 
 const Shop =()=>{
     const sample =[1,2,3,4,5,6]
@@ -38,21 +40,15 @@ const Shop =()=>{
                     <title>Shop</title>
                 </Head>
                     <PageWrapper>
-                                <Container>
+                        {
+                            isLoading
+                            ?
+                            <EmptyState>
+                                <PrimarySpinner/>
+                            </EmptyState>
+                            :
+                            <Container>
                                     {
-                                        isLoading
-                                        ?
-                                        sample.map((s,i)=>{
-                                            return (
-                                                <CardSkeleton 
-                                                    attributes={{
-                                                        loading:true
-                                                    }}
-                                                    key={i}
-                                                />
-                                            )
-                                        })
-                                        :
                                         data.map((c,i)=>{
                                             return(
                                                 <Card 
@@ -64,7 +60,7 @@ const Shop =()=>{
                                         })
                                     }   
                                 </Container>
-                            
+                        }    
                     </PageWrapper>
             </>
         )
