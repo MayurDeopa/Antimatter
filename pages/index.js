@@ -8,7 +8,7 @@ import styles from '../styles/Home.module.css'
 export default function Home() {
   
   return (
-    <>
+    <PageWrapper>
       <Head >
         <title>Anti-Matter</title>
       </Head>
@@ -17,7 +17,6 @@ export default function Home() {
         style={{
           backgroundImage:'url("https://i.ibb.co/yfzmWt7/1298817-D-6-C08-4685-9-C04-B744-DF55-A64-E-2.jpg")'
         }}>
-          <PageWrapper>
           <div className={styles.home_image_text}>
             <h1>Gfagfagfag</h1>
             <h2>Some random quote</h2>
@@ -28,8 +27,7 @@ export default function Home() {
                 </h3>
               </Link>
           </div>
-          </PageWrapper>
       </div>
-    </>
+    </PageWrapper>
   )
 }
