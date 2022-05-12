@@ -21,6 +21,7 @@ import ModalDrawer from '../components/Misc/ModalDrawer'
 import Form from '../components/Misc/Form'
 import Skeleton from '../components/Loaders/Skeleton'
 import LinkBtn from '../components/Misc/LinkBtn'
+import ButtonGroup from '../components/Misc/ButtonGroup'
 
 const Cart =()=>{
     const sample = [1]
@@ -133,16 +134,17 @@ const Cart =()=>{
                     <div className={styles.cart_section_log_header}>
                         <h2>Order Summary</h2>
                     </div>
-                    
-                    <AwaitButton states={{
-                        awaitState :isSpinning?"loading":'none',
-                        text:"Checkout",
-                        action:()=>checkout({
-                            amount:200000,
-                            currency:"INR"
-                        })
-                    }}
-                    />
+                    <ButtonGroup>
+                        <AwaitButton states={{
+                            awaitState :isSpinning?"loading":'none',
+                            text:"Checkout",
+                            action:()=>checkout({
+                                amount:200000,
+                                currency:"INR"
+                            })
+                        }}
+                        />
+                    </ButtonGroup>
                 </div>
             </div>
             :
