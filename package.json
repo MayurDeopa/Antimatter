@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 9090",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -19,6 +19,7 @@
     "react-dom": "17.0.2",
     "react-icons": "^4.3.1",
     "react-query": "^3.34.16",
+    "react-responsive-carousel": "^3.2.23",
     "react-toastify": "^8.2.0"
   },
   "devDependencies": {

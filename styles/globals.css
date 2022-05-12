@@ -16,7 +16,7 @@
   --info:rgba(29,161,242,1.00);
   --error:rgb(194, 49, 49);
   --header-height:3rem;
-  --drawer-height:50%;
+  --drawer-height:auto;
 }
 
 * {
@@ -73,6 +73,11 @@ a {
   left: 0;
   width: 0.6rem;
   border-radius: 4px 0 0 4px;
+}
+
+.carousel-root{
+  width: 100%;
+  height: 100%;
 }
 
 .svg_wrapper{
