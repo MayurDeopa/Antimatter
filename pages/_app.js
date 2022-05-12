@@ -33,15 +33,6 @@ function MyApp({ Component, pageProps }) {
       setUser(data)
     }
   },[data])
-
-  useEffect(()=>{
-    if(user){
-      setErr({
-        type:'success',
-        message:`Welcome ${user.username}`
-    })
-    }
-  },[user])
   return (
     <QueryClientProvider client={queryClient}>
       <StoreContext states={states}>
