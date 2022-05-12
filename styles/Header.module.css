@@ -93,7 +93,6 @@
 
 .drawer_hidden{
     top:-50%;
-    opacity: 0.5;
 }
 
 .drawer_header{
@@ -111,7 +110,7 @@
     flex-direction: column;
     width: 100%;
     display: grid;
-    grid-row-gap: 6px;
+    grid-row-gap: 3rem;
     grid-template-columns: 1fr 1fr 1fr;
     max-width: 103rem;
     padding: 0.3rem;
