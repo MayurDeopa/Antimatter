@@ -16,6 +16,8 @@ import Skeleton from "../../components/Loaders/Skeleton";
 import ErrorPopUp from '../../components/Misc/ErrorPopUp'
 import Input from "../../components/Authentication/Input";
 import Head from "next/head";
+import EmptyState from '../../components/Misc/EmptyState';
+import PrimarySpinner from '../../components/Loaders/PrimarySpinner';
 
 const Shipping =()=>{
     const sample =[1,2,5,6]
@@ -49,52 +51,13 @@ const Shipping =()=>{
     return (
         <>
             <Head>
-                <title>Loading</title>
+                <title>Loading...</title>
             </Head>
-                <DashBoard>
-                <form className={styles.form}>
-                            <div className={styles.header}>
-                                <Skeleton
-                                    attributes={{
-                                        height:"1.4rem",
-                                        width:'min(100%,15rem)'
-                                    }}
-                                />
-                                <Skeleton
-                                    attributes={{
-                                        height:"1.4rem",
-                                        width:'min(100%,3rem)'
-                                    }}
-                                />
-                            </div>
-                            <>
-                                {sample.map((s,i)=>{
-                                    return(
-                                        <section className={styles.section}  key={i}>
-                                            <Skeleton
-                                                attributes={{
-                                                    height:'1rem',
-                                                    width:'min(100%,3rem)'
-                                                }}
-                                            />
-                                            <Skeleton
-                                                attributes={{
-                                                    height:'1.5rem',
-                                                    width:'min(100%,23rem)'
-                                                }}
-                                            />
-                                        </section>)
-                                })
-                                }
-                            </>
-                            <Skeleton
-                                attributes={{
-                                    height:'2rem',
-                                    width:'min(100%,5rem)'
-                                }}
-                            />
-                        </form>
-                </DashBoard>
+            <DashBoard>
+                <EmptyState>
+                    <PrimarySpinner/>
+                </EmptyState>        
+            </DashBoard>
         </>
     )
    }

@@ -1,9 +1,5 @@
 import styles from '../../styles/cart.module.css'
 import Image from 'next/image'
-import shirt from '../../public//shirt.jpg'
-import { useQuery } from 'react-query'
-import { getProductById } from '../../services/api/products'
-import PrimaryLoader from '../Loaders/PrimaryLoader'
 import QuantityPanel from './QuantityPanel'
 import Skeleton from '../Loaders/Skeleton'
 

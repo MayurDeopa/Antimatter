@@ -1,6 +1,6 @@
 import Panel from "../Panel"
 import Modal from "../Misc/Modal"
-import PrimaryLoader from '../../components/Loaders/PrimaryLoader'
+import PrimaryLoader from './PrimarySpinner'
 
 
 

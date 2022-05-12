@@ -67,13 +67,13 @@ const Login =()=>{
                         <AwaitButton
                             states={{
                                 awaitState:p.state,
+                                text:`Continue with ${p.name}`,
                                 action:()=>login(p),
-                                color:p.color
+                                light:true,
+                                icon:p.icon
                             }}
                             key={i}
                         >
-                            {p.icon}
-                            <h3>{`Continue with ${p.name}`}</h3>
                         </AwaitButton>
                     )
                 })}

@@ -15,6 +15,8 @@ import withAuth from "../../components/Authentication/withAuth";
 import Skeleton from "../../components/Loaders/Skeleton";
 import AwaitButton from "../../components/Loaders/AwaitButton";
 import ErrorPopUp from "../../components/Misc/ErrorPopUp";
+import PrimarySpinner from '../../components/Loaders/PrimarySpinner';
+import EmptyState from '../../components/Misc/EmptyState';
 
 
 const Personal =()=>{
@@ -49,52 +51,12 @@ const Personal =()=>{
         return (
             <>
                 <Head>
-                    <title>Personal</title>
+                    <title>Loading...</title>
                 </Head>
                     <DashBoard>
-                    <form className={styles.form}>
-                            <div className={styles.header}>
-                                <Skeleton
-                                    attributes={{
-                                        height:"1.4rem",
-                                        width:'min(100%,15rem)'
-                                    }}
-                                />
-                                <Skeleton
-                                    attributes={{
-                                        height:"1.4rem",
-                                        width:'min(100%,3rem)'
-                                    }}
-                                />
-                            </div>
-                            <>
-                                {sample.map((s,i)=>{
-                                    return(
-                                        <section className={styles.section}  key={i}>
-                                            <Skeleton
-                                                attributes={{
-                                                    height:'1rem',
-                                                    width:'min(100%,3rem)'
-                                                }}
-                                            />
-                                            <Skeleton
-                                                attributes={{
-                                                    height:'1.5rem',
-                                                    width:'min(100%,23rem)'
-                                                }}
-                                            />
-                                        </section>
-                                    )
-                                })
-                                }
-                            </>
-                            <Skeleton
-                                attributes={{
-                                    height:'2rem',
-                                    width:'min(100%,5rem)'
-                                }}
-                            />
-                        </form>
+                        <EmptyState>
+                            <PrimarySpinner/>
+                        </EmptyState>
                     </DashBoard>
             </>
         )
