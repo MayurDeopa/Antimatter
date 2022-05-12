@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import CartProducts from '../components/Cart/CartProducts'
-import QuantityPanel from '../components/Cart/QuantityPanel'
 import styles from '../styles/cart.module.css'
 import PageWrapper from '../components/PageWrapper'
 import Head from 'next/head'
@@ -11,7 +10,7 @@ import { getCart } from '../services/api/cart'
 import Message from '../components/basic/Message'
 import useCart from '../lib/drawer/customhooks/useCart'
 import AwaitButton from '../components/Loaders/AwaitButton'
-import {BiCartAlt,BiSad} from 'react-icons/bi'
+import {BiCartAlt} from 'react-icons/bi'
 import EmptyState from '../components/Misc/EmptyState'
 import Form from '../components/Misc/Form'
 import Skeleton from '../components/Loaders/Skeleton'
@@ -89,7 +88,7 @@ const Cart =()=>{
                     </div>
                     <Skeleton
                         attributes={{
-                            height:'2.7rem',
+                            height:'2.4rem',
                             width:'min(30rem,100%)'
                         }}
                     />

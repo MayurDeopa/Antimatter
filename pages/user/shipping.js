@@ -9,10 +9,8 @@ import {useRouter} from 'next/router'
 
 
 import DashBoard from "../../components/Authentication/DashBoard"
-import PageWrapper from "../../components/PageWrapper";
 import AwaitButton from '../../components/Loaders/AwaitButton'
 import withAuth from "../../components/Authentication/withAuth";
-import Skeleton from "../../components/Loaders/Skeleton";
 import ErrorPopUp from '../../components/Misc/ErrorPopUp'
 import Input from "../../components/Authentication/Input";
 import Head from "next/head";

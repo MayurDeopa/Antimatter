@@ -2,7 +2,7 @@ import styles from '../../styles/form.module.css'
 
 
 import { useState } from "react";
-import { Store, useStore } from "../../lib/drawer/context/StoreContext";
+import {  useStore } from "../../lib/drawer/context/StoreContext";
 import useForm from "../../lib/drawer/customhooks/useForm";
 import {useRouter} from 'next/router'
 
@@ -10,9 +10,7 @@ import {useRouter} from 'next/router'
 import Head from 'next/head'
 import Input from '../../components/Authentication/Input';
 import DashBoard from "../../components/Authentication/DashBoard"
-import PageWrapper from "../../components/PageWrapper";
 import withAuth from "../../components/Authentication/withAuth";
-import Skeleton from "../../components/Loaders/Skeleton";
 import AwaitButton from "../../components/Loaders/AwaitButton";
 import ErrorPopUp from "../../components/Misc/ErrorPopUp";
 import PrimarySpinner from '../../components/Loaders/PrimarySpinner';
@@ -20,7 +18,6 @@ import EmptyState from '../../components/Misc/EmptyState';
 
 
 const Personal =()=>{
-    const sample = [1,2,3]
     const router = useRouter()
     const {userState} = useStore()
     const [user,setUser] = userState
