@@ -10,12 +10,13 @@ import { useEffect } from "react"
 import CardSkeleton from '../../../components/Loaders/CardSkeleton'
 import ErrorPopUp from "../../../components/Misc/ErrorPopUp"
 import LinkBtn from "../../../components/Misc/LinkBtn"
+import EmptyState from "../../../components/Misc/EmptyState"
+import PrimarySpinner from "../../../components/Loaders/PrimarySpinner"
 
 const Categories = ()=>{
     const [err,setErr] = useState()
     const [query,setQuery] = useState()
     const router = useRouter()
-    const sample =[1,2,3,4,5,6]
     useEffect(async()=>{
         if(!router.isReady) return;
         const fetchSome =async()=>{
@@ -57,26 +58,22 @@ const Categories = ()=>{
                     <title>{router.query.category}</title>
                 </Head>
                 <PageWrapper>   
+                    {
+                        query
+                        ?
                         <Container>
                             {
-                                query
-                                ?
                                 query.map((p)=>{
                                     return <Card details={p} key={p.id} link={`/shop/${router.query.category}/${p.id}`}/>
                                 })
-                                :
-                                sample.map((s,i)=>{
-                                    return(
-                                        <CardSkeleton
-                                            attributes={{
-                                                loading:true
-                                            }}
-                                            key={i}
-                                        />
-                                    )
-                                })
+                                
                             }
-                        </Container>         
+                        </Container>  
+                        :
+                        <EmptyState>
+                            <PrimarySpinner/>
+                        </EmptyState>
+                    }       
                 </PageWrapper>
             </>
         )

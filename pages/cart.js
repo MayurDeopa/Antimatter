@@ -88,7 +88,7 @@ const Cart =()=>{
                     </div>
                     <Skeleton
                         attributes={{
-                            height:'2.4rem',
+                            height:'2.5rem',
                             width:'min(30rem,100%)'
                         }}
                     />
