@@ -13,7 +13,8 @@ const ModalSpinner =()=>{
             }}>
                 <PrimaryLoader states={{
                     light:false
-                }}/>
+                }}
+                size={'m'}/>
             </Panel>
         </Modal>
     )

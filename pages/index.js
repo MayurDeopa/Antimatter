@@ -14,7 +14,7 @@ export default function Home() {
         <title>Anti-Matter</title>
       </Head>
       <ImageSlider>
-      <div 
+      {/*<div 
         className={styles.home_image_container}
         style={{
           backgroundImage:'url("https://i.ibb.co/yfzmWt7/1298817-D-6-C08-4685-9-C04-B744-DF55-A64-E-2.jpg")'
@@ -45,7 +45,7 @@ export default function Home() {
                 </h3>
               </Link>
           </div>
-      </div>
+      </div>*/}
       </ImageSlider>
     </PageWrapper>
   )

@@ -44,7 +44,9 @@ const Shop =()=>{
                             isLoading
                             ?
                             <EmptyState>
-                                <PrimarySpinner/>
+                                <PrimarySpinner
+                                    size={'m'}
+                                />
                             </EmptyState>
                             :
                             <Container>

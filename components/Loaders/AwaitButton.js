@@ -14,7 +14,9 @@ const AwaitButton =({states,children})=>{
                         {children}
                         <PrimarySpinner states={{
                             light:true
-                        }}/>
+                        }}
+                            size={'s'}
+                        />
                     </div>
                 )
         case "disabled":

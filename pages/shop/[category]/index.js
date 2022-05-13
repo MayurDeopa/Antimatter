@@ -71,7 +71,9 @@ const Categories = ()=>{
                         </Container>  
                         :
                         <EmptyState>
-                            <PrimarySpinner/>
+                            <PrimarySpinner
+                                    size={'m'}
+                                />
                         </EmptyState>
                     }       
                 </PageWrapper>

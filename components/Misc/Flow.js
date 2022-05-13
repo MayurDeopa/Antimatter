@@ -45,6 +45,7 @@ const Flow =({states})=>{
                     <AwaitButton
                         states={{
                             text:page!==children.length-1?"Next":"Submit",
+                            awaitState:'loading',
                             loadingText:"Saving",
                             action:page!==children.length-1?()=>setPage(prev=>prev+1):()=>alert(data)
                         }}

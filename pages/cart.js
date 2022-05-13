@@ -146,12 +146,10 @@ const Cart =()=>{
                     message:"Cart is empty",
                     type:"info"
                 }}/>
-                <Link href={'/shop'}>
-                    <h3 className='checkout_button'>
-                            Start Shopping 
-                            <BiCartAlt/>
-                    </h3>
-                </Link>
+                <LinkBtn link={{
+                    text:'Start Shopping',
+                    url:'/shop'
+                }}/>
             </>
             }
             </PageWrapper>

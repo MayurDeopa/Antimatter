@@ -53,7 +53,9 @@ const Shipping =()=>{
             </Head>
             <DashBoard>
                 <EmptyState>
-                    <PrimarySpinner/>
+                    <PrimarySpinner
+                        size={'l'}
+                    />
                 </EmptyState>        
             </DashBoard>
         </>
