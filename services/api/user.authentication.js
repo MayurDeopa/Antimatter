@@ -21,6 +21,20 @@ export const login =async(data)=>{
     }
 }
 
+export const initialLogin =async(data)=>{
+    try{
+        const res = await fetch(`${apiUrl}/login?token=${data}`,{
+            method:"get",
+            headers:{"Content-Type" :"application/json"}
+        })
+        return res.json()
+    }
+    catch(err){
+        console.log(err)
+        return err
+    }
+}
+
 export const loginWithGoogle = async()=>{
     const authProvider = new GoogleAuthProvider()
     const res = await signInWithPopup(authentication,authProvider)

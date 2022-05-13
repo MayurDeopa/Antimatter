@@ -27,6 +27,7 @@ function MyApp({ Component, pageProps }) {
       setUser(data)
     }
   },[data])
+  console.log(user)
   return (
     <QueryClientProvider client={queryClient}>
       <StoreContext states={states}>
