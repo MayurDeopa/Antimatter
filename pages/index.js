@@ -14,38 +14,23 @@ export default function Home() {
         <title>Anti-Matter</title>
       </Head>
       <ImageSlider>
-      {/*<div 
-        className={styles.home_image_container}
-        style={{
-          backgroundImage:'url("https://i.ibb.co/yfzmWt7/1298817-D-6-C08-4685-9-C04-B744-DF55-A64-E-2.jpg")'
-        }}>
-          <div className={styles.home_image_text}>
-            <h1>Gfagfagfag</h1>
-            <h2>Some random quote</h2>
-            <Link href={'/shop'}>
-                <h3 className={styles.home_buttons}>
-                  View Collection
-                  <BiRightArrowAlt/>
-                </h3>
-              </Link>
-          </div>
-      </div>
-      <div 
-        className={styles.home_image_container}
-        style={{
-          backgroundImage:'url("https://i.ibb.co/yfzmWt7/1298817-D-6-C08-4685-9-C04-B744-DF55-A64-E-2.jpg")'
-        }}>
-          <div className={styles.home_image_text}>
-            <h1>Gfagfagfag</h1>
-            <h2>Some random quote</h2>
-            <Link href={'/shop'}>
-                <h3 className={styles.home_buttons}>
-                  View Collection
-                  <BiRightArrowAlt/>
-                </h3>
-              </Link>
-          </div>
-      </div>*/}
+        <div 
+          className={styles.home_image_container}
+          style={{
+            backgroundImage:'url("https://i.ibb.co/rmXt8JQ/COMPARISON-DESTORYS-PERSONALITY.jpg")'
+          }}>
+            <div className={styles.home_image_text}>
+              <h1>New Beginings</h1>
+              <h2>Comparison destroys</h2>
+              <h1>PERSONALITY</h1>
+              <Link href={'/shop'}>
+                  <h3 className={styles.home_buttons}>
+                    View Collection
+                    <BiRightArrowAlt/>
+                  </h3>
+                </Link>
+            </div>
+        </div>
       </ImageSlider>
     </PageWrapper>
   )

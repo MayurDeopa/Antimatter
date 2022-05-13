@@ -18,12 +18,11 @@ import EmptyState from '../../components/Misc/EmptyState';
 import PrimarySpinner from '../../components/Loaders/PrimarySpinner';
 
 const Shipping =()=>{
-    const sample =[1,2,5,6]
     const router = useRouter()
     const {userState} = useContext(Store)
     const [user] = userState
     const {awaiting,saveDetails,err} = useForm({
-        id:user?.id,
+        id:user._id,
         formType:'shipping'
     })
     const [details,setDetails] = useState({

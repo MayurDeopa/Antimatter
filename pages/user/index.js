@@ -7,7 +7,6 @@ import PageWrapper from "../../components/PageWrapper";
 import { Store } from "../../lib/drawer/context/StoreContext";
 
 const User =({ Component, pageProps })=>{
-    const router = useRouter()
     const {userState} = useContext(Store)
     const [user,setUser] = userState
     return (

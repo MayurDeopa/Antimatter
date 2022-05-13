@@ -28,7 +28,7 @@ const Personal =()=>{
     })
     const [edit,setEdit] = useState(false)
     const {awaiting,saveDetails,err} = useForm({
-        id:user?.id,
+        id:user._id,
         formType:'personal'
     })
     if(err){

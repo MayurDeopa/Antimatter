@@ -1,6 +1,8 @@
+import apiUrl from '../../lib/drawer/url'
+
 export const getCart =async(data)=>{
     try{
-        const res = await fetch(`https://antimatter-server.herokuapp.com/cart/?id=${data}`,{
+        const res = await fetch(`${apiUrl}/cart/?id=${data}`,{
             method:"GET",
             headers:{"Content-Type" :"application/json"},
         })
@@ -13,7 +15,7 @@ export const getCart =async(data)=>{
 
 export const addToCart =async(data)=>{
     try{
-        const res = await fetch(`https://antimatter-server.herokuapp.com/cart/add`,{
+        const res = await fetch(`${apiUrl}/cart/add`,{
             method:"post",
             headers:{"Content-Type" :"application/json"},
             body:JSON.stringify(data)
@@ -27,7 +29,7 @@ export const addToCart =async(data)=>{
 
 export const mutateQty =async(data)=>{
     try{
-        const res = await fetch(`https://antimatter-server.herokuapp.com/cart/mutate`,{
+        const res = await fetch(`${apiUrl}/cart/mutate`,{
             method:"post",
             headers:{"Content-Type" :"application/json"},
             body:JSON.stringify(data)

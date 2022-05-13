@@ -1,7 +1,8 @@
+import apiUrl from '../../lib/drawer/url'
 
 export const getProductCategories =async()=>{
     try{
-        const res = await fetch(`https://antimatter-server.herokuapp.com/products/categories`,{
+        const res = await fetch(`${apiUrl}/products/categories`,{
             method:"GET",
             headers:{"Content-Type" :"application/json"},
         })
@@ -15,7 +16,7 @@ export const getProductCategories =async()=>{
 
 export const getProductCategory =async(slug)=>{
     try{
-        const res = await fetch(`https://antimatter-server.herokuapp.com/products/category?slug=${slug}`,{
+        const res = await fetch(`${apiUrl}/products/category?slug=${slug}`,{
             method:"GET",
             headers:{"Content-Type" :"application/json"},
         })
@@ -28,7 +29,7 @@ export const getProductCategory =async(slug)=>{
 
 export const getProductById =async(id)=>{
     try{
-        const res = await fetch(`https://antimatter-server.herokuapp.com/products/product?id=${id}`,{
+        const res = await fetch(`${apiUrl}/products/product?id=${id}`,{
             method:"GET",
             headers:{"Content-Type" :"application/json"},
         })

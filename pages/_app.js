@@ -15,16 +15,10 @@ function MyApp({ Component, pageProps }) {
   const [user,setUser] = useState()
   const [cart,setCart] = useState()
   const [drawer,setDrawer] = useState(true)
-  const [shippingDetails,setShippingDetails] = useState()
-  const [personalDetails,setPersonalDetails] = useState()
   const [toasts,setToasts] = useState([])
     const states ={
       userState:[user,setUser],
       cartState:[cart,setCart],
-      userDetails:{
-        personal:[personalDetails,setPersonalDetails],
-        shipping:[shippingDetails,setShippingDetails]
-      },
       toastState:[toasts,setToasts],
       drawerState:[drawer,setDrawer]
     }
@@ -43,7 +37,7 @@ function MyApp({ Component, pageProps }) {
         :
         <>
           <NextNProgress 
-            color='var(--primary-theme-color)'
+            color='var(--secondary-theme-color)'
           />
           <Component {...pageProps}/>
         </>

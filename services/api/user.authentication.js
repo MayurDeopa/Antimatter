@@ -1,10 +1,10 @@
 import { signInWithPopup,GoogleAuthProvider } from 'firebase/auth'
-
+import apiUrl from '../../lib/drawer/url'
 import {authentication} from '../../firebase/firebase.config'
 
 export const login =async(data)=>{
     try{
-        const res = await fetch(`https://antimatter-server.herokuapp.com/login`,{
+        const res = await fetch(`${apiUrl}/login`,{
             method:"post",
             headers:{"Content-Type" :"application/json"},
             body:JSON.stringify({
@@ -33,7 +33,6 @@ export const loginWithGoogle = async()=>{
 }
 
 export const logout =()=>{
-    console.log('logout')
     localStorage.removeItem('key')
     window.location.href ='/user'
 }

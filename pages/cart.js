@@ -16,6 +16,7 @@ import Form from '../components/Misc/Form'
 import Skeleton from '../components/Loaders/Skeleton'
 import LinkBtn from '../components/Misc/LinkBtn'
 import ButtonGroup from '../components/Misc/ButtonGroup'
+import ErrorPopUp from '../components/Misc/ErrorPopUp'
 
 const Cart =()=>{
     const sample = [1]
@@ -26,7 +27,7 @@ const Cart =()=>{
     const {checkout,isSpinning} = useCart()
     useEffect(()=>{
         const fetchCart = async()=>{
-            const res= await getCart(user.id)
+            const res= await getCart(user._id)
             setCart(res)
         }
         if(user)fetchCart()
@@ -108,6 +109,8 @@ const Cart =()=>{
             {
                 cart.cart
                 ?
+                cart.cart.length
+                ?
                 <div className={styles.cart_container}>
                 <div className={styles.cart_section}>
                     <div className={styles.cart_section_logs}>
@@ -151,6 +154,17 @@ const Cart =()=>{
                     url:'/shop'
                 }}/>
             </>
+            :
+            <ErrorPopUp>
+                <h4>Something went wrong</h4>
+                <AwaitButton
+                    states={{
+                        text:"Retry",
+                        awaitState:"none",
+                        action:()=>router.reload()
+                    }}
+                />
+            </ErrorPopUp>
             }
             </PageWrapper>
         </>

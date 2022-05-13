@@ -1,8 +1,9 @@
+import apiUrl from "../../lib/drawer/url"
 
 
 export const getDetails = async(id)=>{
     try{
-        const res = await fetch(`https://antimatter-server.herokuapp.com/details/?id=${id}`,{
+        const res = await fetch(`${apiUrl}/details/?id=${id}`,{
             method:'get',
             headers:{"Content-Type" :"application/json"}
         })
@@ -16,7 +17,7 @@ export const getDetails = async(id)=>{
 
 export const sendPersonal =async(data)=>{
     try{
-        const res = await fetch(`https://antimatter-server.herokuapp.com/details/personal`,{
+        const res = await fetch(`${apiUrl}/details/personal`,{
             method:"post",
             headers:{"Content-Type" :"application/json"},
             body:JSON.stringify(data)
@@ -31,7 +32,7 @@ export const sendPersonal =async(data)=>{
 
 export const sendShipping =async(data)=>{
     try{
-        const res = await fetch(`https://antimatter-server.herokuapp.com/details/shipping`,{
+        const res = await fetch(`${apiUrl}/details/shipping`,{
             method:"post",
             headers:{"Content-Type" :"application/json"},
             body:JSON.stringify(data)

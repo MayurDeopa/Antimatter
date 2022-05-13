@@ -1,3 +1,4 @@
+import apiUrl from "../../lib/drawer/url";
 
 
 const initializeRazorpay = () => {
@@ -22,7 +23,7 @@ export const makePayment = async(param)=>{
       alert("Razorpay SDK Failed to load");
       return;
     }
-    const first = await fetch(`https://antimatter-server.herokuapp.com/payment/create`,{
+    const first = await fetch(`${apiUrl}/payment/create`,{
       method:"POST",
       headers:{"Content-Type" :"application/json"},
       body:JSON.stringify(param)
