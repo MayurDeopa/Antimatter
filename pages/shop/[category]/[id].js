@@ -149,7 +149,7 @@ const Product =()=>{
                                     loadingText:'Adding',
                                     text:"Add to cart",
                                     action:()=>fetchCart({
-                                            id:user.id,
+                                            id:user._id,
                                             product:data
                                     })
                                 }}/>
