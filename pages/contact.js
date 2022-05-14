@@ -7,9 +7,9 @@ const Contact =()=>{
     return(
         <PageWrapper>
             <EmptyState>
-                <PrimarySpinner states={{
-                    size:'l'
-                }}/>
+                <PrimarySpinner
+                    size={'m'}
+                />
             </EmptyState>
         </PageWrapper>
     )

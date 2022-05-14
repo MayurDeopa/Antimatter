@@ -112,7 +112,7 @@ const Product =()=>{
         return (
             <>
                 <Head>
-                    <title>{'auth'}</title>
+                    <title>{data.name}</title>
                 </Head>
                 <PageWrapper>
                         <div className={styles.wrapper}>
