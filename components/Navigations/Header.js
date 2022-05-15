@@ -11,7 +11,7 @@ const Header =({state})=>{
                 <Link href={'/'}>
                     <header className={styles.header_title}>
                         <h2 className='svg_wrapper header_logo'>
-                            Anti Matter
+                            ANTI MATTER
                         </h2>
                     </header>
                 </Link>
