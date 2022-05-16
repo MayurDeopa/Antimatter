@@ -8,6 +8,14 @@ import Layout from '../components/Layout'
 import ModalSpinner from '../components/Loaders/ModalSpinner'
 import Toast from '../components/Misc/Toast'
 import Message from '../components/basic/Message'
+import PageWrapper from '../components/PageWrapper'
+import Form from '../components/Misc/Form'
+import FormSection from '../components/Misc/FormSection'
+import PrimarySpinner from '../components/Loaders/PrimarySpinner'
+import Skeleton from '../components/Loaders/Skeleton'
+import ButtonGroup from '../components/Misc/ButtonGroup'
+import AwaitButton from '../components/Loaders/AwaitButton'
+import Head from 'next/head'
  
 function MyApp({ Component, pageProps }) {
   const queryClient = new QueryClient()
@@ -27,10 +35,33 @@ function MyApp({ Component, pageProps }) {
       setUser(data)
     }
   },[data])
-  console.log(user)
   return (
     <QueryClientProvider client={queryClient}>
       <StoreContext states={states}>
+        {/*<PageWrapper
+          hideNavigation={true}
+        >
+          <Head>
+            <title>AntiMatter Clothing</title>
+            <meta name="description" content="Throw away all of your traditional fits" />
+          </Head>
+          <Form
+            card={{
+              title:"Launching Soon"
+            }}
+          >
+            <FormSection>
+              <ButtonGroup>
+                  <AwaitButton
+                    states={{
+                      text:"Stay tuned ",
+                      awaitState:'none'
+                    }}
+                  />
+              </ButtonGroup>
+            </FormSection>
+          </Form>
+                  </PageWrapper>*/}
       {
         isLoading
         ?
@@ -49,8 +80,7 @@ function MyApp({ Component, pageProps }) {
         <Toast>
           <Message states={err}/>
         </Toast>
-        
-      }
+        }
       </StoreContext>
     </QueryClientProvider>
   )

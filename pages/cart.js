@@ -134,10 +134,7 @@ const Cart =()=>{
                         <AwaitButton states={{
                             awaitState :isSpinning?"loading":'none',
                             text:"Checkout",
-                            action:()=>checkout({
-                                amount:200000,
-                                currency:"INR"
-                            })
+                            action:null
                         }}
                         />
                     </ButtonGroup>

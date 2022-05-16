@@ -19,10 +19,13 @@
     color: var(--primary-theme-color);
     box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 0.5px inset, rgba(0, 0, 0, 0.9) 0px 0px 0px 0.5px;  }
 
+    .primary_button{
+      border: solid var(--primary-theme-color) 2px;    }
+
   .primary_button:hover{
     background-color: var(--secondary-theme-color);
     color: var(--primary-theme-color);
-    box-shadow: var(--secondary-box-shadow);
+
   }
   
 .secondary_button:hover{

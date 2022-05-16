@@ -60,7 +60,8 @@ z
 
 
 .wrapper{
-    width: min(30rem,100%);
+    width: 30rem;
+    max-width: 100%;
     padding: 1rem;
     display: flex;
     flex-direction: column;
@@ -69,7 +70,7 @@ z
     border-radius: 4px;
     color: var(--primary-theme-color);
     background-color: var(--secondary-theme-color);
-    box-shadow: var(--primary-box-shadow);
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
 }
 
 .form_header{
