@@ -1,12 +1,12 @@
 import styles from '../../styles/skeleton.module.css'
 
-const Skeleton =({attributes})=>{
+const Skeleton =({border,height,width})=>{
     return (
         <div 
             style={{
-                borderRadius:attributes?.border,
-                height:attributes?.height?attributes.height: '3rem',
-                width:attributes?.width?attributes.width: "100%"
+                borderRadius:border,
+                height:height|| '3rem',
+                width:width|| "100%"
             }}
             className={styles.wrapper}>
             

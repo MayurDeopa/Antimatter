@@ -41,15 +41,15 @@ const Cart =()=>{
                 </Head>
                 <PageWrapper>
                     <EmptyState>
-                        <Form card={{
-                            title:"Authentication failed",
-                            animated:false
-                        }}>
+                        <Form 
+                            title={"Authentication failed"}
+                            animated={false}
+                        >
                             <h3>You need to login to use cart</h3>
-                            <LinkBtn link={{
-                                text:"Login",
-                                url:"/user"
-                            }}/>
+                            <LinkBtn 
+                                text={"Login"}
+                                url={"/user"}
+                            />
                         </Form>
                     </EmptyState>
                 </PageWrapper>
@@ -88,10 +88,8 @@ const Cart =()=>{
                         <h2>Order Summary</h2>
                     </div>
                     <Skeleton
-                        attributes={{
-                            height:'2.5rem',
-                            width:'min(30rem,100%)'
-                        }}
+                        height={'2.5rem'}
+                        width={'min(30rem,100%)'}
                     />
                 </div>
             </div>    
@@ -131,11 +129,9 @@ const Cart =()=>{
                         <h2>Order Summary</h2>
                     </div>
                     <ButtonGroup>
-                        <AwaitButton states={{
-                            awaitState :isSpinning?"loading":'none',
-                            text:"Checkout",
-                            action:null
-                        }}
+                        <AwaitButton 
+                            awaitState ={isSpinning?"loading":'none'}
+                            text={"Checkout"}
                         />
                     </ButtonGroup>
                 </div>
@@ -146,10 +142,10 @@ const Cart =()=>{
                     message:"Cart is empty",
                     type:"info"
                 }}/>
-                <LinkBtn link={{
-                    text:'Start Shopping',
-                    url:'/shop'
-                }}/>
+                <LinkBtn 
+                    text={'Start Shopping'}
+                    url={'/shop'}
+                />
             </>
             :
             <ErrorPopUp>

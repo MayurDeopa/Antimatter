@@ -1,8 +1,7 @@
 import Link from "next/link";
 
 
-const LinkBtn =({link,children})=>{
-    const {url,text} = link
+const LinkBtn =({text,url,children})=>{
     return (
         <Link href={url}>
             <div className="link_btn">

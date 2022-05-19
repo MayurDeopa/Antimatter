@@ -15,10 +15,8 @@ const Flow =({states})=>{
     return(
         <Modal>
             <Form
-                card={{
-                    title:currentObj.title,
-                    animated:true
-                }}
+                title={currentObj.title}
+                animated={true}
             >
                 {currentObj.items.map((e,i)=>{
                     return(
@@ -35,20 +33,16 @@ const Flow =({states})=>{
                 })}
                 <ButtonGroup>
                     <AwaitButton
-                        states={{
-                            text:"Previous",
-                            secondary:true,
-                            awaitState:page===0?"disabled":"none",
-                            action:()=>setPage(prev=>prev-1)
-                        }}
+                        text={"Previous"}
+                        secondary={true}
+                        awaitState={page===0?"disabled":"none"}
+                        action={()=>setPage(prev=>prev-1)}
                     />
                     <AwaitButton
-                        states={{
-                            text:page!==children.length-1?"Next":"Submit",
-                            awaitState:'loading',
-                            loadingText:"Saving",
-                            action:page!==children.length-1?()=>setPage(prev=>prev+1):()=>alert(data)
-                        }}
+                         text={page!==children.length-1?"Next":"Submit"}
+                         awaitState={'loading'}
+                         loadingText={"Saving"}
+                         action={page!==children.length-1?()=>setPage(prev=>prev+1):()=>alert(data)}
                     />
                 </ButtonGroup>
 

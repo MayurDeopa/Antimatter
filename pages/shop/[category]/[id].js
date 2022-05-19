@@ -52,43 +52,31 @@ const Product =()=>{
                         <div className={styles.wrapper}>
                             <div className={"image_skeleton_aspect"}>
                                 <Skeleton
-                                    attributes={{
-                                        height:'100%',
-                                        width:'100%'
-                                    }}
+                                     height={'100%'}
+                                     width={'100%'}
                                 />
                             </div>
                             <article className={styles.details}>
                                 <Skeleton
-                                    attributes={{
-                                        height:'1rem',
-                                        width:'17rem'
-                                    }}
+                                    height={'1rem'}
+                                    width={'17rem'}
                                 />
                                 <Skeleton
-                                    attributes={{
-                                        height:'1rem',
-                                        width:'15rem'
-                                    }}
+                                    height={'1rem'}
+                                    width={'15rem'}
                                 />
                                 <Skeleton
-                                    attributes={{
-                                        height:'1rem',
-                                        width:'20rem'
-                                    }}
+                                    height={'1rem'}
+                                    width={'20rem'}
                                 />
                                 <div className={styles.buttons_wrapper}>
                                 <Skeleton
-                                    attributes={{
-                                        height:'2.7rem',
-                                        width:'min(100%,30rem)'
-                                    }}
+                                    height={'2.7rem'}
+                                    width={'min(100%,30rem)'}
                                 />
                                 <Skeleton
-                                    attributes={{
-                                        height:'2.7rem',
-                                        width:'min(100%,30rem)'
-                                    }}
+                                    height={'2.7rem'}
+                                    width={'min(100%,30rem)'}
                                 />
                                 </div>
                             </article>
@@ -144,28 +132,28 @@ const Product =()=>{
                             {
                                 user
                                 ?
-                                <AwaitButton states={{
-                                    awaitState:isSpinning?'loading':'none',
-                                    loadingText:'Adding',
-                                    text:"Add to cart",
-                                    action:()=>fetchCart({
-                                            id:user._id,
-                                            product:data
-                                    })
-                                }}/>
+                                <AwaitButton
+                                awaitState={isSpinning?'loading':'none'}
+                                loadingText={'Adding'}
+                                text={"Add to cart"}
+                                action={()=>fetchCart({
+                                        id:user._id,
+                                        product:data
+                                })}
+                                />
                                 :
-                                <AwaitButton states={{
-                                    awaitState:'none',
-                                    text:"Login to use cart",
-                                    action:()=>router.push('/user')
-                                }}/>
+                                <AwaitButton 
+                                    awaitState={'none'}
+                                    text={"Login to use cart"}
+                                    action={()=>router.push('/user')}
+                                />
                             }
-                            <AwaitButton states={{
-                                awaitState:'none',
-                                text:"Share",
-                                action:toggleModal,
-                                secondary:true
-                            }}/>
+                            <AwaitButton 
+                                awaitState={'none'}
+                                text={"Share"}
+                                action={toggleModal}
+                                secondary={true}
+                            />
                             
                             </div>
                         </article>
@@ -188,7 +176,7 @@ const Product =()=>{
                                         url={url}
                                         key={i}
                                     >
-                                        <s.icon size={45} round/>
+                                        <s.icon size={30} round/>
                                     </s.button>
                                 )
                             })}

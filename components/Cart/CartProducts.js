@@ -10,19 +10,19 @@ const CartProducts = ({product,states})=>{
     
                     <>
                         <div className='image_skeleton_aspect'>
-                            <Skeleton attributes={{
-                                height:'100%',
-                                width:'100%'
-                            }}/>
+                            <Skeleton 
+                                height={'100%'}
+                                width={'100%'}
+                            />
                         </div>
-                        <Skeleton attributes={{
-                            height:'0.7rem',
-                            width:'min(7rem,100%)'
-                        }}/>
-                        <Skeleton attributes={{
-                            height:'0.7rem',
-                            width:'50%'
-                        }}/>
+                        <Skeleton 
+                            height={'0.7rem'}
+                            width={'min(7rem,100%)'}
+                        />
+                        <Skeleton 
+                            height={'0.7rem'}
+                            width={'min(7rem,100%)'}
+                        />
                     </>
             </div>
         )

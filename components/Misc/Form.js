@@ -1,10 +1,10 @@
 import styles from '../../styles/form.module.css'
 
-const Form =({card,children})=>{
+const Form =({animated,title,children})=>{
     return (
-        <form className={card.animated?`${styles.wrapper} ${styles.pop}`:styles.wrapper}    >
+        <form className={animated?`${styles.wrapper} ${styles.pop}`:styles.wrapper}    >
             <h2 className={styles.form_header}>
-                {card.title}
+                {title}
             </h2>
             {children}
         </form>

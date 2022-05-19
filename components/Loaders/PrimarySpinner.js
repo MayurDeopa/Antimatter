@@ -1,10 +1,10 @@
 
 import styles from '../../styles/Spinner.module.css'
 
-const PrimarySpinner=({states,size})=>{
+const PrimarySpinner=({states,light,size})=>{
     switch(size){
         case 'm':
-            if(states?.light){
+            if(light){
                 return(
                     <svg className={styles.wrapper} viewBox="0 0 50 50">
                          <circle className={styles.light} cx="25" cy="25" r="20" fill="none" strokeWidth={3}></circle>
@@ -19,7 +19,7 @@ const PrimarySpinner=({states,size})=>{
                 )
             }
         case "l":
-            if(states?.light){
+            if(light){
                 return(
                     <svg className={styles.wrapper} viewBox="0 0 50 50">
                          <circle className={styles.light} cx="25" cy="25" r="20" fill="none" strokeWidth={4}></circle>
@@ -34,7 +34,7 @@ const PrimarySpinner=({states,size})=>{
                 )
             }
         default:
-            if(states?.light){
+            if(light){
                 return(
                     <svg className={styles.wrapper} viewBox="0 0 50 50">
                          <circle className={styles.light} cx="25" cy="25" r="20" fill="none" strokeWidth={2}></circle>

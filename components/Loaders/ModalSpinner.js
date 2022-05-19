@@ -7,10 +7,10 @@ import PrimaryLoader from './PrimarySpinner'
 const ModalSpinner =()=>{
     return (
         <Modal>
-            <Panel attributes={{
-                radius:'50%',
-                padding:'0.3rem'
-            }}>
+            <Panel 
+            radius={'50%'}
+            padding={'0.3rem'}
+            >
                 <PrimaryLoader states={{
                     light:false
                 }}

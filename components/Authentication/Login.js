@@ -65,14 +65,12 @@ const Login =()=>{
                 {authProviders.map((p,i)=>{
                     return (
                         <AwaitButton
-                            states={{
-                                awaitState:p.state,
-                                text:`Continue with ${p.name}`,
-                                action:()=>login(p),
-                                light:true,
-                                icon:p.icon
-                            }}
-                            key={i}
+                        awaitState={p.state}
+                        text={`Continue with ${p.name}`}
+                        action={()=>login(p)}
+                        light={true}
+                        icon={p.icon}
+                        key={i}
                         >
                         </AwaitButton>
                     )
