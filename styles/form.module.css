@@ -30,9 +30,7 @@
 }
 
 .section_label{
-    border: none;
     border: solid 1px var(--primary-theme-color);
-    transition: 0.2s ease-in-out;
 }
 
 
@@ -41,7 +39,12 @@
     border-color: #007FFF;
 }
 
-.disabled,.section_label{
+
+.section_label{
+    padding: 8px 3px;
+}
+
+.disabled{
     padding: 7px 2px;
 }
 z

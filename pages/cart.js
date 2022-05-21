@@ -24,16 +24,24 @@ const Cart =()=>{
     const {userState,cartState} = useContext(Store)
     const [user,setUser] = userState
     const [cart,setCart] = cartState
+    const [err,setErr] = useState()
     const {checkout,isSpinning} = useCart()
     useEffect(()=>{
-        const fetchCart = async()=>{
-            const res= await getCart(user._id)
-            setCart(res)
+        if(!user){
+            setErr('You need to login to you cart')
+            return
         }
-        if(user)fetchCart()
-    },[])
+        
+            const fetchCart = async()=>{
+                setErr()
+                const res= await getCart(user._id)
+                setCart(res)
+            }
+            fetchCart()
+        
+    },[user])
     
-    if(!user){
+    if(err){
         return (
             <>
                 <Head >
@@ -42,7 +50,7 @@ const Cart =()=>{
                 <PageWrapper>
                     <EmptyState>
                         <Form 
-                            title={"Authentication failed"}
+                            title={"No user found"}
                             animated={false}
                         >
                             <h3>You need to login to use cart</h3>
@@ -151,11 +159,9 @@ const Cart =()=>{
             <ErrorPopUp>
                 <h4>Something went wrong</h4>
                 <AwaitButton
-                    states={{
-                        text:"Retry",
-                        awaitState:"none",
-                        action:()=>router.reload()
-                    }}
+                    text={"Retry"}
+                    awaitState={"none"}
+                    action={()=>router.reload()}
                 />
             </ErrorPopUp>
             }

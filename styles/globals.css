@@ -32,6 +32,11 @@ a {
 
 }
 
+
+input:focus{
+  outline: none;
+}
+
 .link{
   color: brown;
   cursor: pointer;
@@ -161,7 +166,6 @@ a {
   border-radius: 2px;
   border: solid 1px #007FFF;
   cursor: pointer;
-  transition: 0.3s ease-in-out;
 }
 
 .save:hover{

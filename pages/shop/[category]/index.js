@@ -40,10 +40,8 @@ const Categories = ()=>{
                     <ErrorPopUp>
                         <h3>No products found</h3>
                         <LinkBtn
-                            link={{
-                                text:"Go back",
-                                url:"/shop"
-                            }}
+                            text={'Go back'}
+                            url={'/shop'}
                         />
                     </ErrorPopUp>
                 </PageWrapper>
