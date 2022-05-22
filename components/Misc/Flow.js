@@ -19,7 +19,7 @@ const Flow =({children,buttonValue,titles,breakpoints})=>{
         setPage(prev=>prev+1)
     },[page,lastStep,isLastStep])
 
-
+    const [loading,setLoading] = useState(false)
     const previousPage =useCallback((e)=>{
         e.preventDefault()
         setPage(prev=>prev-1)
@@ -54,9 +54,9 @@ const Flow =({children,buttonValue,titles,breakpoints})=>{
                     />
                     <AwaitButton
                          text={page!==numberOfPages?'Next':"Submit"}
-                         awaitState={'none'}
+                         awaitState={loading?"loading":'none'}
                          loadingText={"Saving"}
-                         action={isLastStep?()=>console.log(data):pageSubmit}
+                         action={isLastStep?()=>setLoading(true):pageSubmit}
                     />
                 </ButtonGroup>
 
