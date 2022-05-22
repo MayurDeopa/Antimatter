@@ -10,7 +10,7 @@ const Orders =()=>{
             buttonValue={'Submit'}
             titles={["Personal details","Shipping details"]}
             breakpoints={[3]}
-            children={{
+            components={{
                 Name:"",
                 Email:"",
                 Phone:"",

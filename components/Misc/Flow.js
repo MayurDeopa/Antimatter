@@ -8,8 +8,8 @@ import Modal from "./Modal";
 import OptInput from "./OptInput";
 
 
-const Flow =({children,buttonValue,titles,breakpoints})=>{
-    const [data,setData] = useState(children)
+const Flow =({components,buttonValue,titles,breakpoints})=>{
+    const [data,setData] = useState(components)
     const [page,setPage] = useState(0)
     const numberOfPages = breakpoints.length 
     const lastStep = numberOfPages
@@ -31,7 +31,7 @@ const Flow =({children,buttonValue,titles,breakpoints})=>{
                 title={titles[page]}
                 animated={true}
             >
-                {Object.keys(children).slice(breakpoints[page-1],breakpoints[page]).map((key,i)=>{
+                {Object.keys(components).slice(breakpoints[page-1],breakpoints[page]).map((key,i)=>{
                     return (
                         <FormSection key={i}>
                     <p>{key}</p>
