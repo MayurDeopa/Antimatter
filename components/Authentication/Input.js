@@ -6,6 +6,7 @@ const Input = ({value,state})=>{
     const {editState,form} = state
     const [details,setDetails] = form
     const [edit,setEdit] = editState
+    const [data,setData] = useState(value.value)
     return (
         <section className={styles.section}>
             <p className={styles.section_header}>
@@ -13,10 +14,10 @@ const Input = ({value,state})=>{
             </p>
             <input 
                 type='text' 
+                value={data}
                 className={edit?styles.section_label:styles.disabled} 
-                value={value?.value || ""}
                 disabled={edit?false:true}
-                onChange ={(e)=>setDetails({...details,[value]:e.target.value})}
+                onChange ={(e)=>setData(e.target.value)}
             />
             
         </section>

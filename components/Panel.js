@@ -4,10 +4,10 @@ const Panel =({children,height,width,padding,radius})=>{
     return (
         <div 
             style={{
-                height:height || 'auto',
-                width:width||"auto",
-                borderRadius:radius||'auto',
-                padding:padding || '0'
+                height:height,
+                width:width,
+                borderRadius:radius,
+                padding:padding
             }}
             className={styles.card}>
             {children}

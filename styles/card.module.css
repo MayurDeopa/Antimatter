@@ -9,9 +9,18 @@
     box-shadow: var(--primary-box-shadow);
 }
 
-.card2:hover{
+
+.card2{
     cursor: pointer;
-    opacity: 0.7;
+}
+
+.card2 img{
+    opacity: 0.8;
+    transition: 0.3s ease-in-out;
+}
+
+.card2:hover img{
+    opacity: 1;
 }
 .card2{
     transition: 0.2s ease-in-out;

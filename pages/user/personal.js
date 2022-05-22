@@ -72,12 +72,12 @@ const Personal =()=>{
                                 <h2>
                                     Personal Details
                                 </h2>
-                                <h3
+                                <p
                                     className="edit"
                                     onClick={()=>setEdit(!edit)}
                                 >
                                         {edit?"X":"Edit"}
-                                </h3>
+                                </p>
                             </div>
                             <>
                                 {

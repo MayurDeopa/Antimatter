@@ -1,12 +1,15 @@
+import styles2 from '../../styles/colors.module.css'
 import styles from '../../styles/form.module.css'
 
-const OptInput =({states})=>{
-    const {type,action} = states
+
+const OptInput =({type,action,array,value,title})=>{
+    let setData = action
     return(
         <input
             type={type}
-            onChange={(e)=>action(e.target.value)}
-            className={styles.section_label}
+            onChange={(e)=>setData({...array,[title]:e.target.value})}
+            className={`${styles.section_label}`}
+            value={value}
         />
     )
 }

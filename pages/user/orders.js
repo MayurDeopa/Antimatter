@@ -7,48 +7,17 @@ const Orders =()=>{
     return(
         <PageWrapper>
             <Flow
-            states={{
-                children:[
-                    {
-                        title:"Step 1",
-                        items:[
-                            {
-                                title:"Name"
-                            }
-                        ]
-                    },
-                    {
-                        title:"Step 2",
-                        items:[
-                            {
-                                title:"Name"
-                            }
-                        ]
-                    },
-                    {
-                        title:"Step 3",
-                        items:[
-                            {
-                                title:"Name"
-                            }
-                        ]
-                    },
-                    {
-                        title:"Step 4",
-                        items:[
-                            {
-                                title:"Name"
-                            }
-                            ,
-                            {
-                                title:"Name"
-                            },
-                            {
-                                title:"Name"
-                            }
-                        ]
-                    }
-                ]
+            buttonValue={'Submit'}
+            titles={["Personal details","Shipping details"]}
+            breakpoints={[3]}
+            children={{
+                Name:"",
+                Email:"",
+                Phone:"",
+                Pincode:"",
+                Address:"",
+                City:"",
+                State:"",
             }}
         >
 

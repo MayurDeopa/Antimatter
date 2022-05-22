@@ -31,6 +31,7 @@
 
 .section_label{
     border: solid 1px var(--primary-theme-color);
+    padding: 8px 3px;
 }
 
 
@@ -40,9 +41,7 @@
 }
 
 
-.section_label{
-    padding: 8px 3px;
-}
+
 
 .disabled{
     padding: 7px 2px;

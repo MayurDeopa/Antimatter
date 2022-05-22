@@ -19,7 +19,7 @@
 }
 
 .error_border{
-    border: solid 1px var(--error);
+    border: solid 1px var(--error) !important;
 }
 
 .info_background{
