@@ -2,7 +2,7 @@ import styles2 from '../../styles/colors.module.css'
 import styles from '../../styles/form.module.css'
 
 
-const OptInput =({type,action,array,value,title})=>{
+const OptInput =({type,action,array,value,title,label})=>{
     let setData = action
     return(
         <input
@@ -10,6 +10,8 @@ const OptInput =({type,action,array,value,title})=>{
             onChange={(e)=>setData({...array,[title]:e.target.value})}
             className={`${styles.section_label}`}
             value={value}
+            label={label}
+            required
         />
     )
 }

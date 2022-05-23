@@ -62,8 +62,8 @@ z
 
 
 .wrapper{
-    width: 30rem;
-    max-width: 100%;
+    width: 100%;
+    max-width: 30rem;
     padding: 1rem;
     display: flex;
     flex-direction: column;

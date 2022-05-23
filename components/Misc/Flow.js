@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useCallback } from "react";
+import { emailValidator } from "../../lib/drawer/validators";
 import AwaitButton from "../Loaders/AwaitButton";
 import ButtonGroup from "./ButtonGroup";
 import Form from "./Form";
@@ -8,15 +9,18 @@ import Modal from "./Modal";
 import OptInput from "./OptInput";
 
 
-const Flow =({components,buttonValue,titles,breakpoints})=>{
+const Flow =({components,buttonValue,titles,breakpoints,state})=>{
     const [data,setData] = useState(components)
     const [page,setPage] = useState(0)
+    const [pageState,setPageState] = useState(state)
     const numberOfPages = breakpoints.length 
     const lastStep = numberOfPages
     const isLastStep = lastStep===page 
     
     const pageSubmit =useCallback(()=>{
+
         setPage(prev=>prev+1)
+        console.log(data)
     },[page,lastStep,isLastStep])
 
     const [loading,setLoading] = useState(false)
@@ -25,31 +29,33 @@ const Flow =({components,buttonValue,titles,breakpoints})=>{
         setPage(prev=>prev-1)
     },[page,isLastStep])
 
+    
+
     return(
         <Modal>
             <Form
                 title={titles[page]}
                 animated={true}
             >
-                {Object.keys(components).slice(breakpoints[page-1],breakpoints[page]).map((key,i)=>{
+                {pageState.slice(breakpoints[page-1],breakpoints[page]).map((s,i)=>{
                     return (
                         <FormSection key={i}>
-                    <p>{key}</p>
-                    <OptInput
-                        type={'text'}
-                        action={setData}
-                        array={data}
-                        title={key}
-                        value={data[key]}
-                    />
-                </FormSection>
+                            <p>{s.title}</p>
+                            <OptInput
+                                type={s.type}
+                                action={setData}
+                                array={data}
+                                title={s.state}
+                                value={data[s.state]}
+                            />
+                        </FormSection>
                     )
                 })}
                 <ButtonGroup>
                     <AwaitButton
                         text={"Previous"}
                         secondary={true}
-                        awaitState={page===0?"disabled":"none"}
+                        awaitState={loading?"disabled":page===0?"disabled":"none"}
                         action={previousPage}
                     />
                     <AwaitButton

@@ -11,14 +11,58 @@ const Orders =()=>{
             titles={["Personal details","Shipping details"]}
             breakpoints={[3]}
             components={{
-                Name:"",
-                Email:"",
-                Phone:"",
-                Pincode:"",
-                Address:"",
-                City:"",
-                State:"",
+                name:"",
+                email:"",
+                phone:"",
+                pincode:"",
+                address:"",
+                city:"",
+                state:"",
             }}
+            state={[
+                {
+                    title:'Name',
+                    state:'name',
+                    isValid:true,
+                    type:'text'
+                },
+                {
+                    title:'Email',
+                    state:'email',
+                    isValid:true,
+                    type:'email'
+                },
+                {
+                    title:'Phone',
+                    state:'phone',
+                    isValid:true,
+                    type:'tel'
+                },
+                {
+                    title:'Pincode',
+                    state:'pincode',
+                    isValid:true,
+                    type:'text'
+                },
+                {
+                    title:'Address',
+                    state:'address',
+                    isValid:true,
+                    type:'text'
+                },
+                {
+                    title:'City',
+                    state:'city',
+                    isValid:true,
+                    type:'text'
+                },
+                {
+                    title:'State',
+                    state:'state',
+                    isValid:true,
+                    type:'text'
+                }
+            ]}
         >
 
         </Flow>
