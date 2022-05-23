@@ -59,11 +59,11 @@ const Product =()=>{
                             <article className={styles.details}>
                                 <Skeleton
                                     height={'1rem'}
-                                    width={'17rem'}
+                                    width={'6rem'}
                                 />
                                 <Skeleton
                                     height={'1rem'}
-                                    width={'15rem'}
+                                    width={'7rem'}
                                 />
                                 <Skeleton
                                     height={'1rem'}

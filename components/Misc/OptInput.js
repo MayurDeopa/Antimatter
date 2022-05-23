@@ -2,7 +2,7 @@ import styles2 from '../../styles/colors.module.css'
 import styles from '../../styles/form.module.css'
 
 
-const OptInput =({type,action,array,value,title,label})=>{
+const OptInput =({type,action,array,value,title,label,disabled})=>{
     let setData = action
     return(
         <input
@@ -11,7 +11,8 @@ const OptInput =({type,action,array,value,title,label})=>{
             className={`${styles.section_label}`}
             value={value}
             label={label}
-            required
+            disabled={disabled}
+            
         />
     )
 }

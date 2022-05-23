@@ -40,7 +40,9 @@
     border-color: #007FFF;
 }
 
-
+.section_label:disabled{
+    cursor: not-allowed;
+}
 
 
 .disabled{

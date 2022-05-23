@@ -20,7 +20,6 @@ const Flow =({components,buttonValue,titles,breakpoints,state})=>{
     const pageSubmit =useCallback(()=>{
 
         setPage(prev=>prev+1)
-        console.log(data)
     },[page,lastStep,isLastStep])
 
     const [loading,setLoading] = useState(false)
@@ -47,6 +46,7 @@ const Flow =({components,buttonValue,titles,breakpoints,state})=>{
                                 array={data}
                                 title={s.state}
                                 value={data[s.state]}
+                                disabled={loading}
                             />
                         </FormSection>
                     )
