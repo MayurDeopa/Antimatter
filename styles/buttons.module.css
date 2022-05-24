@@ -23,7 +23,7 @@
       border: solid var(--primary-theme-color) 2px;    }
 
   .primary_button:hover{
-    background-color: var(--secondary-theme-color);
+    background-color: transparent ;
     color: var(--primary-theme-color);
 
   }

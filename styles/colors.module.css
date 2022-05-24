@@ -35,3 +35,12 @@
 }
 
 
+.blue{
+    background-color: rgb(29, 155, 240) !important;
+    border:solid 1px rgb(29, 155, 240) !important;
+}
+
+.blue:hover{
+    color:rgb(29, 155, 240) !important ;
+    background-color: transparent !important;
+}

@@ -27,21 +27,17 @@ const Cart =()=>{
     const [err,setErr] = useState()
     const {checkout,isSpinning} = useCart()
     useEffect(()=>{
-        if(!user){
-            setErr('You need to login to you cart')
-            return
-        }
         
             const fetchCart = async()=>{
                 setErr()
                 const res= await getCart(user._id)
                 setCart(res)
             }
-            fetchCart()
+            if(user)fetchCart()
         
     },[user])
     
-    if(err){
+    if(!user){
         return (
             <>
                 <Head >
