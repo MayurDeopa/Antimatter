@@ -110,3 +110,16 @@
 .dropdown_children p:hover{
   background-color:rgb(230, 230, 230);
 }
+
+.icon_btn{
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  padding: 4px;
+  border:solid 1px var(--primary-theme-color);
+  cursor: pointer;
+}
+
+.icon_btn:hover{
+  border-color: blue;
+}

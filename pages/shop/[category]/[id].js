@@ -25,6 +25,8 @@ import  Toast  from "../../../components/Misc/Toast";
 import Message from '../../../components/basic/Message'
 import Breadcrumb from "../../../components/Navigations/Breadcrumb";
 import Panel from "../../../components/Panel";
+import IconBtn from "../../../components/Misc/IconBtn";
+import ButtonGroup from '../../../components/Misc/ButtonGroup'
 
 
 const Product =()=>{
@@ -156,6 +158,35 @@ const Product =()=>{
                                 }}>
                                     <h3>Add To Cart</h3>    
                             </button>*/}
+                            <legend style={{
+                                display:'flex',
+                                flexDirection:'column',
+                                gap:'5px'
+                            }}>
+                                    <span>
+                                        Select size
+                                    </span>
+                                    <ButtonGroup>
+                                        <IconBtn
+                                            height={'auto'}
+                                            width={'3rem'}
+                                        >
+                                            <p>S</p>
+                                        </IconBtn>
+                                        <IconBtn
+                                            height={'auto'}
+                                            width={'3rem'}
+                                        >
+                                            <p>M</p>
+                                        </IconBtn>
+                                        <IconBtn
+                                            height={'auto'}
+                                            width={'3rem'}
+                                        >
+                                            <p>L</p>
+                                        </IconBtn>
+                                    </ButtonGroup>
+                                </legend>
                             <div className={styles.buttons_wrapper}>
                             {
                                 user
