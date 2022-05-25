@@ -10,6 +10,7 @@ const ModalSpinner =()=>{
             <Panel 
             radius={'50%'}
             padding={'0.3rem'}
+            shadow={'var(--primary-box-shadow)'}
             >
                 <PrimaryLoader states={{
                     light:false

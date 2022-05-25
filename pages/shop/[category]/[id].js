@@ -24,6 +24,7 @@ import useModal from "../../../lib/drawer/customhooks/useModal";
 import  Toast  from "../../../components/Misc/Toast";
 import Message from '../../../components/basic/Message'
 import Breadcrumb from "../../../components/Navigations/Breadcrumb";
+import Panel from "../../../components/Panel";
 
 
 const Product =()=>{
@@ -31,6 +32,7 @@ const Product =()=>{
     const {userState} = useContext(Store)
     const [user,setUser] = userState
     const router = useRouter()
+    const category = router.query.category
     const [isLoading,setIsLoading] = useState(true)
     const {isSpinning,fetchCart,getProductData,err,data,cartMessage} = useCart()
     useEffect(()=>{
@@ -50,12 +52,15 @@ const Product =()=>{
                     <title>{"Loading.."}</title>
                 </Head>
                 <PageWrapper>
-                    <Breadcrumb>
-                        <Skeleton 
-                            height={'1.8rem'}
+                    <Panel
+                        height={'auto'}
+                        width={'min(100%,84rem)'}
+                    >
+                        <Skeleton
+                            height={'1.4rem'}
                             width={'9rem'}
                         />
-                    </Breadcrumb>
+                    </Panel>
                         <div className={styles.wrapper}>
                             <div className={"image_skeleton_aspect"}>
                                 <Skeleton
@@ -96,10 +101,10 @@ const Product =()=>{
         return(
             <ErrorPopUp>
                 <h3>{err}</h3>
-                <LinkBtn link={{
-                    url:'/shop',
-                    text:"Go back"
-                }}/>
+                <LinkBtn 
+                    url={'/shop'}
+                    text={"Go back"}
+                />
             </ErrorPopUp>
         )
     }
@@ -110,18 +115,22 @@ const Product =()=>{
                     <title>{data.name}</title>
                 </Head>
                 <PageWrapper>
-                    <Breadcrumb>
-                        <div>
-                            Home
-                        </div>
-                        /
-                        <div>
-                            Shop
-                        </div>/
-                        <div>{router.query.category}</div>
-                        /
-                        <div>{data.name}</div>
-                    </Breadcrumb>
+                    <Breadcrumb
+                        paths={[
+                            {
+                                title:'Shop',
+                                path:'/shop'
+                            },
+                            {
+                                title:category,
+                                path:`/shop/${category}`
+                            },
+                            {
+                                title:data.name,
+                                path:`/shop/${category}/${router.query.id}`
+                            }
+                        ]}
+                    />
                         <div className={styles.wrapper}>
                             <div className={'image_skeleton_aspect'}>
                                 <Image src={data.assets[0].url} layout='intrinsic' height={'600'} width={'600'}/>

@@ -12,6 +12,7 @@ import EmptyState from "../../components/Misc/EmptyState";
 import Breadcrumb from "../../components/Navigations/Breadcrumb";
 
 const Shop =()=>{
+
     const {data,isLoading,error} = useQuery('getProductCategories',getProductCategories)
     if(error){
         return (
@@ -50,15 +51,14 @@ const Shop =()=>{
                             </EmptyState>
                             :
                             <>
-                                <Breadcrumb>
-                                    <div>
-                                        Home
-                                    </div>
-                                    /
-                                    <div>
-                                        Shop
-                                    </div>
-                                </Breadcrumb>
+                                <Breadcrumb
+                                    paths={[
+                                        {
+                                            title:'Home',
+                                            path:'/'
+                                        }
+                                    ]}
+                                />
                                 <Container>
                                     {
                                         data.data.map((c,i)=>{

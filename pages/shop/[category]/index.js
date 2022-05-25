@@ -22,6 +22,7 @@ const Categories = ()=>{
     const [err,setErr] = useState()
     const [query,setQuery] = useState()
     const router = useRouter()
+    const category = router.query.category
     useEffect(async()=>{
         if(!router.isReady) return;
         const fetchSome =async()=>{
@@ -65,19 +66,18 @@ const Categories = ()=>{
                         query
                         ?
                         <>
-                            <Breadcrumb>
-                                <div>
-                                    Home
-                                </div>
-                                /
-                                <div>
-                                    Shop
-                                </div>
-                                /
-                                <div>
-                                    {router.query.category}
-                                </div>
-                            </Breadcrumb>
+                            <Breadcrumb
+                                paths={[
+                                    {
+                                        title:'Shop',
+                                        path:'/shop'
+                                    },
+                                    {
+                                        title:category,
+                                        path:`/shop/${category}`
+                                    }
+                                ]}
+                            />
                             <Container>
                                 {
                                     query.map((p)=>{

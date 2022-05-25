@@ -1,10 +1,23 @@
 import styles from '../../styles/Header.module.css'
 
+import Link from 'next/link'
 
-const Breadcrumb =({children})=>{
+
+const Breadcrumb =({paths})=>{
     return(
         <div className={styles.bread}>
-            {children}
+            {paths.map((p,i)=>{
+                return(
+                    <>
+                        <Link href={p.path}>
+                            <div>
+                                {p.title}
+                            </div>
+                        </Link>
+                        /
+                    </>
+                )
+            })}
         </div>
     )
 }
