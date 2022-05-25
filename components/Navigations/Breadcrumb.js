@@ -10,7 +10,9 @@ const Breadcrumb =({paths})=>{
                 if(paths.length===1){
                     return(
                         <>
-                            <Link href={p.path}>
+                            <Link
+                                key={i} 
+                                href={p.path}>
                                 <div>
                                     {p.title}
                                 </div>
@@ -23,7 +25,7 @@ const Breadcrumb =({paths})=>{
                     if(i===paths.length - 1){
                         return(
                             <>
-                                <div>
+                                <div key={i} >
                                     {p.title}
                                 </div>
                                 /
@@ -33,7 +35,7 @@ const Breadcrumb =({paths})=>{
                 }
                 return(
                     <>
-                            <Link href={p.path}>
+                            <Link key={i}  href={p.path}>
                                 <div>
                                     {p.title}
                                 </div>

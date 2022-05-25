@@ -200,6 +200,7 @@ const Product =()=>{
                                         {sizes.map((s,i)=>{
                                             return(
                                                 <IconBtn
+                                                    key={i}
                                                     height={'auto'}
                                                     width={'3rem'}
                                                 >
