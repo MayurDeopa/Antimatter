@@ -23,6 +23,7 @@ import useModal from "../../../lib/drawer/customhooks/useModal";
 
 import  Toast  from "../../../components/Misc/Toast";
 import Message from '../../../components/basic/Message'
+import Breadcrumb from "../../../components/Navigations/Breadcrumb";
 
 
 const Product =()=>{
@@ -49,6 +50,12 @@ const Product =()=>{
                     <title>{"Loading.."}</title>
                 </Head>
                 <PageWrapper>
+                    <Breadcrumb>
+                        <Skeleton 
+                            height={'1.8rem'}
+                            width={'9rem'}
+                        />
+                    </Breadcrumb>
                         <div className={styles.wrapper}>
                             <div className={"image_skeleton_aspect"}>
                                 <Skeleton
@@ -103,6 +110,18 @@ const Product =()=>{
                     <title>{data.name}</title>
                 </Head>
                 <PageWrapper>
+                    <Breadcrumb>
+                        <div>
+                            Home
+                        </div>
+                        /
+                        <div>
+                            Shop
+                        </div>/
+                        <div>{router.query.category}</div>
+                        /
+                        <div>{data.name}</div>
+                    </Breadcrumb>
                         <div className={styles.wrapper}>
                             <div className={'image_skeleton_aspect'}>
                                 <Image src={data.assets[0].url} layout='intrinsic' height={'600'} width={'600'}/>

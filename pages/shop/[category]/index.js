@@ -2,16 +2,21 @@ import PageWrapper from "../../../components/PageWrapper"
 import Head from "next/head"
 import Card from "../../../components/Card"
 import Container from "../../../components/Container"
-import { useRouter } from "next/router"
-import { useQuery } from "react-query"
-import { getProductCategory } from "../../../services/api/products"
-import { useState } from "react"
-import { useEffect } from "react"
 import CardSkeleton from '../../../components/Loaders/CardSkeleton'
 import ErrorPopUp from "../../../components/Misc/ErrorPopUp"
 import LinkBtn from "../../../components/Misc/LinkBtn"
 import EmptyState from "../../../components/Misc/EmptyState"
 import PrimarySpinner from "../../../components/Loaders/PrimarySpinner"
+
+import { useRouter } from "next/router"
+import { useQuery } from "react-query"
+import { getProductCategory } from "../../../services/api/products"
+import { useState } from "react"
+import { useEffect } from "react"
+import Breadcrumb from "../../../components/Navigations/Breadcrumb"
+
+
+
 
 const Categories = ()=>{
     const [err,setErr] = useState()
@@ -59,14 +64,29 @@ const Categories = ()=>{
                     {
                         query
                         ?
-                        <Container>
-                            {
-                                query.map((p)=>{
-                                    return <Card details={p} key={p.id} link={`/shop/${router.query.category}/${p.id}`}/>
-                                })
-                                
-                            }
-                        </Container>  
+                        <>
+                            <Breadcrumb>
+                                <div>
+                                    Home
+                                </div>
+                                /
+                                <div>
+                                    Shop
+                                </div>
+                                /
+                                <div>
+                                    {router.query.category}
+                                </div>
+                            </Breadcrumb>
+                            <Container>
+                                {
+                                    query.map((p)=>{
+                                        return <Card details={p} key={p.id} link={`/shop/${router.query.category}/${p.id}`}/>
+                                    })
+                                    
+                                }
+                            </Container> 
+                        </> 
                         :
                         <EmptyState>
                             <PrimarySpinner

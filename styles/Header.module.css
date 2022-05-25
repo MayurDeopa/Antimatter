@@ -141,6 +141,27 @@
     cursor: pointer;
 }
 
+
+.bread{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    max-width: 85rem;
+    height: 2.4rem;
+    padding: 5px;
+}
+
+.bread div{
+    margin-left: 4px;
+    margin-right: 4px;
+    cursor: pointer;
+}
+
+.bread div:hover{
+    color: blue;
+    text-decoration: underline;
+}
+
 .footer{
     position: absolute;
     left: 0;

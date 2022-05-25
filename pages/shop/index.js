@@ -9,6 +9,7 @@ import LinkBtn from "../../components/Misc/LinkBtn";
 import Card from "../../components/Card";
 import PrimarySpinner from "../../components/Loaders/PrimarySpinner";
 import EmptyState from "../../components/Misc/EmptyState";
+import Breadcrumb from "../../components/Navigations/Breadcrumb";
 
 const Shop =()=>{
     const {data,isLoading,error} = useQuery('getProductCategories',getProductCategories)
@@ -48,19 +49,30 @@ const Shop =()=>{
                                 />
                             </EmptyState>
                             :
-                            <Container>
-                                {
-                                    data.data.map((c,i)=>{
-                                        return(
-                                            <Card 
-                                                details={c}
-                                                link={`/shop/${c.slug}`}
-                                                key={i}
-                                            />
-                                        )
-                                    })
-                                }   
-                            </Container>
+                            <>
+                                <Breadcrumb>
+                                    <div>
+                                        Home
+                                    </div>
+                                    /
+                                    <div>
+                                        Shop
+                                    </div>
+                                </Breadcrumb>
+                                <Container>
+                                    {
+                                        data.data.map((c,i)=>{
+                                            return(
+                                                <Card 
+                                                    details={c}
+                                                    link={`/shop/${c.slug}`}
+                                                    key={i}
+                                                />
+                                            )
+                                        })
+                                    }   
+                                </Container>
+                            </>
                         }    
                     </PageWrapper>
             </>
