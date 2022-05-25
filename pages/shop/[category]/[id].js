@@ -1,12 +1,9 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/dist/client/router";
 import { useContext } from "react";
-import { useQuery } from "react-query";
 import useCart from "../../../lib/drawer/customhooks/useCart";
 
-import {TwitterIcon,TwitterShareButton,InstapaperIcon,InstapaperShareButton} from 'next-share'
 import styles from '../../../styles/Product.module.css'
-import { getProductById } from "../../../services/api/products";
 import { shareables } from "../../../lib/drawer/shareables";
 import { Store } from "../../../lib/drawer/context/StoreContext";
 
@@ -27,6 +24,25 @@ import Breadcrumb from "../../../components/Navigations/Breadcrumb";
 import Panel from "../../../components/Panel";
 import IconBtn from "../../../components/Misc/IconBtn";
 import ButtonGroup from '../../../components/Misc/ButtonGroup'
+
+const sizes =[
+    {
+        title:'small',
+        icon:'S'
+    },
+    {
+        title:'medium',
+        icon:'M'
+    },
+    {
+        title:'large',
+        icon:'L'
+    },
+    {
+        title:'extra large',
+        icon:'XL'
+    },
+]
 
 
 const Product =()=>{
@@ -56,7 +72,7 @@ const Product =()=>{
                 <PageWrapper>
                     <Panel
                         height={'auto'}
-                        width={'min(100%,84rem)'}
+                        width={'100%'}
                     >
                         <Skeleton
                             height={'1.4rem'}
@@ -83,15 +99,29 @@ const Product =()=>{
                                     height={'1rem'}
                                     width={'20rem'}
                                 />
+                                <Skeleton
+                                    height={'1rem'}
+                                    width={'6rem'}
+                                />
+                                <ButtonGroup>
+                                    <Skeleton
+                                            height={'2rem'}
+                                            width={'3rem'}
+                                        />
+                                        <Skeleton
+                                            height={'2rem'}
+                                            width={'3rem'}
+                                        />
+                                </ButtonGroup>
                                 <div className={styles.buttons_wrapper}>
-                                <Skeleton
-                                    height={'2.7rem'}
-                                    width={'min(100%,30rem)'}
-                                />
-                                <Skeleton
-                                    height={'2.7rem'}
-                                    width={'min(100%,30rem)'}
-                                />
+                                    <Skeleton
+                                        height={'2.7rem'}
+                                        width={'min(100%,30rem)'}
+                                    />
+                                    <Skeleton
+                                        height={'2.7rem'}
+                                        width={'min(100%,30rem)'}
+                                    />
                                 </div>
                             </article>
                         </div>    
@@ -167,24 +197,16 @@ const Product =()=>{
                                         Select size
                                     </span>
                                     <ButtonGroup>
-                                        <IconBtn
-                                            height={'auto'}
-                                            width={'3rem'}
-                                        >
-                                            <p>S</p>
-                                        </IconBtn>
-                                        <IconBtn
-                                            height={'auto'}
-                                            width={'3rem'}
-                                        >
-                                            <p>M</p>
-                                        </IconBtn>
-                                        <IconBtn
-                                            height={'auto'}
-                                            width={'3rem'}
-                                        >
-                                            <p>L</p>
-                                        </IconBtn>
+                                        {sizes.map((s,i)=>{
+                                            return(
+                                                <IconBtn
+                                                    height={'auto'}
+                                                    width={'3rem'}
+                                                >
+                                                    <p>{s.icon}</p>
+                                                </IconBtn>
+                                            )
+                                        })}
                                     </ButtonGroup>
                                 </legend>
                             <div className={styles.buttons_wrapper}>

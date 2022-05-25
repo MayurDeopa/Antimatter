@@ -146,7 +146,6 @@
     display: flex;
     flex-direction: row;
     width: 100%;
-    max-width: 85rem;
     height: 2.4rem;
     padding: 5px;
 }
@@ -161,6 +160,8 @@
     color: blue;
     text-decoration: underline;
 }
+
+
 
 .footer{
     position: absolute;

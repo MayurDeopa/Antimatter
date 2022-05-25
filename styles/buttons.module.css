@@ -116,8 +116,12 @@
   place-items: center;
   border-radius: 8px;
   padding: 4px;
-  border:solid 1px var(--primary-theme-color);
+  border:solid 2px var(--primary-theme-color);
   cursor: pointer;
+}
+
+.icon_btn_active{
+  border-color: blue;
 }
 
 .icon_btn:hover{
