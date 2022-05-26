@@ -115,11 +115,11 @@ const Product =()=>{
                                 </ButtonGroup>
                                 <div className={styles.buttons_wrapper}>
                                     <Skeleton
-                                        height={'2.7rem'}
+                                        height={'2.4rem'}
                                         width={'min(100%,30rem)'}
                                     />
                                     <Skeleton
-                                        height={'2.7rem'}
+                                        height={'2.4rem'}
                                         width={'min(100%,30rem)'}
                                     />
                                 </div>

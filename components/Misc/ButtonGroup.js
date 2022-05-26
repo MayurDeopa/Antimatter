@@ -1,8 +1,12 @@
 import styles from '../../styles/misc.module.css'
 
-const ButtonGroup =({children})=>{
+const ButtonGroup =({children,justify})=>{
     return(
-        <div className={styles.button_group}>
+        <div
+            style={{
+                justifyContent:justify
+            }} 
+            className={styles.button_group}>
             {children}
         </div>
     )

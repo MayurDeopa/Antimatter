@@ -51,7 +51,8 @@ const Flow =({components,buttonValue,titles,breakpoints,state})=>{
                         </FormSection>
                     )
                 })}
-                <ButtonGroup>
+                <ButtonGroup
+                >
                     <AwaitButton
                         text={"Previous"}
                         secondary={true}
