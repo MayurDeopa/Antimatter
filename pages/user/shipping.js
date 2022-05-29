@@ -9,7 +9,7 @@ import {useRouter} from 'next/router'
 
 
 import DashBoard from "../../components/Authentication/DashBoard"
-import AwaitButton from '../../components/Loaders/AwaitButton'
+import SecondaryButton from '../../components/Loaders/SecondaryButton'
 import withAuth from "../../components/Authentication/withAuth";
 import ErrorPopUp from '../../components/Misc/ErrorPopUp'
 import Input from "../../components/Authentication/Input";
@@ -35,11 +35,9 @@ const Shipping =()=>{
         return(
          <ErrorPopUp>
              <h3>{err}</h3>
-             <AwaitButton
-                 states={{
-                     text:"Try again",
-                     action:()=>router.reload()
-                 }}
+             <SecondaryButton
+                text={"Try again"}
+                action={()=>router.reload()}
              />
          </ErrorPopUp>
         )

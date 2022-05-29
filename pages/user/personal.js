@@ -11,7 +11,7 @@ import Head from 'next/head'
 import Input from '../../components/Authentication/Input';
 import DashBoard from "../../components/Authentication/DashBoard"
 import withAuth from "../../components/Authentication/withAuth";
-import AwaitButton from "../../components/Loaders/AwaitButton";
+import SecondaryButton from "../../components/Loaders/SecondaryButton";
 import ErrorPopUp from "../../components/Misc/ErrorPopUp";
 import PrimarySpinner from '../../components/Loaders/PrimarySpinner';
 import EmptyState from '../../components/Misc/EmptyState';
@@ -35,11 +35,9 @@ const Personal =()=>{
         return(
          <ErrorPopUp>
              <h3>{err}</h3>
-             <AwaitButton
-                 states={{
-                     text:"Try again",
-                     action:()=>router.reload()
-                 }}
+             <SecondaryButton
+                text={"Try again"}
+                action={()=>router.reload()}
              />
          </ErrorPopUp>
         )
