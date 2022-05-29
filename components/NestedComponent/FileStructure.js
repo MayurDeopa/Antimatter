@@ -4,11 +4,11 @@ import Link from 'next/link'
 
 import styles from '../../styles/Header.module.css'
 
-const FileStructure =({children,title})=>{
+const FileStructure =({items,title})=>{
     return(
         <span className={styles.drawer_groups}>
             <h4>{title}</h4>    
-            {children.map((c,i)=>{
+            {items.map((c,i)=>{
                 return (
                     <Link 
                         href={c.link}

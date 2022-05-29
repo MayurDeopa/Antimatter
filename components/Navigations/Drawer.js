@@ -12,15 +12,15 @@ const Drawer =({state})=>{
                 <div className={styles.drawer}>
                     <FileStructure
                         title={"Shop"}
-                        children={shop}
+                        items={shop}
                     />
                     <FileStructure
                         title={'Company'}
-                        children={company}
+                        items={company}
                     />
                     <FileStructure
                         title={'User'}
-                        children={user}
+                        items={user}
                     />
                 </div>             
             </nav>

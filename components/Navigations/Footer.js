@@ -7,11 +7,11 @@ const Footer =()=>{
         <footer className={styles.footer}>
             <FileStructure
                 title={"Company"}
-                children={footer}
+                items={footer}
             />
             <FileStructure
                 title={"Company"}
-                children={footer}
+                items={footer}
             />
         </footer>
     )
