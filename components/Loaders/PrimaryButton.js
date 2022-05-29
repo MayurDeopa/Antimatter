@@ -2,7 +2,7 @@ import PrimarySpinner from "./PrimarySpinner"
 import styles from '../../styles/buttons.module.css'
 
 
-const AwaitButton =({awaitState,text,action,secondary,loadingText,icon,children,cssClasses,width})=>{
+const Button =({awaitState,text,action,loadingText,icon,children,cssClasses,width})=>{
     switch(awaitState){
         case "loading":
                 return (
@@ -10,7 +10,7 @@ const AwaitButton =({awaitState,text,action,secondary,loadingText,icon,children,
                         style={{
                             width:width
                         }}
-                        className={styles.await_button}
+                        className={styles.primary_await}
                         
                         >
                         <h4>
@@ -29,7 +29,7 @@ const AwaitButton =({awaitState,text,action,secondary,loadingText,icon,children,
                         style={{
                             width:width
                         }}
-                        className={styles.disabled}>
+                        className={styles.primary_await}>
                         <h4>
                             {text}
                         </h4>
@@ -43,7 +43,7 @@ const AwaitButton =({awaitState,text,action,secondary,loadingText,icon,children,
                     style={{
                         width:width
                     }}
-                    className={!secondary?`${styles.primary_button} ${cssClasses}`:styles.secondary_button}
+                    className={`${styles.primary_button} ${cssClasses}`}
                     onClick={action}
                 >
                     <h4>
@@ -58,4 +58,4 @@ const AwaitButton =({awaitState,text,action,secondary,loadingText,icon,children,
 
     
 
-export default AwaitButton;
+export default Button;

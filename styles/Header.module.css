@@ -163,27 +163,18 @@
 
 
 
-.footer{
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    min-height: 4rem;
-    background-color: var(--primary-theme-color);
-    color: var(--secondary-theme-color);
-}
 
 .footer{
     position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    width: 100%;
     min-height: 3rem;
+    padding: 5px;
     display: flex;
     align-items: center;
     justify-content: space-around;
     background-color: var(--primary-theme-color);
     color: var(--secondary-theme-color);
+    box-shadow: var(--primary-box-shadow);
 }
 
 

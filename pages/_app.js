@@ -14,8 +14,8 @@ import FormSection from '../components/Misc/FormSection'
 import PrimarySpinner from '../components/Loaders/PrimarySpinner'
 import Skeleton from '../components/Loaders/Skeleton'
 import ButtonGroup from '../components/Misc/ButtonGroup'
-import AwaitButton from '../components/Loaders/AwaitButton'
 import Head from 'next/head'
+import Footer from '../components/Navigations/Footer'
  
 function MyApp({ Component, pageProps }) {
   const queryClient = new QueryClient()
@@ -72,6 +72,7 @@ function MyApp({ Component, pageProps }) {
             color='var(--secondary-theme-color)'
           />
           <Component {...pageProps}/>
+          <Footer/>
         </>
       }
       {

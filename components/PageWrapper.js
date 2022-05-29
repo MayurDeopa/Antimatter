@@ -19,6 +19,7 @@ const PageWrapper =({children,hideNavigation})=>{
             <Drawer state={{
                 drawerState:[drawer,setDrawer]
             }}/>
+            
                 </>
             }
             {children}

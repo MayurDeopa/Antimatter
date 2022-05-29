@@ -7,8 +7,9 @@
     height: 35rem;
     padding: 1rem;
     gap: 1rem;
+    color: var(--primary-theme-color);
     background-color: var(--secondary-theme-color);
-    box-shadow: var(--primary-box-shadow);
+    box-shadow: var(--secondary-box-shadow);
 }
 
 .card_header{

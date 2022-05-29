@@ -6,8 +6,8 @@ import { useContext } from 'react';
 import  { Store } from '../../lib/drawer/context/StoreContext';
 import { decodeJwt } from '../../lib/drawer/decode';
 import { useState } from 'react';
-import ErrorPopUp from '../Misc/ErrorPopUp';
-import AwaitButton from '../Loaders/AwaitButton'
+import SecondaryButton from '../Loaders/SecondaryButton'
+import PrimaryButton from '../Loaders/PrimaryButton'
 import { useRouter } from 'next/router';
 import { providers } from '../../lib/drawer/AuthProvider';
 import Toast from '../Misc/Toast';
@@ -63,8 +63,21 @@ const Login =()=>{
             </div>
             <div className={styles.card_input_wrapper}>
                 {authProviders.map((p,i)=>{
+                    if(p.name==='Google'){
+                        return(
+                            <SecondaryButton
+                                awaitState={p.state}
+                                text={`Continue with ${p.name}`}
+                                action={()=>login(p)}
+                                light={true}
+                                icon={p.icon}
+                                key={i}
+                                cssClasses={p.cssClass}
+                            />
+                        )
+                    }
                     return (
-                        <AwaitButton
+                        <PrimaryButton
                             awaitState={p.state}
                             text={`Continue with ${p.name}`}
                             action={()=>login(p)}
@@ -73,7 +86,7 @@ const Login =()=>{
                             key={i}
                             cssClasses={p.cssClass}
                         >
-                        </AwaitButton>
+                        </PrimaryButton>
                     )
                 })}
             </div>

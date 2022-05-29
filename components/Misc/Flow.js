@@ -1,7 +1,12 @@
 import { useState } from "react";
 import { useCallback } from "react";
+
+
 import { emailValidator } from "../../lib/drawer/validators";
-import AwaitButton from "../Loaders/AwaitButton";
+
+
+import PrimaryButton from "../Loaders/PrimaryButton";
+import SecondaryButton from '../Loaders/SecondaryButton'
 import ButtonGroup from "./ButtonGroup";
 import Form from "./Form";
 import FormSection from "./FormSection";
@@ -53,13 +58,12 @@ const Flow =({components,buttonValue,titles,breakpoints,state})=>{
                 })}
                 <ButtonGroup
                 >
-                    <AwaitButton
+                    <SecondaryButton
                         text={"Previous"}
-                        secondary={true}
                         awaitState={loading?"disabled":page===0?"disabled":"none"}
                         action={previousPage}
                     />
-                    <AwaitButton
+                    <PrimaryButton
                          text={page!==numberOfPages?'Next':"Submit"}
                          awaitState={loading?"loading":'none'}
                          loadingText={"Saving"}

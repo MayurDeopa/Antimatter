@@ -11,22 +11,16 @@ const Drawer =({state})=>{
             <nav className={isHidden?`${styles.drawer_wrapper} ${styles.drawer_hidden}`:styles.drawer_wrapper}>
                 <div className={styles.drawer}>
                     <FileStructure
-                        states={{
-                            title:"Shop",
-                            children:shop
-                        }}
+                        title={"Shop"}
+                        children={shop}
                     />
                     <FileStructure
-                        states={{
-                            title:'Company',
-                            children:company
-                        }}
+                        title={'Company'}
+                        children={company}
                     />
                     <FileStructure
-                        states={{
-                            title:'User',
-                            children:user
-                        }}
+                        title={'User'}
+                        children={user}
                     />
                 </div>             
             </nav>

@@ -1,130 +1,134 @@
-.primary_button,.secondary_button,.await_button,.disabled{
-    width: 100%;
-    max-width: 30rem;
-    height: 2.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    border: none;
-    outline: none;
-    border-radius: 4px;
-    padding: 0.3rem;
-    background-color: var(--primary-theme-color);
-    color: var(--secondary-theme-color);
-    transition: 0.2s ease-in-out;
-    cursor: pointer;
-  }
-  .secondary_button{
-    background-color: var(--secondary-theme-color);
-    color: var(--primary-theme-color);
-    box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 0.5px inset, rgba(0, 0, 0, 0.9) 0px 0px 0px 0.5px;  }
-
-    .primary_button{
-      border: solid var(--primary-theme-color) 2px;    }
-
-  .primary_button:hover{
-    background-color: transparent ;
-    color: var(--primary-theme-color);
-
-  }
-  
-.secondary_button:hover{
-  box-shadow: var(--secondary-box-shadow);
-}
-
-.await_button,.disabled{
-  opacity: 0.2;
-  cursor: not-allowed;
-}
-
-.disabled{
-  opacity: 0.2;
-}
-
-
-.small{
-  width: min(100%,30rem);
-}
-
-.large{
+.primary_button,.secondary_button,.primary_await,.secondary_await,.disabled{
   width: 100%;
-}
-
-.dropBtn{
-  width: 100%;
-  height: 2.7rem;
-}
-
-.dropdown{
-  width: min(100%,30rem);
-  flex-direction: column;
-  justify-content: flex-start;
-  gap: 10px;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-
-}
-
-.dropdown_header{
-  width:100%;
-  height: 2.7rem;
+  max-width: 30rem;
+  height: 2.5rem;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   gap: 10px;
   border: none;
   outline: none;
   border-radius: 4px;
   padding: 0.3rem;
+  transition: 0.2s ease-in-out;
   cursor: pointer;
-  
+}
+
+.primary_button,.primary_await{
+  background-color: var(--primary-theme-color);
+  color: var(--secondary-theme-color);
+  border: solid var(--primary-theme-color) 2px;    
+}
+
+.secondary_button,.secondary_await{
+  background-color: var(--secondary-theme-color);
+  color: var(--primary-theme-color);
+  box-shadow: var(--secondary-box-shadow);
+}
+
+.primary_button:hover{
+  background-color: transparent ;
+  color: var(--primary-theme-color);
+
+}
+
+.secondary_button:hover{
+box-shadow: var(--primary-theme-color) 0px 0px 0px 2px inset 
+}
+
+.await_button,.disabled,.primary_await,.secondary_await{
+opacity: 0.6;
+cursor: not-allowed;
+}
+
+.disabled{
+  color: white;
+  background-color: black;
+}
+
+
+.small{
+width: min(100%,30rem);
+}
+
+.large{
+width: 100%;
+}
+
+.dropBtn{
+width: 100%;
+height: 2.7rem;
+}
+
+.dropdown{
+width: min(100%,30rem);
+flex-direction: column;
+justify-content: flex-start;
+gap: 10px;
+box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+}
+
+.dropdown_header{
+width:100%;
+height: 2.7rem;
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 10px;
+border: none;
+outline: none;
+border-radius: 4px;
+padding: 0.3rem;
+cursor: pointer;
+
 }
 
 .dropdown_children{
-  width: 100%;
-  padding: 0 3px;
-  display: flex;
-  flex-direction: column; 
-  height: 0 ;
-  overflow: hidden;
-  transition: 0.3s ease-in-out;
+width: 100%;
+padding: 0 3px;
+display: flex;
+flex-direction: column; 
+height: 0 ;
+overflow: hidden;
+transition: 0.3s ease-in-out;
 }
 
 .nothidden{
-  height: auto;
+height: auto;
 }
- 
+
 .dropdown_children p{
-  padding: 0 2px;
-  width: 100%;
-  height: 3rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between  ;
-  cursor: pointer;
+padding: 0 2px;
+width: 100%;
+height: 3rem;
+display: flex;
+align-items: center;
+justify-content: space-between  ;
+cursor: pointer;
 }
 
 .dropdown_children p:last-child{
-  margin-bottom: 3px;
+margin-bottom: 3px;
 }
 
 .dropdown_children p:hover{
-  background-color:rgb(230, 230, 230);
+background-color:rgb(230, 230, 230);
 }
 
 .icon_btn{
-  display: grid;
-  place-items: center;
-  border-radius: 8px;
-  padding: 4px;
-  border:solid 2px var(--primary-theme-color);
-  cursor: pointer;
+display: grid;
+place-items: center;
+border-radius: 8px;
+padding: 4px;
+border:solid 2px var(--primary-theme-color);
+cursor: pointer;
 }
 
 .icon_btn_active{
-  border-color: blue;
+border-color: blue;
 }
 
 .icon_btn:hover{
-  border-color: blue;
+border-color: blue;
 }

@@ -4,8 +4,7 @@ import Link from 'next/link'
 
 import styles from '../../styles/Header.module.css'
 
-const FileStructure =({states})=>{
-    const {children,title} = states
+const FileStructure =({children,title})=>{
     return(
         <span className={styles.drawer_groups}>
             <h4>{title}</h4>    

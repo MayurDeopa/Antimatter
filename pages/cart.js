@@ -9,7 +9,7 @@ import { useRouter } from 'next/router'
 import { getCart } from '../services/api/cart'
 import Message from '../components/basic/Message'
 import useCart from '../lib/drawer/customhooks/useCart'
-import AwaitButton from '../components/Loaders/AwaitButton'
+import PrimaryButton from '../components/Loaders/PrimaryButton'
 import {BiCartAlt} from 'react-icons/bi'
 import EmptyState from '../components/Misc/EmptyState'
 import Form from '../components/Misc/Form'
@@ -91,6 +91,30 @@ const Cart =()=>{
                     <div className={styles.cart_section_log_header}>
                         <h2>Order Summary</h2>
                     </div>
+                    <ButtonGroup
+                        justify={'space-between'}
+                    >
+                        <Skeleton
+                            height={'1rem'}
+                            width={'20%'}
+                        />
+                        <Skeleton
+                            height={'1rem'}
+                            width={'20%'}
+                        />
+                    </ButtonGroup>
+                    <ButtonGroup
+                        justify={'space-between'}
+                    >
+                        <Skeleton
+                            height={'1rem'}
+                            width={'20%'}
+                        />
+                        <Skeleton
+                            height={'1rem'}
+                            width={'20%'}
+                        />
+                    </ButtonGroup>
                     <Skeleton
                         height={'2.5rem'}
                         width={'min(30rem,100%)'}
@@ -132,8 +156,20 @@ const Cart =()=>{
                     <div className={styles.cart_section_log_header}>
                         <h2>Order Summary</h2>
                     </div>
+                    <ButtonGroup
+                        justify={'space-between'}
+                    >
+                        <p>Price</p>
+                        <p>15</p>
+                    </ButtonGroup>
+                    <ButtonGroup
+                        justify={'space-between'}
+                    >
+                        <p>Delivery</p>
+                        <p>Free</p>
+                    </ButtonGroup>
                     <ButtonGroup>
-                        <AwaitButton 
+                        <PrimaryButton 
                             awaitState ={isSpinning?"loading":'none'}
                             text={"Checkout"}
                         />
@@ -154,7 +190,7 @@ const Cart =()=>{
             :
             <ErrorPopUp>
                 <h4>Something went wrong</h4>
-                <AwaitButton
+                <PrimaryButton
                     text={"Retry"}
                     awaitState={"none"}
                     action={()=>router.reload()}

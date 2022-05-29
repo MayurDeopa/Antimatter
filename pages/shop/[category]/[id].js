@@ -13,7 +13,8 @@ import ErrorPopUp from '../../../components/Misc/ErrorPopUp'
 import PageWrapper from "../../../components/PageWrapper";
 import Head from 'next/head'
 import Image from 'next/image'
-import AwaitButton from "../../../components/Loaders/AwaitButton";
+import PrimaryButton from "../../../components/Loaders/PrimaryButton";
+import SecondaryButton from "../../../components/Loaders/SecondaryButton";
 import Skeleton from "../../../components/Loaders/Skeleton";
 import FunctionalModalForm from "../../../components/Misc/FunctionalModalForm";
 import useModal from "../../../lib/drawer/customhooks/useModal";
@@ -214,7 +215,7 @@ const Product =()=>{
                             {
                                 user
                                 ?
-                                <AwaitButton
+                                <PrimaryButton
                                 awaitState={isSpinning?'loading':'none'}
                                 loadingText={'Adding'}
                                 text={"Add to cart"}
@@ -224,13 +225,13 @@ const Product =()=>{
                                 })}
                                 />
                                 :
-                                <AwaitButton 
+                                <PrimaryButton 
                                     awaitState={'none'}
                                     text={"Login to use cart"}
                                     action={()=>router.push('/user')}
                                 />
                             }
-                            <AwaitButton 
+                            <SecondaryButton 
                                 awaitState={'none'}
                                 text={"Share"}
                                 action={toggleModal}

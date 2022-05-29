@@ -11,7 +11,7 @@
   --primary-color-light:#3f3f44;
   --secondary-theme-color:white;
   --primary-box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  --secondary-box-shadow:rgba(0, 0, 0, 0.16) 0px 1px 2px, rgb(51, 51, 51) 0px 0px 0px 2px;
+  --secondary-box-shadow:var(--primary-theme-color) 0px 0px 0px 1px inset ;
   --success:rgb(4, 202, 120);
   --info:rgba(29,161,242,1.00);
   --error:rgb(194, 49, 49);
@@ -121,7 +121,7 @@ input:focus{
   gap: 1rem;
   padding: 1.5rem 1rem;
   margin-top: var(--header-height);
-  height: 100%;
+  min-height: 100vh;
   width: 100%;
   max-width: 105rem;
   margin-left: auto;
