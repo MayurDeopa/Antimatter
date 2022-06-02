@@ -2,69 +2,45 @@ import PageWrapper from "../../../components/PageWrapper"
 import Head from "next/head"
 import Card from "../../../components/Card"
 import Container from "../../../components/Container"
-import CardSkeleton from '../../../components/Loaders/CardSkeleton'
 import ErrorPopUp from "../../../components/Misc/ErrorPopUp"
 import LinkBtn from "../../../components/Misc/LinkBtn"
-import EmptyState from "../../../components/Misc/EmptyState"
-import PrimarySpinner from "../../../components/Loaders/PrimarySpinner"
-
-import { useRouter } from "next/router"
-import { useQuery } from "react-query"
-import { getProductCategory } from "../../../services/api/products"
-import { useState } from "react"
-import { useEffect } from "react"
 import Breadcrumb from "../../../components/Navigations/Breadcrumb"
 
 
 
+import { getProductCategories, getProductCategory } from "../../../services/api/products"
 
-const Categories = ()=>{
-    const [err,setErr] = useState()
-    const [query,setQuery] = useState()
-    const router = useRouter()
-    const category = router.query.category
-    useEffect(async()=>{
-        if(!router.isReady) return;
-        const fetchSome =async()=>{
-            const data = await getProductCategory(router.query.category)
-            if(data.status==='ok'){
-                setQuery(data.list)
-            }
-            else{
-                setErr(data.message)
-            }
+
+
+
+
+const Categories = ({data,category,error})=>{
+        if(error){
+            return(
+                <>
+                    <Head>
+                        {error}
+                    </Head>
+                    <PageWrapper>
+                        <ErrorPopUp
+                        >
+                            <h3>No such category found</h3>
+                            <LinkBtn
+                                text={'Go back'}
+                                url='/shop'
+                            />
+                        </ErrorPopUp>
+                    </PageWrapper>
+                </>
+            )
         }
-        fetchSome()
-    },[router.isReady])
-    if(err){
-        return (
-            <div className="page">
-                <Head >
-                    <title>{router.query.category}</title>
-                </Head>
-                <PageWrapper>   
-                    <ErrorPopUp>
-                        <h3>No products found</h3>
-                        <LinkBtn
-                            text={'Go back'}
-                            url={'/shop'}
-                        />
-                    </ErrorPopUp>
-                </PageWrapper>
-            </div>
-        )
-    }
-
-    else{
         return (
             <>
                 <Head >
-                    <title>{router.query.category}</title>
+                    <title>{category}</title>
                 </Head>
                 <PageWrapper>   
-                    {
-                        query
-                        ?
+                    
                         <>
                             <Breadcrumb
                                 paths={[
@@ -80,25 +56,62 @@ const Categories = ()=>{
                             />
                             <Container>
                                 {
-                                    query.map((p)=>{
-                                        return <Card details={p} key={p.id} link={`/shop/${router.query.category}/${p.id}`}/>
+                                    data.list.map((p)=>{
+                                        return <Card details={p} key={p.id} link={`/shop/${data.slug}/${p.id}`}/>
                                     })
                                     
                                 }
                             </Container> 
                         </> 
-                        :
-                        <EmptyState>
-                            <PrimarySpinner
-                                    size={'m'}
-                                />
-                        </EmptyState>
-                    }       
+                             
                 </PageWrapper>
             </>
         )
     }
     
-}
+
+
+export async function getStaticPaths() {
+    const ways = await getProductCategories()
+    const actualWays = ways.data
+    const paths = actualWays.map((p)=>{
+        return {
+            params:{
+                category:p.slug
+            }
+        }
+    })
+    return {
+      paths,
+      fallback: true // false or 'blocking'
+    };
+  }
+
+export async function getStaticProps(context) {
+    const slug = context.params.category
+    try{
+        const data = await getProductCategory(slug)
+        if(data.status==='failed'){
+            return {
+                props: {
+                    error:data.message
+                },
+            }
+        }
+        return {
+            props: {
+                data,
+                category:slug
+            },
+        }
+    }catch(err){
+        return {
+            props: {
+                error:err.message
+            },
+        }
+    }
+  }
+  
 
 export default Categories;
