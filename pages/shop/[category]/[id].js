@@ -244,10 +244,10 @@ const Product =()=>{
                     {
                         open
                         &&
-                        <FunctionalModalForm states={{
-                            title:'Share',
-                            hook:toggleModal
-                        }}>
+                        <FunctionalModalForm 
+                            title={'Share'}
+                            hook={toggleModal}
+                        >
                             <div style={{
                                 display:'flex',
                                 justifyContent:'space-around',

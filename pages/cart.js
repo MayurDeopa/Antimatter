@@ -172,6 +172,7 @@ const Cart =()=>{
                         <PrimaryButton 
                             awaitState ={isSpinning?"loading":'none'}
                             text={"Checkout"}
+                            action={()=>router.push('/checkout')}
                         />
                     </ButtonGroup>
                 </div>
