@@ -57,7 +57,7 @@ const Categories = ({data,category,error})=>{
                             <Container>
                                 {
                                     data.list.map((p)=>{
-                                        return <Card details={p} key={p.id} link={`/shop/${data.slug}/${p.id}`}/>
+                                        return <Card details={p} key={p.id} link={`/shop/${category}/${p.id}`}/>
                                     })
                                     
                                 }
