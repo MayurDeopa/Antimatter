@@ -13,6 +13,7 @@ const ImageSlider =({children})=>{
             showStatus={false}
             showIndicators={false}
             swipeable={true}
+            showThumbs={false}
             
         >
             {children}

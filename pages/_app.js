@@ -28,7 +28,8 @@ function MyApp({ Component, pageProps }) {
       userState:[user,setUser],
       cartState:[cart,setCart],
       toastState:[toasts,setToasts],
-      drawerState:[drawer,setDrawer]
+      drawerState:[drawer,setDrawer],
+      loadingState:isLoading
     }
   useEffect(()=>{
     if(data){
@@ -62,11 +63,7 @@ function MyApp({ Component, pageProps }) {
             </FormSection>
           </Form>
                   </PageWrapper>*/}
-      {
-        isLoading
-        ?
-        <ModalSpinner/>
-        :
+      
         <>
           <NextNProgress 
             color='var(--secondary-theme-color)'
@@ -74,6 +71,10 @@ function MyApp({ Component, pageProps }) {
           <Component {...pageProps}/>
           <Footer/>
         </>
+      {
+        isLoading
+        &&
+        <ModalSpinner/>
       }
       {
         err
