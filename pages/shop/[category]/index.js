@@ -94,8 +94,6 @@ export async function getStaticProps(context) {
         if(data.status==='failed'){
             return {
                 props: {
-                    data,
-                    category:slug,
                     error:data.message
                 },
             }
@@ -109,8 +107,6 @@ export async function getStaticProps(context) {
     }catch(err){
         return {
             props: {
-                data,
-                category:slug,
                 error:err.message
             },
         }
