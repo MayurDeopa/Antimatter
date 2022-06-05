@@ -12,13 +12,12 @@ import { getProductCategories, getProductCategory } from "../../../services/api/
 
 
 
-const generateCat =()=>{
-    data.map((c,i)=>{
-        return <Card details={p} key={i} link={`/shop/${category}/${p.id}`}/>
-    })
-}
+
 
 const Categories = ({data,category,error})=>{
+    const generateCat = data.map((p,i)=>{
+        return <Card details={p} key={i} link={`/shop/${category}/${p.id}`}/>
+    })
         if(error){
             return(
                 <>
@@ -60,10 +59,7 @@ const Categories = ({data,category,error})=>{
                             />
                             <Container>
                                 {
-                                    data.map((p)=>{
-                                        return 
-                                    })
-                                    
+                                    generateCat
                                 }
                             </Container> 
                         </> 
