@@ -34,7 +34,8 @@ const Categories = ({data,category,error})=>{
                 </>
             )
         }
-        return (
+        else{
+            return (
             <>
                 <Head >
                     <title>{category}</title>
@@ -67,6 +68,7 @@ const Categories = ({data,category,error})=>{
                 </PageWrapper>
             </>
         )
+    }
     }
     
 
