@@ -10,7 +10,48 @@ import Breadcrumb from "../../../components/Navigations/Breadcrumb"
 
 import { getProductCategories, getProductCategory } from "../../../services/api/products"
 
+export async function getStaticPaths() {
+    const ways = await getProductCategories()
+    const actualWays = ways.data
+    const paths = actualWays.map((p)=>{
+        return {
+            params:{
+                category:p.slug
+            }
+        }
+    })
+    return {
+      paths,
+      fallback: false // false or 'blocking'
+    };
+  }
 
+export async function getStaticProps(context) {
+    const slug = context.params.category
+    try{
+        const data = await getProductCategory(slug)
+        if(data.status==='failed'){
+            return {
+                props: {
+                    error:data.message
+                },
+            }
+        }
+        return {
+            props: {
+                products:data.list,
+                category:slug
+            },
+        }
+    }catch(err){
+        return {
+            props: {
+                error:err.message
+            },
+        }
+    }
+  }
+  
 
 
 
@@ -76,47 +117,6 @@ const Categories = ({products,category,error})=>{
     
 
 
-export async function getStaticPaths() {
-    const ways = await getProductCategories()
-    const actualWays = ways.data
-    const paths = actualWays.map((p)=>{
-        return {
-            params:{
-                category:p.slug
-            }
-        }
-    })
-    return {
-      paths,
-      fallback: true // false or 'blocking'
-    };
-  }
 
-export async function getStaticProps(context) {
-    const slug = context.params.category
-    try{
-        const data = await getProductCategory(slug)
-        if(data.status==='failed'){
-            return {
-                props: {
-                    error:data.message
-                },
-            }
-        }
-        return {
-            props: {
-                products:data.list,
-                category:slug
-            },
-        }
-    }catch(err){
-        return {
-            props: {
-                error:err.message
-            },
-        }
-    }
-  }
-  
 
 export default Categories;
