@@ -42,7 +42,7 @@ const Categories = ({data,category,error})=>{
                 <PageWrapper>   
                     
                         <>
-                            <Breadcrumb
+                            {/*<Breadcrumb
                                 paths={[
                                     {
                                         title:'Shop',
@@ -53,13 +53,12 @@ const Categories = ({data,category,error})=>{
                                         path:`/shop/${category}`
                                     }
                                 ]}
-                            />
+                            />*/}
                             <Container>
                                 {
                                     data.list.map((p)=>{
                                         return <Card details={p} key={p.id} link={`/shop/${category}/${p.id}`}/>
-                                    })
-                                    
+                                    }) 
                                 }
                             </Container> 
                         </> 
