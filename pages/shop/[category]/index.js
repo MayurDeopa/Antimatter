@@ -100,7 +100,7 @@ export async function getStaticProps(context) {
         }
         return {
             props: {
-                data,
+                data:data,
                 category:slug
             },
         }
