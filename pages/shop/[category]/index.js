@@ -15,7 +15,6 @@ import { getProductCategories, getProductCategory } from "../../../services/api/
 
 
 const Categories = ({products,category,error})=>{
-    console.log(products)
         if(error){
             return(
                 <>
@@ -57,7 +56,7 @@ const Categories = ({products,category,error})=>{
                             />}
                             <Container>
                                 {
-                                    products.list.map((p,i)=>{
+                                    products.map((p,i)=>{
                                         return(
                                             <Card
                                                 details={p}
@@ -106,7 +105,7 @@ export async function getStaticProps(context) {
         }
         return {
             props: {
-                products:data,
+                products:data.list,
                 category:slug
             },
         }
