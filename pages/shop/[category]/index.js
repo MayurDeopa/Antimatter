@@ -109,6 +109,8 @@ export async function getStaticProps(context) {
     }catch(err){
         return {
             props: {
+                data:[],
+                category:slug,
                 error:err.message
             },
         }
