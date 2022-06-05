@@ -15,9 +15,6 @@ import { getProductCategories, getProductCategory } from "../../../services/api/
 
 
 const Categories = ({data,category,error})=>{
-    const generateCat = data.map((p,i)=>{
-        return <Card details={p} key={i} link={`/shop/${category}/${p.id}`}/>
-    })
         if(error){
             return(
                 <>
@@ -59,7 +56,10 @@ const Categories = ({data,category,error})=>{
                             />
                             <Container>
                                 {
-                                    generateCat
+                                    data.map((p)=>{
+                                        return <Card details={p} key={p.id} link={`/shop/${category}/${p.id}`}/>
+                                    })
+                                    
                                 }
                             </Container> 
                         </> 
@@ -94,6 +94,8 @@ export async function getStaticProps(context) {
         if(data.status==='failed'){
             return {
                 props: {
+                    data:[],
+                    category:slug,
                     error:data.message
                 },
             }
