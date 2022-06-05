@@ -56,7 +56,7 @@ const Categories = ({data,category,error})=>{
                             />
                             <Container>
                                 {
-                                    data.list.map((p)=>{
+                                    data.map((p)=>{
                                         return <Card details={p} key={p.id} link={`/shop/${category}/${p.id}`}/>
                                     })
                                     
@@ -100,7 +100,7 @@ export async function getStaticProps(context) {
         }
         return {
             props: {
-                data:data,
+                data:data.list,
                 category:slug
             },
         }
