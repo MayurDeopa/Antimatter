@@ -34,8 +34,7 @@ const Categories = ({data,category,error})=>{
                 </>
             )
         }
-        else{
-            return (
+        return (
             <>
                 <Head >
                     <title>{category}</title>
@@ -56,19 +55,18 @@ const Categories = ({data,category,error})=>{
                                 ]}
                             />
                             <Container>
-                                {
+                                {/*
                                     data.map((p)=>{
                                         return <Card details={p} key={p.id} link={`/shop/${category}/${p.id}`}/>
                                     })
                                     
-                                }
+                                */}
                             </Container> 
                         </> 
                              
                 </PageWrapper>
             </>
         )
-    }
     }
     
 
