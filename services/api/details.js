@@ -15,27 +15,13 @@ export const getDetails = async(id)=>{
 }
 
 
-export const sendPersonal =async(data)=>{
+export const sendDetails =async(data)=>{
+    const {id,details} = data
     try{
-        const res = await fetch(`${apiUrl}/details/personal`,{
+        const res = await fetch(`${apiUrl}/details?id=${id}`,{
             method:"post",
             headers:{"Content-Type" :"application/json"},
-            body:JSON.stringify(data)
-        })
-        return res.json()
-    }
-    catch(err){
-        console.log(err)
-        return err
-    }
-}
-
-export const sendShipping =async(data)=>{
-    try{
-        const res = await fetch(`${apiUrl}/details/shipping`,{
-            method:"post",
-            headers:{"Content-Type" :"application/json"},
-            body:JSON.stringify(data)
+            body:JSON.stringify(details)
         })
         return res.json()
     }

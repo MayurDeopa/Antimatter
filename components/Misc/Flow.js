@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useCallback } from "react";
+import { useStore } from "../../lib/drawer/context/StoreContext";
 
 
 import { emailValidator } from "../../lib/drawer/validators";
@@ -14,7 +15,9 @@ import Modal from "./Modal";
 import OptInput from "./OptInput";
 
 
-const Flow =({components,buttonValue,titles,breakpoints,state})=>{
+const Flow =({components,buttonValue,titles,breakpoints,state,action,loadingState})=>{
+    const {userState} = useStore()
+    const [user,setUser] = userState
     const [data,setData] = useState(components)
     const [page,setPage] = useState(0)
     const [pageState,setPageState] = useState(state)
@@ -27,13 +30,11 @@ const Flow =({components,buttonValue,titles,breakpoints,state})=>{
         setPage(prev=>prev+1)
     },[page,lastStep,isLastStep])
 
-    const [loading,setLoading] = useState(false)
     const previousPage =useCallback((e)=>{
         e.preventDefault()
         setPage(prev=>prev-1)
     },[page,isLastStep])
 
-    
 
     return(
         <Modal>
@@ -51,7 +52,7 @@ const Flow =({components,buttonValue,titles,breakpoints,state})=>{
                                 array={data}
                                 title={s.state}
                                 value={data[s.state]}
-                                disabled={loading}
+                                disabled={loadingState}
                             />
                         </FormSection>
                     )
@@ -60,14 +61,22 @@ const Flow =({components,buttonValue,titles,breakpoints,state})=>{
                 >
                     <SecondaryButton
                         text={"Previous"}
-                        awaitState={loading?"disabled":page===0?"disabled":"none"}
+                        awaitState={loadingState?"disabled":page===0?"disabled":"none"}
                         action={previousPage}
                     />
                     <PrimaryButton
                          text={page!==numberOfPages?'Next':"Submit"}
-                         awaitState={loading?"loading":'none'}
+                         awaitState={loadingState?"loading":'none'}
                          loadingText={"Saving"}
-                         action={isLastStep?()=>setLoading(true):pageSubmit}
+                         action={
+                             isLastStep
+                             ?
+                             ()=>action({
+                                id:user._id,
+                                details:data
+                            })
+                            :
+                            pageSubmit}
                     />
                 </ButtonGroup>
 

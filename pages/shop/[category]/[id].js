@@ -63,7 +63,7 @@ const Product =()=>{
             fetchProduct()
         }
     },[router.isReady])
-    const url = window.location.href
+    const url = 'fadjn'
     if(isLoading){
         return (
             <>

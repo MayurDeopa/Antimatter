@@ -6,10 +6,47 @@ import Flow from '../components/Misc/Flow';
 
 import { useEffect } from 'react';
 import { useState } from 'react';
+import { useStore } from '../lib/drawer/context/StoreContext';
+import { sendDetails } from '../services/api/details';
+import {useRouter} from 'next/router'
+import Toast from '../components/Misc/Toast';
+import Message from '../components/basic/Message';
+import ErrorPopUp from '../components/Misc/ErrorPopUp';
 
 
 const Checkout =()=>{
+    const {userState} = useStore()
+    const [user,setUser] = userState
+    const router = useRouter()
     const [isLoading,setIsLoading] = useState(true)
+    const [spinning,setSpinning] = useState(false)
+    const {personal,shipping} = user.details
+    const [err,setErr] = useState()
+    const formAction = async(data)=>{
+        setErr()
+        setSpinning(true)
+        try{
+            const res = await sendDetails(data)
+            if(res.status==='ok'){
+                setUser({
+                    ...user,
+                    personal:res.details.personal,
+                    shipping:res.details.shipping
+                })
+                router.replace('/user/personal')
+            }
+            setErr({
+                type:'failed',
+                message:res.message
+            })
+        }catch(error){
+            setErr({
+                type:'failed',
+                message:error
+            })
+        }
+        setSpinning(false)
+    }
     useEffect(()=>{
         setTimeout(()=>{
             setIsLoading(false)
@@ -32,14 +69,16 @@ const Checkout =()=>{
             buttonValue={'Submit'}
             titles={["Personal details","Shipping details"]}
             breakpoints={[3]}
+            action={formAction}
+            loadingState={spinning}
             components={{
-                name:"",
-                email:"",
-                phone:"",
-                pincode:"",
-                address:"",
-                city:"",
-                state:"",
+                name:personal.name,
+                email:personal.email,
+                phone:personal.phone,
+                pincode:shipping.pincode,
+                address:shipping.address,
+                city:shipping.city,
+                state:shipping.state,
             }}
             state={[
                 {
@@ -70,7 +109,7 @@ const Checkout =()=>{
                     title:'Address',
                     state:'address',
                     isValid:true,
-                    type:'text'
+                    type:'textarea'
                 },
                 {
                     title:'City',
@@ -88,6 +127,13 @@ const Checkout =()=>{
         >
 
         </Flow>
+        {
+            err
+            &&
+            <ErrorPopUp>
+                <p>{err.message}</p>
+            </ErrorPopUp>
+        }
         </PageWrapper>
     )
 }
