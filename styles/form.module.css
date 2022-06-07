@@ -32,17 +32,13 @@
 .section_label{
     border: solid 1px var(--primary-theme-color);
     padding: 8px 3px;
+    max-width: 35rem;
 }
 
 
-.section_label:focus{
-    outline: none;
-    border-color: #007FFF;
-}
 
-.section_label:disabled{
-    cursor: not-allowed;
-}
+
+
 
 
 .disabled{
@@ -94,14 +90,54 @@ z
     width: 100%;
 }
 
-.input{
-    min-height: 2rem;
+.group{
+    position: relative;
     width: 100%;
 }
+
+.input{
+    min-height: 3rem;
+    width: 100%;
+    padding: 4px;
+}
+
+.label{
+    color: rgb(167, 167, 167);
+    background-color: var(--secondary-theme-color);
+    font-size: 18px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 5px;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+
+
+.input:focus{
+    outline: none;
+    border-color: #007FFF;
+}
+
+.input:focus ~ .label,
+.input:valid ~ .label,
+.input:disabled ~  .label{
+    color: var(--primary-theme-color);
+    top: -10px;
+    font-size: 13px;
+}
+
+
+
+
 
 .pop{
     animation: pop 0.2s ease-in-out;
 }
+
+
 
 @keyframes pop {
     0%{

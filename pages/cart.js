@@ -15,7 +15,7 @@ import EmptyState from '../components/Misc/EmptyState'
 import Form from '../components/Misc/Form'
 import Skeleton from '../components/Loaders/Skeleton'
 import LinkBtn from '../components/Misc/LinkBtn'
-import ButtonGroup from '../components/Misc/ButtonGroup'
+import MainContainer from '../components/Misc/MainContainer'
 import ErrorPopUp from '../components/Misc/ErrorPopUp'
 
 const Cart =()=>{
@@ -91,7 +91,7 @@ const Cart =()=>{
                     <div className={styles.cart_section_log_header}>
                         <h2>Order Summary</h2>
                     </div>
-                    <ButtonGroup
+                    <MainContainer
                         justify={'space-between'}
                     >
                         <Skeleton
@@ -102,8 +102,8 @@ const Cart =()=>{
                             height={'1rem'}
                             width={'20%'}
                         />
-                    </ButtonGroup>
-                    <ButtonGroup
+                    </MainContainer>
+                    <MainContainer
                         justify={'space-between'}
                     >
                         <Skeleton
@@ -114,7 +114,7 @@ const Cart =()=>{
                             height={'1rem'}
                             width={'20%'}
                         />
-                    </ButtonGroup>
+                    </MainContainer>
                     <Skeleton
                         height={'2.5rem'}
                         width={'min(30rem,100%)'}
@@ -156,25 +156,25 @@ const Cart =()=>{
                     <div className={styles.cart_section_log_header}>
                         <h2>Order Summary</h2>
                     </div>
-                    <ButtonGroup
+                    <MainContainer
                         justify={'space-between'}
                     >
                         <p>Price</p>
                         <p>15</p>
-                    </ButtonGroup>
-                    <ButtonGroup
+                    </MainContainer>
+                    <MainContainer
                         justify={'space-between'}
                     >
                         <p>Delivery</p>
                         <p>Free</p>
-                    </ButtonGroup>
-                    <ButtonGroup>
+                    </MainContainer>
+                    <MainContainer>
                         <PrimaryButton 
                             awaitState ={isSpinning?"loading":'none'}
                             text={"Checkout"}
                             action={()=>router.push(`/checkout?id=${user._id}`)}
                         />
-                    </ButtonGroup>
+                    </MainContainer>
                 </div>
             </div>
             :

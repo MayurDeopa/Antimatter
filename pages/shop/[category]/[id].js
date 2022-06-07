@@ -24,7 +24,7 @@ import Message from '../../../components/basic/Message'
 import Breadcrumb from "../../../components/Navigations/Breadcrumb";
 import Panel from "../../../components/Panel";
 import IconBtn from "../../../components/Misc/IconBtn";
-import ButtonGroup from '../../../components/Misc/ButtonGroup'
+import MainContainer from '../../../components/Misc/MainContainer'
 
 const sizes =[
     {
@@ -104,7 +104,7 @@ const Product =()=>{
                                     height={'1rem'}
                                     width={'6rem'}
                                 />
-                                <ButtonGroup>
+                                <MainContainer>
                                     <Skeleton
                                             height={'2rem'}
                                             width={'3rem'}
@@ -113,7 +113,7 @@ const Product =()=>{
                                             height={'2rem'}
                                             width={'3rem'}
                                         />
-                                </ButtonGroup>
+                                </MainContainer>
                                 <div className={styles.buttons_wrapper}>
                                     <Skeleton
                                         height={'2.4rem'}
@@ -197,7 +197,7 @@ const Product =()=>{
                                     <span>
                                         Select size
                                     </span>
-                                    <ButtonGroup>
+                                    <MainContainer>
                                         {sizes.map((s,i)=>{
                                             return(
                                                 <IconBtn
@@ -209,7 +209,7 @@ const Product =()=>{
                                                 </IconBtn>
                                             )
                                         })}
-                                    </ButtonGroup>
+                                    </MainContainer>
                                 </legend>
                             <div className={styles.buttons_wrapper}>
                             {

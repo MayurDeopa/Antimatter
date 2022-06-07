@@ -30,7 +30,7 @@ const Orders =()=>{
                     title:'Email',
                     state:'email',
                     isValid:true,
-                    type:'email'
+                    type:'text'
                 },
                 {
                     title:'Phone',

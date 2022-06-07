@@ -8,7 +8,7 @@ import { emailValidator } from "../../lib/drawer/validators";
 
 import PrimaryButton from "../Loaders/PrimaryButton";
 import SecondaryButton from '../Loaders/SecondaryButton'
-import ButtonGroup from "./ButtonGroup";
+import MainContainer from "./MainContainer";
 import Form from "./Form";
 import FormSection from "./FormSection";
 import Modal from "./Modal";
@@ -45,19 +45,19 @@ const Flow =({components,buttonValue,titles,breakpoints,state,action,loadingStat
                 {pageState.slice(breakpoints[page-1],breakpoints[page]).map((s,i)=>{
                     return (
                         <FormSection key={i}>
-                            <p>{s.title}</p>
                             <OptInput
                                 type={s.type}
                                 action={setData}
                                 array={data}
                                 title={s.state}
                                 value={data[s.state]}
+                                placeholder={s.title}
                                 disabled={loadingState}
                             />
                         </FormSection>
                     )
                 })}
-                <ButtonGroup
+                <MainContainer
                 >
                     <SecondaryButton
                         text={"Previous"}
@@ -78,7 +78,7 @@ const Flow =({components,buttonValue,titles,breakpoints,state,action,loadingStat
                             :
                             pageSubmit}
                     />
-                </ButtonGroup>
+                </MainContainer>
 
             </Form>
         </Modal>

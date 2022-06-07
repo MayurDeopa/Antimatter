@@ -9,9 +9,15 @@ import { useState } from 'react';
 import { useStore } from '../lib/drawer/context/StoreContext';
 import { sendDetails } from '../services/api/details';
 import {useRouter} from 'next/router'
-import Toast from '../components/Misc/Toast';
-import Message from '../components/basic/Message';
+import styles from '../styles/checkout.module.css'
+
+
+import PrimaryButton from '../components/Loaders/PrimaryButton'
 import ErrorPopUp from '../components/Misc/ErrorPopUp';
+import MainContainer from '../components/Misc/MainContainer';
+import Form from '../components/Misc/Form';
+import FormSection from '../components/Misc/FormSection';
+import OptInput from '../components/Misc/OptInput';
 
 
 const Checkout =()=>{
@@ -35,10 +41,12 @@ const Checkout =()=>{
                 })
                 router.replace('/user/personal')
             }
-            setErr({
-                type:'failed',
-                message:res.message
-            })
+            else{
+                setErr({
+                    type:'failed',
+                    message:res.message
+                })
+            }
         }catch(error){
             setErr({
                 type:'failed',
@@ -65,7 +73,126 @@ const Checkout =()=>{
     }
     return(
         <PageWrapper>
-            <Flow
+            <div className={styles.container}>
+                <MainContainer
+                    customClasses={styles.small_container}
+                    width={'100%'}
+                    maxWidth={'65%'}
+                    direction={'column'}
+                >
+                    <h3 className={styles.steps_header}>Delivery address</h3>
+                    <MainContainer
+                        customClasses={styles.info_wrapper}
+                        align={'center'}
+                        maxWidth={'100%'}
+                        direction={'row'}
+                    >
+                        <MainContainer
+                            direction={'row'}
+                            align={'center'}
+                        >
+                            <OptInput
+                                disabled
+                                title={'Name'}
+                                value={user.details.personal.name}
+                            />
+                        </MainContainer>
+                        <MainContainer
+                            direction={'row'}
+                            align={'center'}
+                        >
+
+                            <OptInput
+                                disabled
+                                title={'Phone'}
+                                value={user.details.personal.phone}
+                            />
+                        </MainContainer>
+                    </MainContainer>
+                    <MainContainer
+                        maxWidth={'100%'}
+                        direction={'row'}
+                        align={'center'}
+                        customClasses={styles.info_wrapper}
+                    >
+                        <MainContainer
+                            direction={'row'}
+                            align={'center'}     
+                        >
+                            <OptInput
+                                disabled
+                                title={'Email'}
+                                value={user.details.personal.email}
+                            />
+                        </MainContainer>
+                        <MainContainer
+                            direction={'row'}
+                            align={'center'}
+                        >
+                            <OptInput
+                                disabled
+                                title={'Pincode'}
+                                value={user.details.shipping.pincode}
+                            />
+                        </MainContainer>
+                    </MainContainer>
+                    <MainContainer
+                        maxWidth={'100%'}
+                        direction={'row'}
+                        align={'center'}
+                    >
+                        <OptInput
+                            type={'textarea'}
+                            disabled
+                            title={'Address'}
+                            value={user.details.shipping.address}
+                        />
+                    </MainContainer>
+                    <MainContainer
+                        customClasses={styles.info_wrapper}
+                        maxWidth={'100%'}
+                        direction={'row'}
+                        align={'center'}
+                    >
+                        <MainContainer
+                            align={'center'}
+                        >
+                            <OptInput
+                                disabled
+                                placeholder={'City'}
+                                title={'City'}
+                                value={user.details.shipping.city}
+                            />    
+                        </MainContainer>    
+                        <MainContainer
+                            align={'center'}
+                        >
+                            <OptInput
+                                disabled
+                                title={'State'}
+                                value={user.details.shipping.state}
+                            />    
+                        </MainContainer>
+                    </MainContainer>
+                </MainContainer>
+            <Form
+                    title={'Something'}
+                    maxWidth={'35%'}
+                >
+                    <FormSection>
+                        <OptInput
+                            type={'text'}
+                            placeholder={'Something...'}
+                        />
+                    </FormSection>
+                    <PrimaryButton
+                    text={'Checkout'}
+                    awaitState='disabled'
+                    width={'100%'}
+                />
+                </Form>
+            </div>
+            {/*<Flow
             buttonValue={'Submit'}
             titles={["Personal details","Shipping details"]}
             breakpoints={[3]}
@@ -126,14 +253,8 @@ const Checkout =()=>{
             ]}
         >
 
-        </Flow>
-        {
-            err
-            &&
-            <ErrorPopUp>
-                <p>{err.message}</p>
-            </ErrorPopUp>
-        }
+        </Flow>*/}
+            
         </PageWrapper>
     )
 }

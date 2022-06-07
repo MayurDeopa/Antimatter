@@ -16,6 +16,7 @@ import Input from "../../components/Authentication/Input";
 import Head from "next/head";
 import EmptyState from '../../components/Misc/EmptyState';
 import PrimarySpinner from '../../components/Loaders/PrimarySpinner';
+import OptInput from '../../components/Misc/OptInput';
 
 const Shipping =()=>{
     const router = useRouter()
@@ -25,11 +26,7 @@ const Shipping =()=>{
         id:user._id,
         formType:'shipping'
     })
-    const [details,setDetails] = useState({
-        name:'',
-        email:'',
-        'phone number':''
-    })
+    const [details,setDetails] = useState(user.details.shipping)
     const [edit,setEdit] = useState(false)
     if(err){
         return(
@@ -81,6 +78,18 @@ const Shipping =()=>{
                         {
                             Object.keys(user.details.shipping).map((key,index)=>{
                                 return(
+                                    <OptInput
+                                        type={key==='address'?'textarea':'text'}
+                                        title={key}
+                                        value={details[key]}
+                                        array={details}
+                                        action={setDetails}
+                                        disabled={!edit}
+                                        key={index}
+                                    />
+                                )
+                                
+                                {/*return(
                                     <Input 
                                         value={{
                                             title:key,
@@ -92,7 +101,7 @@ const Shipping =()=>{
                                         }}
                                         key={index}
                                     />
-                                )
+                                    )*/}
                             })
                         }
                         </>

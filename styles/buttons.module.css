@@ -1,6 +1,5 @@
 .primary_button,.secondary_button,.primary_await,.secondary_await,.disabled{
   width: 100%;
-  max-width: 30rem;
   height: 2.5rem;
   display: flex;
   align-items: center;
