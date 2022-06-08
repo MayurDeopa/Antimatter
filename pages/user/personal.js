@@ -5,10 +5,11 @@ import { useState } from "react";
 import {  useStore } from "../../lib/drawer/context/StoreContext";
 import useForm from "../../lib/drawer/customhooks/useForm";
 import {useRouter} from 'next/router'
+import { firstLetterToUpperCase } from '../../services/other';
 
 
 import Head from 'next/head'
-import Input from '../../components/Authentication/Input';
+import OptInput from '../../components/Misc/OptInput';
 import DashBoard from "../../components/Authentication/DashBoard"
 import withAuth from "../../components/Authentication/withAuth";
 import SecondaryButton from "../../components/Loaders/SecondaryButton";
@@ -21,11 +22,7 @@ const Personal =()=>{
     const router = useRouter()
     const {userState} = useStore()
     const [user,setUser] = userState
-    const [details,setDetails] = useState({
-        name:'',
-        email:'',
-        'phone number':''
-    })
+    const [details,setDetails] = useState(user.details.personal)
     const [edit,setEdit] = useState(false)
     const {awaiting,saveDetails,err} = useForm({
         id:user._id,
@@ -78,23 +75,23 @@ const Personal =()=>{
                                 </p>
                             </div>
                             <>
-                                {
-                                    Object.keys(user.details.personal).map((key,index)=>{
-                                        return(
-                                            <Input 
-                                                value={{
-                                                    title:key,
-                                                    value:user.details.personal[key]
-                                                }}
-                                                state={{
-                                                    editState:[edit,setEdit],
-                                                    form:[details,setDetails]
-                                                }}
-                                                key={index}
-                                            />
-                                        )
-                                    })
-                                }
+                            {
+                            Object.keys(user.details.personal).map((key,index)=>{
+                                return(
+                                    <OptInput
+                                        maxWidth={'30rem'}
+                                        type={key==='address'?'textarea':'text'}
+                                        title={key}
+                                        placeholder={firstLetterToUpperCase(key)}
+                                        value={details[key]}
+                                        array={details}
+                                        action={setDetails}
+                                        disabled={!edit}
+                                        key={index}
+                                    />
+                                )
+                            })
+                        }
                             </>
                                 <section className={styles.section}>
                                 {

@@ -17,6 +17,7 @@ import Head from "next/head";
 import EmptyState from '../../components/Misc/EmptyState';
 import PrimarySpinner from '../../components/Loaders/PrimarySpinner';
 import OptInput from '../../components/Misc/OptInput';
+import { firstLetterToUpperCase } from '../../services/other';
 
 const Shipping =()=>{
     const router = useRouter()
@@ -81,6 +82,8 @@ const Shipping =()=>{
                                     <OptInput
                                         type={key==='address'?'textarea':'text'}
                                         title={key}
+                                        maxWidth={'30rem'}
+                                        placeholder={firstLetterToUpperCase(key)}
                                         value={details[key]}
                                         array={details}
                                         action={setDetails}

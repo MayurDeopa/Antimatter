@@ -103,12 +103,12 @@ z
 .label{
     color: rgb(167, 167, 167);
     background-color: var(--secondary-theme-color);
-    font-size: 18px;
+    font-size: 16px;
     font-weight: normal;
     position: absolute;
     pointer-events: none;
     left: 5px;
-    top: 5px;
+    top: 10px;
     transition: 0.2s ease all;
     -moz-transition: 0.2s ease all;
     -webkit-transition: 0.2s ease all;
