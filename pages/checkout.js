@@ -11,7 +11,7 @@ import { sendDetails } from '../services/api/details';
 import {useRouter} from 'next/router'
 import styles from '../styles/checkout.module.css'
 
-
+import SecondaryButton from '../components/Loaders/SecondaryButton'
 import PrimaryButton from '../components/Loaders/PrimaryButton'
 import ErrorPopUp from '../components/Misc/ErrorPopUp';
 import MainContainer from '../components/Misc/MainContainer';
@@ -24,7 +24,7 @@ const Checkout =()=>{
     const {userState} = useStore()
     const [user,setUser] = userState
     const router = useRouter()
-    const [isLoading,setIsLoading] = useState(true)
+    const [isLoading,setIsLoading] = useState(false)
     const [spinning,setSpinning] = useState(false)
     const {personal,shipping} = user.details
     const [err,setErr] = useState()
@@ -39,7 +39,7 @@ const Checkout =()=>{
                     personal:res.details.personal,
                     shipping:res.details.shipping
                 })
-                router.replace('/user/personal')
+                setIsLoading(false)
             }
             else{
                 setErr({
@@ -55,37 +55,85 @@ const Checkout =()=>{
         }
         setSpinning(false)
     }
-    useEffect(()=>{
-        setTimeout(()=>{
-            setIsLoading(false)
-        },3000)
-    },[])
-    if(isLoading){
-        return(
-            <PageWrapper>
-                <FunctionalModalForm
-                title={'Loading...'}
-            >
-                <PrimarySpinner/>
-            </FunctionalModalForm>
-            </PageWrapper>
-        )
-    }
     return(
         <PageWrapper>
+            {
+                isLoading
+                &&
+                <Flow
+                buttonValue={'Submit'}
+                titles={["Personal details","Shipping details"]}
+                breakpoints={[3]}
+                action={formAction}
+                loadingState={spinning}
+                hook={()=>setIsLoading(!isLoading)}
+                components={{
+                    name:personal.name,
+                    email:personal.email,
+                    phone:personal.phone,
+                    pincode:shipping.pincode,
+                    address:shipping.address,
+                    city:shipping.city,
+                    state:shipping.state,
+                }}
+                state={[
+                    {
+                        title:'Name',
+                        state:'name',
+                        isValid:true,
+                        type:'text'
+                    },
+                    {
+                        title:'Email',
+                        state:'email',
+                        isValid:true,
+                        type:'email'
+                    },
+                    {
+                        title:'Phone',
+                        state:'phone',
+                        isValid:true,
+                        type:'tel'
+                    },
+                    {
+                        title:'Pincode',
+                        state:'pincode',
+                        isValid:true,
+                        type:'text'
+                    },
+                    {
+                        title:'Address',
+                        state:'address',
+                        isValid:true,
+                        type:'textarea'
+                    },
+                    {
+                        title:'City',
+                        state:'city',
+                        isValid:true,
+                        type:'text'
+                    },
+                    {
+                        title:'State',
+                        state:'state',
+                        isValid:true,
+                        type:'text'
+                    }
+                ]}
+            >
+
+        </Flow>
+            }
             <div className={styles.container}>
-                <MainContainer
+                <Form
                     customClasses={styles.small_container}
                     width={'100%'}
-                    maxWidth={'65%'}
                     direction={'column'}
+                    title={"Delivery address"}
                 >
-                    <h3 className={styles.steps_header}>Delivery address</h3>
                     <MainContainer
                         customClasses={styles.info_wrapper}
-                        align={'center'}
                         maxWidth={'100%'}
-                        direction={'row'}
                     >
                         <MainContainer
                             direction={'row'}
@@ -111,8 +159,6 @@ const Checkout =()=>{
                     </MainContainer>
                     <MainContainer
                         maxWidth={'100%'}
-                        direction={'row'}
-                        align={'center'}
                         customClasses={styles.info_wrapper}
                     >
                         <MainContainer
@@ -151,8 +197,6 @@ const Checkout =()=>{
                     <MainContainer
                         customClasses={styles.info_wrapper}
                         maxWidth={'100%'}
-                        direction={'row'}
-                        align={'center'}
                     >
                         <MainContainer
                             align={'center'}
@@ -174,11 +218,27 @@ const Checkout =()=>{
                             />    
                         </MainContainer>
                     </MainContainer>
-                </MainContainer>
-            <Form
+                    <MainContainer
+                        maxWidth={'100%'}
+                        width={'100%'}
+                        justify={'flex-end'}
+                    >
+                        <SecondaryButton
+                            text={'Edit'}
+                            width={'10rem'}
+                            action={()=>setIsLoading(true)}
+                        />
+                        <PrimaryButton
+                            width={'15rem'}
+                            text={'Deliver here'}
+                        />
+                    </MainContainer>
+                </Form>
+                <Form
                     title={'Something'}
-                    maxWidth={'35%'}
-                >
+                    maxWidth={'30%'}
+                    customClasses={styles.checkout_form}
+                    >
                     <FormSection>
                         <OptInput
                             type={'text'}
@@ -192,68 +252,6 @@ const Checkout =()=>{
                 />
                 </Form>
             </div>
-            {/*<Flow
-            buttonValue={'Submit'}
-            titles={["Personal details","Shipping details"]}
-            breakpoints={[3]}
-            action={formAction}
-            loadingState={spinning}
-            components={{
-                name:personal.name,
-                email:personal.email,
-                phone:personal.phone,
-                pincode:shipping.pincode,
-                address:shipping.address,
-                city:shipping.city,
-                state:shipping.state,
-            }}
-            state={[
-                {
-                    title:'Name',
-                    state:'name',
-                    isValid:true,
-                    type:'text'
-                },
-                {
-                    title:'Email',
-                    state:'email',
-                    isValid:true,
-                    type:'email'
-                },
-                {
-                    title:'Phone',
-                    state:'phone',
-                    isValid:true,
-                    type:'tel'
-                },
-                {
-                    title:'Pincode',
-                    state:'pincode',
-                    isValid:true,
-                    type:'text'
-                },
-                {
-                    title:'Address',
-                    state:'address',
-                    isValid:true,
-                    type:'textarea'
-                },
-                {
-                    title:'City',
-                    state:'city',
-                    isValid:true,
-                    type:'text'
-                },
-                {
-                    title:'State',
-                    state:'state',
-                    isValid:true,
-                    type:'text'
-                }
-            ]}
-        >
-
-        </Flow>*/}
             
         </PageWrapper>
     )

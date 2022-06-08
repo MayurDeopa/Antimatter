@@ -6,7 +6,9 @@
     gap: 2rem;
 }
 
-
+.checkout_form{
+    width: 40%;
+}
 
 .steps_header{
     border-bottom: 2px solid var(--primary-theme-color);
@@ -19,6 +21,16 @@
 }
 
 .info_wrapper{
-    width: auto;
+    align-items: center;
+    flex-direction: row ;
     gap: 2rem;
+}
+
+@media screen and (max-width:760px) {
+    .container{
+        flex-direction: column;
+    }
+    .checkout_form{
+        width: 100%;
+    }
 }

@@ -61,7 +61,6 @@ z
 
 .wrapper{
     width: 100%;
-    max-width: 30rem;
     padding: 1rem;
     display: flex;
     flex-direction: column;
@@ -79,7 +78,7 @@ z
     align-items: center;
     justify-content: center;
     padding-bottom: 1rem;
-    border-bottom: solid 1px var(--primary-theme-color);
+    border-bottom: solid 2px var(--primary-theme-color);
 }
 
 .form_section{
@@ -96,7 +95,7 @@ z
 }
 
 .input{
-    min-height: 3rem;
+    min-height: 2.5rem;
     width: 100%;
     padding: 4px;
 }
@@ -119,6 +118,10 @@ z
 .input:focus{
     outline: none;
     border-color: #007FFF;
+}
+
+.input:disabled{
+    opacity: 0.6;
 }
 
 .input:focus ~ .label,

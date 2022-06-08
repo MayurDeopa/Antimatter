@@ -15,7 +15,7 @@ import Modal from "./Modal";
 import OptInput from "./OptInput";
 
 
-const Flow =({components,buttonValue,titles,breakpoints,state,action,loadingState})=>{
+const Flow =({components,buttonValue,titles,breakpoints,state,action,loadingState,hook})=>{
     const {userState} = useStore()
     const [user,setUser] = userState
     const [data,setData] = useState(components)
@@ -37,9 +37,12 @@ const Flow =({components,buttonValue,titles,breakpoints,state,action,loadingStat
 
 
     return(
-        <Modal>
+        <Modal
+            hook={hook}
+        >
             <Form
                 title={titles[page]}
+                maxWidth={'30rem'}
                 animated={true}
             >
                 {pageState.slice(breakpoints[page-1],breakpoints[page]).map((s,i)=>{
