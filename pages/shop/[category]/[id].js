@@ -245,6 +245,7 @@ const Product =()=>{
                         open
                         &&
                         <FunctionalModalForm 
+                            maxWidth={'30rem'}
                             title={'Share'}
                             hook={toggleModal}
                         >

@@ -1,12 +1,13 @@
 import Form from '../Misc/Form'
 import Modal from '../Misc/Modal'
 
-const FunctionalModalForm =({hook,title,children})=>{
+const FunctionalModalForm =({hook,title,children,maxWidth})=>{
     return(
-        <Modal states={{
-            hook:hook
-        }}>
+        <Modal 
+            hook={hook}
+        >
             <Form 
+                maxWidth={maxWidth}
                 title={title}
                 animated={true}
             >
