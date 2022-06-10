@@ -2,7 +2,7 @@ import styles2 from '../../styles/colors.module.css'
 import styles from '../../styles/form.module.css'
 
 
-const OptInput =({type,action,array,value,title,label,disabled,placeholder,maxWidth})=>{
+const OptInput =({type,action,array,value,title,label,disabled,placeholder,maxWidth,required})=>{
     let setData = action
     switch(type){
         case "textarea":
@@ -18,7 +18,8 @@ const OptInput =({type,action,array,value,title,label,disabled,placeholder,maxWi
                         value={value}
                         label={label}
                         placeholder={""}
-                        disabled={disabled}          
+                        disabled={disabled}   
+                        required={required}       
                     />
                     <p className={styles.label}>{placeholder || title}</p>
                 </div>
@@ -33,8 +34,8 @@ const OptInput =({type,action,array,value,title,label,disabled,placeholder,maxWi
             className={`${styles.input}`}
             value={value}
             label={label}
-            required
-            disabled={disabled}           
+            disabled={disabled}    
+            required={required}       
             />
             <p className={styles.label}>{placeholder || title}</p>
         </div>       

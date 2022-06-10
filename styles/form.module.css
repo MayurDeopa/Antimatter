@@ -98,6 +98,7 @@ z
     min-height: 2.5rem;
     width: 100%;
     padding: 4px;
+    border:solid 1px black;
 }
 
 .label{

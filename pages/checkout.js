@@ -9,7 +9,9 @@ import { useState } from 'react';
 import { useStore } from '../lib/drawer/context/StoreContext';
 import { sendDetails } from '../services/api/details';
 import {useRouter} from 'next/router'
+import { gateways } from '../lib/drawer/PaymentGateways';
 import styles from '../styles/checkout.module.css'
+
 
 import SecondaryButton from '../components/Loaders/SecondaryButton'
 import PrimaryButton from '../components/Loaders/PrimaryButton'
@@ -26,6 +28,7 @@ const Checkout =()=>{
     const {userState} = useStore()
     const [user,setUser] = userState
     const {personal,shipping} = user.details
+    const [paymentGateways,setPaymentGateways] = useState(gateways)
     const [edit,setEdit] = useState(true)
    const {data,isSpinning,formAction,err,setData} = useDetails()
    const cancelEdit =()=>{
@@ -37,6 +40,16 @@ const Checkout =()=>{
         formAction(data)
 
     }
+
+    const pay =async(p)=>{
+        const action = p.action
+        setPaymentGateways(paymentGateways.map((g,i)=>g.name===p.name?{...g,state:'loading'}:{...g,state:'disabled'}))
+        await action({
+            amount:20000
+        })
+        setPaymentGateways(gateways)
+    }
+
     return(
         <PageWrapper>
             <div className={styles.container}>
@@ -59,6 +72,7 @@ const Checkout =()=>{
                                 disabled ={edit}
                                 action={setData}
                                 array={data}
+                                required={true}
                                 title={'name'}
                                 value={data.name}
                             />
@@ -73,6 +87,7 @@ const Checkout =()=>{
                                 disabled ={edit}
                                 action={setData}
                                 array={data}
+                                required={true}
                                 title={'phone'}
                                 value={data.phone}
                             />
@@ -91,6 +106,7 @@ const Checkout =()=>{
                                 disabled ={edit}
                                 action={setData}
                                 array={data}
+                                required={true}
                                 title={'email'}
                                 value={data.email}
                             />
@@ -104,6 +120,7 @@ const Checkout =()=>{
                                 disabled ={edit}
                                 action={setData}
                                 array={data}
+                                required={true}
                                 title={'pincode'}
                                 value={data.pincode}
                             />
@@ -121,6 +138,7 @@ const Checkout =()=>{
                             disabled ={edit}
                             action={setData}
                             array={data}
+                            required={true}
                             title={'address'}
                             value={data.address}
                         />
@@ -135,6 +153,7 @@ const Checkout =()=>{
                             <OptInput
                                 action={setData}
                                 array={data}
+                                required={true}
                                 disabled={edit}
                                 placeholder={'City'}
                                 title={'city'}
@@ -148,6 +167,7 @@ const Checkout =()=>{
                                 placeholder={"State"}
                                 action={setData}
                                 array={data}
+                                required={true}
                                 disabled={edit}
                                 title={'state'}
                                 value={data.state}
@@ -173,20 +193,23 @@ const Checkout =()=>{
                     </MainContainer>
                 </Form>
                 <Form
-                    title={'Something'}
+                    title={'Pay using'}
                     customClasses={styles.checkout_form}
                     >
-                    <FormSection>
-                        <OptInput
-                            type={'text'}
-                            placeholder={'Something...'}
-                        />
-                    </FormSection>
-                    <PrimaryButton
-                    text={'Checkout'}
-                    awaitState='disabled'
-                    width={'100%'}
-                />
+                    {paymentGateways.map((g,i)=>{
+                        let fun = g.action
+                        return(
+                            <PrimaryButton
+                                text={g.name}
+                                icon={g.icon}
+                                awaitState={g.state}
+                                width={'100%'}
+                                cssClasses={g.cssClass}
+                                action={()=>pay(g)}
+                                key={i}
+                            />
+                        )
+                    })}
                 </Form>
             </div>
             {

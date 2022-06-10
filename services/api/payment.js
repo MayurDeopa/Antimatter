@@ -32,9 +32,9 @@ export const makePayment = async(param)=>{
     const data = middle.order
     const options = {
 			key: "rzp_live_ZOEzXI1X91g4Sc",
-			currency: data.currency,
+			/*currency: data.currency,*/
 			amount: parseInt(data.amount),
-			name: 'Donation',
+			name: 'Purchase',
 			description: 'Thank you for nothing. Please give us some money',
 		}
 		const paymentObject = new window.Razorpay(options)
