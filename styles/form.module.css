@@ -92,13 +92,20 @@ z
 .group{
     position: relative;
     width: 100%;
+    min-height: 48px;
+    border:solid 1px rgb(167, 167, 167);
+    border-radius: 4px;
+    padding-top: 15px;
+    transition: 0.3s ease-in-out;
 }
 
 .input{
-    min-height: 2.5rem;
+    margin-top: 0px;
+    height: 100%;
     width: 100%;
-    padding: 4px;
-    border:solid 1px black;
+    padding: 4px 7px;
+    font-size: 15px;
+    border: none;
 }
 
 .label{
@@ -108,17 +115,17 @@ z
     font-weight: normal;
     position: absolute;
     pointer-events: none;
-    left: 5px;
-    top: 10px;
+    left: 8px;
+    top: 12px;
     transition: 0.2s ease all;
     -moz-transition: 0.2s ease all;
     -webkit-transition: 0.2s ease all;
 }
 
 
-.input:focus{
+.group:hover{
     outline: none;
-    border-color: #007FFF;
+    border-color: black;
 }
 
 .input:disabled{
@@ -128,9 +135,8 @@ z
 .input:focus ~ .label,
 .input:valid ~ .label,
 .input:disabled ~  .label{
-    color: var(--primary-theme-color);
-    top: -10px;
-    font-size: 13px;
+    top: 4px;
+    font-size: 12px;
 }
 
 

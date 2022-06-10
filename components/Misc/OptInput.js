@@ -10,7 +10,6 @@ const OptInput =({type,action,array,value,title,label,disabled,placeholder,maxWi
                 <div className={styles.group}>
                     <textarea
                         style={{
-                            minHeight:'5rem',
                             maxWidth:maxWidth
                         }}
                         onChange={(e)=>action({...array,[title]:e.target.value})}
