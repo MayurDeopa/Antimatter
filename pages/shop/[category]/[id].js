@@ -71,15 +71,16 @@ const Product =()=>{
                     <title>{"Loading.."}</title>
                 </Head>
                 <PageWrapper>
-                    <Panel
-                        height={'auto'}
+                    <MainContainer
                         width={'100%'}
+                        maxWidth={'100%'}
+                        justify={'flex-start'}
                     >
                         <Skeleton
                             height={'1.4rem'}
                             width={'9rem'}
                         />
-                    </Panel>
+                    </MainContainer>
                         <div className={styles.wrapper}>
                             <div className={"image_skeleton_aspect"}>
                                 <Skeleton
@@ -225,7 +226,7 @@ const Product =()=>{
                                 })}
                                 />
                                 :
-                                <PrimaryButton 
+                                <SecondaryButton 
                                     awaitState={'none'}
                                     text={"Login to use cart"}
                                     action={()=>router.push('/user')}

@@ -167,3 +167,10 @@
         padding: 0;
     }
 }
+
+@media screen and (max-width:350px) {
+
+    .order_summary_header{
+        font-size: 15px;
+    }
+}

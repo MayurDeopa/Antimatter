@@ -7,7 +7,7 @@
     padding: 0.5rem;
     display: grid;
     place-items: center;
-    background-color:rgb(46, 46, 46,0.5);
+    background-color:rgb(46, 46, 46,0.3);
     overflow-y: scroll;
     z-index: 999;
 }
@@ -16,7 +16,7 @@
     position: fixed;
     right: 10px;
     top: 10px;
-    color:var(--secondary-theme-color);
+    color:var(--primary-theme-color);
     font-size: 30px;
     cursor: pointer;
 }

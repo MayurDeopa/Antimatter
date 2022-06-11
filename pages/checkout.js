@@ -185,7 +185,7 @@ const Checkout =()=>{
                             action={edit?()=>setEdit(!edit):cancelEdit}
                         />
                         <PrimaryButton
-                            width={'10rem'}
+                            width={'7rem'}
                             text={'Save'}
                             action={saveForm}
                             awaitState={edit?'disabled':'none'}
