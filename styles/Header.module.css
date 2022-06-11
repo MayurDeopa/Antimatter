@@ -148,6 +148,7 @@
     width: 100%;
     height: 2.4rem;
     padding: 5px;
+    color: var(--primary-theme-color);
 }
 
 .bread div{
@@ -157,7 +158,7 @@
 }
 
 .bread div:hover{
-    color: blue;
+    color: rgb(77, 77, 255);
     text-decoration: underline;
 }
 

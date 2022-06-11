@@ -76,13 +76,13 @@ const Personal =()=>{
                                 return(
                                     <OptInput
                                         maxWidth={'30rem'}
-                                        type={key==='address'?'textarea':'text'}
                                         title={key}
                                         placeholder={firstLetterToUpperCase(key)}
                                         value={details[key]}
                                         array={details}
                                         action={setDetails}
                                         disabled={!edit}
+                                        required
                                         key={index}
                                     />
                                 )

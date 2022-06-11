@@ -7,7 +7,7 @@
   gap: 10px;
   border: none;
   outline: none;
-  border-radius: 32px;
+  border-radius: 8px;
   padding: 0.3rem;
   transition: 0.2s ease-in-out;
   cursor: pointer;
@@ -32,7 +32,7 @@
 }
 
 .secondary_button:hover{
-box-shadow: var(--primary-theme-color) 0px 0px 0px 2px inset 
+box-shadow: var(--primary-theme-color) 0px 0px 0px 2px inset ;
 }
 
 .await_button,.disabled,.primary_await,.secondary_await{
@@ -125,11 +125,11 @@ cursor: pointer;
 }
 
 .icon_btn_active{
-border-color: blue;
+border-color: var(--info);
 }
 
 .icon_btn:hover{
-border-color: blue;
+border-color: var(--info);
 }
 
 @media screen and (max-width:500px) {

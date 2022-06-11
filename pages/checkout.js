@@ -132,7 +132,7 @@ const Checkout =()=>{
                         align={'center'}
                     >
                         <OptInput
-                            
+                            maxWidth={'992px'}
                             placeholder={"Address"}
                             type={'textarea'}
                             disabled ={edit}
@@ -177,7 +177,7 @@ const Checkout =()=>{
                     <MainContainer
                         maxWidth={'100%'}
                         width={'100%'}
-                        justify={'flex-end'}
+                        justify={'flex-start'}
                     >
                         <SecondaryButton
                             text={edit?'Edit':'Cancel'}

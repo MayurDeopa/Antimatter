@@ -13,8 +13,7 @@
     width: 30%;
     height: 100%;
     padding: 1rem;
-    background-color: var(--secondary-theme-color);
-    box-shadow: var(--primary-box-shadow);
+    background-color: var(--secondary-theme-light);
 }
 
 .details{
@@ -23,8 +22,7 @@
     min-height: 20rem;
     width: 70%;
     padding: 1rem 2rem;
-    background-color: var(--secondary-theme-color);
-    box-shadow: var(--primary-box-shadow);
+    background-color: var(--secondary-theme-light);
 }
 
 @media screen and (max-width:820px) {

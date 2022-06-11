@@ -2,7 +2,8 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    background-color: var(--secondary-theme-color);
+    color: var(--primary-theme-color);
+    background-color: var(--secondary-theme-light);
     border-radius: 8px;
     gap: 0.3rem;
     padding-top: 2px;

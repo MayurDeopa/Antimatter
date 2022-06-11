@@ -16,7 +16,7 @@
 }
 
 .small_container{
-    padding: 7px;
+    padding: 15px 10px;
     gap: 1rem;
     box-shadow: var(--primary-box-shadow);
 }

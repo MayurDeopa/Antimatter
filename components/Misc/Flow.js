@@ -56,6 +56,7 @@ const Flow =({components,buttonValue,titles,breakpoints,state,action,loadingStat
                                 value={data[s.state]}
                                 placeholder={s.title}
                                 disabled={loadingState}
+                                required
                             />
                         </FormSection>
                     )

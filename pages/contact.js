@@ -1,7 +1,7 @@
 import styles from '../styles/form.module.css'
 
 import SecondaryButton from '../components/Loaders/SecondaryButton'
-import PrimarySpinner from '../components/Loaders/PrimarySpinner';
+import Skeleton from '../components/Loaders/Skeleton';
 import EmptyState from '../components/Misc/EmptyState';
 import PageWrapper from '../components/PageWrapper'
 import Progress from '../components/Loaders/Progress';
@@ -12,9 +12,7 @@ const Contact =()=>{
     return(
         <PageWrapper>
             <EmptyState>
-                <PrimarySpinner
-                    size={'m'}
-                />
+                <Skeleton/>
                 <div className={styles.group}>
                     <input 
                         type={'text'}

@@ -260,7 +260,7 @@ const Product =()=>{
                                         url={url}
                                         key={i}
                                     >
-                                        <s.icon size={30} round/>
+                                        <s.icon size={34} round/>
                                     </s.button>
                                 )
                             })}
