@@ -154,7 +154,7 @@ const Cart =()=>{
                 </div>
                 <div className={styles.checkout_card}>
                     <div className={styles.cart_section_log_header}>
-                        <h2>Order Summary</h2>
+                        <h2 className={styles.order_summary_header}>Order Summary</h2>
                     </div>
                     <MainContainer
                         justify={'space-between'}

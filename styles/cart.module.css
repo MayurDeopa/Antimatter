@@ -124,6 +124,8 @@
     cursor: not-allowed;
 }
 
+
+
 @media screen and (max-width:1000px) {
 
     .cart_container{
@@ -145,7 +147,12 @@
     }
 }
 
+@media screen and (max-width:500px) {
 
+    .order_summary_header{
+        font-size: 20px;
+    }
+}
 
 @media screen and (max-width:420px) {
     .cart_container{

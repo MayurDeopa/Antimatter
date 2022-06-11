@@ -6,7 +6,7 @@
 .title{
     width: 100%;
     height: 100%;
-    padding: 0.7rem 0.4rem;
+    padding: 8px 4px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -37,3 +37,19 @@
 .hidden{
     height: 0;
 }
+
+@media screen and (max-width:500px) {
+    
+    .container{
+        font-size: 15px;
+    }
+    
+  }
+
+  @media screen and (max-width:350px) {
+    
+    .container{
+        font-size: 12px;
+    }
+    
+  }

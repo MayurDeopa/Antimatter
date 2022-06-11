@@ -15,9 +15,6 @@
     stroke: var(--secondary-theme-color);
 }
 
-.progress{
-
-}
 
 
 
@@ -42,3 +39,17 @@
       }
 }
 
+@media screen and (max-width:500px) {
+
+    .wrapper{
+        height: 30px;
+        width: 30px;
+    }
+}
+
+@media screen and (max-width:350px) {
+    .wrapper{
+        height: 27px;
+        width: 27px;
+    }
+}

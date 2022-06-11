@@ -64,16 +64,11 @@ const Shipping =()=>{
             </Head>
                 <DashBoard>
                     <form className={styles.form}>
-                        <div className={styles.header}>
-                            <h2>
+                        <div
+                            className={styles.header}>
+                            <h2 className={styles.form_header}>
                                     Shipping Details
                             </h2>
-                            <h3
-                                className="edit"
-                                onClick={()=>setEdit(!edit)}
-                            >
-                                {edit?"X":"Edit"}
-                            </h3>
                         </div>
                         <>
                         {

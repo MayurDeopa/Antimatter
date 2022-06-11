@@ -10,12 +10,14 @@ import { firstLetterToUpperCase } from '../../services/other';
 
 import Head from 'next/head'
 import OptInput from '../../components/Misc/OptInput';
+import PrimaryButton from '../../components/Loaders/PrimaryButton'
 import DashBoard from "../../components/Authentication/DashBoard"
 import withAuth from "../../components/Authentication/withAuth";
 import SecondaryButton from "../../components/Loaders/SecondaryButton";
 import ErrorPopUp from "../../components/Misc/ErrorPopUp";
 import PrimarySpinner from '../../components/Loaders/PrimarySpinner';
 import EmptyState from '../../components/Misc/EmptyState';
+import MainContainer from '../../components/Misc/MainContainer';
 
 
 const Personal =()=>{
@@ -64,15 +66,9 @@ const Personal =()=>{
                     <DashBoard>
                         <form className={styles.form}>
                             <div className={styles.header}>
-                                <h2>
+                                <h2 className={styles.form_header}>
                                     Personal Details
                                 </h2>
-                                <p
-                                    className="edit"
-                                    onClick={()=>setEdit(!edit)}
-                                >
-                                        {edit?"X":"Edit"}
-                                </p>
                             </div>
                             <>
                             {
@@ -94,28 +90,17 @@ const Personal =()=>{
                         }
                             </>
                                 <section className={styles.section}>
-                                {
-                                    edit
-                                    ?
-                                    <input 
-                                    className="save"
-                                    value={'Save'}
-                                    type='button'
-                                    style={{
-                                        width:'5rem'
-                                    }}
-                                    onClick={()=>console.log(details)}
-                                    />
-                                    :
-                                    <input 
-                                    className="await_save"
-                                    value={'Save'}
-                                    type='button'
-                                    style={{
-                                        width:'5rem'
-                                    }}
-                                    />
-                                }
+                                <MainContainer>
+                                <PrimaryButton
+                                    text={'Save'}
+                                    awaitState={edit?'none':'disabled'}
+                                />
+                                <SecondaryButton
+                                    text={edit?'Cancel':'Edit'}
+                                    awaitState={'none'}
+                                    action={()=>setEdit(!edit)}
+                                />
+                                </MainContainer>
                                 </section>
                         </form>
                     </DashBoard>
