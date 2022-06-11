@@ -7,11 +7,12 @@ const OptInput =({type,action,array,value,title,label,disabled,placeholder,maxWi
     switch(type){
         case "textarea":
             return(
-                <div className={styles.group}>
+                <div 
+                    style={{
+                        maxWidth:maxWidth
+                    }}
+                    className={styles.group}>
                     <textarea
-                        style={{
-                            maxWidth:maxWidth
-                        }}
                         onChange={(e)=>action({...array,[title]:e.target.value})}
                         className={`${styles.input}`}
                         value={value}
@@ -25,16 +26,17 @@ const OptInput =({type,action,array,value,title,label,disabled,placeholder,maxWi
             )
     }
     return(
-        <div className={styles.group}>
-            <input
+        <div 
             style={{maxWidth:maxWidth}}
-            type={type}
-            onChange={(e)=>action({...array,[title]:e.target.value})}
-            className={`${styles.input}`}
-            value={value}
-            label={label}
-            disabled={disabled}    
-            required={required}       
+            className={styles.group}>
+            <input
+                type={type}
+                onChange={(e)=>action({...array,[title]:e.target.value})}
+                className={`${styles.input}`}
+                value={value}
+                label={label}
+                disabled={disabled}    
+                required={required}       
             />
             <p className={styles.label}>{placeholder || title}</p>
         </div>       

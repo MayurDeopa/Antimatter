@@ -6,18 +6,19 @@ import { useContext } from "react";
 import { Store } from "../../lib/drawer/context/StoreContext";
 import useForm from "../../lib/drawer/customhooks/useForm";
 import {useRouter} from 'next/router'
+import { firstLetterToUpperCase } from '../../services/other';
 
 
+import PrimaryButton from '../../components/Loaders/PrimaryButton'
 import DashBoard from "../../components/Authentication/DashBoard"
 import SecondaryButton from '../../components/Loaders/SecondaryButton'
 import withAuth from "../../components/Authentication/withAuth";
 import ErrorPopUp from '../../components/Misc/ErrorPopUp'
-import Input from "../../components/Authentication/Input";
 import Head from "next/head";
 import EmptyState from '../../components/Misc/EmptyState';
 import PrimarySpinner from '../../components/Loaders/PrimarySpinner';
 import OptInput from '../../components/Misc/OptInput';
-import { firstLetterToUpperCase } from '../../services/other';
+import MainContainer from '../../components/Misc/MainContainer';
 
 const Shipping =()=>{
     const router = useRouter()
@@ -104,28 +105,17 @@ const Shipping =()=>{
                         }
                         </>
                         <section className={styles.section}>
-                                {
-                                    edit
-                                    ?
-                                    <input 
-                                    className="save"
-                                    value={'Save'}
-                                    type='button'
-                                    style={{
-                                        width:'5rem'
-                                    }}
-                                    onClick={()=>console.log(details)}
-                                    />
-                                    :
-                                    <input 
-                                    className="await_save"
-                                    value={'Save'}
-                                    type='button'
-                                    style={{
-                                        width:'5rem'
-                                    }}
-                                    />
-                                }
+                        <MainContainer>
+                                <PrimaryButton
+                                    text={'Save'}
+                                    awaitState={edit?'none':'disabled'}
+                                />
+                                <SecondaryButton
+                                    text={edit?'Cancel':'Edit'}
+                                    awaitState={'none'}
+                                    action={()=>setEdit(!edit)}
+                                />
+                                </MainContainer>
                                 </section>
                     </form>
                 </DashBoard>
