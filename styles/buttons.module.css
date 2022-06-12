@@ -27,7 +27,7 @@
 
 .primary_button:hover{
   background-color: transparent ;
-  color: var(--primary-theme-color);
+  color: var(--primary-text-color);
 
 }
 
@@ -120,6 +120,7 @@ display: grid;
 place-items: center;
 border-radius: 8px;
 padding: 4px;
+color: var(--primary-text-color);
 border:solid 2px var(--primary-theme-color);
 cursor: pointer;
 }

@@ -67,7 +67,7 @@ z
     align-items: center;
     gap: 1rem;
     border-radius: 4px;
-    color: var(--primary-theme-color);
+    color: var(--primary-text-color);
     background-color: var(--secondary-theme-light);
 }
 
@@ -105,7 +105,7 @@ z
     width: 100%;
     padding: 4px 7px;
     font-size: 15px;
-    color: var(--primary-theme-color);
+    color:var(--primary-text-color);
     background-color: transparent;
     border: none;
 }

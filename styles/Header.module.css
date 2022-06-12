@@ -8,7 +8,7 @@
     height: var(--header-height);
     width: 100%;
     background-color: var(  --secondary-theme-light);
-    color: var(--primary-theme-color);
+    color: var(--primary-text-color);
     box-shadow: var(--primary-box-shadow);
     transition: all 0.7s ease-in-out;
     z-index: 150;
@@ -16,7 +16,7 @@
 
 .light_wrapper{
     background-color: var(--secondary-theme-color);
-    color: var(--primary-theme-color);
+    color:var(--primary-text-color);
     box-shadow: none;
 }
 
@@ -84,7 +84,7 @@
     height: var(--drawer-height);
     padding: 1rem 20px;
     background-color: var(--secondary-theme-color);
-    color: var(--primary-theme-color);
+    color: var(--primary-text-color);
     box-shadow: var(--primary-box-shadow);
     transition: 0.7s ease-in-out;
     z-index: 100;
@@ -174,7 +174,7 @@
     align-items: center;
     justify-content: space-around;
     background-color: var(--secondary-theme-light);
-    color: var(--primary-theme-color);
+    color: var(--primary-text-color);
     box-shadow: var(--primary-box-shadow);
 }
 
