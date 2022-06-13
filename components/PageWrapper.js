@@ -5,10 +5,10 @@ import Drawer from '../components/Navigations/Drawer'
 import { useState ,useEffect} from "react";
 
 
-const PageWrapper =({children,hideNavigation})=>{
+const PageWrapper =({children,hideNavigation,customClasses})=>{
     const [drawer,setDrawer] = useState(true)
     return(
-        <div className="wrapper">
+        <div className={`wrapper ${customClasses && customClasses}`}>
             {
                 !hideNavigation
                 &&

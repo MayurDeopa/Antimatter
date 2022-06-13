@@ -17,7 +17,6 @@ const OptInput =({type,action,array,value,title,label,disabled,placeholder,maxWi
                         className={`${styles.input}`}
                         value={value}
                         label={label}
-                        placeholder={""}
                         disabled={disabled}   
                         required={required}       
                     />

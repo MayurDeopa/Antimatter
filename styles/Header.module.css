@@ -148,7 +148,7 @@
     width: 100%;
     height: 2.4rem;
     padding: 5px;
-    color: var(--primary-theme-color);
+    color: var(--primary-text-color);
 }
 
 .bread div{
