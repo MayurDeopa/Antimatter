@@ -253,6 +253,7 @@ const Checkout =()=>{
                                     name={c.name}
                                     price={c.price}
                                     quantity={c.quantity}
+                                    key={i}
                                 />
                             )
                         })}
