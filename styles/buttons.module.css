@@ -20,7 +20,7 @@
 }
 
 .secondary_button,.secondary_await{
-  background-color: var(--secondary-theme-color);
+  background-color: transparent;
   color: var(--primary-theme-color);
   box-shadow: var(--secondary-box-shadow);
 }

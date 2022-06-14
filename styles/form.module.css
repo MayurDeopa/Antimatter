@@ -91,6 +91,8 @@ z
     position: relative;
     width: 100%;
     min-height: 48px;
+    border-radius: 8px;
+    box-shadow: var(--secondary-box-shadow);
     background-color: var(--secondary-theme-color);
     padding-top: 15px;
     transition: 0.3s ease-in-out;
@@ -124,11 +126,11 @@ z
 
 .group:hover{
     outline: none;
-    box-shadow: var(--primary-theme-color) 0px 0px 0px 1px inset ;
+    box-shadow: rgb(1, 137, 216) 0px 0px 0px 2px inset ;
 }
 
 .group:focus-within{
-    box-shadow: var(--primary-theme-color) 0px 0px 0px 1px inset ;
+    box-shadow: rgb(0, 162, 255) 0px 0px 0px 2px inset ;
 }
 
 .input:disabled{

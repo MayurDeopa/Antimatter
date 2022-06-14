@@ -66,7 +66,7 @@ function MyApp({ Component, pageProps }) {
       
         <>
           <NextNProgress 
-            color='var(--secondary-theme-color)'
+            color='var(--primary-theme-color)'
           />
           <Component {...pageProps}/>
           <Footer/>

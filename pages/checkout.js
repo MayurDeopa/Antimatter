@@ -22,6 +22,7 @@ import FormSection from '../components/Misc/FormSection';
 import OptInput from '../components/Misc/OptInput';
 import ModalSpinner from '../components/Loaders/ModalSpinner';
 import { firstLetterToUpperCase } from '../services/other';
+import CheckoutProduct from '../components/Cart/CheckoutProduct';
 
 
 const Checkout =()=>{
@@ -56,7 +57,8 @@ const Checkout =()=>{
         >
             <div className={styles.container}>
                 <Form
-                    customClasses={styles.small_container}
+                    maxWidth={'50rem'}
+                    customClasses={`${styles.small_container} ${styles.no_bg}`}
                     width={'100%'}
                     direction={'column'}
                 >
@@ -220,27 +222,61 @@ const Checkout =()=>{
                             customClasses={styles.info_wrapper}
                             maxWidth={'100%'}
                             width={'100%'}
-                            justify={'flex-start'}>
-                            {paymentGateways.map((g,i)=>{
-                                return(
-                                    <PrimaryButton
-                                        text={g.name}
-                                        icon={g.icon}
-                                        awaitState={g.state}
-                                        width={'100%'}
-                                        cssClasses={g.cssClass}
-                                        action={()=>pay(g)}
-                                        key={i}
-                                    />
-                                )
-                            })}
+                            justify={'flex-start'}
+                            >
+                                {paymentGateways.map((g,i)=>{
+                                    return(
+                                        <PrimaryButton
+                                            text={g.name}
+                                            icon={g.icon}
+                                            awaitState={g.state}
+                                            width={'100%'}
+                                            cssClasses={g.cssClass}
+                                            action={()=>pay(g)}
+                                            key={i}
+                                        />
+                                    )
+                                })}
                         </MainContainer>
                     </Form>
                 </Form>
-                <div className={styles.checkout_form}>
-                   
-                        
-                    
+                <div className={`${styles.checkout_form}`}>
+                        <MainContainer
+                            customClasses={styles.steps_header}
+                            maxWidth={'100%'}
+                            direction='column'
+                        >
+                        {user.cart.map((c,i)=>{
+                            return(
+                                <CheckoutProduct
+                                    src={c.img}
+                                    name={c.name}
+                                    price={c.price}
+                                    quantity={c.quantity}
+                                />
+                            )
+                        })}
+                        </MainContainer>
+                        <MainContainer
+                            maxWidth={'100%'}
+                            direction={'column'}
+                            
+                        >
+                            <MainContainer
+                                maxWidth={'100%'}
+                                justify={'space-between'}
+                            >
+                                <p>Subtotal :</p>
+                                <p>-</p>
+                            </MainContainer>
+                            <MainContainer
+                                maxWidth={'100%'}
+                                justify={'space-between'}
+                            >
+                                <p>Delivery :</p>
+                                <p>Free</p>
+                            </MainContainer>
+                        </MainContainer>
                 </div>
             </div>
             {
@@ -253,70 +289,3 @@ const Checkout =()=>{
 }
 
 export default withAuth(Checkout);
-
-{/*
-<Flow
-                buttonValue={'Submit'}
-                titles={["Personal details","Shipping details"]}
-                breakpoints={[3]}
-                action={formAction}
-                loadingState={spinning}
-                hook={()=>setIsLoading(!isLoading)}
-                components={{
-                    name:personal.name,
-                    email:personal.email,
-                    phone:personal.phone,
-                    pincode:shipping.pincode,
-                    address:shipping.address,
-                    city:shipping.city,
-                    state:shipping.state,
-                }}
-                state={[
-                    {
-                        title:'Name',
-                        state:'name',
-                        isValid:true,
-                        type:'text'
-                    },
-                    {
-                        title:'Email',
-                        state:'email',
-                        isValid:true,
-                        type:'email'
-                    },
-                    {
-                        title:'Phone',
-                        state:'phone',
-                        isValid:true,
-                        type:'tel'
-                    },
-                    {
-                        title:'Pincode',
-                        state:'pincode',
-                        isValid:true,
-                        type:'text'
-                    },
-                    {
-                        title:'Address',
-                        state:'address',
-                        isValid:true,
-                        type:'textarea'
-                    },
-                    {
-                        title:'City',
-                        state:'city',
-                        isValid:true,
-                        type:'text'
-                    },
-                    {
-                        title:'State',
-                        state:'state',
-                        isValid:true,
-                        type:'text'
-                    }
-                ]}
-            >
-
-        </Flow>
-
-            */}

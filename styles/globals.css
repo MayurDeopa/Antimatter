@@ -7,12 +7,12 @@
 /*p = #141415  #0d0906  #3f3f44*/
 
 :root{
-  --primary-theme-color:#0d0906;
-  --primary-color-light:#3f3f44;
-  --secondary-theme-color:white;
-  --secondary-theme-light:rgb(244, 244, 244);
-  --secondary-theme-lighter:rgb(234, 234, 234);
-  --primary-text-color:rgb(0, 0, 0);
+  --primary-theme-color:white;
+  --primary-color-light:rgb(238, 245, 255);
+  --secondary-theme-color:#121212;
+  --secondary-theme-light:#202020;
+  --secondary-theme-lighter:#2c2c2c;
+  --primary-text-color:white;
   --primary-box-shadow: rgba(0,0,0,0.1) 0px 1px 3px 0px,rgba(0,0,0,0.06) 0px 1px 2px 0px;
   --secondary-box-shadow:var(--primary-theme-color) 0px 0px 0px 1px inset ;
   --success:rgb(4, 202, 120);
@@ -326,8 +326,17 @@ tranlate_page{
 
 
 
-  --primary-theme-color:#121212;
-  --primary-color-light:#2d2d2d;
-  --secondary-theme-color:#f2f2f2;
-  --secondary-theme-light:#ffffff;
+  --primary-theme-color:#0d0906;
+  --primary-color-light:#3f3f44;
+  --secondary-theme-color:white;
+  --secondary-theme-light:rgb(255, 249, 249);
+  --secondary-theme-lighter:rgb(245, 245, 245);
+  --primary-text-color:rgb(0, 0, 0);
+  --primary-box-shadow: rgba(0,0,0,0.1) 0px 1px 3px 0px,rgba(0,0,0,0.06) 0px 1px 2px 0px;
+  --secondary-box-shadow:var(--primary-theme-color) 0px 0px 0px 1px inset ;
+  --success:rgb(4, 202, 120);
+  --info:rgba(29,161,242,1.00);
+  --error:rgb(194, 49, 49);
+  --header-height:3rem;
+  --drawer-height:auto;
 */
