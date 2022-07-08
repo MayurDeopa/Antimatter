@@ -1,13 +1,13 @@
 .primary_button,.secondary_button,.primary_await,.secondary_await,.disabled{
   width: 100%;
-  height: 2.5rem;
+  height: 2.3rem;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
   border: none;
   outline: none;
-  border-radius: 32px;
+  border-radius: 4px;
   padding: 0.3rem;
   transition: 0.2s ease-in-out;
   cursor: pointer;

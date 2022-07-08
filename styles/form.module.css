@@ -124,10 +124,7 @@ z
 }
 
 
-.group:hover{
-    outline: none;
-    box-shadow: rgb(1, 137, 216) 0px 0px 0px 2px inset ;
-}
+
 
 .group:focus-within{
     box-shadow: rgb(0, 162, 255) 0px 0px 0px 2px inset ;

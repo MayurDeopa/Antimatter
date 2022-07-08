@@ -20,7 +20,6 @@
     gap: 10px;
     border-left: solid 1px var(--secondary-theme-color);
     color: var(--primary-text-color);
-    background-color: var(--secondary-theme-light);
 }
 
 .steps_header{

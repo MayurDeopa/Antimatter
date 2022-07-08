@@ -1,8 +1,9 @@
-import styles2 from '../../styles/colors.module.css'
+import colors from '../../styles/colors.module.css'
 import styles from '../../styles/form.module.css'
 
 
-const OptInput =({type,action,array,value,title,label,disabled,placeholder,maxWidth,required})=>{
+
+const OptInput =({type,action,array,value,title,label,disabled,placeholder,maxWidth,required,isValid})=>{
     let setData = action
     switch(type){
         case "textarea":
@@ -11,7 +12,7 @@ const OptInput =({type,action,array,value,title,label,disabled,placeholder,maxWi
                     style={{
                         maxWidth:maxWidth
                     }}
-                    className={styles.group}>
+                    className={`${styles.group} ${!isValid && colors.error_shadow}`}>
                     <textarea
                         onChange={(e)=>action({...array,[title]:e.target.value})}
                         className={`${styles.input}`}
@@ -27,7 +28,7 @@ const OptInput =({type,action,array,value,title,label,disabled,placeholder,maxWi
     return(
         <div 
             style={{maxWidth:maxWidth}}
-            className={styles.group}>
+            className={`${styles.group} ${!isValid && colors.error_shadow}`}>
             <input
                 type={type}
                 onChange={(e)=>action({...array,[title]:e.target.value})}

@@ -23,6 +23,7 @@ import OptInput from '../components/Misc/OptInput';
 import ModalSpinner from '../components/Loaders/ModalSpinner';
 import { firstLetterToUpperCase } from '../services/other';
 import CheckoutProduct from '../components/Cart/CheckoutProduct';
+import { shippingValidator } from '../lib/drawer/validators';
 
 
 const Checkout =()=>{
@@ -34,11 +35,22 @@ const Checkout =()=>{
    const {data,isSpinning,formAction,err,setData} = useDetails()
    const cancelEdit =()=>{
        setData({...user.details.personal,...user.details.shipping})
+       setValidInputs(shippingValidator(validInput,data))
        setEdit(true)
     }
+    const [validInput,setValidInputs] =useState({
+        "email":true,
+        "phone":true,
+        "name":true,
+        "pincode":true,
+        "address":true,
+        "city":true,
+        "state":true
+    })
     const saveForm =()=>{
+        setValidInputs(shippingValidator(validInput,data))
         setEdit(true)
-        formAction(data)
+        //formAction(data)
 
     }
 
@@ -85,6 +97,7 @@ const Checkout =()=>{
                                 required={true}
                                 title={'email'}
                                 value={data.email}
+                                isValid={validInput.email}
                             />
                         </MainContainer>
                         <MainContainer
@@ -100,6 +113,7 @@ const Checkout =()=>{
                                 required={true}
                                 title={'phone'}
                                 value={data.phone}
+                                isValid={validInput.phone}
                             />
                         </MainContainer>
                     </MainContainer>
@@ -128,6 +142,7 @@ const Checkout =()=>{
                                 required={true}
                                 title={'name'}
                                 value={data.name}
+                                isValid={validInput.name}
                             />
                         </MainContainer>
                         <MainContainer
@@ -142,6 +157,7 @@ const Checkout =()=>{
                                 required={true}
                                 title={'pincode'}
                                 value={data.pincode}
+                                isValid={validInput.pincode}
                             />
                         </MainContainer>
                     </MainContainer>
@@ -160,6 +176,7 @@ const Checkout =()=>{
                             required={true}
                             title={'address'}
                             value={data.address}
+                            isValid={validInput.address}
                         />
                     </MainContainer>
                     <MainContainer
@@ -177,6 +194,7 @@ const Checkout =()=>{
                                 placeholder={'City'}
                                 title={'city'}
                                 value={data.city}
+                                isValid={validInput.city}
                             />    
                         </MainContainer>    
                         <MainContainer
@@ -190,6 +208,7 @@ const Checkout =()=>{
                                 disabled={edit}
                                 title={'state'}
                                 value={data.state}
+                                isValid={validInput.state}
                             />    
                         </MainContainer>
                     </MainContainer>

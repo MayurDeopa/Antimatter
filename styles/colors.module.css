@@ -22,6 +22,14 @@
     border: solid 1px var(--error) !important;
 }
 
+.error_shadow{
+    box-shadow: red 0px 0px 0px 2px inset !important;
+}
+
+.error_shadow:focus-within{
+    box-shadow: red 0px 0px 0px 2px inset !important;
+}
+
 .info_background{
     background-color: var(--info);
 }
