@@ -23,7 +23,7 @@
 }
 
 .error_shadow{
-    box-shadow: red 0px 0px 0px 2px inset !important;
+    box-shadow: red 0px 0px 0px 1.5px inset !important;
 }
 
 .error_shadow:focus-within{

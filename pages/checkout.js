@@ -24,44 +24,15 @@ import ModalSpinner from '../components/Loaders/ModalSpinner';
 import { firstLetterToUpperCase } from '../services/other';
 import CheckoutProduct from '../components/Cart/CheckoutProduct';
 import { shippingValidator } from '../lib/drawer/validators';
+import usePayment from '../lib/drawer/customhooks/usePayment';
 
 
 const Checkout =()=>{
     const {userState} = useStore()
     const [user,setUser] = userState
     const {personal,shipping} = user.details
-    const [paymentGateways,setPaymentGateways] = useState(gateways)
-    const [edit,setEdit] = useState(true)
-   const {data,isSpinning,formAction,err,setData} = useDetails()
-   const cancelEdit =()=>{
-       setData({...user.details.personal,...user.details.shipping})
-       setValidInputs(shippingValidator(validInput,data))
-       setEdit(true)
-    }
-    const [validInput,setValidInputs] =useState({
-        "email":true,
-        "phone":true,
-        "name":true,
-        "pincode":true,
-        "address":true,
-        "city":true,
-        "state":true
-    })
-    const saveForm =()=>{
-        setValidInputs(shippingValidator(validInput,data))
-        setEdit(true)
-        //formAction(data)
-
-    }
-
-    const pay =async(p)=>{
-        const action = p.action
-        setPaymentGateways(paymentGateways.map((g,i)=>g.name===p.name?{...g,state:'loading'}:{...g,state:'disabled'}))
-        await action({
-            amount:20000
-        })
-        setPaymentGateways(gateways)
-    }
+    const {data,isSpinning,formAction,err,setData} = useDetails()
+    const {validInput,isPaying,paymentGateways,pay} = usePayment(data)
 
     return(
         <PageWrapper
@@ -91,7 +62,7 @@ const Checkout =()=>{
                         >
                             <OptInput
                                placeholder={"Email"}
-                                disabled ={edit}
+                                
                                 action={setData}
                                 array={data}
                                 required={true}
@@ -107,7 +78,7 @@ const Checkout =()=>{
 
                             <OptInput
                                 placeholder={"Phone Number"}
-                                disabled ={edit}
+                                
                                 action={setData}
                                 array={data}
                                 required={true}
@@ -136,7 +107,7 @@ const Checkout =()=>{
                         >
                             <OptInput
                                 placeholder={"Name"}
-                                disabled ={edit}
+                                
                                 action={setData}
                                 array={data}
                                 required={true}
@@ -151,7 +122,7 @@ const Checkout =()=>{
                         >
                             <OptInput
                                 placeholder={"Pincode"}
-                                disabled ={edit}
+                                
                                 action={setData}
                                 array={data}
                                 required={true}
@@ -170,7 +141,7 @@ const Checkout =()=>{
                             maxWidth={'992px'}
                             placeholder={"Address"}
                             type={'textarea'}
-                            disabled ={edit}
+                            
                             action={setData}
                             array={data}
                             required={true}
@@ -190,7 +161,6 @@ const Checkout =()=>{
                                 action={setData}
                                 array={data}
                                 required={true}
-                                disabled={edit}
                                 placeholder={'City'}
                                 title={'city'}
                                 value={data.city}
@@ -205,14 +175,13 @@ const Checkout =()=>{
                                 action={setData}
                                 array={data}
                                 required={true}
-                                disabled={edit}
                                 title={'state'}
                                 value={data.state}
                                 isValid={validInput.state}
                             />    
                         </MainContainer>
                     </MainContainer>
-                    <MainContainer
+                    {/*<MainContainer
                         maxWidth={'100%'}
                         width={'100%'}
                         justify={'flex-start'}
@@ -228,7 +197,7 @@ const Checkout =()=>{
                             action={saveForm}
                             awaitState={edit?'disabled':'none'}
                         />
-                    </MainContainer>
+                        </MainContainer>*/}
                     </Form>
                     <Form
                         headerSide={'flex-start'}
