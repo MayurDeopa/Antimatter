@@ -1,10 +1,11 @@
 import styles from '../../styles/misc.module.css'
 
-const MainContainer =({children,justify,align,direction,width,maxWidth,customClasses,gap,...props})=>{
+const MainContainer =({children,height,justify,align,direction,width,maxWidth,customClasses,gap,...props})=>{
     return(
         <div
             style={{
                 width:width,
+                height:height,
                 justifyContent:justify,
                 alignItems:align,
                 flexDirection:direction,

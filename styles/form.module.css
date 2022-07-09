@@ -89,9 +89,11 @@ z
 
 .group{
     position: relative;
+    display: flex;
+    flex-direction: column;
     width: 100%;
     min-height: 48px;
-    border-radius: 8px;
+    border-radius: 4px;
     box-shadow: var(--secondary-box-shadow);
     background-color: var(--secondary-theme-color);
     padding-top: 15px;
@@ -124,7 +126,10 @@ z
 }
 
 
-
+.message{
+    font-size: 13px;
+    color:  var(--error);
+}
 
 .group:focus-within{
     box-shadow: rgb(0, 162, 255) 0px 0px 0px 2px inset ;

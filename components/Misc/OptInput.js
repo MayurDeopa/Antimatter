@@ -1,14 +1,20 @@
 import colors from '../../styles/colors.module.css'
 import styles from '../../styles/form.module.css'
 
+import MainContainer from './MainContainer'
 
 
-const OptInput =({type,action,array,value,title,label,disabled,placeholder,maxWidth,required,isValid})=>{
+const OptInput =({type,action,array,value,title,label,disabled,placeholder,maxWidth,required,isValid,errMsg})=>{
     let setData = action
     switch(type){
         case "textarea":
             return(
-                <div 
+                <MainContainer
+                    direction={'column'}
+                    height={'170px'}
+                    maxWidth={'100%'}
+                >
+                    <div 
                     style={{
                         maxWidth:maxWidth
                     }}
@@ -23,10 +29,17 @@ const OptInput =({type,action,array,value,title,label,disabled,placeholder,maxWi
                     />
                     <p className={styles.label}>{placeholder || title}</p>
                 </div>
+                {!isValid &&<p className={styles.message}>{errMsg || `${placeholder} is required`}</p>}
+                </MainContainer>
             )
     }
     return(
-        <div 
+        <MainContainer
+            direction={'column'}
+            height={'71px'}
+            maxWidth={'100%'}
+        >
+            <div 
             style={{maxWidth:maxWidth}}
             className={`${styles.group} ${!isValid && colors.error_shadow}`}>
             <input
@@ -39,7 +52,9 @@ const OptInput =({type,action,array,value,title,label,disabled,placeholder,maxWi
                 required={required}       
             />
             <p className={styles.label}>{placeholder || title}</p>
-        </div>       
+        </div>
+        {!isValid &&<p className={styles.message}>{errMsg || `${placeholder} is required`}</p>}
+        </MainContainer>       
     )
 }
 

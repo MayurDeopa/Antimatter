@@ -30,9 +30,7 @@ import usePayment from '../lib/drawer/customhooks/usePayment';
 const Checkout =()=>{
     const {userState} = useStore()
     const [user,setUser] = userState
-    const {personal,shipping} = user.details
-    const {data,isSpinning,formAction,err,setData} = useDetails()
-    const {validInput,isPaying,paymentGateways,pay} = usePayment(data)
+    const {validInput,isPaying,paymentGateways,pay,data,setData} = usePayment()
 
     return(
         <PageWrapper
@@ -61,14 +59,14 @@ const Checkout =()=>{
                             align={'center'}     
                         >
                             <OptInput
-                               placeholder={"Email"}
-                                
+                               placeholder={"Email"}   
                                 action={setData}
                                 array={data}
                                 required={true}
                                 title={'email'}
                                 value={data.email}
                                 isValid={validInput.email}
+                                errMsg={"Enter a valid email"}
                             />
                         </MainContainer>
                         <MainContainer
@@ -85,6 +83,7 @@ const Checkout =()=>{
                                 title={'phone'}
                                 value={data.phone}
                                 isValid={validInput.phone}
+                                errMsg={"Enter a valid phone number"}
                             />
                         </MainContainer>
                     </MainContainer>
@@ -129,6 +128,7 @@ const Checkout =()=>{
                                 title={'pincode'}
                                 value={data.pincode}
                                 isValid={validInput.pincode}
+                                errMsg={"Enter a valid pincode"}
                             />
                         </MainContainer>
                     </MainContainer>
@@ -178,26 +178,11 @@ const Checkout =()=>{
                                 title={'state'}
                                 value={data.state}
                                 isValid={validInput.state}
+                                
                             />    
                         </MainContainer>
                     </MainContainer>
-                    {/*<MainContainer
-                        maxWidth={'100%'}
-                        width={'100%'}
-                        justify={'flex-start'}
-                    >
-                        <SecondaryButton
-                            text={edit?'Edit':'Cancel'}
-                            width={'7rem'}
-                            action={edit?()=>setEdit(!edit):cancelEdit}
-                        />
-                        <PrimaryButton
-                            width={'7rem'}
-                            text={'Save'}
-                            action={saveForm}
-                            awaitState={edit?'disabled':'none'}
-                        />
-                        </MainContainer>*/}
+                    
                     </Form>
                     <Form
                         headerSide={'flex-start'}
@@ -220,7 +205,7 @@ const Checkout =()=>{
                                             awaitState={g.state}
                                             width={'100%'}
                                             cssClasses={g.cssClass}
-                                            action={()=>pay(g)}
+                                            action={()=>pay(g,data)}
                                             key={i}
                                         />
                                     )
@@ -268,11 +253,6 @@ const Checkout =()=>{
                         </MainContainer>
                 </div>
             </div>
-            {
-                isSpinning
-                &&
-                <ModalSpinner/>
-            }
         </PageWrapper>
     )
 }
