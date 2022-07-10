@@ -18,6 +18,7 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+    margin-top: 30px;
     border-left: solid 1px var(--secondary-theme-color);
     color: var(--primary-text-color);
 }
@@ -58,6 +59,7 @@
     }
     .checkout_form{
         width: 100%;
+        margin-top: 15px;
     }
 }
 

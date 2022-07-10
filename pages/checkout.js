@@ -31,13 +31,12 @@ const Checkout =()=>{
     const {userState} = useStore()
     const [user,setUser] = userState
     const {validInput,isPaying,paymentGateways,pay,data,setData} = usePayment()
-
     return(
         <PageWrapper
             customClasses={styles.no_padding}
         >
             <div className={styles.container}>
-                <Form
+                <MainContainer
                     maxWidth={'50rem'}
                     customClasses={`${styles.small_container} ${styles.no_bg}`}
                     width={'100%'}
@@ -65,7 +64,7 @@ const Checkout =()=>{
                                 required={true}
                                 title={'email'}
                                 value={data.email}
-                                isValid={validInput.email}
+                                isValid={data.email.length}
                                 errMsg={"Enter a valid email"}
                             />
                         </MainContainer>
@@ -75,14 +74,13 @@ const Checkout =()=>{
                         >
 
                             <OptInput
-                                placeholder={"Phone Number"}
-                                
+                                placeholder={"Phone Number"}                               
                                 action={setData}
                                 array={data}
                                 required={true}
                                 title={'phone'}
                                 value={data.phone}
-                                isValid={validInput.phone}
+                                isValid={data.phone.toString().length}
                                 errMsg={"Enter a valid phone number"}
                             />
                         </MainContainer>
@@ -112,7 +110,7 @@ const Checkout =()=>{
                                 required={true}
                                 title={'name'}
                                 value={data.name}
-                                isValid={validInput.name}
+                                isValid={data.name.length}
                             />
                         </MainContainer>
                         <MainContainer
@@ -127,7 +125,7 @@ const Checkout =()=>{
                                 required={true}
                                 title={'pincode'}
                                 value={data.pincode}
-                                isValid={validInput.pincode}
+                                isValid={data.pincode.toString().length}
                                 errMsg={"Enter a valid pincode"}
                             />
                         </MainContainer>
@@ -140,14 +138,13 @@ const Checkout =()=>{
                         <OptInput
                             maxWidth={'992px'}
                             placeholder={"Address"}
-                            type={'textarea'}
-                            
+                            type={'textarea'}                            
                             action={setData}
                             array={data}
                             required={true}
                             title={'address'}
                             value={data.address}
-                            isValid={validInput.address}
+                            isValid={data.address.length}
                         />
                     </MainContainer>
                     <MainContainer
@@ -164,7 +161,7 @@ const Checkout =()=>{
                                 placeholder={'City'}
                                 title={'city'}
                                 value={data.city}
-                                isValid={validInput.city}
+                                isValid={data.city.length}
                             />    
                         </MainContainer>    
                         <MainContainer
@@ -177,7 +174,7 @@ const Checkout =()=>{
                                 required={true}
                                 title={'state'}
                                 value={data.state}
-                                isValid={validInput.state}
+                                isValid={data.state.length}
                                 
                             />    
                         </MainContainer>
@@ -212,7 +209,7 @@ const Checkout =()=>{
                                 })}
                         </MainContainer>
                     </Form>
-                </Form>
+                </MainContainer>
                 <div className={`${styles.checkout_form}`}>
                         <MainContainer
                             customClasses={styles.steps_header}
