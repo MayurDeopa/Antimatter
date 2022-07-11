@@ -16,18 +16,18 @@ const NestedOptions=({child,listStateHidden})=>{
                     ?
                     <Link  href={child.link} >
                         <a href={child.link}>
-                        <h3  className={styles.title}>
+                        <p  className={styles.title}>
                             {child.name}
                         
                             {child.hasChildren
                             &&
                             <MdArrowDropDown/>
                             }
-                            </h3>
+                            </p>
                         </a>
                     </Link>
                     :
-                    <h3  className={styles.title} onClick={child.hasChildren?()=>setHidden(!hidden):fun}>
+                    <p  className={styles.title} onClick={child.hasChildren?()=>setHidden(!hidden):fun}>
                         {child.name}
                     
                         {child.hasChildren
@@ -36,7 +36,7 @@ const NestedOptions=({child,listStateHidden})=>{
                         :
                         null
                         }
-                        </h3>
+                        </p>
                 }
                 {child.hasChildren?
                     <div className={hidden?`${styles.children_container} ${styles.hidden}`:styles.children_container}> 
@@ -60,7 +60,7 @@ const NestedOptions=({child,listStateHidden})=>{
                     child.link
                     ?
                     <Link href={child.link}>
-                        <h3 className={styles.title}>
+                        <p className={styles.title}>
                         {child.name}
                     
                         {child.hasChildren
@@ -69,10 +69,10 @@ const NestedOptions=({child,listStateHidden})=>{
                         :
                         null
                         }
-                        </h3>
+                        </p>
                     </Link>
                     :
-                    <h3 className={styles.title} onClick={fun}>
+                    <p className={styles.title} onClick={fun}>
                         {child.name}
                     
                         {child.hasChildren
@@ -81,7 +81,7 @@ const NestedOptions=({child,listStateHidden})=>{
                         :
                         null
                         }
-                        </h3>
+                        </p>
                 }
                 {child.hasChildren?
                     <div className={styles.children_container}> 

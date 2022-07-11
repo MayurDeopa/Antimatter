@@ -9,6 +9,7 @@ import PageWrapper from '../components/PageWrapper'
 import MainContainer from '../components/Misc/MainContainer';
 import Form from '../components/Misc/Form';
 import OptInput from '../components/Misc/OptInput';
+import { emailValidator } from '../lib/drawer/validators';
 
 const Contact =()=>{
     const [data,setData] = useState({
@@ -43,23 +44,39 @@ const Contact =()=>{
                         <OptInput
                             placeholder={'Name'}
                             required
-                            isValid
+                            value={data.name}
+                            action={setData}
+                            array={data}
+                            title={'name'}
+                            isValid={data.name.length>4}
                         />
                         <OptInput
                             placeholder={'Email'}
                             required
-                            isValid
+                            value={data.email}
+                            action={setData}
+                            array={data}
+                            title={'email'}
+                            isValid={emailValidator(data.email)}
                         />
                     </MainContainer>
                     <OptInput
                             placeholder={'Subject'}
                             required
-                            isValid
+                            action={setData}
+                            valued={data.subject}
+                            array={data}
+                            title={'subject'}
+                            isValid={data.subject.length>10}
                         />
                     <OptInput
-                        placeholder={'Message'}
+                        placeholder={'Message (Optional)'}
                         required
                         type={'textarea'}
+                        value={data.message}
+                        title={'message'}
+                        action={setData}
+                        array={data}
                         isValid
                     />
                     <MainContainer

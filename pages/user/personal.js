@@ -83,6 +83,7 @@ const Personal =()=>{
                                         action={setDetails}
                                         disabled={!edit}
                                         required
+                                        isValid={details[key].toString().length}
                                         key={index}
                                     />
                                 )
