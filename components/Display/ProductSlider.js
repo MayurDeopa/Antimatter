@@ -1,7 +1,7 @@
 import styles from '../../styles/Product.module.css'
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
-import Image from 'next/image'
+import BlurImage from '../Misc/BlurImage';
 
 const ProductSlider =({images})=>{
     return(
@@ -16,7 +16,13 @@ const ProductSlider =({images})=>{
             {images.map((image,i)=>{
                 return(
                     <div className={'image_skeleton_aspect'} key={i}>
-                        <Image src={image.url} layout='intrinsic' height={'600'} width={'600'}/>
+                        <BlurImage 
+                            attributes={{
+                                height:'600',
+                                width:'600',
+                                src:image.url
+                            }}
+                        />
                     </div>
                 )
             })}

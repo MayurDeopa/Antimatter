@@ -84,6 +84,7 @@ const Shipping =()=>{
                                         array={details}
                                         action={setDetails}
                                         required
+                                        isValid
                                         disabled={!edit}
                                         key={index}
                                     />

@@ -37,10 +37,7 @@ const Contact =()=>{
                     
                     maxWidth={'50rem'}
                 >
-                    <MainContainer
-                        maxWidth={'100%'}
-                        gap={'20px'}
-                    >
+                    
                         <OptInput
                             placeholder={'Name'}
                             required
@@ -59,7 +56,6 @@ const Contact =()=>{
                             title={'email'}
                             isValid={emailValidator(data.email)}
                         />
-                    </MainContainer>
                     <OptInput
                             placeholder={'Subject'}
                             required
@@ -86,6 +82,7 @@ const Contact =()=>{
                         <SecondaryButton
                             text={'Submit'}
                             width={'10rem'}
+                            awaitState={'disabled'}
                         />
                     </MainContainer>
                 </Form>
