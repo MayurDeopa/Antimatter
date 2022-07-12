@@ -15,7 +15,7 @@ const ProductSlider =({images})=>{
         >
             {images.map((image,i)=>{
                 return(
-                    <div className={'image_skeleton_aspect'} keyi>
+                    <div className={'image_skeleton_aspect'} key={i}>
                         <Image src={image.url} layout='intrinsic' height={'600'} width={'600'}/>
                     </div>
                 )
