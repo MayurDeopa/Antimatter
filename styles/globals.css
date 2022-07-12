@@ -7,7 +7,7 @@
 /*p = #141415  #0d0906  #3f3f44*/
 
 :root{
-  --primary-theme-color:white;
+  --primary-theme-color:rgb(255, 255, 255);
   --primary-color-light:rgb(238, 245, 255);
   --secondary-theme-color:#121212;
   --secondary-theme-light:#202020;
@@ -243,9 +243,15 @@ tranlate_page{
   justify-content: center;
 }
 
+.slide{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .image_skeleton_aspect{
   width: 80%;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 6 / 5;
 }
 
 *::-webkit-scrollbar{

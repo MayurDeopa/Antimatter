@@ -15,14 +15,6 @@ const Shop =({data})=>{
                 </Head>
                     <PageWrapper>              
                             <>
-                                <Breadcrumb
-                                    paths={[
-                                        {
-                                            title:'Home',
-                                            path:'/'
-                                        }
-                                    ]}
-                                />
                                 <Container>
                                     {
                                         data.data.map((c,i)=>{

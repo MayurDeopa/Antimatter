@@ -25,6 +25,7 @@ import Breadcrumb from "../../../components/Navigations/Breadcrumb";
 import Panel from "../../../components/Panel";
 import IconBtn from "../../../components/Misc/IconBtn";
 import MainContainer from '../../../components/Misc/MainContainer'
+import ProductSlider from "../../../components/Display/ProductSLider";
 
 const sizes =[
     {
@@ -166,9 +167,12 @@ const Product =()=>{
                         ]}
                     />
                         <div className={styles.wrapper}>
-                            <div className={'image_skeleton_aspect'}>
+                            {/*<div className={'image_skeleton_aspect'}>
                                 <Image src={data.assets[0].url} layout='intrinsic' height={'600'} width={'600'}/>
-                            </div>
+                            </div>*/}
+                            <ProductSlider
+                                images={data.assets}
+                            />
                             <article className={styles.details}>
                                 <legend className={styles.details_header}>
                                     {data.name}
