@@ -25,7 +25,7 @@ import Breadcrumb from "../../../components/Navigations/Breadcrumb";
 import Panel from "../../../components/Panel";
 import IconBtn from "../../../components/Misc/IconBtn";
 import MainContainer from '../../../components/Misc/MainContainer'
-import ProductSlider from "../../../components/Display/ProductSLider";
+import ProductSlider from "../../../components/Display/ProductSlider";
 
 const sizes =[
     {
