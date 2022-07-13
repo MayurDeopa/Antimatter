@@ -9,11 +9,11 @@ const ImageSlider =({children})=>{
             autoPlay={true}
             infiniteLoop
             interval={5000}
-            showArrows={false}
+            showArrows={true}
             showStatus={false}
-            showIndicators={false}
+            showIndicators={true}
             swipeable={true}
-            showThumbs={false}
+            showThumbs={true}
             
         >
             {children}

@@ -25,6 +25,7 @@ import { firstLetterToUpperCase } from '../services/other';
 import CheckoutProduct from '../components/Cart/CheckoutProduct';
 import { shippingValidator } from '../lib/drawer/validators';
 import usePayment from '../lib/drawer/customhooks/usePayment';
+import Head from 'next/head';
 
 
 const Checkout =()=>{
@@ -35,6 +36,9 @@ const Checkout =()=>{
         <PageWrapper
             customClasses={styles.no_padding}
         >
+            <Head>
+                <title>Checkout</title>
+            </Head>
             <div className={styles.container}>
                 <MainContainer
                     maxWidth={'50rem'}

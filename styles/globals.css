@@ -20,6 +20,7 @@
   --error:#dd5d5d;
   --header-height:3rem;
   --drawer-height:auto;
+  --header-size:26px;
 }
 
 * {
@@ -55,6 +56,10 @@ textarea{
 
 .link:hover{
   text-decoration: underline;
+}
+
+.header{
+  font-size: var(--header-size);
 }
 
 .page{

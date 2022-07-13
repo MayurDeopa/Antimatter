@@ -10,6 +10,7 @@ import MainContainer from '../components/Misc/MainContainer';
 import Form from '../components/Misc/Form';
 import OptInput from '../components/Misc/OptInput';
 import { emailValidator } from '../lib/drawer/validators';
+import Head from 'next/head';
 
 const Contact =()=>{
     const [data,setData] = useState({
@@ -20,6 +21,9 @@ const Contact =()=>{
     })
     return(
         <PageWrapper>
+            <Head>
+                <title>Contact us</title>
+            </Head>
            <MainContainer
             customClasses={styles.container}
             justify={'center'}

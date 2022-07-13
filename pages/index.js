@@ -1,37 +1,42 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import Link from 'next/link'
 import PageWrapper from '../components/PageWrapper'
-import {BiRightArrowAlt} from 'react-icons/bi'
-import styles from '../styles/Home.module.css'
 
-import SecondaryButton from '../components/Loaders/SecondaryButton'
+
+
 import ImageSlider from '../components/Display/ImageSlider'
+import { getBannerData } from '../services/api/banners'
+import HomeBanner from '../components/Display/HomeBanner'
 
-export default function Home() {
-  
+export default function Home({banners}) {
   return (
     <PageWrapper>
       <Head >
         <title>Anti-Matter</title>
       </Head>
       <ImageSlider>
-        <div 
-          className={styles.home_image_container}
-          style={{
-            backgroundImage:'url("https://i.ibb.co/rmXt8JQ/COMPARISON-DESTORYS-PERSONALITY.jpg")'
-          }}>
-            <div className={styles.home_image_text}>
-              <h1>New Beginings</h1>
-              <h2>Comparison destroys</h2>
-              <h1>PERSONALITY</h1>
-              <SecondaryButton
-                text={'View Collection'}
-                icon={<BiRightArrowAlt/>}
-              />
-            </div>
-        </div>
+      {banners.data.map((d,i)=>{
+          return(
+            <HomeBanner
+              d={d}
+              key={i}
+            />
+          )
+        })}
       </ImageSlider>
     </PageWrapper>
   )
 }
+
+
+export async function getStaticProps() {
+  const banners = await getBannerData('home')
+  return {
+    props: {
+      banners,
+    },
+  }
+}
+
+
+

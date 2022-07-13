@@ -1,3 +1,4 @@
+import Head from "next/head";
 import Flow from "../../components/Misc/Flow"
 import PageWrapper from "../../components/PageWrapper";
 
@@ -6,6 +7,9 @@ import PageWrapper from "../../components/PageWrapper";
 const Orders =()=>{
     return(
         <PageWrapper>
+            <Head>
+                <title>Orders</title>
+            </Head>
             <Flow
             buttonValue={'Submit'}
             titles={["Personal details","Shipping details"]}
