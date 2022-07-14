@@ -133,9 +133,9 @@ const Cart =()=>{
             </Head>
             <PageWrapper>
             {
-                cart.cart
+                cart.cart.items
                 ?
-                cart.cart.length
+                cart.cart.items.length
                 ?
                 <div className={styles.cart_container}>
                 <div className={styles.cart_section}>
@@ -146,7 +146,7 @@ const Cart =()=>{
                     </div>
                     {
                         
-                        cart.cart.map((p,i)=>{
+                        cart.cart.items.map((p,i)=>{
                             return <CartProducts product={p} key={i}/>
                         })
                         

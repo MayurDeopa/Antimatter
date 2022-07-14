@@ -220,7 +220,7 @@ const Checkout =()=>{
                             maxWidth={'100%'}
                             direction='column'
                         >
-                        {user.cart.map((c,i)=>{
+                        {user.cart.items.map((c,i)=>{
                             return(
                                 <CheckoutProduct
                                     src={c.img}
@@ -242,7 +242,7 @@ const Checkout =()=>{
                                 justify={'space-between'}
                             >
                                 <p>Subtotal :</p>
-                                <p>-</p>
+                                <p>{user.cart.amount}</p>
                             </MainContainer>
                             <MainContainer
                                 maxWidth={'100%'}
