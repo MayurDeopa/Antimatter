@@ -26,9 +26,26 @@ import Panel from "../../../components/Panel";
 import IconBtn from "../../../components/Misc/IconBtn";
 import MainContainer from '../../../components/Misc/MainContainer'
 import ProductSlider from "../../../components/Display/ProductSlider";
+import Form from "../../../components/Misc/Form";
+import OptInput from "../../../components/Misc/OptInput";
+import RadioGroup from "../../../components/Misc/RadioGroup";
 
-const sizes =[
-    {
+
+
+
+const Product =()=>{
+    const {open,toggleModal} = useModal()
+    const {userState} = useContext(Store)
+    const [user,setUser] = userState
+    const router = useRouter()
+    const category = router.query.category
+    const [isLoading,setIsLoading] = useState(true)
+    const [size,setSize] = useState('small')
+    const isChecked =(s)=>s===size
+    const handleChange =(e)=>{
+        setSize(e.currentTarget.value)
+    }
+    const [sizes,setSizes] = useState([{
         title:'small',
         icon:'S'
     },
@@ -43,17 +60,7 @@ const sizes =[
     {
         title:'extra large',
         icon:'XL'
-    },
-]
-
-
-const Product =()=>{
-    const {open,toggleModal} = useModal()
-    const {userState} = useContext(Store)
-    const [user,setUser] = userState
-    const router = useRouter()
-    const category = router.query.category
-    const [isLoading,setIsLoading] = useState(true)
+    }])
     const {isSpinning,fetchCart,getProductData,err,data,cartMessage} = useCart()
     useEffect(()=>{
         if(router.isReady){
@@ -172,50 +179,28 @@ const Product =()=>{
                             </div>*/}
                             <ProductSlider
                                 images={data.assets}
-                            />
-                            <article className={styles.details}>
-                                <legend className={styles.details_header}>
-                                    {data.name}
-                                </legend>
-                                <legend className={styles.details_price}>
-                                    {data.price.formatted_with_symbol}    
-                                </legend>
-                                <legend className={styles.details_description}>
-                                    {data.description?data.description:"No Description"}    
-                                </legend>
-                                {/*<button className="checkout_button" onClick={()=>{
-                                    useCart({
-                                        key:'add',
-                                        payload:{
-                                            id:user.id,
-                                            product:data
-                                        }
-                                    })
-                                }}>
-                                    <h3>Add To Cart</h3>    
-                            </button>*/}
-                            <legend style={{
-                                display:'flex',
-                                flexDirection:'column',
-                                gap:'5px'
-                            }}>
-                                    <span>
-                                        Select size
-                                    </span>
-                                    <MainContainer>
-                                        {sizes.map((s,i)=>{
-                                            return(
-                                                <IconBtn
-                                                    key={i}
-                                                    height={'auto'}
-                                                    width={'3rem'}
-                                                >
-                                                    <p>{s.icon}</p>
-                                                </IconBtn>
-                                            )
-                                        })}
-                                    </MainContainer>
-                                </legend>
+                        />
+                            
+                        <Form
+                            customClasses={styles.details}
+                            title={data.name}
+                            headerSide={'flex-start'}
+
+                        >
+                            <p>{data.price.formatted_with_symbol}</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequa</p>
+                            <MainContainer
+                                direction={'column'}
+                            >
+                                <p>Select size</p>
+                                <RadioGroup
+                                    state={sizes}
+                                    isChecked={isChecked}
+                                    handleChange={handleChange}
+
+                                />
+                                
+                            </MainContainer>
                             <div className={styles.buttons_wrapper}>
                             {
                                 user
@@ -244,7 +229,7 @@ const Product =()=>{
                             />
                             
                             </div>
-                        </article>
+                        </Form>
                     </div>
                     {
                         open

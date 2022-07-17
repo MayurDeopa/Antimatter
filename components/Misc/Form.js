@@ -12,11 +12,11 @@ const Form =({animated,title,children,width,maxWidth,customClasses,headerSide})=
             {
                 title
                 &&
-                <h3 
+                <h2 
                     style={{justifyContent:headerSide}}
                     className={styles.form_header}>
                     {title}
-                </h3>
+                </h2>
             }
             {children}
         </form>

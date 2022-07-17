@@ -49,6 +49,12 @@ textarea{
   min-height: 10rem;
 }
 
+.bg_transparent{
+  background-color: transparent;
+}
+
+
+
 .link{
   color: brown;
   cursor: pointer;
