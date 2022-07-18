@@ -178,6 +178,7 @@ const Product =()=>{
                                 return(
                                     <MainContainer
                                         direction={'column'}
+                                        key={i}
                                     >
                                         <p>{v.name}</p>
                                         <RadioGroup
