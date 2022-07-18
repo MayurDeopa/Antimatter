@@ -2,7 +2,7 @@ import MainContainer from "./MainContainer";
 
 import styles from '../../styles/form.module.css'
 
-const RadioGroup =({state,handleChange,isChecked})=>{
+const RadioGroup =({state,handleChange,isChecked,name})=>{
     return(
         <MainContainer>
             {state.map((r,i)=>{
@@ -13,11 +13,12 @@ const RadioGroup =({state,handleChange,isChecked})=>{
                         <input
                             className={styles.radio}
                             type={'radio'}
-                            value={r.title}
-                            checked={isChecked(r.title)}
+                            value={r.name}
+                            checked={isChecked(r.name)}
+                            name={name}
                             onChange={handleChange}
                         />
-                        <p className={styles.radio_text}>{r.icon}</p>
+                        <p className={styles.radio_text}>{r.name}</p>
                     </label>
                 )
             })}

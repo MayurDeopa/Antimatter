@@ -40,27 +40,11 @@ const Product =()=>{
     const router = useRouter()
     const category = router.query.category
     const [isLoading,setIsLoading] = useState(true)
-    const [size,setSize] = useState('small')
+    const [size,setSize] = useState('s')
     const isChecked =(s)=>s===size
     const handleChange =(e)=>{
         setSize(e.currentTarget.value)
     }
-    const [sizes,setSizes] = useState([{
-        title:'small',
-        icon:'S'
-    },
-    {
-        title:'medium',
-        icon:'M'
-    },
-    {
-        title:'large',
-        icon:'L'
-    },
-    {
-        title:'extra large',
-        icon:'XL'
-    }])
     const {isSpinning,fetchCart,getProductData,err,data,cartMessage} = useCart()
     useEffect(()=>{
         if(router.isReady){
@@ -69,6 +53,7 @@ const Product =()=>{
                 setIsLoading(false)
             }
             fetchProduct()
+            console.log(data)
         }
     },[router.isReady])
     const url = 'fadjn'
@@ -189,18 +174,21 @@ const Product =()=>{
                         >
                             <p>{data.price.formatted_with_symbol}</p>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequa</p>
-                            <MainContainer
-                                direction={'column'}
-                            >
-                                <p>Select size</p>
-                                <RadioGroup
-                                    state={sizes}
-                                    isChecked={isChecked}
-                                    handleChange={handleChange}
-
-                                />
-                                
-                            </MainContainer>
+                            {data.variant_groups.map((v,i)=>{
+                                return(
+                                    <MainContainer
+                                        direction={'column'}
+                                    >
+                                        <p>{v.name}</p>
+                                        <RadioGroup
+                                            state={v.options}
+                                            isChecked={isChecked}
+                                            handleChange={handleChange}
+                                                />
+                                        
+                                    </MainContainer>
+                                        )
+                            })}
                             <div className={styles.buttons_wrapper}>
                             {
                                 user
