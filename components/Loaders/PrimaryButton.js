@@ -39,7 +39,7 @@ const Button =({awaitState,text,action,loadingText,icon,children,cssClasses,widt
                 )
         default:
             return (
-                <button 
+                <div 
                     style={{
                         width:width
                     }}
@@ -51,7 +51,7 @@ const Button =({awaitState,text,action,loadingText,icon,children,cssClasses,widt
                     </p>
                     {icon}
                     {children}
-                </button>
+                </div>
             )
         }
     }
