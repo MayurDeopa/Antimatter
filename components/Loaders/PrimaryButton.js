@@ -40,7 +40,6 @@ const Button =({awaitState,text,action,loadingText,icon,children,cssClasses,widt
         default:
             return (
                 <button 
-                    type={'submit'}
                     style={{
                         width:width
                     }}
