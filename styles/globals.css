@@ -7,14 +7,14 @@
 /*p = #141415  #0d0906  #3f3f44*/
 
 :root{
-  --primary-theme-color:rgb(255, 255, 255);
-  --primary-color-light:rgb(238, 245, 255);
+  --primary-theme-color:hsla(190, 51%, 50%, 1);
+  --primary-color-light:hsla(190, 20%, 95%, 1);
   --secondary-theme-color:#121212;
   --secondary-theme-light:#202020;
   --secondary-theme-lighter:#2c2c2c;
   --primary-text-color:white;
   --primary-box-shadow: rgba(0,0,0,0.1) 0px 1px 3px 0px,rgba(0,0,0,0.06) 0px 1px 2px 0px;
-  --secondary-box-shadow:var(--primary-theme-color) 0px 0px 0px 1px inset ;
+  --secondary-box-shadow:white 0px 0px 0px 1px inset ;
   --success:rgb(4, 202, 120);
   --info:rgba(29,161,242,1.00);
   --error:#dd5d5d;
@@ -66,6 +66,11 @@ textarea{
 
 .header{
   font-size: var(--header-size);
+}
+
+.error_message{
+  font-size: 13px;
+  color:  var(--error);
 }
 
 .page{
@@ -140,7 +145,6 @@ textarea{
   padding: 1.5rem 1rem;
   margin-top: calc(var(--header-height) - 3px);
   background-color: var(--secondary-theme-color);
-  min-height: 100vh;
   width: 100%;
   max-width: 105rem;
   margin-left: auto;
@@ -277,8 +281,29 @@ tranlate_page{
 }
 
 *::-webkit-scrollbar-thumb{   
-  background-color: var(--primary-theme-color);
+  background-color: var(--primary-text-color);
   border-radius: 8px;
+}
+
+.parallax_container{
+  min-height: 1000vh;
+  width: 100%;
+}
+
+.parallax{
+  position: sticky;
+  top: 5rem;
+  background-color: yellow;
+  width: 100%;
+  height: 20rem;
+  transform: scale(1);
+  display: flex;
+  align-items: center;
+  transition: 0.2s ease-in-out;
+}
+
+.shrink{
+  transform: scale(0.5);
 }
 
 @media screen and (max-width:750px) {

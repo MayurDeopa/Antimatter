@@ -2,9 +2,8 @@ import styles from '../../styles/cart.module.css'
 import {BiPlus,BiMinus} from 'react-icons/bi'
 import useCart from '../../lib/drawer/customhooks/useCart'
 
-const QuantityPanel =({props})=>{
+const QuantityPanel =({product})=>{
     const {isSpinning,modifyQty} = useCart()
-    
     {/*if(isSpinning){
         return (
             <div className={styles.cart_section_log_quantity}>
@@ -35,12 +34,18 @@ const QuantityPanel =({props})=>{
     }*/}
     return (
         <div className={styles.cart_section_log_quantity}>
-            <div className={styles.operator_button_disabled} >
-                <BiPlus/>
+            <div className={styles.operator_button} onClick={()=>modifyQty({
+                    product:product,
+                    query:'add'
+                })}>
+                {isSpinning?'-':<BiPlus/>}
             </div>
-            <p>{props.quantity}</p>
-            <div className={styles.operator_button_disabled}>
-                <BiMinus/>
+            <p>{product.quantity}</p>
+            <div className={styles.operator_button} onClick={()=>modifyQty({
+                    product:product,
+                    query:'subtract'
+                })}>
+                {isSpinning?"-":<BiMinus/>}
             </div>
         </div>
     )

@@ -45,7 +45,7 @@ const Product =()=>{
     const handleChange =(e)=>{
         setSize(e.currentTarget.value)
     }
-    const {isSpinning,fetchCart,getProductData,err,data,cartMessage} = useCart()
+    const {isSpinning,fetchCart,getProductData,err,data,cartMessage,variants} = useCart()
     useEffect(()=>{
         if(router.isReady){
             const fetchProduct =async()=>{
@@ -174,19 +174,23 @@ const Product =()=>{
                         >
                             <p>{data.price.formatted_with_symbol}</p>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequa</p>
-                            {data.variant_groups.map((v,i)=>{
+                            {variants.map((v,i)=>{
                                 return(
                                     <MainContainer
                                         direction={'column'}
                                         key={i}
                                     >
-                                        <p>{v.name}</p>
+                                        <p style={{
+                                            borderBottom:'solid 1px white',
+                                            paddingBottom:'7px',
+                                            marginBottom:'4px'
+                                        }}>{v.name}</p>
                                         <RadioGroup
                                             state={v.options}
                                             isChecked={isChecked}
                                             handleChange={handleChange}
                                                 />
-                                        
+                                        {/*<p className="error_message">{v.name} is required</p>*/}
                                     </MainContainer>
                                         )
                             })}

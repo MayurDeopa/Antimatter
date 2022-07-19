@@ -17,6 +17,7 @@ const RadioGroup =({state,handleChange,isChecked,name})=>{
                             checked={isChecked(r.name)}
                             name={name}
                             onChange={handleChange}
+                            required
                         />
                         <p className={styles.radio_text}>{r.name}</p>
                     </label>

@@ -6,22 +6,22 @@ const Button =({awaitState,text,action,loadingText,icon,children,cssClasses,widt
     switch(awaitState){
         case "loading":
                 return (
-                    <div 
+                    <button 
                         style={{
                             width:width
                         }}
                         className={styles.primary_await}
                         
                         >
-                        <h4>
+                        <p>
                             {loadingText?loadingText:text}
-                        </h4>
+                        </p>
                         {children}
                         <PrimarySpinner 
                             light
                             size={'s'}
                         />
-                    </div>
+                    </button>
                 )
         case "disabled":
                 return (
@@ -30,28 +30,29 @@ const Button =({awaitState,text,action,loadingText,icon,children,cssClasses,widt
                             width:width
                         }}
                         className={styles.primary_await}>
-                        <h4>
+                        <p>
                             {text}
-                        </h4>
+                        </p>
                         {icon}
                         {children}
                     </div>
                 )
         default:
             return (
-                <div 
+                <button 
+                    type={'submit'}
                     style={{
                         width:width
                     }}
                     className={`${styles.primary_button} ${cssClasses}`}
                     onClick={action}
                 >
-                    <h4>
+                    <p>
                         {text}
-                    </h4>
+                    </p>
                     {icon}
                     {children}
-                </div>
+                </button>
             )
         }
     }

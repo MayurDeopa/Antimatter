@@ -33,7 +33,7 @@ const CartProducts = ({product,states})=>{
     
                     <>
                         <Image src={product.img}   width={300} height={300} alt=''/>
-                        <QuantityPanel props={product}/>
+                        <QuantityPanel product={product}/>
                         <p>{product.price * product.quantity}</p>
                     </>
             </div>

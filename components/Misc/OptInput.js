@@ -29,7 +29,7 @@ const OptInput =({type,action,array,value,title,label,disabled,placeholder,maxWi
                     />
                     <p className={styles.label}>{placeholder || title}</p>
                 </div>
-                {!isValid &&<p className={styles.message}>{errMsg || `${placeholder} is required`}</p>}
+                {!isValid &&<p className={'error_message'}>{errMsg || `${placeholder} is required`}</p>}
                 </MainContainer>
             )
     }
@@ -53,7 +53,7 @@ const OptInput =({type,action,array,value,title,label,disabled,placeholder,maxWi
             />
             <p className={styles.label}>{placeholder || title}</p>
         </div>
-        {!isValid &&<p className={styles.message}>{errMsg || `${placeholder} is required`}</p>}
+        {!isValid &&<p className={'error_message'}>{errMsg || `${placeholder} is required`}</p>}
         </MainContainer>       
     )
 }

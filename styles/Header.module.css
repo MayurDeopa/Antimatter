@@ -168,10 +168,9 @@
 .footer{
     position: absolute;
     width: 100%;
-    min-height: 3rem;
+    min-height: 40%;
     padding: 5px;
     display: flex;
-    align-items: center;
     justify-content: space-around;
     background-color: var(--secondary-theme-light);
     color: var(--primary-text-color);
