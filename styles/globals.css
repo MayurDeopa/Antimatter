@@ -7,8 +7,8 @@
 /*p = #141415  #0d0906  #3f3f44*/
 
 :root{
-  --primary-theme-color:hsla(190, 51%, 50%, 1);
-  --primary-color-light:hsla(190, 20%, 95%, 1);
+  --primary-theme-color:white;
+  --primary-color-light:rgb(230, 230, 230);
   --secondary-theme-color:#121212;
   --secondary-theme-light:#202020;
   --secondary-theme-lighter:#2c2c2c;
