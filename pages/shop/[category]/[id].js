@@ -53,7 +53,6 @@ const Product =()=>{
                 setIsLoading(false)
             }
             fetchProduct()
-            console.log(data)
         }
     },[router.isReady])
     const url = 'fadjn'
@@ -83,28 +82,62 @@ const Product =()=>{
                             </div>
                             <article className={styles.details}>
                                 <Skeleton
-                                    height={'1rem'}
-                                    width={'6rem'}
+                                    height={'2rem'}
+                                    width={'100%'}
                                 />
                                 <Skeleton
-                                    height={'1rem'}
+                                    height={'2rem'}
                                     width={'7rem'}
                                 />
                                 <Skeleton
-                                    height={'1rem'}
-                                    width={'20rem'}
+                                    height={'1.5rem'}
+                                    width={'100%'}
                                 />
                                 <Skeleton
-                                    height={'1rem'}
-                                    width={'6rem'}
+                                    height={'1.5rem'}
+                                    width={'100%'}
+                                />
+                                <Skeleton
+                                    height={'2rem'}
+                                    width={'100%'}
                                 />
                                 <MainContainer>
                                     <Skeleton
-                                            height={'2rem'}
+                                            height={'3rem'}
                                             width={'3rem'}
                                         />
                                         <Skeleton
-                                            height={'2rem'}
+                                            height={'3rem'}
+                                            width={'3rem'}
+                                        />
+                                        <Skeleton
+                                            height={'3rem'}
+                                            width={'3rem'}
+                                        />
+                                        <Skeleton
+                                            height={'3rem'}
+                                            width={'3rem'}
+                                        />
+                                        <Skeleton
+                                            height={'3rem'}
+                                            width={'3rem'}
+                                        />
+                                        <Skeleton
+                                            height={'3rem'}
+                                            width={'3rem'}
+                                        />
+                                </MainContainer>
+                                <Skeleton
+                                    height={'2rem'}
+                                    width={'100%'}
+                                />
+                                <MainContainer>
+                                    <Skeleton
+                                            height={'3rem'}
+                                            width={'3rem'}
+                                        />
+                                        <Skeleton
+                                            height={'3rem'}
                                             width={'3rem'}
                                         />
                                 </MainContainer>

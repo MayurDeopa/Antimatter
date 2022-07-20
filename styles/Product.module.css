@@ -59,6 +59,7 @@
     justify-content: center;
     width: 100%;
     gap: 10px;
+    background-color: var(--secondary-theme-color);
 }
 
 
