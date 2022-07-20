@@ -13,7 +13,7 @@ const MainContainer =({children,height,justify,align,direction,width,maxWidth,cu
                 gap:gap
             }} 
             {...props}
-            className={`${styles.button_group} + ${customClasses}`}>
+            className={`${styles.button_group} + ${customClasses && customClasses}`}>
             {children}
         </div>
     )

@@ -22,7 +22,7 @@
 }
 
 .secondary_button,.secondary_await{
-  background-color: transparent;
+  background-color: var(--secondary-theme-color);
   color: var(--primary-theme-color);
   box-shadow: var(--primary-theme-color) 0px 0px 0px 1px inset ;;
 }

@@ -246,7 +246,7 @@ textarea{
   color: var(--secondary-theme-color);
 }
 
-tranlate_page{
+.tranlate_page{
   transform: translateX(30rem);
 }
 
@@ -266,7 +266,7 @@ tranlate_page{
 
 .image_skeleton_aspect{
   width: 90%;
-  aspect-ratio: 6 / 5;
+  aspect-ratio: 5/ 5;
 }
 
 *::-webkit-scrollbar{

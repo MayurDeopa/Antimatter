@@ -172,16 +172,23 @@ const Product =()=>{
                             headerSide={'flex-start'}
 
                         >
-                            <p>{data.price.formatted_with_symbol}</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequa</p>
+                           <MainContainer
+                                maxWidth={'100%'}
+                                direction={'column'}
+                                customClasses={styles.details_container}
+                            >
+                                <p>{data.price.formatted_with_symbol}</p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequa</p>
+                           </MainContainer>
                             {variants.map((v,i)=>{
                                 return(
                                     <MainContainer
+                                        maxWidth={'100%'}
                                         direction={'column'}
+                                        customClasses={styles.details_container}
                                         key={i}
                                     >
                                         <p style={{
-                                            borderBottom:'solid 1px white',
                                             paddingBottom:'7px',
                                             marginBottom:'4px'
                                         }}>{v.name}</p>
