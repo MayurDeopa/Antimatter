@@ -1,6 +1,7 @@
 import styles from '../../styles/misc.module.css'
+import form from '../../styles/form.module.css'
 
-const MainContainer =({children,height,justify,align,direction,width,maxWidth,customClasses,gap,...props})=>{
+const MainContainer =({title,headerSide,children,height,justify,align,direction,width,maxWidth,customClasses,gap,...props})=>{
     return(
         <div
             style={{
@@ -14,6 +15,15 @@ const MainContainer =({children,height,justify,align,direction,width,maxWidth,cu
             }} 
             {...props}
             className={`${styles.button_group} + ${customClasses && customClasses}`}>
+                {
+                title
+                &&
+                <h2 
+                    style={{justifyContent:headerSide}}
+                    className={styles.form_header}>
+                    {title}
+                </h2>
+            }
             {children}
         </div>
     )

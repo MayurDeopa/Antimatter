@@ -44,6 +44,7 @@ const Flow =({components,buttonValue,titles,breakpoints,state,action,loadingStat
                 title={titles[page]}
                 maxWidth={'30rem'}
                 animated={true}
+                action={()=>console.log('some')}
             >
                 {pageState.slice(breakpoints[page-1],breakpoints[page]).map((s,i)=>{
                     return (
@@ -73,15 +74,9 @@ const Flow =({components,buttonValue,titles,breakpoints,state,action,loadingStat
                          text={page!==numberOfPages?'Next':"Submit"}
                          awaitState={loadingState?"loading":'none'}
                          loadingText={"Saving"}
-                         action={
-                             isLastStep
-                             ?
-                             ()=>action({
-                                id:user._id,
-                                details:data
-                            })
-                            :
-                            pageSubmit}
+                         type={isLastStep?'submit':'button'}
+                         action={!isLastStep?pageSubmit:()=>console.log('some')}
+                         
                     />
                 </MainContainer>
 

@@ -38,7 +38,7 @@ const Contact =()=>{
                     <p>You can contact the support from the form on right, or reach out to us on social media.</p>
                 </MainContainer>
                 <Form
-                    
+                    action={()=>console.log('some')}
                     maxWidth={'50rem'}
                 >
                     
@@ -49,7 +49,7 @@ const Contact =()=>{
                             action={setData}
                             array={data}
                             title={'name'}
-                            isValid={data.name.length>4}
+                            isValid
                         />
                         <OptInput
                             placeholder={'Email'}
@@ -58,7 +58,7 @@ const Contact =()=>{
                             action={setData}
                             array={data}
                             title={'email'}
-                            isValid={emailValidator(data.email)}
+                            isValid
                         />
                     <OptInput
                             placeholder={'Subject'}
@@ -67,11 +67,10 @@ const Contact =()=>{
                             valued={data.subject}
                             array={data}
                             title={'subject'}
-                            isValid={data.subject.length>10}
+                            isValid
                         />
                     <OptInput
                         placeholder={'Message (Optional)'}
-                        required
                         type={'textarea'}
                         value={data.message}
                         title={'message'}
@@ -86,7 +85,8 @@ const Contact =()=>{
                         <SecondaryButton
                             text={'Submit'}
                             width={'10rem'}
-                            awaitState={'disabled'}
+                            awaitState={'none'}
+                            type='submit'
                         />
                     </MainContainer>
                 </Form>

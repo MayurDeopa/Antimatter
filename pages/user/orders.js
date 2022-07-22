@@ -1,6 +1,9 @@
 import Head from "next/head";
 import Flow from "../../components/Misc/Flow"
+import Form from "../../components/Misc/Form";
+import OptInput from "../../components/Misc/OptInput";
 import PageWrapper from "../../components/PageWrapper";
+import PrimaryButton from '../../components/Loaders/PrimaryButton'
 
 
 

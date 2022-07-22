@@ -25,6 +25,7 @@ import ProductSlider from "../../../components/Display/ProductSlider";
 import Form from "../../../components/Misc/Form";
 import RadioGroup from "../../../components/Misc/RadioGroup";
 import Share from "../../../components/Display/Share";
+import OptInput from "../../../components/Misc/OptInput";
 
 
 
@@ -36,7 +37,7 @@ const Product =()=>{
     const router = useRouter()
     const category = router.query.category
     const [isLoading,setIsLoading] = useState(true)
-    const [size,setSize] = useState('S')
+    const [size,setSize] = useState()
     const isChecked =(s)=>s===size
     const handleChange =(e)=>{
         setSize(e.currentTarget.value)
@@ -191,6 +192,10 @@ const Product =()=>{
                             customClasses={styles.details}
                             title={data.name}
                             headerSide={'flex-start'}
+                            action={()=>fetchCart({
+                                id:user._id,
+                                product:data
+                        })}
 
                         >
                            <MainContainer
@@ -230,10 +235,7 @@ const Product =()=>{
                                 awaitState={isSpinning?'loading':'none'}
                                 loadingText={'Adding'}
                                 text={"Add to cart"}
-                                action={()=>fetchCart({
-                                        id:user._id,
-                                        product:data
-                                })}
+                                type='submit'
                                 />
                                 :
                                 <SecondaryButton 

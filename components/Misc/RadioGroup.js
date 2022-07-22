@@ -7,7 +7,7 @@ const RadioGroup =({state,handleChange,isChecked,name})=>{
         <MainContainer>
             {state.map((r,i)=>{
                 return(
-                    <label 
+                    <div 
                         key={i}
                         className={styles.radio_container}>
                         <input
@@ -15,12 +15,12 @@ const RadioGroup =({state,handleChange,isChecked,name})=>{
                             type={'radio'}
                             value={r.name}
                             checked={isChecked(r.name)}
-                            name={name}
+                            name={r.name}
                             onChange={handleChange}
                             required
                         />
                         <p className={styles.radio_text}>{r.name}</p>
-                    </label>
+                    </div>
                 )
             })}
         </MainContainer>

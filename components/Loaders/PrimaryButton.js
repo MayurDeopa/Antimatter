@@ -2,7 +2,7 @@ import PrimarySpinner from "./PrimarySpinner"
 import styles from '../../styles/buttons.module.css'
 
 
-const Button =({awaitState,text,action,loadingText,icon,children,cssClasses,width})=>{
+const Button =({awaitState,text,action,loadingText,icon,children,cssClasses,width,type})=>{
     switch(awaitState){
         case "loading":
                 return (
@@ -39,7 +39,8 @@ const Button =({awaitState,text,action,loadingText,icon,children,cssClasses,widt
                 )
         default:
             return (
-                <div 
+                <button 
+                    type={type || 'button'}
                     style={{
                         width:width
                     }}
@@ -51,7 +52,7 @@ const Button =({awaitState,text,action,loadingText,icon,children,cssClasses,widt
                     </p>
                     {icon}
                     {children}
-                </div>
+                </button>
             )
         }
     }

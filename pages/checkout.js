@@ -40,18 +40,20 @@ const Checkout =()=>{
                 <title>Checkout</title>
             </Head>
             <div className={styles.container}>
-                <MainContainer
+                <Form
                     maxWidth={'50rem'}
                     customClasses={`${styles.small_container} ${styles.no_bg}`}
                     width={'100%'}
                     direction={'column'}
+                    action={()=>console.log('some')}
                 >
-                    <Form
+                    <MainContainer
                     headerSide={'flex-start'}
                     customClasses={styles.small_container}
-                    width={'100%'}
+                    maxWidth={'100%'}
                     direction={'column'}
                     title={"Contact information"}
+                    
                     >
                         <MainContainer
                         customClasses={styles.info_wrapper}
@@ -89,12 +91,12 @@ const Checkout =()=>{
                             />
                         </MainContainer>
                     </MainContainer>
-                    </Form>
+                    </MainContainer>
                     
-                    <Form
+                    <MainContainer
                         headerSide={'flex-start'}
                         customClasses={styles.small_container}
-                        width={'100%'}
+                        maxWidth={'100%'}
                         direction={'column'}
                         title={"Shipping details"}
                     >
@@ -184,11 +186,11 @@ const Checkout =()=>{
                         </MainContainer>
                     </MainContainer>
                     
-                    </Form>
-                    <Form
+                    </MainContainer>
+                    <MainContainer
                         headerSide={'flex-start'}
                         customClasses={styles.small_container}
-                        width={'100%'}
+                        maxWidth={'100%'}
                         direction={'column'}
                         title={"Payment methods"}
                     >
@@ -208,12 +210,13 @@ const Checkout =()=>{
                                             cssClasses={g.cssClass}
                                             action={()=>pay(g,data)}
                                             key={i}
+                                            type='submit'
                                         />
                                     )
                                 })}
                         </MainContainer>
-                    </Form>
-                </MainContainer>
+                    </MainContainer>
+                </Form>
                 <div className={`${styles.checkout_form}`}>
                         <MainContainer
                             customClasses={styles.steps_header}

@@ -1,8 +1,13 @@
 import styles from '../../styles/form.module.css'
 
-const Form =({animated,title,children,width,maxWidth,customClasses,headerSide})=>{
+const Form =({animated,title,children,width,maxWidth,customClasses,headerSide,action})=>{
+    const submit =(e)=>{
+        e.preventDefault();
+        action()
+    }
     return (
         <form 
+            onSubmit={submit}
             style={{
                 width:width,
                 maxWidth:maxWidth

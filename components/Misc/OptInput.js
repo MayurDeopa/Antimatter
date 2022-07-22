@@ -4,7 +4,7 @@ import styles from '../../styles/form.module.css'
 import MainContainer from './MainContainer'
 
 
-const OptInput =({type,action,array,value,title,label,disabled,placeholder,maxWidth,required,isValid,errMsg})=>{
+const OptInput =({type,action,array,value,title,label,disabled,placeholder,maxWidth,required,isValid,errMsg,name})=>{
     let setData = action
     switch(type){
         case "textarea":
@@ -48,6 +48,7 @@ const OptInput =({type,action,array,value,title,label,disabled,placeholder,maxWi
                 className={`${styles.input}`}
                 value={value}
                 label={label}
+                name={name}
                 disabled={disabled}    
                 required={required}       
             />
