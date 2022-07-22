@@ -20,7 +20,7 @@ const OptInput =({type,action,array,value,title,label,disabled,placeholder,maxWi
                     }}
                     className={`${styles.group} ${!isValid && colors.error_shadow}`}>
                     <textarea
-                        onChange={(e)=>action({...array,[title]:e.target.value})}
+                        onChange={action}
                         className={`${styles.input}`}
                         value={value}
                         label={label}
@@ -44,7 +44,7 @@ const OptInput =({type,action,array,value,title,label,disabled,placeholder,maxWi
             className={`${styles.group} ${!isValid && colors.error_shadow}`}>
             <input
                 type={type}
-                onChange={(e)=>action({...array,[title]:e.target.value})}
+                onChange={action}
                 className={`${styles.input}`}
                 value={value}
                 label={label}

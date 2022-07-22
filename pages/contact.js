@@ -19,6 +19,9 @@ const Contact =()=>{
         "subject":"",
         "message":""
     })
+    const setInput=(key,value)=>{
+        setData({...data,[key]:value})
+    }
     return(
         <PageWrapper>
             <Head>
@@ -46,8 +49,7 @@ const Contact =()=>{
                             placeholder={'Name'}
                             required
                             value={data.name}
-                            action={setData}
-                            array={data}
+                            action={(e)=>setInput('name',e.target.value)}
                             title={'name'}
                             isValid
                         />
@@ -55,28 +57,26 @@ const Contact =()=>{
                             placeholder={'Email'}
                             required
                             value={data.email}
-                            action={setData}
-                            array={data}
+                            action={(e)=>setInput('email',e.target.value)}
                             title={'email'}
                             isValid
                         />
                     <OptInput
                             placeholder={'Subject'}
                             required
-                            action={setData}
-                            valued={data.subject}
-                            array={data}
+                            action={(e)=>setInput('subject',e.target.value)}
+                            value={data.subject}
                             title={'subject'}
                             isValid
                         />
                     <OptInput
-                        placeholder={'Message (Optional)'}
+                        placeholder={'Message'}
                         type={'textarea'}
                         value={data.message}
                         title={'message'}
-                        action={setData}
-                        array={data}
+                        action={(e)=>setInput('message',e.target.value)}
                         isValid
+                        required
                     />
                     <MainContainer
                         maxWidth={'100%'}

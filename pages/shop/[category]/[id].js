@@ -219,6 +219,7 @@ const Product =()=>{
                                             marginBottom:'4px'
                                         }}>{v.name}</p>
                                         <RadioGroup
+                                            name={v.name}
                                             state={v.options}
                                             isChecked={isChecked}
                                             handleChange={handleChange}

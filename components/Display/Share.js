@@ -13,7 +13,7 @@ const Share=({link,shareIcons,toggleModal})=>{
         >
             <OptInput
                 isValid
-                disabled
+                
                 value={link}
                 placeholder={'Link'}
             />

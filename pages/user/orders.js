@@ -18,9 +18,9 @@ const Orders =()=>{
             titles={["Personal details","Shipping details"]}
             breakpoints={[3]}
             components={{
-                name:"gdsg",
-                email:"hbsdh",
-                phone:"hdf",
+                name:"",
+                email:"",
+                phone:"",
                 pincode:"",
                 address:"",
                 city:"",

@@ -35,6 +35,9 @@ const Flow =({components,buttonValue,titles,breakpoints,state,action,loadingStat
         setPage(prev=>prev-1)
     },[page,isLastStep])
 
+    const setInput = (key,value)=>{
+        setData({...data,[key]:value})
+    }
 
     return(
         <Modal
@@ -51,8 +54,7 @@ const Flow =({components,buttonValue,titles,breakpoints,state,action,loadingStat
                         <FormSection key={i}>
                             <OptInput
                                 type={s.type}
-                                action={setData}
-                                array={data}
+                                action={(e)=>setInput(s.state,e.target.value)}
                                 title={s.state}
                                 value={data[s.state]}
                                 placeholder={s.title}
@@ -70,14 +72,24 @@ const Flow =({components,buttonValue,titles,breakpoints,state,action,loadingStat
                         awaitState={loadingState?"disabled":page===0?"disabled":"none"}
                         action={previousPage}
                     />
-                    <PrimaryButton
-                         text={page!==numberOfPages?'Next':"Submit"}
-                         awaitState={loadingState?"loading":'none'}
-                         loadingText={"Saving"}
-                         type={isLastStep?'submit':'button'}
-                         action={!isLastStep?pageSubmit:()=>console.log('some')}
-                         
-                    />
+                    {
+                        isLastStep
+                        ?
+                        <PrimaryButton
+                            text={"Submit"}
+                            awaitState={loadingState?"loading":'none'}
+                            loadingText={"Saving"}
+                            type={'submit'}
+                            action={()=>console.log('some')}
+                            
+                        />
+                        :
+                        <PrimaryButton
+                            text={'Next'}
+                            action={pageSubmit}
+                            
+                        />
+                    }
                 </MainContainer>
 
             </Form>

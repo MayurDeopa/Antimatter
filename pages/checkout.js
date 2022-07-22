@@ -31,7 +31,7 @@ import Head from 'next/head';
 const Checkout =()=>{
     const {userState} = useStore()
     const [user,setUser] = userState
-    const {validInput,isPaying,paymentGateways,pay,data,setData} = usePayment()
+    const {validInput,isPaying,paymentGateways,pay,data,setData,setInput} = usePayment()
     return(
         <PageWrapper
             customClasses={styles.no_padding}
@@ -65,8 +65,7 @@ const Checkout =()=>{
                         >
                             <OptInput
                                placeholder={"Email"}   
-                                action={setData}
-                                array={data}
+                                action={(e)=>setInput('email',e.target.value)}
                                 required={true}
                                 title={'email'}
                                 value={data.email}
@@ -81,8 +80,7 @@ const Checkout =()=>{
 
                             <OptInput
                                 placeholder={"Phone Number"}                               
-                                action={setData}
-                                array={data}
+                                action={(e)=>setInput('phone',e.target.value)}
                                 required={true}
                                 title={'phone'}
                                 value={data.phone}
@@ -110,9 +108,7 @@ const Checkout =()=>{
                         >
                             <OptInput
                                 placeholder={"Name"}
-                                
-                                action={setData}
-                                array={data}
+                                action={(e)=>setInput('name',e.target.value)}
                                 required={true}
                                 title={'name'}
                                 value={data.name}
@@ -125,9 +121,7 @@ const Checkout =()=>{
                         >
                             <OptInput
                                 placeholder={"Pincode"}
-                                
-                                action={setData}
-                                array={data}
+                                action={(e)=>setInput('pincode',e.target.value)}
                                 required={true}
                                 title={'pincode'}
                                 value={data.pincode}
@@ -145,8 +139,7 @@ const Checkout =()=>{
                             maxWidth={'992px'}
                             placeholder={"Address"}
                             type={'textarea'}                            
-                            action={setData}
-                            array={data}
+                            action={(e)=>setInput('address',e.target.value)}
                             required={true}
                             title={'address'}
                             value={data.address}
@@ -161,8 +154,7 @@ const Checkout =()=>{
                             align={'center'}
                         >
                             <OptInput
-                                action={setData}
-                                array={data}
+                                action={(e)=>setInput('city',e.target.value)}
                                 required={true}
                                 placeholder={'City'}
                                 title={'city'}
@@ -175,8 +167,7 @@ const Checkout =()=>{
                         >
                             <OptInput
                                 placeholder={"State"}
-                                action={setData}
-                                array={data}
+                                action={(e)=>setInput('state',e.target.value)}
                                 required={true}
                                 title={'state'}
                                 value={data.state}
