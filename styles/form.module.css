@@ -66,6 +66,7 @@ z
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    border-radius: 4px;
     color: var(--primary-text-color);
     background-color: var(--secondary-theme-light);
 }

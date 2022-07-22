@@ -12,23 +12,19 @@ import LinkBtn from '../../../components/Misc/LinkBtn'
 import ErrorPopUp from '../../../components/Misc/ErrorPopUp'
 import PageWrapper from "../../../components/PageWrapper";
 import Head from 'next/head'
-import Image from 'next/image'
 import PrimaryButton from "../../../components/Loaders/PrimaryButton";
 import SecondaryButton from "../../../components/Loaders/SecondaryButton";
 import Skeleton from "../../../components/Loaders/Skeleton";
-import FunctionalModalForm from "../../../components/Misc/FunctionalModalForm";
 import useModal from "../../../lib/drawer/customhooks/useModal";
 
 import  Toast  from "../../../components/Misc/Toast";
 import Message from '../../../components/basic/Message'
-import Breadcrumb from "../../../components/Navigations/Breadcrumb";
-import Panel from "../../../components/Panel";
-import IconBtn from "../../../components/Misc/IconBtn";
+import Breadcrumb from "../../../components/Navigations/Breadcrumb";import IconBtn from "../../../components/Misc/IconBtn";
 import MainContainer from '../../../components/Misc/MainContainer'
 import ProductSlider from "../../../components/Display/ProductSlider";
 import Form from "../../../components/Misc/Form";
-import OptInput from "../../../components/Misc/OptInput";
 import RadioGroup from "../../../components/Misc/RadioGroup";
+import Share from "../../../components/Display/Share";
 
 
 
@@ -40,7 +36,7 @@ const Product =()=>{
     const router = useRouter()
     const category = router.query.category
     const [isLoading,setIsLoading] = useState(true)
-    const [size,setSize] = useState('s')
+    const [size,setSize] = useState('S')
     const isChecked =(s)=>s===size
     const handleChange =(e)=>{
         setSize(e.currentTarget.value)
@@ -55,7 +51,6 @@ const Product =()=>{
             fetchProduct()
         }
     },[router.isReady])
-    const url = 'fadjn'
     if(isLoading){
         return (
             <>
@@ -82,63 +77,56 @@ const Product =()=>{
                             </div>
                             <article className={styles.details}>
                                 <Skeleton
-                                    height={'2rem'}
+                                    height={'1rem'}
+                                    width={'4rem'}
+                                />
+                                <Skeleton
+                                    height={'1rem'}
+                                    width={'5rem'}
+                                />
+                                <Skeleton
+                                    height={'0.8rem'}
                                     width={'100%'}
                                 />
                                 <Skeleton
-                                    height={'2rem'}
-                                    width={'7rem'}
+                                    height={'0.8rem'}
+                                    width={'90%'}
                                 />
                                 <Skeleton
-                                    height={'1.5rem'}
-                                    width={'100%'}
+                                    height={'0.8rem'}
+                                    width={'50%'}
+                                />
+                                
+                                <Skeleton
+                                    height={'0.8rem'}
+                                    width={'30%'}
                                 />
                                 <Skeleton
-                                    height={'1.5rem'}
-                                    width={'100%'}
-                                />
-                                <Skeleton
-                                    height={'2rem'}
-                                    width={'100%'}
+                                    height={'1rem'}
+                                    width={'30%'}
                                 />
                                 <MainContainer>
                                     <Skeleton
-                                            height={'3rem'}
-                                            width={'3rem'}
+                                            height={'2rem'}
+                                            width={'2rem'}
                                         />
                                         <Skeleton
-                                            height={'3rem'}
-                                            width={'3rem'}
-                                        />
-                                        <Skeleton
-                                            height={'3rem'}
-                                            width={'3rem'}
-                                        />
-                                        <Skeleton
-                                            height={'3rem'}
-                                            width={'3rem'}
-                                        />
-                                        <Skeleton
-                                            height={'3rem'}
-                                            width={'3rem'}
-                                        />
-                                        <Skeleton
-                                            height={'3rem'}
-                                            width={'3rem'}
+                                            height={'2rem'}
+                                            width={'2rem'}
                                         />
                                 </MainContainer>
                                 <Skeleton
-                                    height={'2rem'}
-                                    width={'100%'}
+                                    height={'1rem'}
+                                    width={'30%'}
                                 />
                                 <MainContainer>
                                     <Skeleton
-                                            height={'3rem'}
-                                            width={'3rem'}
+                                            height={'2rem'}
+                                            width={'2rem'}
                                         />
                                         <Skeleton
-                                            height={'3rem'}
-                                            width={'3rem'}
+                                            height={'2rem'}
+                                            width={'2rem'}
                                         />
                                 </MainContainer>
                                 <div className={styles.buttons_wrapper}>
@@ -267,28 +255,11 @@ const Product =()=>{
                     {
                         open
                         &&
-                        <FunctionalModalForm 
-                            maxWidth={'30rem'}
-                            title={'Share'}
-                            hook={toggleModal}
-                        >
-                            <div style={{
-                                display:'flex',
-                                justifyContent:'space-around',
-                                width:'100%'
-                            }}>
-                                {shareables.map((s,i)=>{
-                                return (
-                                    <s.button
-                                        url={url}
-                                        key={i}
-                                    >
-                                        <s.icon size={34} round/>
-                                    </s.button>
-                                )
-                            })}
-                            </div>
-                        </FunctionalModalForm>
+                        <Share
+                            link={window.location}
+                            shareIcons={shareables}
+                            toggleModal={toggleModal}
+                        />
                     }
                     {
                         cartMessage
