@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/dist/client/router";
-import { useContext } from "react";
+import { useStore } from "../../../lib/drawer/context/StoreContext";
 import useCart from "../../../lib/drawer/customhooks/useCart";
 
 import styles from '../../../styles/Product.module.css'
 import { shareables } from "../../../lib/drawer/shareables";
-import { Store } from "../../../lib/drawer/context/StoreContext";
 
 
 import LinkBtn from '../../../components/Misc/LinkBtn'
@@ -32,7 +31,7 @@ import OptInput from "../../../components/Misc/OptInput";
 
 const Product =()=>{
     const {open,toggleModal} = useModal()
-    const {userState} = useContext(Store)
+    const {userState} = useStore()
     const [user,setUser] = userState
     const router = useRouter()
     const category = router.query.category

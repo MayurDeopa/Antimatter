@@ -3,6 +3,7 @@ import {FiShoppingBag,FiUser,FiSearch,FiMenu,FiX} from 'react-icons/fi'
 import Link from 'next/link'
 
 
+
 const Header =({state})=>{
     const [isHidden,setIsHidden] = state.drawerState
     return (

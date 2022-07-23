@@ -30,6 +30,9 @@ const Personal =()=>{
         id:user._id,
         formType:'personal'
     })
+    const setInput =(key,value)=>{
+        setDetails({...details,[key]:value})
+    }
     if(err){
         return(
          <ErrorPopUp>
@@ -79,11 +82,10 @@ const Personal =()=>{
                                         title={key}
                                         placeholder={firstLetterToUpperCase(key)}
                                         value={details[key]}
-                                        array={details}
-                                        action={setDetails}
+                                        action={(e)=>setInput(key,e.target.value)}
                                         disabled={!edit}
                                         required
-                                        isValid={details[key].toString().length}
+                                        isValid
                                         key={index}
                                     />
                                 )

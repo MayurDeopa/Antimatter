@@ -1,13 +1,15 @@
 import styles from '../../styles/Spinner.module.css'
 
-const Progress =({width,value})=>{
+const Progress =({visible})=>{
     return(
-        <progress
-            value={value}
-            max={100}
-            style={{width:width}}
-            className={styles.progress}
-        />
+        <div className={`${styles.progress_wrapper} ${visible?styles.progress_active:styles.progress_hidden}`}>
+            <div class={styles.progress}>
+                <div class={styles.indeterminate}>
+
+                </div>
+            </div>
+            <div className={styles.progress_modal}/>
+        </div>
     )
 }
 

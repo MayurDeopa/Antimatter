@@ -2,11 +2,12 @@
     position: fixed;
     top: 0;
     left: 0;
+    right: 0;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     height: var(--header-height);
-    width: 100%;
     background-color: var(  --secondary-theme-light);
     color: var(--primary-text-color);
     box-shadow: var(--primary-box-shadow);
@@ -78,7 +79,7 @@
 
 .drawer_wrapper{
     position: fixed;
-    top: var(--header-height);
+    top: 3.5rem;
     left: 0;
     right: 0;
     height: var(--drawer-height);

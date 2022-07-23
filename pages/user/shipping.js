@@ -30,6 +30,9 @@ const Shipping =()=>{
     })
     const [details,setDetails] = useState(user.details.shipping)
     const [edit,setEdit] = useState(false)
+    const setInput =(key,value)=>{
+        setDetails({...details,[key]:value})
+    }
     if(err){
         return(
          <ErrorPopUp>
@@ -81,8 +84,7 @@ const Shipping =()=>{
                                         maxWidth={'30rem'}
                                         placeholder={firstLetterToUpperCase(key)}
                                         value={details[key]}
-                                        array={details}
-                                        action={setDetails}
+                                        action={(e)=>setInput(key,e.target.value)}
                                         required
                                         isValid
                                         disabled={!edit}

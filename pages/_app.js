@@ -16,6 +16,7 @@ import Skeleton from '../components/Loaders/Skeleton'
 import MainContainer from '../components/Misc/MainContainer'
 import Head from 'next/head'
 import Footer from '../components/Navigations/Footer'
+import Progress from '../components/Loaders/Progress'
  
 function MyApp({ Component, pageProps }) {
   const queryClient = new QueryClient()
@@ -24,12 +25,13 @@ function MyApp({ Component, pageProps }) {
   const [cart,setCart] = useState()
   const [drawer,setDrawer] = useState(true)
   const [toasts,setToasts] = useState([])
+  const [progress,setProgress] = useState(false)
     const states ={
       userState:[user,setUser],
       cartState:[cart,setCart],
       toastState:[toasts,setToasts],
       drawerState:[drawer,setDrawer],
-      loadingState:isLoading
+      progressState:[progress,setProgress]
     }
   useEffect(()=>{
     if(data){
@@ -38,35 +40,13 @@ function MyApp({ Component, pageProps }) {
   },[data])
   return (
     <QueryClientProvider client={queryClient}>
-      <StoreContext states={states}>
-        {/*<PageWrapper
-          hideNavigation={true}
-        >
-          <Head>
-            <title>AntiMatter Clothing</title>
-            <meta name="description" content="Throw away all of your traditional fits" />
-          </Head>
-          <Form
-            card={{
-              title:"Launching Soon"
-            }}
-          >
-            <FormSection>
-              <MainContainer>
-                  <AwaitButton
-                    states={{
-                      text:"Stay tuned ",
-                      awaitState:'none'
-                    }}
-                  />
-              </MainContainer>
-            </FormSection>
-          </Form>
-                  </PageWrapper>*/}
-      
+      <StoreContext states={states}>     
         <>
           <NextNProgress 
             color='var(--primary-theme-color)'
+          />
+          <Progress
+            visible={progress}
           />
           <Component {...pageProps}/>
           <Footer/>

@@ -4,6 +4,7 @@ import Form from "../../components/Misc/Form";
 import OptInput from "../../components/Misc/OptInput";
 import PageWrapper from "../../components/PageWrapper";
 import PrimaryButton from '../../components/Loaders/PrimaryButton'
+import Progress from "../../components/Loaders/Progress";
 
 
 
