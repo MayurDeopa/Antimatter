@@ -46,11 +46,13 @@ function MyApp({ Component, pageProps }) {
           <Component {...pageProps}/>
           <Footer/>
         </>
-      {
-        isLoading
-        &&
-        <ModalSpinner/>
-      }
+        {
+          isLoading
+          &&
+          <Progress
+            visible
+          />
+        }
       {
         err
         &&

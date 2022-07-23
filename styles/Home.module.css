@@ -100,5 +100,6 @@
   .home_image_text{
     left: unset;
     position: static;
+    align-items: center;
   }
 }

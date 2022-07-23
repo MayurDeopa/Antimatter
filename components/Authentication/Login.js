@@ -63,7 +63,6 @@ const Login =()=>{
             </div>
             <div className={styles.card_input_wrapper}>
                 {authProviders.map((p,i)=>{
-                    if(p.name==='Google'){
                         return(
                             <SecondaryButton
                                 awaitState={p.state}
@@ -72,31 +71,18 @@ const Login =()=>{
                                 light={true}
                                 icon={p.icon}
                                 key={i}
-                                cssClasses={p.cssClass}
                             />
                         )
-                    }
-                    return (
-                        <PrimaryButton
-                            awaitState={p.state}
-                            text={`Continue with ${p.name}`}
-                            action={()=>login(p)}
-                            light={true}
-                            icon={p.icon}
-                            key={i}
-                            cssClasses={p.cssClass}
-                        >
-                        </PrimaryButton>
-                    )
+                    
                 })}
             </div>
             <div className={styles.card_footer}>
-                <h3>
+                <h4>
                     by logging in you agree to our 
                     <Link href={'/about'}>
                         <p className='link'>Terms and Conditions</p>
                     </Link>
-                </h3>
+                </h4>
             </div>
             {
                 err

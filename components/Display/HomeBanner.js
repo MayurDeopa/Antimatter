@@ -24,6 +24,7 @@ const HomeBanner =({d})=>{
                 text={`View Collection`}
                 icon={<BiRightArrowAlt/>}
                 url={d.link}
+                width={'20rem'}
               />
             </div>
         </div>
