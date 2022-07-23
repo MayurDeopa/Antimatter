@@ -15,14 +15,30 @@
     stroke: var(--secondary-theme-color);
 }
 
+
+.progress_wrapper{
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  transition: 0.3s ease-in-out;
+}
+
 .progress_modal{
   position: fixed;
-  top: var(--header-height);
+  top: 0;
   left: 0;
   right: 0;
   bottom: 0;
+  visibility: visible;
+  opacity: 1;
   background-color:rgb(46, 46, 46,0.3);
-  z-index: 999;
+  transition: 0.2s ease-in-out;
+}
+
+.modal_hidden{
+  visibility: hidden;
+  opacity: 0;
 }
 
 .progress_hidden{
@@ -35,14 +51,6 @@
   top: 0;
 }
 
-.progress_wrapper{
-  position: fixed;
-  left: 0;
-  right: 0;
-  z-index: 200;
-  transition: 0.3s ease-in-out;
-}
-
 .progress {
     position: relative;
     height: 4px;
@@ -51,7 +59,8 @@
     background-color: var(--secondary-theme-lighter);
     border-radius: 2px;
     background-clip: padding-box;
-    overflow: hidden; }
+    overflow: hidden;
+  z-index: 999; }
     .progress .indeterminate {
       background-color: var(--primary-color-light); }
       .progress .indeterminate:before {
@@ -139,6 +148,7 @@
         stroke-dashoffset: -124;
       }
 }
+
 
 @media screen and (max-width:500px) {
 

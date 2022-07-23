@@ -3,7 +3,7 @@ import { loginWithGoogle } from '../../services/api/user.authentication';
 import {BsPerson,BsGoogle,BsApple,BsTwitter} from 'react-icons/bs'
 import styles from '../../styles/authentication.module.css'
 import { useContext } from 'react';
-import  { Store } from '../../lib/drawer/context/StoreContext';
+import  { useStore } from '../../lib/drawer/context/StoreContext';
 import { decodeJwt } from '../../lib/drawer/decode';
 import { useState } from 'react';
 import SecondaryButton from '../Loaders/SecondaryButton'
@@ -15,16 +15,16 @@ import Message from '../basic/Message';
 import PageWrapper from '../PageWrapper';
 
 const Login =()=>{
-    const router = useRouter()
     const [authProviders,setAuthProviders] = useState(providers)
-    const {userState}= useContext(Store)
+    const {userState,progressState} = useStore()
+    const [progress,setProgress] = progressState
     const [user,setUser] = userState
     const [err,setErr] = useState(false)
 
     const login =async(data)=>{
         const fun = data.action
         setErr()
-        setAuthProviders(authProviders.map((a)=>a.name!==data.name?{...a,state:'disabled'}:{...a,state:'loading'}))
+        setProgress(true)
         if(fun){
             try{
                 const res = await fun()
@@ -43,9 +43,9 @@ const Login =()=>{
                     type:'failed',
                     message:error.messsage
                 })
-                setAuthProviders(providers)
             }
         }
+        setProgress(false)
     }
     
     return (

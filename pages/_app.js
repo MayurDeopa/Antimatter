@@ -17,6 +17,7 @@ import MainContainer from '../components/Misc/MainContainer'
 import Head from 'next/head'
 import Footer from '../components/Navigations/Footer'
 import Progress from '../components/Loaders/Progress'
+
  
 function MyApp({ Component, pageProps }) {
   const queryClient = new QueryClient()
@@ -42,7 +43,8 @@ function MyApp({ Component, pageProps }) {
     <QueryClientProvider client={queryClient}>
       <StoreContext states={states}>     
         <>
-          <NextNProgress 
+          <NextNProgress   
+            options={{showSpinner:false}}      
             color='var(--primary-theme-color)'
           />
           <Progress

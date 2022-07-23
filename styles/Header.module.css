@@ -79,7 +79,7 @@
 
 .drawer_wrapper{
     position: fixed;
-    top: 3.5rem;
+    top: var(--header-height);
     left: 0;
     right: 0;
     height: var(--drawer-height);

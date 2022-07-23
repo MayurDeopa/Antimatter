@@ -8,7 +8,7 @@ const Progress =({visible})=>{
 
                 </div>
             </div>
-            <div className={styles.progress_modal}/>
+            <div className={visible?`${styles.progress_modal}`:`${styles.progress_modal} ${styles.modal_hidden}`}/>
         </div>
     )
 }

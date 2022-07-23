@@ -3,7 +3,7 @@ import {BiPlus,BiMinus} from 'react-icons/bi'
 import useCart from '../../lib/drawer/customhooks/useCart'
 
 const QuantityPanel =({product})=>{
-    const {isSpinning,modifyQty} = useCart()
+    const {modifyQty} = useCart()
     {/*if(isSpinning){
         return (
             <div className={styles.cart_section_log_quantity}>
@@ -38,14 +38,14 @@ const QuantityPanel =({product})=>{
                     product:product,
                     query:'add'
                 })}>
-                {isSpinning?'-':<BiPlus/>}
+                <BiPlus/>
             </div>
             <p>{product.quantity}</p>
             <div className={styles.operator_button} onClick={()=>modifyQty({
                     product:product,
                     query:'subtract'
                 })}>
-                {isSpinning?"-":<BiMinus/>}
+                <BiMinus/>
             </div>
         </div>
     )

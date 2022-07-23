@@ -149,6 +149,7 @@ textarea{
   max-width: 105rem;
   margin-left: auto;
   margin-right: auto;
+  animation: fade 0.3s ease-in-out;
 }
 
 .width_wrapper{
@@ -304,6 +305,15 @@ textarea{
 
 .shrink{
   transform: scale(0.5);
+}
+
+@keyframes fade {
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
 }
 
 @media screen and (max-width:750px) {
