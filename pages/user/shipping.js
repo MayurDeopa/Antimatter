@@ -8,7 +8,7 @@ import useForm from "../../lib/drawer/customhooks/useForm";
 import {useRouter} from 'next/router'
 import { firstLetterToUpperCase } from '../../services/other';
 
-
+import BasicProgress from '../../components/Loaders/BasicProgress';
 import PrimaryButton from '../../components/Loaders/PrimaryButton'
 import DashBoard from "../../components/Authentication/DashBoard"
 import SecondaryButton from '../../components/Loaders/SecondaryButton'
@@ -33,6 +33,10 @@ const Shipping =()=>{
     const setInput =(key,value)=>{
         setDetails({...details,[key]:value})
     }
+    const save =(data)=>{
+        setEdit(false)
+        saveDetails(data)
+    }
     if(err){
         return(
          <ErrorPopUp>
@@ -44,22 +48,6 @@ const Shipping =()=>{
          </ErrorPopUp>
         )
     }
-   else if(awaiting){
-    return (
-        <>
-            <Head>
-                <title>Loading...</title>
-            </Head>
-            <DashBoard>
-                <EmptyState>
-                    <PrimarySpinner
-                        size={'l'}
-                    />
-                </EmptyState>        
-            </DashBoard>
-        </>
-    )
-   }
    else{
     return (
         <>
@@ -74,6 +62,9 @@ const Shipping =()=>{
                                     Shipping Details
                             </h2>
                         </div>
+                        
+                        <BasicProgress visible={awaiting}/>
+                        
                         <>
                         {
                             Object.keys(user.details.shipping).map((key,index)=>{
@@ -113,6 +104,7 @@ const Shipping =()=>{
                                 <PrimaryButton
                                     text={'Save'}
                                     width={'6rem'}
+                                    action={()=>save(details)}
                                     awaitState={edit?'none':'disabled'}
                                 />
                                 <SecondaryButton

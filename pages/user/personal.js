@@ -18,6 +18,7 @@ import ErrorPopUp from "../../components/Misc/ErrorPopUp";
 import PrimarySpinner from '../../components/Loaders/PrimarySpinner';
 import EmptyState from '../../components/Misc/EmptyState';
 import MainContainer from '../../components/Misc/MainContainer';
+import BasicProgress from '../../components/Loaders/BasicProgress';
 
 
 const Personal =()=>{
@@ -33,6 +34,10 @@ const Personal =()=>{
     const setInput =(key,value)=>{
         setDetails({...details,[key]:value})
     }
+    const save =(data)=>{
+        setEdit(false)
+        saveDetails(data)
+    }
     if(err){
         return(
          <ErrorPopUp>
@@ -42,22 +47,6 @@ const Personal =()=>{
                 action={()=>router.reload()}
              />
          </ErrorPopUp>
-        )
-    }
-    else if(awaiting){
-        return (
-            <>
-                <Head>
-                    <title>Loading...</title>
-                </Head>
-                    <DashBoard>
-                        <EmptyState>
-                            <PrimarySpinner
-                                size={'l'}
-                            />
-                        </EmptyState>
-                    </DashBoard>
-            </>
         )
     }
     else{
@@ -73,6 +62,10 @@ const Personal =()=>{
                                     Personal Details
                                 </h2>
                             </div>
+                            
+                                
+                            <BasicProgress visible={awaiting}/>
+                            
                             <>
                             {
                             Object.keys(user.details.personal).map((key,index)=>{
@@ -97,6 +90,7 @@ const Personal =()=>{
                                 <PrimaryButton
                                     text={'Save'}
                                     width={'6rem'}
+                                    action={()=>save(details)}
                                     awaitState={edit?'none':'disabled'}
                                 />
                                 <SecondaryButton

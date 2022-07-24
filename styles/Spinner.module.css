@@ -17,9 +17,10 @@
 
 
 .progress_wrapper{
-  position: fixed;
+  position: absolute;
+  top: 0;
   left: 0;
-  right: 0;
+  width: 100%;
   z-index: 999;
   transition: 0.3s ease-in-out;
 }
