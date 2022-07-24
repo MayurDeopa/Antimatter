@@ -63,7 +63,7 @@ const Shipping =()=>{
                             </h2>
                         </div>
                         
-                        <BasicProgress visible={awaiting}/>
+                        {awaiting && <BasicProgress visible/>}
                         
                         <>
                         {

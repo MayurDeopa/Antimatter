@@ -64,7 +64,7 @@ const Personal =()=>{
                             </div>
                             
                                 
-                            <BasicProgress visible={awaiting}/>
+                            {awaiting && <BasicProgress visible/>}
                             
                             <>
                             {
