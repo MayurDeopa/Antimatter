@@ -96,11 +96,13 @@ const Personal =()=>{
                                 <MainContainer>
                                 <PrimaryButton
                                     text={'Save'}
+                                    width={'6rem'}
                                     awaitState={edit?'none':'disabled'}
                                 />
                                 <SecondaryButton
                                     text={edit?'Cancel':'Edit'}
                                     awaitState={'none'}
+                                    width={'6rem'}
                                     action={()=>setEdit(!edit)}
                                 />
                                 </MainContainer>

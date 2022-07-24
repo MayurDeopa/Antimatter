@@ -1,5 +1,6 @@
 import PrimarySpinner from "./PrimarySpinner"
 import styles from '../../styles/buttons.module.css'
+import ButtonWrapper from "./BtnRipples"
 
 
 const Button =({awaitState,text,action,secondary,loadingText,icon,children,type,cssClasses,width})=>{
@@ -7,9 +8,7 @@ const Button =({awaitState,text,action,secondary,loadingText,icon,children,type,
         case "loading":
                 return (
                     <div 
-                        style={{
-                            width:width
-                        }}
+                    style={{width:width}}
                         className={`${styles.secondary_await}`}
                         
                         >
@@ -25,9 +24,7 @@ const Button =({awaitState,text,action,secondary,loadingText,icon,children,type,
         case "disabled":
                 return (
                     <div 
-                        style={{
-                            width:width
-                        }}
+                    style={{width:width}}
                         className={styles.disabled}>
                         <h4>
                             {text}
@@ -38,11 +35,12 @@ const Button =({awaitState,text,action,secondary,loadingText,icon,children,type,
                 )
         default:
             return (
-                <button 
-                    type={type || "button"}
-                    style={{
-                        width:width
-                    }}
+                <ButtonWrapper
+                    color={'var(--primary-color-light)'}
+                    width={width}
+                >
+                    <button 
+                    type={type || "button"}             
                     className={styles.secondary_button}
                     onClick={action}
                 >
@@ -52,6 +50,7 @@ const Button =({awaitState,text,action,secondary,loadingText,icon,children,type,
                     {icon}
                     {children}
                 </button>
+                </ButtonWrapper>
             )
         }
     }

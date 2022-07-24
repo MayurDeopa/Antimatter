@@ -236,11 +236,13 @@ const Product =()=>{
                                 loadingText={'Adding'}
                                 text={"Add to cart"}
                                 type='submit'
+                                width={'100%'}
                                 />
                                 :
                                 <SecondaryButton 
                                     awaitState={'none'}
                                     text={"Login to use cart"}
+                                    width={'100%'}
                                     action={()=>router.push('/user')}
                                 />
                             }
@@ -248,7 +250,7 @@ const Product =()=>{
                                 awaitState={'none'}
                                 text={"Share"}
                                 action={toggleModal}
-                                secondary={true}
+                                width={'100%'}
                             />
                             
                             </div>

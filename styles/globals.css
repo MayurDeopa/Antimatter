@@ -55,6 +55,12 @@ textarea{
 
 
 
+@keyframes useRippleAnimation {
+  to {
+    transform: scale(15);
+    opacity: 0;
+  }
+}
 .link{
   color: brown;
   cursor: pointer;

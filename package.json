@@ -20,7 +20,8 @@
     "react-icons": "^4.3.1",
     "react-query": "^3.34.16",
     "react-responsive-carousel": "^3.2.23",
-    "react-toastify": "^8.2.0"
+    "react-toastify": "^8.2.0",
+    "useripple": "^1.0.4"
   },
   "devDependencies": {
     "eslint": "8.10.0",
