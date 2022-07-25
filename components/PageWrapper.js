@@ -22,7 +22,7 @@ const PageWrapper =({children,hideNavigation,customClasses})=>{
             
                 </>
             }
-            {children}
+            <div className='mini_wrapper'>{children}</div>
         </div>
     )
 }
