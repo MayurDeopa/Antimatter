@@ -7,24 +7,30 @@ const Button =({awaitState,text,action,secondary,loadingText,icon,children,type,
     switch(awaitState){
         case "loading":
                 return (
-                    <div 
-                    style={{width:width}}
-                        className={`${styles.secondary_await}`}
-                        
-                        >
-                        <h4>
-                            {loadingText?loadingText:text}
-                        </h4>
-                        {children}
-                        <PrimarySpinner 
-                            size={'s'}
-                        />
-                    </div>
+                    <ButtonWrapper
+                        width={width}
+                    >
+                        <div 
+                        style={{width:width}}
+                            className={`${styles.secondary_await}`}
+                            
+                            >
+                            <h4>
+                                {loadingText?loadingText:text}
+                            </h4>
+                            {children}
+                            <PrimarySpinner 
+                                size={'s'}
+                            />
+                        </div>
+                    </ButtonWrapper>
                 )
         case "disabled":
                 return (
-                    <div 
-                    style={{width:width}}
+                    <ButtonWrapper
+                        width={width}
+                    >
+                        <div 
                         className={styles.disabled}>
                         <h4>
                             {text}
@@ -32,6 +38,7 @@ const Button =({awaitState,text,action,secondary,loadingText,icon,children,type,
                         {icon}
                         {children}
                     </div>
+                    </ButtonWrapper>
                 )
         default:
             return (

@@ -86,20 +86,20 @@ const Personal =()=>{
                         }
                             </>
                                 <section className={styles.section}>
-                                <MainContainer>
-                                <PrimaryButton
-                                    text={'Save'}
-                                    width={'6rem'}
-                                    action={()=>save(details)}
-                                    awaitState={edit?'none':'disabled'}
-                                />
-                                <SecondaryButton
-                                    text={edit?'Cancel':'Edit'}
-                                    awaitState={'none'}
-                                    width={'6rem'}
-                                    action={()=>setEdit(!edit)}
-                                />
-                                </MainContainer>
+                                    <MainContainer>
+                                        <PrimaryButton
+                                            text={'Save'}
+                                            width={'6rem'}
+                                            action={()=>save(details)}
+                                            awaitState={edit?'none':'disabled'}
+                                        />
+                                        <SecondaryButton
+                                            text={edit?'Cancel':'Edit'}
+                                            awaitState={'none'}
+                                            width={'6rem'}
+                                            action={()=>setEdit(!edit)}
+                                        />
+                                    </MainContainer>
                                 </section>
                         </form>
                     </DashBoard>

@@ -12,32 +12,42 @@ const Button =({awaitState,text,action,loadingText,icon,children,cssClasses,widt
     switch(awaitState){
         case "loading":
                 return (
-                    <button 
-                        style={{width:width}}
-                        className={styles.primary_await}
-                        
-                        >
-                        <p>
-                            {loadingText?loadingText:text}
-                        </p>
-                        {children}
-                        <PrimarySpinner 
-                            light
-                            size={'s'}
-                        />
-                    </button>
+                    <ButtonWrapper
+                        width={width}
+                    >
+                        <button 
+                            className={styles.primary_await}
+                            
+                            >
+                            <p>
+                                {loadingText?loadingText:text}
+                            </p>
+                            {children}
+                            <PrimarySpinner 
+                                light
+                                size={'s'}
+                            />
+                        </button>
+                    </ButtonWrapper>
                 )
         case "disabled":
                 return (
-                    <div 
-                        style={{width:width}}
+                    <ButtonWrapper
+                        width={width}
+                    >
+                        <div 
                         className={styles.primary_await}>
-                        <p>
-                            {text}
-                        </p>
+                        {
+                            text
+                            &&
+                            <p>
+                                {text}
+                            </p>
+                        }
                         {icon}
                         {children}
                     </div>
+                    </ButtonWrapper>
                 )
         default:
             return (
