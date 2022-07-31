@@ -4,12 +4,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 48px;
 }
 
 
 .primary_button,.secondary_button,.primary_await,.secondary_await,.disabled{
   width: 100%;
-  height: 2.3rem;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -139,14 +140,12 @@ border-color: var(--info);
 @media screen and (max-width:500px) {
   .primary_button,.secondary_button,.primary_await,.secondary_await,.disabled{
     font-size: 15px;
-    max-height: 2.2rem;
   }
 }
 
 @media screen and (max-width:350px) {
   .primary_button,.secondary_button,.primary_await,.secondary_await,.disabled{
     font-size: 13px;
-    max-height: 2rem;
   }
   
 }

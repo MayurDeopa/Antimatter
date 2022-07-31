@@ -38,6 +38,7 @@ export const initialLogin =async(data)=>{
 export const loginWithGoogle = async()=>{
     const authProvider = new GoogleAuthProvider()
     const res = await signInWithPopup(authentication,authProvider)
+    console.log(res)
     try{
         const response = await login(res.user)
         return response

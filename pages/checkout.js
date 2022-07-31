@@ -24,6 +24,7 @@ import ModalSpinner from '../components/Loaders/ModalSpinner';
 import { firstLetterToUpperCase } from '../services/other';
 import CheckoutProduct from '../components/Cart/CheckoutProduct';
 import { shippingValidator } from '../lib/drawer/validators';
+import useModal from '../lib/drawer/customhooks/useModal'
 import usePayment from '../lib/drawer/customhooks/usePayment';
 import Head from 'next/head';
 
@@ -32,6 +33,7 @@ const Checkout =()=>{
     const {userState} = useStore()
     const [user,setUser] = userState
     const {validInput,isPaying,paymentGateways,pay,data,setData,setInput} = usePayment()
+    const {open,toggleModal} = useModal()
     return(
         <PageWrapper
             customClasses={styles.no_padding}
@@ -70,12 +72,12 @@ const Checkout =()=>{
                                 title={'email'}
                                 value={data.email}
                                 isValid={data.email.length}
+                                type={'email'}
                                 errMsg={"Enter a valid email"}
                             />
                         </MainContainer>
                         <MainContainer
                             direction={'row'}
-                            align={'center'}
                         >
 
                             <OptInput
@@ -86,6 +88,12 @@ const Checkout =()=>{
                                 value={data.phone}
                                 isValid={data.phone.toString().length}
                                 errMsg={"Enter a valid phone number"}
+                            />
+                            <PrimaryButton
+                                width={'100px'}
+                                text={'Verify'}
+                                action={toggleModal}
+                                awaitState={data.phone.toString().length?'none':'disabled'}
                             />
                         </MainContainer>
                     </MainContainer>
@@ -248,6 +256,34 @@ const Checkout =()=>{
                         </MainContainer>
                 </div>
             </div>
+            {
+                open
+                &&
+                <FunctionalModalForm
+                    hook={toggleModal}
+                    title={'Verify number'}
+                    maxWidth={'30rem'}
+                >
+                    <p>An OTP has been sent, please check your messages</p>
+                    <OptInput
+                        placeholder={'Phone'}
+                        value={data.phone}
+                        type={'number'}
+                        action={(e)=>setInput('phone',e.target.value)}
+                        required
+                        isValid
+                    />
+                    <OptInput
+                        placeholder={'Otp'}
+                        required
+                        isValid
+                    />
+                    <PrimaryButton
+                        text={'Confirm'}
+                        type={'submit'}
+                    />
+                </FunctionalModalForm>
+            }
         </PageWrapper>
     )
 }

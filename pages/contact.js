@@ -49,6 +49,7 @@ const Contact =()=>{
                             placeholder={'Name'}
                             required
                             value={data.name}
+                            type={'name'}
                             action={(e)=>setInput('name',e.target.value)}
                             title={'name'}
                             isValid
@@ -57,6 +58,7 @@ const Contact =()=>{
                             placeholder={'Email'}
                             required
                             value={data.email}
+                            type='email'
                             action={(e)=>setInput('email',e.target.value)}
                             title={'email'}
                             isValid
