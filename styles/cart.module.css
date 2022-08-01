@@ -154,7 +154,15 @@
     }
 }
 
+@media screen and (max-width:900px) {
+
+    .cart_container{
+        padding: 0;
+    }
+}
+
 @media screen and (max-width:500px) {
+
 
     .order_summary_header{
         font-size: 20px;
@@ -162,9 +170,6 @@
 }
 
 @media screen and (max-width:420px) {
-    .cart_container{
-        padding: 0;
-    }
 
     .cart_section_logs p{
         font-size: 10px;

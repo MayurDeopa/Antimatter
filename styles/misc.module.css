@@ -7,7 +7,7 @@
     padding: 0.5rem;
     display: grid;
     place-items: center;
-    background-color:rgb(46, 46, 46,0.9);
+    background-color:rgb(46, 46, 46,0.7);
     overflow-y: scroll;
     z-index: 999;
 }

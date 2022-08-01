@@ -69,7 +69,7 @@ z
     gap: 1.5rem;
     border-radius: 4px;
     color: var(--primary-text-color);
-    background-color: var(--secondary-theme-light);
+    background-color: var(--secondary-theme-color);
 }
 
 .form_header{

@@ -8,11 +8,12 @@ import { decodeJwt } from '../../lib/drawer/decode';
 import { useState } from 'react';
 import SecondaryButton from '../Loaders/SecondaryButton'
 import PrimaryButton from '../Loaders/PrimaryButton'
-import { useRouter } from 'next/router';
-import { providers } from '../../lib/drawer/AuthProvider';
+import OptInput from '../Misc/OptInput'
 import Toast from '../Misc/Toast';
 import Message from '../basic/Message';
 import PageWrapper from '../PageWrapper';
+
+import { providers } from '../../lib/drawer/AuthProvider';
 
 const Login =()=>{
     const [authProviders,setAuthProviders] = useState(providers)
@@ -75,6 +76,12 @@ const Login =()=>{
                         )
                     
                 })}
+                Or
+                <SecondaryButton
+                    awaitState={'none'}
+                    text={`Continue with Phone number`}
+                    light={true}
+                />
             </div>
             <div className={styles.card_footer}>
                 <h4>
