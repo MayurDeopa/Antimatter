@@ -12,10 +12,14 @@ import OptInput from '../Misc/OptInput'
 import Toast from '../Misc/Toast';
 import Message from '../basic/Message';
 import PageWrapper from '../PageWrapper';
+import Progress from '../Loaders/Progress'
 
 import { providers } from '../../lib/drawer/AuthProvider';
+import Otp from './Otp';
+import useModal from '../../lib/drawer/customhooks/useModal';
 
 const Login =()=>{
+    const {open,toggleModal} = useModal()
     const [authProviders,setAuthProviders] = useState(providers)
     const {userState,progressState} = useStore()
     const [progress,setProgress] = progressState
@@ -80,6 +84,7 @@ const Login =()=>{
                 <SecondaryButton
                     awaitState={'none'}
                     text={`Continue with Phone number`}
+                    action={toggleModal}
                     light={true}
                 />
             </div>
@@ -99,6 +104,13 @@ const Login =()=>{
                         states={err}
                     />
                 </Toast>
+            }
+            {
+                open
+                &&
+                <Otp
+                    hook={toggleModal}
+                />
             }
         </div>
         </PageWrapper>

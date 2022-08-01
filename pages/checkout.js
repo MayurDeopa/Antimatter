@@ -27,6 +27,7 @@ import { shippingValidator } from '../lib/drawer/validators';
 import useModal from '../lib/drawer/customhooks/useModal'
 import usePayment from '../lib/drawer/customhooks/usePayment';
 import Head from 'next/head';
+import Otp from '../components/Authentication/Otp';
 
 
 const Checkout =()=>{
@@ -259,30 +260,9 @@ const Checkout =()=>{
             {
                 open
                 &&
-                <FunctionalModalForm
+                <Otp
                     hook={toggleModal}
-                    title={'Verify number'}
-                    maxWidth={'30rem'}
-                >
-                    <p>An OTP has been sent, please check your messages</p>
-                    <OptInput
-                        placeholder={'Phone'}
-                        value={data.phone}
-                        type={'number'}
-                        action={(e)=>setInput('phone',e.target.value)}
-                        required
-                        isValid
-                    />
-                    <OptInput
-                        placeholder={'Otp'}
-                        required
-                        isValid
-                    />
-                    <PrimaryButton
-                        text={'Confirm'}
-                        type={'submit'}
-                    />
-                </FunctionalModalForm>
+                />
             }
         </PageWrapper>
     )
