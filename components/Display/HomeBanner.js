@@ -3,6 +3,7 @@ import styles from '../../styles/Home.module.css'
 import Image from 'next/image'
 import LinkBtn from '../Misc/LinkBtn'
 import {BiRightArrowAlt} from 'react-icons/bi'
+import BlurImage from '../Misc/BlurImage'
 
 const HomeBanner =({d})=>{
   const customCss = JSON.parse(d.containerCss)
@@ -10,7 +11,7 @@ const HomeBanner =({d})=>{
         <div 
         style={customCss}
             className={styles.home_image_container}>
-              <Image
+              <BlurImage
                 src={d.img}
                 width={600}
                 height={600}

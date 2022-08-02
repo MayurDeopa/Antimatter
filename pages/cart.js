@@ -31,7 +31,7 @@ const Cart =()=>{
             const fetchCart = async()=>{
                 setErr()
                 const res= await getCart(user._id)
-                setCart(res)
+                setCart(res.cart)
             }
             if(user)fetchCart()
         
@@ -133,9 +133,9 @@ const Cart =()=>{
             </Head>
             <PageWrapper>
             {
-                cart.cart.items
+                cart.items
                 ?
-                cart.cart.items.length
+                cart.items.length
                 ?
                 <div className={styles.cart_container}>
                 <div className={styles.cart_section}>
@@ -146,7 +146,7 @@ const Cart =()=>{
                     </div>
                     {
                         
-                        cart.cart.items.map((p,i)=>{
+                        cart.items.map((p,i)=>{
                             return <CartProducts product={p} key={i}/>
                         })
                         
@@ -160,7 +160,7 @@ const Cart =()=>{
                         justify={'space-between'}
                     >
                         <p>Price</p>
-                        <p>15</p>
+                        <p>{cart.amount}</p>
                     </MainContainer>
                     <MainContainer
                         justify={'space-between'}

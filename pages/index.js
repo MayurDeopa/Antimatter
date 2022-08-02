@@ -10,11 +10,12 @@ import HomeBanner from '../components/Display/HomeBanner'
 
 export default function Home({banners}) {
   return (
-    <PageWrapper>
+    <PageWrapper
+      padding={'0'}
+    >
       <Head >
         <title>Anti-Matter</title>
       </Head>
-      <ImageSlider>
       {banners.data.map((d,i)=>{
           return(
             <HomeBanner
@@ -23,7 +24,6 @@ export default function Home({banners}) {
             />
           )
         })}
-      </ImageSlider>
     </PageWrapper>
   )
 }

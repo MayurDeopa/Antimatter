@@ -36,7 +36,7 @@ const Personal =()=>{
     }
     const save =(data)=>{
         setEdit(false)
-        saveDetails(data)
+        saveDetails(data,'personal')
     }
     if(err){
         return(
