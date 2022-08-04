@@ -10,6 +10,7 @@ const Select =({options,title,label,disabled,placeholder,maxWidth,required,isVal
                 {options.map((o,i)=>{
                     return(
                         <option 
+                            key={i}
                             value={o.name}
                             style={{
                                 backgroundColor:'black'
