@@ -3,7 +3,7 @@ import OptInput from "../Misc/OptInput";
 import PrimaryButton from '../Loaders/PrimaryButton'
 import MainContainer from "../Misc/MainContainer";
 
-const Otp =({hook})=>{
+const Otp =({hook,autoFocus})=>{
     return(
         <FunctionalModalForm
             hook={hook}
@@ -19,6 +19,7 @@ const Otp =({hook})=>{
                 type={'number'}
                 required
                 isValid
+                autoFocus={autoFocus}
             />
             <PrimaryButton
                 width={'100px'}

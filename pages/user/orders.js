@@ -5,6 +5,7 @@ import OptInput from "../../components/Misc/OptInput";
 import PageWrapper from "../../components/PageWrapper";
 import PrimaryButton from '../../components/Loaders/PrimaryButton'
 import Progress from "../../components/Loaders/Progress";
+import Select from "../../components/Misc/Select";
 
 
 
@@ -14,66 +15,10 @@ const Orders =()=>{
             <Head>
                 <title>Orders</title>
             </Head>
-            <Flow
-            buttonValue={'Submit'}
-            titles={["Personal details","Shipping details"]}
-            breakpoints={[3]}
-            components={{
-                name:"",
-                email:"",
-                phone:"",
-                pincode:"",
-                address:"",
-                city:"",
-                state:"",
-            }}
-            state={[
-                {
-                    title:'Name',
-                    state:'name',
-                    isValid:true,
-                    type:'text'
-                },
-                {
-                    title:'Email',
-                    state:'email',
-                    isValid:true,
-                    type:'text'
-                },
-                {
-                    title:'Phone',
-                    state:'phone',
-                    isValid:true,
-                    type:'tel'
-                },
-                {
-                    title:'Pincode',
-                    state:'pincode',
-                    isValid:true,
-                    type:'text'
-                },
-                {
-                    title:'Address',
-                    state:'address',
-                    isValid:true,
-                    type:'text'
-                },
-                {
-                    title:'City',
-                    state:'city',
-                    isValid:true,
-                    type:'text'
-                },
-                {
-                    title:'State',
-                    state:'state',
-                    isValid:true,
-                    type:'text'
-                }
-            ]}
-        >
-
-        </Flow>
+            <Select
+                options={[1,2,3,4,5]}
+                title={'Size'}
+            />
         </PageWrapper>
     )
 }

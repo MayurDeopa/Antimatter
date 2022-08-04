@@ -25,6 +25,7 @@ import Form from "../../../components/Misc/Form";
 import RadioGroup from "../../../components/Misc/RadioGroup";
 import Share from "../../../components/Display/Share";
 import OptInput from "../../../components/Misc/OptInput";
+import Select from "../../../components/Misc/Select";
 
 
 
@@ -46,7 +47,7 @@ const Product =()=>{
         if(router.isReady){
             const fetchProduct =async()=>{
                 await getProductData(router.query.id)
-                setIsLoading(false)
+                setIsLoading(false)        
             }
             fetchProduct()
         }
@@ -102,40 +103,20 @@ const Product =()=>{
                                     width={'30%'}
                                 />
                                 <Skeleton
-                                    height={'1rem'}
-                                    width={'30%'}
+                                    height={'3rem'}
+                                    width={'100%'}
                                 />
-                                <MainContainer>
-                                    <Skeleton
-                                            height={'2rem'}
-                                            width={'2rem'}
-                                        />
-                                        <Skeleton
-                                            height={'2rem'}
-                                            width={'2rem'}
-                                        />
-                                </MainContainer>
                                 <Skeleton
-                                    height={'1rem'}
-                                    width={'30%'}
+                                    height={'3rem'}
+                                    width={'100%'}
                                 />
-                                <MainContainer>
-                                    <Skeleton
-                                            height={'2rem'}
-                                            width={'2rem'}
-                                        />
-                                        <Skeleton
-                                            height={'2rem'}
-                                            width={'2rem'}
-                                        />
-                                </MainContainer>
                                 <div className={styles.buttons_wrapper}>
                                     <Skeleton
-                                        height={'2.4rem'}
+                                        height={'3rem'}
                                         width={'min(100%,30rem)'}
                                     />
                                     <Skeleton
-                                        height={'2.4rem'}
+                                        height={'3rem'}
                                         width={'min(100%,30rem)'}
                                     />
                                 </div>
@@ -213,17 +194,12 @@ const Product =()=>{
                                         customClasses={styles.details_container}
                                         key={i}
                                     >
-                                        <p style={{
-                                            paddingBottom:'7px',
-                                            marginBottom:'4px'
-                                        }}>{v.name}</p>
-                                        <RadioGroup
-                                            name={v.name}
-                                            state={v.options}
-                                            isChecked={isChecked}
-                                            handleChange={handleChange}
-                                                />
-                                        {/*<p className="error_message">{v.name} is required</p>*/}
+                                        <p>{v.name}</p>
+                                        <Select
+                                            title={`Select a ${v.name}`}
+                                            options={v.options}
+                                            required
+                                        />
                                     </MainContainer>
                                         )
                             })}

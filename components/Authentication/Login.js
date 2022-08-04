@@ -110,6 +110,7 @@ const Login =()=>{
                 &&
                 <Otp
                     hook={toggleModal}
+                    autoFocus
                 />
             }
         </div>

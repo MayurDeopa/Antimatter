@@ -99,6 +99,7 @@ z
     box-shadow: var(--secondary-box-shadow);
     background-color: var(--secondary-theme-color);
     padding-top: 15px;
+    padding-right: 4px;
     transition: 0.3s ease-in-out;
 }
 
@@ -184,6 +185,11 @@ z
 }
 
 
+
+.options{
+    background-color: var(--primary-theme-color);
+    color: var(--primary-text-color);
+}
 
 
 
