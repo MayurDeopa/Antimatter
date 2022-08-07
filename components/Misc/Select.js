@@ -1,32 +1,58 @@
 import { useEffect } from 'react'
 import styles from '../../styles/form.module.css'
+import MainContainer from './MainContainer';
+import colors from '../../styles/colors.module.css'
 
 const Select =({options,title,label,disabled,placeholder,maxWidth,required,isValid,errMsg,name,action})=>{
+    let isObject = typeof(options)==='object'
     return(
-        
-        <div className={styles.group}>
+        <MainContainer
+            direction={'column'}
+            height={'71px'}
+        >
+            <div className={styles.group}>
             <select 
                 name={placeholder || title}
                 required={required}
                 className={styles.input}
                 onChange={action}
                 >
-                {options.map((o,i)=>{
-                    return(
-                        <option 
-                            key={i}
-                            value={o.id}
-                            placeholder={o.name}
-                            style={{
-                                backgroundColor:'black'
-                            }}>
-                                {o.name}
-                            </option>
-                    )
-                })}
+                {
+                    isObject
+                    ?
+                    Object.keys(options).map((k,i)=>{
+                        return(
+                            <option 
+                                key={i}
+                                value={k}
+                                placeholder={options[k]}
+                                style={{
+                                    backgroundColor:'black'
+                                }}>
+                                    {options[k]}
+                                </option>
+                        )
+                    })
+                    :
+                    options.map((o,i)=>{
+                        return(
+                            <option 
+                                key={i}
+                                value={o.id}
+                                placeholder={o.name}
+                                style={{
+                                    backgroundColor:'black'
+                                }}>
+                                    {o.name}
+                                </option>
+                        )
+                    })
+                }
             </select>
             <p className={styles.label}>{placeholder || title}</p>
         </div>
+        {!isValid &&<p className={'error_message'}>{errMsg || `${placeholder} is required`}</p>}
+        </MainContainer>
     )
 }
 

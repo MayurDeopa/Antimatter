@@ -21,7 +21,7 @@ import OptInput from '../components/Misc/OptInput';
 import LinkBtn from '../components/Misc/LinkBtn'
 import { firstLetterToUpperCase } from '../services/other';
 import CheckoutProduct from '../components/Cart/CheckoutProduct';
-import { shippingValidator } from '../lib/drawer/validators';
+import Select from '../components/Misc/Select'
 import useModal from '../lib/drawer/customhooks/useModal'
 import usePayment from '../lib/drawer/customhooks/usePayment';
 import Head from 'next/head';
@@ -35,13 +35,21 @@ const Checkout =()=>{
     const {cartState,progressState} = useStore()
     const [cart,setCart] = cartState
     const [progress,setProgress] = progressState
-    const {validInput,isPaying,paymentGateways,pay,data,setData,setInput,generateToken,checkoutData} = usePayment()
+    const {validInput,isPaying,paymentGateways,pay,data,setData,setInput,generateToken,checkoutData,fetchCountries,countriesData,fetchStates,states} = usePayment()
     const {open,toggleModal} = useModal()
     useEffect(()=>{
         if(!id)return;
         generateToken(id)
         
     },[router.isReady])
+
+    useEffect(()=>{
+        if(checkoutData) fetchCountries(checkoutData.id)
+    },[checkoutData])
+
+    useEffect(()=>{
+        if(data.country) fetchStates(checkoutData.id,data.country)
+    },[data.country])
     if(!id){
         return(
             <EmptyState>
@@ -200,26 +208,28 @@ const Checkout =()=>{
                         <MainContainer
                             align={'center'}
                         >
-                            <OptInput
+                            <Select
                                 placeholder={"State"}
                                 action={(e)=>setInput('state',e.target.value)}
                                 required={true}
                                 title={'state'}
                                 value={data.state}
-                                isValid={data.state.length}
+                                isValid={data.state}
+                                options={states}
                                 
                             />    
                         </MainContainer>
                         <MainContainer
                             align={'center'}
                         >
-                            <OptInput
+                            <Select
                                 action={(e)=>setInput('country',e.target.value)}
-                                required={true}
+                                required
                                 placeholder={'Country'}
                                 title={'country'}
                                 value={data.country}
-                                isValid={data.country.length}
+                                isValid={data.country}
+                                options={countriesData}
                             />    
                         </MainContainer>    
                         
