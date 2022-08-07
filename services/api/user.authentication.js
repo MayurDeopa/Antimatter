@@ -51,3 +51,25 @@ export const logout =()=>{
     localStorage.removeItem('key')
     window.location.href ='/user'
 }
+
+export const loginUser = async()=>{
+    console.log('some')
+    try{
+        const res = await fetch(`https://api.chec.io/v1/customers/email-token`,{
+            method:"post",
+            headers:{
+                "X-Authorization": "pk_40545922c2cf56e8d3ca746610e66423e799d3578c3b0",
+                "Content-Type": "application/json",
+                "Accept": "application/json"},
+            body:JSON.stringify({
+                "email":"mayurdeopa@gmail.com",
+                "base_url":"http://localhost:9090/contact"
+            })
+        })
+        return res.json()
+    }
+    catch(err){
+        console.log(err)
+        return err
+    }
+}

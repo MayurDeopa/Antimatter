@@ -1,6 +1,9 @@
+import { commerce } from '../../lib/drawer/commerce'
 import apiUrl from '../../lib/drawer/url'
 
-export const getCart =async(data)=>{
+
+
+{/*export const getCart =async(data)=>{
     try{
         const res = await fetch(`${apiUrl}/cart/?id=${data}`,{
             method:"GET",
@@ -40,4 +43,14 @@ export const mutateQty =async(data)=>{
         console.log(err)
         return err
     }
+}
+*/}
+export const initiateCart =async()=>{
+    const res = await commerce.cart.retrieve();
+    return res;
+}
+
+export const handleAddToCart = async(id,quantity,options)=>{
+    const res = await commerce.cart.add(id,quantity,options)
+    return res;
 }

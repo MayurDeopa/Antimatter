@@ -32,9 +32,9 @@ const CartProducts = ({product,states})=>{
             <div className={styles.cart_section_logs}>
     
                     <>
-                        <Image src={product.img}   width={300} height={300} alt=''/>
+                        <Image src={product.image.url}   width={300} height={300} alt=''/>
                         <QuantityPanel product={product}/>
-                        <p>{product.price * product.quantity}</p>
+                        <p>{product.line_total.formatted_with_symbol}</p>
                     </>
             </div>
         )

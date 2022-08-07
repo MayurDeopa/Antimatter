@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/dist/client/router";
 import { useStore } from "../../../lib/drawer/context/StoreContext";
 import useCart from "../../../lib/drawer/customhooks/useCart";
@@ -37,12 +37,8 @@ const Product =()=>{
     const router = useRouter()
     const category = router.query.category
     const [isLoading,setIsLoading] = useState(true)
-    const [size,setSize] = useState()
-    const isChecked =(s)=>s===size
-    const handleChange =(e)=>{
-        setSize(e.currentTarget.value)
-    }
-    const {isSpinning,fetchCart,getProductData,err,data,cartMessage,variants} = useCart()
+
+    const {isSpinning,fetchCart,getProductData,err,data,cartMessage,variants,options,handleOptions} = useCart()
     useEffect(()=>{
         if(router.isReady){
             const fetchProduct =async()=>{
@@ -50,6 +46,7 @@ const Product =()=>{
                 setIsLoading(false)        
             }
             fetchProduct()
+            
         }
     },[router.isReady])
     if(isLoading){
@@ -172,10 +169,7 @@ const Product =()=>{
                             customClasses={styles.details}
                             title={data.name}
                             headerSide={'flex-start'}
-                            action={()=>fetchCart({
-                                id:user._id,
-                                product:data
-                        })}
+                            action={()=>fetchCart(data.id,1,options)}
 
                         >
                            <MainContainer
@@ -199,29 +193,19 @@ const Product =()=>{
                                             title={`Select a ${v.name}`}
                                             options={v.options}
                                             required
+                                            action={(e)=>handleOptions(v.id,e.target.value)}
                                         />
                                     </MainContainer>
                                         )
                             })}
                             <div className={styles.buttons_wrapper}>
-                            {
-                                user
-                                ?
-                                <PrimaryButton
-                                awaitState={isSpinning?'loading':'none'}
-                                loadingText={'Adding'}
-                                text={"Add to cart"}
-                                type='submit'
-                                width={'100%'}
-                                />
-                                :
+                            
                                 <SecondaryButton 
-                                    awaitState={'none'}
-                                    text={"Login to use cart"}
+                                    text={"Add to cart"}
                                     width={'100%'}
-                                    action={()=>router.push('/user')}
+                                    type={'submit'}
                                 />
-                            }
+                            
                             <SecondaryButton 
                                 awaitState={'none'}
                                 text={"Share"}

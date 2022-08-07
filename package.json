@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@chec/commerce.js": "^2.8.0",
     "firebase": "^9.6.8",
     "jsonwebtoken": "^8.5.1",
     "next": "12.1.0",

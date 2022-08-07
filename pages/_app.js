@@ -11,6 +11,7 @@ import Message from '../components/basic/Message'
 import Head from 'next/head'
 import Footer from '../components/Navigations/Footer'
 import Progress from '../components/Loaders/Progress'
+import { commerce } from '../lib/drawer/commerce'
 
  
 function MyApp({ Component, pageProps }) {
@@ -29,11 +30,6 @@ function MyApp({ Component, pageProps }) {
       drawerState:[drawer,setDrawer],
       progressState:[progress,setProgress]
     }
-  useEffect(()=>{
-    if(data){
-      setUser(data)
-    }
-  },[data])
 
   Router.events.on('routeChangeStart',()=>setPath(true))
   Router.events.on('routeChangeComplete',()=>setPath(false))

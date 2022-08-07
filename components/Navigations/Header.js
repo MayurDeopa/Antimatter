@@ -25,13 +25,6 @@ const Header =({state})=>{
                         </Link>
                     </li>
                     <li>
-                        <Link href={'/user'}>
-                            <div className='svg_wrapper'>
-                                <FiUser/>
-                            </div>
-                        </Link>
-                    </li>
-                    <li>
                         <Link href={'/cart'}>
                             <div className='svg_wrapper'>
                                 <FiShoppingBag/>

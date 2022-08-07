@@ -1,17 +1,22 @@
+import { useEffect } from 'react'
 import styles from '../../styles/form.module.css'
 
-const Select =({options,title,label,disabled,placeholder,maxWidth,required,isValid,errMsg,name})=>{
+const Select =({options,title,label,disabled,placeholder,maxWidth,required,isValid,errMsg,name,action})=>{
     return(
+        
         <div className={styles.group}>
             <select 
                 name={placeholder || title}
                 required={required}
-                className={styles.input} >
+                className={styles.input}
+                onChange={action}
+                >
                 {options.map((o,i)=>{
                     return(
                         <option 
                             key={i}
-                            value={o.name}
+                            value={o.id}
+                            placeholder={o.name}
                             style={{
                                 backgroundColor:'black'
                             }}>

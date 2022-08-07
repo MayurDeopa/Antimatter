@@ -5,22 +5,20 @@ import withAuth from '../components/Authentication/withAuth'
 import Flow from '../components/Misc/Flow';
 
 import useDetails from '../lib/drawer/customhooks/useDetails';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useStore } from '../lib/drawer/context/StoreContext';
 import { sendDetails } from '../services/api/details';
 import {useRouter} from 'next/router'
 import { gateways } from '../lib/drawer/PaymentGateways';
 import styles from '../styles/checkout.module.css'
 
-import Image from 'next/image'
-import SecondaryButton from '../components/Loaders/SecondaryButton'
+import EmptyState from '../components/Misc/EmptyState'
+import Progress from '../components/Loaders/Progress'
 import PrimaryButton from '../components/Loaders/PrimaryButton'
-import ErrorPopUp from '../components/Misc/ErrorPopUp';
 import MainContainer from '../components/Misc/MainContainer';
 import Form from '../components/Misc/Form';
-import FormSection from '../components/Misc/FormSection';
 import OptInput from '../components/Misc/OptInput';
-import ModalSpinner from '../components/Loaders/ModalSpinner';
+import LinkBtn from '../components/Misc/LinkBtn'
 import { firstLetterToUpperCase } from '../services/other';
 import CheckoutProduct from '../components/Cart/CheckoutProduct';
 import { shippingValidator } from '../lib/drawer/validators';
@@ -28,13 +26,46 @@ import useModal from '../lib/drawer/customhooks/useModal'
 import usePayment from '../lib/drawer/customhooks/usePayment';
 import Head from 'next/head';
 import Otp from '../components/Authentication/Otp';
+import { commerce } from '../lib/drawer/commerce';
 
 
 const Checkout =()=>{
-    const {userState} = useStore()
-    const [user,setUser] = userState
-    const {validInput,isPaying,paymentGateways,pay,data,setData,setInput} = usePayment()
+    const router = useRouter()
+    const {id} = router.query
+    const {cartState,progressState} = useStore()
+    const [cart,setCart] = cartState
+    const [progress,setProgress] = progressState
+    const {validInput,isPaying,paymentGateways,pay,data,setData,setInput,generateToken,checkoutData} = usePayment()
     const {open,toggleModal} = useModal()
+    useEffect(()=>{
+        if(!id)return;
+        generateToken(id)
+        
+    },[router.isReady])
+    if(!id){
+        return(
+            <EmptyState>
+                <Form
+                    title={'Invalid token'}
+                    
+                >
+                    <MainContainer
+                        justify={'center'}
+                        maxWidth={'100%'}
+                    >
+                    <LinkBtn
+                        url={'/cart'}
+                        text='Go to cart'
+                    />
+                    <LinkBtn
+                        url={'/shop'}
+                        text='Start Shopping'
+                    />
+                    </MainContainer>
+                </Form>
+            </EmptyState>
+        )
+    }
     return(
         <PageWrapper
             customClasses={styles.no_padding}
@@ -48,14 +79,14 @@ const Checkout =()=>{
                     customClasses={`${styles.small_container} ${styles.no_bg}`}
                     width={'100%'}
                     direction={'column'}
-                    action={()=>console.log('some')}
+                    action={()=>pay(checkoutData.id,data)}
                 >
                     <MainContainer
-                    headerSide={'flex-start'}
-                    customClasses={styles.small_container}
-                    maxWidth={'100%'}
-                    direction={'column'}
-                    title={"Contact information"}
+                        headerSide={'flex-start'}
+                        customClasses={styles.small_container}
+                        maxWidth={'100%'}
+                        direction={'column'}
+                        title={"Contact information"}
                     
                     >
                         <MainContainer
@@ -67,14 +98,13 @@ const Checkout =()=>{
                             align={'center'}     
                         >
                             <OptInput
-                               placeholder={"Email"}   
-                                action={(e)=>setInput('email',e.target.value)}
+                               placeholder={"First name"}   
+                                action={(e)=>setInput('firstname',e.target.value)}
                                 required={true}
                                 title={'email'}
-                                value={data.email}
-                                isValid={data.email.length}
-                                type={'email'}
-                                errMsg={"Enter a valid email"}
+                                value={data.firstname}
+                                isValid={data.firstname.length}
+                                type={'text'}
                             />
                         </MainContainer>
                         <MainContainer
@@ -82,22 +112,30 @@ const Checkout =()=>{
                         >
 
                             <OptInput
-                                placeholder={"Phone Number"}                               
-                                action={(e)=>setInput('phone',e.target.value)}
+                                placeholder={"Last name"}                               
+                                action={(e)=>setInput('lastname',e.target.value)}
                                 required={true}
-                                title={'phone'}
-                                value={data.phone}
-                                isValid={data.phone.toString().length}
-                                errMsg={"Enter a valid phone number"}
-                            />
-                            <PrimaryButton
-                                width={'100px'}
-                                text={'Verify'}
-                                action={toggleModal}
-                                awaitState={data.phone.toString().length?'none':'disabled'}
+                                title={'Last name'}
+                                value={data.lastname}
+                                isValid={data.lastname.length}
                             />
                         </MainContainer>
                     </MainContainer>
+                    <MainContainer
+                            direction={'row'}
+                            align={'center'}
+                            maxWidth={'100%'}
+                        >
+                            <OptInput
+                                placeholder={"Email"}
+                                action={(e)=>setInput('email',e.target.value)}
+                                required={true}
+                                title={'name'}
+                                value={data.email}
+                                isValid={data.email.length}
+                                type={'email'}
+                            />
+                        </MainContainer>
                     </MainContainer>
                     
                     <MainContainer
@@ -129,12 +167,12 @@ const Checkout =()=>{
                             align={'center'}
                         >
                             <OptInput
-                                placeholder={"Pincode"}
-                                action={(e)=>setInput('pincode',e.target.value)}
+                                placeholder={"City"}
+                                action={(e)=>setInput('town_city',e.target.value)}
                                 required={true}
-                                title={'pincode'}
-                                value={data.pincode}
-                                isValid={data.pincode.toString().length}
+                                title={'town_city'}
+                                value={data.town_city}
+                                isValid={data.town_city.length}
                                 errMsg={"Enter a valid pincode"}
                             />
                         </MainContainer>
@@ -148,29 +186,17 @@ const Checkout =()=>{
                             maxWidth={'992px'}
                             placeholder={"Address"}
                             type={'textarea'}                            
-                            action={(e)=>setInput('address',e.target.value)}
+                            action={(e)=>setInput('street',e.target.value)}
                             required={true}
-                            title={'address'}
-                            value={data.address}
-                            isValid={data.address.length}
+                            title={'street'}
+                            value={data.street}
+                            isValid={data.street.length}
                         />
                     </MainContainer>
                     <MainContainer
                         customClasses={styles.info_wrapper}
                         maxWidth={'100%'}
                     >
-                        <MainContainer
-                            align={'center'}
-                        >
-                            <OptInput
-                                action={(e)=>setInput('city',e.target.value)}
-                                required={true}
-                                placeholder={'City'}
-                                title={'city'}
-                                value={data.city}
-                                isValid={data.city.length}
-                            />    
-                        </MainContainer>    
                         <MainContainer
                             align={'center'}
                         >
@@ -184,6 +210,19 @@ const Checkout =()=>{
                                 
                             />    
                         </MainContainer>
+                        <MainContainer
+                            align={'center'}
+                        >
+                            <OptInput
+                                action={(e)=>setInput('country',e.target.value)}
+                                required={true}
+                                placeholder={'Country'}
+                                title={'country'}
+                                value={data.country}
+                                isValid={data.country.length}
+                            />    
+                        </MainContainer>    
+                        
                     </MainContainer>
                     
                     </MainContainer>
@@ -208,7 +247,6 @@ const Checkout =()=>{
                                             awaitState={g.state}
                                             width={'100%'}
                                             cssClasses={g.cssClass}
-                                            action={()=>pay(g,data)}
                                             key={i}
                                             type='submit'
                                         />
@@ -223,17 +261,22 @@ const Checkout =()=>{
                             maxWidth={'100%'}
                             direction='column'
                         >
-                        {user.cart.items.map((c,i)=>{
-                            return(
-                                <CheckoutProduct
-                                    src={c.img}
-                                    name={c.name}
-                                    price={c.price}
-                                    quantity={c.quantity}
-                                    key={i}
-                                />
-                            )
-                        })}
+                            {
+                                isPaying
+                                ?
+                                <PrimarySpinner/>
+                                :
+                                checkoutData.line_items.map((item,i)=>{
+                                    return(
+                                        <CheckoutProduct
+                                            src={item.image.url}
+                                            key={i}
+                                            price={item.line_total.formatted_with_symbol}
+                                            name={item.name}
+                                        />
+                                    )
+                                })
+                            }
                         </MainContainer>
                         <MainContainer
                             maxWidth={'100%'}
@@ -245,7 +288,7 @@ const Checkout =()=>{
                                 justify={'space-between'}
                             >
                                 <p>Subtotal :</p>
-                                <p>{user.cart.amount}</p>
+                                <p>{!cart?'-':cart.subtotal.formatted_with_symbol}</p>
                             </MainContainer>
                             <MainContainer
                                 maxWidth={'100%'}
@@ -264,8 +307,11 @@ const Checkout =()=>{
                     hook={toggleModal}
                 />
             }
+            <Progress
+                visible={isPaying}
+            />
         </PageWrapper>
     )
 }
 
-export default withAuth(Checkout);
+export default Checkout;
