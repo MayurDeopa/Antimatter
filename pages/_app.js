@@ -16,7 +16,6 @@ import { commerce } from '../lib/drawer/commerce'
  
 function MyApp({ Component, pageProps }) {
   const queryClient = new QueryClient()
-  const {isLoading,data,err,setErr}= useToken()
   const [user,setUser] = useState()
   const [cart,setCart] = useState()
   const [drawer,setDrawer] = useState(true)
@@ -44,23 +43,9 @@ function MyApp({ Component, pageProps }) {
           <Component {...pageProps}/>
           <Footer/>
         </>
-        {
-          isLoading
-          &&
-          <Progress
-            visible
-          />
-        }
         <Progress
           visible={path}
         />
-      {
-        err
-        &&
-        <Toast>
-          <Message states={err}/>
-        </Toast>
-        }
       </StoreContext>
     </QueryClientProvider>
   )
