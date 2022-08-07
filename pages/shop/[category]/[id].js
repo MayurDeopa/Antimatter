@@ -170,6 +170,7 @@ const Product =()=>{
                             title={data.name}
                             headerSide={'flex-start'}
                             action={()=>fetchCart(data.id,1,options)}
+                            
 
                         >
                            <MainContainer
@@ -187,12 +188,15 @@ const Product =()=>{
                                         direction={'column'}
                                         customClasses={styles.details_container}
                                         key={i}
+                                        gap={'5px'}
                                     >
                                         <p>{v.name}</p>
                                         <Select
                                             title={`Select a ${v.name}`}
+                                            placeholder={v.name}
                                             options={v.options}
                                             required
+                                            isValid
                                             action={(e)=>handleOptions(v.id,e.target.value)}
                                         />
                                     </MainContainer>

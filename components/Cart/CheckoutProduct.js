@@ -3,7 +3,7 @@ import Image from "next/image"
 
 import styles from '../../styles/checkout.module.css'
 import MainContainer from "../Misc/MainContainer";
-const CheckoutProduct =({src,price,quantity,name})=>{
+const CheckoutProduct =({src,price,quantity,name,options})=>{
     return(
         <MainContainer
             maxWidth={'100%'}
@@ -18,9 +18,14 @@ const CheckoutProduct =({src,price,quantity,name})=>{
                 height={100}
             />
             <MainContainer
-                width={'6rem'}
+                width={'7rem'}
+                direction={'column'}
             >
-                <p>{name}</p>
+                <p style={{fontSize:'16px',fontWeight:'bolder'}}>{name}</p>
+                <p style={{fontSize:'14px'}}>Quantity : {quantity}</p>
+                {options.map((o,i)=>{
+                    return<p style={{fontSize:'14px'}}>{o.group_name} : {o.option_name}</p>
+                })}
             </MainContainer>
             </MainContainer>
             <MainContainer

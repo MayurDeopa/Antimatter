@@ -181,7 +181,6 @@ const Checkout =()=>{
                                 title={'town_city'}
                                 value={data.town_city}
                                 isValid={data.town_city.length}
-                                errMsg={"Enter a valid pincode"}
                             />
                         </MainContainer>
                     </MainContainer>
@@ -204,6 +203,7 @@ const Checkout =()=>{
                     <MainContainer
                         customClasses={styles.info_wrapper}
                         maxWidth={'100%'}
+                        
                     >
                         <MainContainer
                             align={'center'}
@@ -216,6 +216,7 @@ const Checkout =()=>{
                                 value={data.state}
                                 isValid={data.state}
                                 options={states}
+                                height={'71px'}
                                 
                             />    
                         </MainContainer>
@@ -230,38 +231,23 @@ const Checkout =()=>{
                                 value={data.country}
                                 isValid={data.country}
                                 options={countriesData}
+                                height={'71px'}
                             />    
                         </MainContainer>    
                         
                     </MainContainer>
-                    
-                    </MainContainer>
                     <MainContainer
-                        headerSide={'flex-start'}
-                        customClasses={styles.small_container}
-                        maxWidth={'100%'}
-                        direction={'column'}
-                        title={"Payment methods"}
-                    >
-                        <MainContainer
                             customClasses={styles.info_wrapper}
                             maxWidth={'100%'}
                             width={'100%'}
-                            justify={'flex-start'}
-                            >
-                                {paymentGateways.map((g,i)=>{
-                                    return(
-                                        <PrimaryButton
-                                            text={g.name}
-                                            icon={g.icon}
-                                            awaitState={g.state}
-                                            width={'100%'}
-                                            cssClasses={g.cssClass}
-                                            key={i}
-                                            type='submit'
-                                        />
-                                    )
-                                })}
+                            justify={'flex-end'}
+                            align={'flex-end'}
+                        >
+                            <PrimaryButton
+                                width={'10rem'}
+                                text={`Pay ${!checkoutData?'-':checkoutData.live.total_with_tax.formatted_with_symbol}`}
+                                type={'submit'}
+                            />    
                         </MainContainer>
                     </MainContainer>
                 </Form>
@@ -276,13 +262,15 @@ const Checkout =()=>{
                                 ?
                                 <PrimarySpinner/>
                                 :
-                                checkoutData.line_items.map((item,i)=>{
+                                checkoutData.live.line_items.map((item,i)=>{
                                     return(
                                         <CheckoutProduct
                                             src={item.image.url}
                                             key={i}
                                             price={item.line_total.formatted_with_symbol}
                                             name={item.name}
+                                            options={item.selected_options}
+                                            quantity={item.quantity}
                                         />
                                     )
                                 })
@@ -298,7 +286,7 @@ const Checkout =()=>{
                                 justify={'space-between'}
                             >
                                 <p>Subtotal :</p>
-                                <p>{!cart?'-':cart.subtotal.formatted_with_symbol}</p>
+                                <p>{!checkoutData?'-':checkoutData.live.total_with_tax.formatted_with_symbol}</p>
                             </MainContainer>
                             <MainContainer
                                 maxWidth={'100%'}

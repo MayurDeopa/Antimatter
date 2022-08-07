@@ -3,12 +3,12 @@ import styles from '../../styles/form.module.css'
 import MainContainer from './MainContainer';
 import colors from '../../styles/colors.module.css'
 
-const Select =({options,title,label,disabled,placeholder,maxWidth,required,isValid,errMsg,name,action})=>{
-    let isObject = typeof(options)==='object'
+const Select =({options,title,label,disabled,placeholder,maxWidth,required,isValid,errMsg,name,action,height})=>{
+    let isObject = !Array.isArray(options)
     return(
         <MainContainer
             direction={'column'}
-            height={'71px'}
+            height={height}
         >
             <div className={styles.group}>
             <select 
