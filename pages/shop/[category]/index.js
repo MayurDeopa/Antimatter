@@ -30,16 +30,9 @@ export async function getStaticProps(context) {
     const slug = context.params.category
     try{
         const data = await getProductCategory(slug)
-        if(data.status==='failed'){
-            return {
-                props: {
-                    error:data.message
-                },
-            }
-        }
         return {
             props: {
-                products:data.list,
+                products:data,
                 category:slug
             },
         }
@@ -97,7 +90,7 @@ const Categories = ({products,category,error})=>{
                             />}
                             <Container>
                                 {
-                                    products.map((p,i)=>{
+                                    products.data.map((p,i)=>{
                                         return(
                                             <Card
                                                 details={p}

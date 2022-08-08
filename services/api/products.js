@@ -1,12 +1,10 @@
 import apiUrl from '../../lib/drawer/url'
+import {commerce} from '../../lib/drawer/commerce'
 
 export const getProductCategories =async()=>{
     try{
-        const res = await fetch(`${apiUrl}/products/categories`,{
-            method:"GET",
-            headers:{"Content-Type" :"application/json"},
-        })
-        return res.json()
+        const res = await commerce.categories.list()
+        return res
     }
     catch(err){
         return err
@@ -16,11 +14,10 @@ export const getProductCategories =async()=>{
 
 export const getProductCategory =async(slug)=>{
     try{
-        const res = await fetch(`${apiUrl}/products/category?slug=${slug}`,{
-            method:"GET",
-            headers:{"Content-Type" :"application/json"},
+        const res = await commerce.products.list({
+            category_slug:slug
         })
-        return res.json()
+        return res
     }
     catch(err){
         return err
@@ -29,11 +26,8 @@ export const getProductCategory =async(slug)=>{
 
 export const getProductById =async(id)=>{
     try{
-        const res = await fetch(`${apiUrl}/products/product?id=${id}`,{
-            method:"GET",
-            headers:{"Content-Type" :"application/json"},
-        })
-        return res.json()
+        const res = await commerce.products.retrieve(id)
+        return res
     }
     catch(err){
         return err
