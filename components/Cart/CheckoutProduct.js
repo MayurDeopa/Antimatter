@@ -24,7 +24,7 @@ const CheckoutProduct =({src,price,quantity,name,options})=>{
                 <p style={{fontSize:'16px',fontWeight:'bolder'}}>{name}</p>
                 <p style={{fontSize:'14px'}}>Quantity : {quantity}</p>
                 {options.map((o,i)=>{
-                    return<p style={{fontSize:'14px'}}>{o.group_name} : {o.option_name}</p>
+                    return<p style={{fontSize:'14px'}} key={i}>{o.group_name} : {o.option_name}</p>
                 })}
             </MainContainer>
             </MainContainer>
