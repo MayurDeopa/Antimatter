@@ -166,19 +166,27 @@
 
 
 
-.footer{
+.footer_wrapper{
     position: absolute;
     width: 100%;
-    min-height: 40%;
+    min-height: 100%;
+    height: auto;
     padding: 5px;
+    margin-top: 10rem;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     background-color: var(--secondary-theme-light);
-    color: var(--primary-text-color);
     box-shadow: var(--primary-box-shadow);
 }
 
+.footer{
+    color: var(--primary-text-color);
+    max-width: 105rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
 
+}
 
 
 @media screen and (max-width:560px) {

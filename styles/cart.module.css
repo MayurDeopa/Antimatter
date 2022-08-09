@@ -37,6 +37,7 @@
 }
 
 .cart_section_logs{
+    position: relative;
     width: 100%;
     display: grid;
     place-items: center;
@@ -46,6 +47,13 @@
 
 .cart_section_logs:nth-child(1){
     border-bottom: solid 3px rgb(241, 241, 241) ;
+}
+
+.remove{
+    width: auto !important;
+    position: absolute;
+    right: 5px;
+    bottom: 10px;
 }
 
 .cart_section_log_header{
@@ -82,7 +90,6 @@
 
 .cart_section_logs p,.cart_section_log_header p{
     font-weight: bolder;
-    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;

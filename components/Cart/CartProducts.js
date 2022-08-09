@@ -2,8 +2,10 @@ import styles from '../../styles/cart.module.css'
 import Image from 'next/image'
 import QuantityPanel from './QuantityPanel'
 import Skeleton from '../Loaders/Skeleton'
+import useCart from '../../lib/drawer/customhooks/useCart'
 
 const CartProducts = ({product,states})=>{
+    const {removeItem} = useCart()
     if(states?.loading){
         return (
             <div className={styles.cart_section_logs}>
@@ -35,7 +37,14 @@ const CartProducts = ({product,states})=>{
                         <Image src={product.image.url}   width={300} height={300} alt=''/>
                         <QuantityPanel product={product}/>
                         <p>{product.line_total.formatted_with_symbol}</p>
+                        <p 
+                            onClick={()=>removeItem(product.id)}
+                            className={styles.remove}
+                        >
+                            Remove
+                        </p>
                     </>
+                    
             </div>
         )
     }

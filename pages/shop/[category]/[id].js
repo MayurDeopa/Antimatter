@@ -197,6 +197,7 @@ const Product =()=>{
                                             options={v.options}
                                             required
                                             isValid
+                                            maxWidth={'100%'}
                                             action={(e)=>handleOptions(v.id,e.target.value)}
                                         />
                                     </MainContainer>
@@ -204,7 +205,7 @@ const Product =()=>{
                             })}
                             <div className={styles.buttons_wrapper}>
                             
-                                <SecondaryButton 
+                                <PrimaryButton 
                                     text={"Add to cart"}
                                     width={'100%'}
                                     type={'submit'}

@@ -5,6 +5,8 @@
   align-items: center;
   justify-content: center;
   height: 48px;
+  border-radius: 8px;
+  transition: 0.2s ease-in-out;
 }
 
 
@@ -17,10 +19,9 @@
   gap: 10px;
   border: none;
   outline: none;
-  border-radius: 4px;
+  border-radius: inherit;
   font-size: 17px;
   font-weight: 600;
-  transition: 0.2s ease-in-out;
   cursor: pointer;
 }
 
@@ -32,7 +33,7 @@
 .secondary_button,.secondary_await{
   background-color: var(--secondary-theme-color);
   color: var(--primary-theme-color);
-  box-shadow: var(--primary-theme-color) 0px 0px 0px 1.5px inset ;;
+  box-shadow: var(--primary-theme-color) 0px 0px 0px 1.5px inset ;
 }
 
 
@@ -136,6 +137,7 @@ border-color: var(--info);
 .icon_btn:hover{
 border-color: var(--info);
 }
+
 
 @media screen and (max-width:500px) {
   .primary_button,.secondary_button,.primary_await,.secondary_await,.disabled{

@@ -9,8 +9,13 @@ const Select =({options,title,label,disabled,placeholder,maxWidth,required,isVal
         <MainContainer
             direction={'column'}
             height={height}
+            maxWidth={'100%'}
         >
-            <div className={styles.group}>
+            <div 
+                style={{
+                    maxWidth:maxWidth
+                }}
+                className={styles.group}>
             <select 
                 name={placeholder || title}
                 required={required}

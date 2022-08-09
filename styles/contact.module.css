@@ -2,7 +2,7 @@
     gap:1rem;
     padding: 1rem 2rem;
     color: var(--primary-text-color);
-    background-color: var(--secondary-theme-light);
+    background-color: transparent;
 }
 
 .container{

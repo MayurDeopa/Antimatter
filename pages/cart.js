@@ -185,7 +185,7 @@ const Cart =()=>{
                         <PrimaryButton 
                             awaitState ={isSpinning?"loading":'none'}
                             text={"Checkout"}
-                            action={()=>router.push(`/checkout?id=${cart.id}`)}
+                            action={()=>checkout(cart.hosted_checkout_url)}
                         />
                     </MainContainer>
                 </div>
