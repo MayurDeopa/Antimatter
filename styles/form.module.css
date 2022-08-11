@@ -114,41 +114,56 @@ z
     border: none;
 }
 
-.radio{
-    height: 20px;
-    width: 20px;
-    appearance: none;
-    background-color: var(--secondary-theme-color);
-    margin: 0;
-    font: inherit;
-    color: currentColor;
-    border: 2px solid var(--primary-text-color);
-    border-radius: 50%;
-    cursor: pointer;
-    transition: 0.2s ease-in-out;
-}
-
 .radio_container{
+    height: 40px;
+    width: 100%;
+    max-width: 10rem;
     position: relative;
     margin-right: 15px;
     display: flex;
     align-items: center;
+    justify-content: flex-start;
     justify-content: center;
     flex-direction: column;
 }
 
-.radio_text{
+.radio{
+    height: 100%;
+    width: 100%;
+    appearance: none;
+    background-color: transparent;
+    margin: 0;
+    font: inherit;
+    color: currentColor;
+    border:none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+    z-index: 20;
+}
+
+
+.radio_background{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.radio_background{
+    background-color: var(--secondary-theme-light);
     color: var(--primary-text-color);
 }
 
-
-.radio:checked{
+.radio_container .radio:checked ~ .radio_background{
     background-color: var(--primary-theme-color);
-}
-
-.radio:focus{
-    border-width:3px ;
-    
+    color: var(--secondary-theme-color);
 }
 
 .label{

@@ -1,6 +1,6 @@
 import styles from '../../styles/form.module.css'
 
-const Form =({animated,title,children,width,maxWidth,customClasses,headerSide,action})=>{
+const Form =({animated,title,children,width,maxWidth,customClasses,headerSide,action,headerBorder})=>{
     const submit =(e)=>{
         e.preventDefault();
         action()
@@ -18,7 +18,10 @@ const Form =({animated,title,children,width,maxWidth,customClasses,headerSide,ac
                 title
                 &&
                 <h2 
-                    style={{justifyContent:headerSide}}
+                    style={{
+                        justifyContent:headerSide,
+                        border:headerBorder
+                    }}
                     className={styles.form_header}>
                     {title}
                 </h2>

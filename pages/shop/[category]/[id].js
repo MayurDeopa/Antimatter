@@ -191,17 +191,13 @@ const Product =()=>{
                                         gap={'5px'}
                                     >
                                         <p>{v.name}</p>
-                                        <Select
-                                            title={`Select a ${v.name}`}
-                                            placeholder={v.name}
-                                            options={v.options}
-                                            required
-                                            isValid
-                                            maxWidth={'100%'}
+                                        <RadioGroup
+                                            state={v.options}
+                                            name={v.name}
                                             action={(e)=>handleOptions(v.id,e.target.value)}
                                         />
                                     </MainContainer>
-                                        )
+                                )
                             })}
                             <div className={styles.buttons_wrapper}>
                             

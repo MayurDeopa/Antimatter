@@ -1,10 +1,10 @@
 import MainContainer from "./MainContainer";
-
+import RippleWrapper from './RippleWrapper'
 import styles from '../../styles/form.module.css'
 
-const RadioGroup =({state,handleChange,isChecked,name})=>{
+const RadioGroup =({state,handleChange,isChecked,name,action,containerWidth})=>{
     return(
-        <MainContainer>
+            <MainContainer>
             {state.map((r,i)=>{
                 return(
                     <div 
@@ -13,13 +13,15 @@ const RadioGroup =({state,handleChange,isChecked,name})=>{
                         <input
                             className={styles.radio}
                             type={'radio'}
-                            value={r.name}
+                            value={r.id}
+                            onChange={action}
                             /*checked={isChecked(r.name)}*/
                             name={name}
                             /*onChange={handleChange}*/
                             required
                         />
-                        <p className={styles.radio_text}>{r.name}</p>
+                        <p className={styles.radio_text}></p>
+                        <span className={styles.radio_background}>{r.name}</span>
                     </div>
                 )
             })}

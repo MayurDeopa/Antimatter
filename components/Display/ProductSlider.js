@@ -20,6 +20,7 @@ const ProductSlider =({images})=>{
                             height={600}
                             width={600}
                             src={image.url}
+                            className='round'
                         />
                     </div>
                 )

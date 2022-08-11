@@ -6,14 +6,7 @@ const Footer =()=>{
     return(
         <footer className={styles.footer_wrapper}>
             <div className={styles.footer}>
-                <FileStructure
-                    title={"Company"}
-                    items={footer}
-                />
-                <FileStructure
-                    title={"Company"}
-                    items={footer}
-                />
+            © AntiMatter 2022.
             </div>
         </footer>
     )
