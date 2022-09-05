@@ -217,15 +217,14 @@ const Product =()=>{
                             </div>
                         </Form>
                     </div>
-                    {
-                        open
-                        &&
+                    
                         <Share
                             link={window.location}
                             shareIcons={shareables}
                             toggleModal={toggleModal}
-                        />
-                    }
+                            visible={open}
+                     />
+                    
                     {
                         cartMessage
                         &&

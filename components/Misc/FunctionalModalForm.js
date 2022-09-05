@@ -4,9 +4,10 @@ import Modal from '../Misc/Modal'
 import styles from '../../styles/misc.module.css'
 import {BiX} from 'react-icons/bi'
 
-const FunctionalModalForm =({hook,title,children,maxWidth})=>{
+const FunctionalModalForm =({hook,title,children,maxWidth,visible})=>{
     return(
         <Modal 
+            hidden={!visible}
         >
             <Form 
                 maxWidth={maxWidth}

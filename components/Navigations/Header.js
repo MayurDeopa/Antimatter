@@ -6,6 +6,7 @@ import Link from 'next/link'
 
 const Header =({state})=>{
     const [isHidden,setIsHidden] = state.drawerState
+    const [cartOpen,setCartOpen] = state.cartState
     return (
         <nav className={`${styles.header_wrapper} ${!isHidden && styles.light_wrapper}`}>
             <nav className={styles.header}>
@@ -24,12 +25,10 @@ const Header =({state})=>{
                             </div>
                         </Link>
                     </li>
-                    <li>
-                        <Link href={'/cart'}>
+                    <li onClick={()=>setCartOpen(!cartOpen)}>
                             <div className='svg_wrapper'>
                                 <FiShoppingBag/>
                             </div>
-                        </Link>
                     </li>
                     <li onClick={()=>setIsHidden(!isHidden)}>
                             <div className='svg_wrapper' style={{

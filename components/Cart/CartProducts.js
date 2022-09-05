@@ -4,9 +4,9 @@ import QuantityPanel from './QuantityPanel'
 import Skeleton from '../Loaders/Skeleton'
 import useCart from '../../lib/drawer/customhooks/useCart'
 
-const CartProducts = ({product,states})=>{
+const CartProducts = ({product,loading})=>{
     const {removeItem} = useCart()
-    if(states?.loading){
+    if(loading){
         return (
             <div className={styles.cart_section_logs}>
     

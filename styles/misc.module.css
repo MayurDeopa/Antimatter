@@ -9,7 +9,15 @@
     place-items: center;
     background-color:rgb(46, 46, 46,0.7);
     overflow-y: scroll;
+    opacity: 1;
+    visibility: visible;
     z-index: 999;
+    transition: 0.3s ease-in-out;
+}
+
+.modal_hidden{
+    visibility: hidden;
+    opacity: 0;
 }
 
 .modal_close{
