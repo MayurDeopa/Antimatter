@@ -70,6 +70,7 @@ z
     border-radius: 4px;
     color: var(--primary-text-color);
     background-color: var(--secondary-theme-color);
+    overflow-y: scroll;
 }
 
 .form_header{

@@ -1,44 +1,54 @@
 
+import styles from '../../styles/cart.module.css'
+
 import CartProducts from '../Cart/CartProducts'
 
 import { useContext, useEffect, useState } from 'react'
-import { Store } from '../../lib/drawer/context/StoreContext'
+import { Store, useStore } from '../../lib/drawer/context/StoreContext'
 
 import useCart from '../../lib/drawer/customhooks/useCart'
 import { commerce } from '../../lib/drawer/commerce'
+import PrimarySpinner from '../Loaders/PrimarySpinner'
 
 
 const CartItems =()=>{
     const sample = [1]
-    const {cartState} = useContext(Store)
+    const {cartState,cartLoader} = useStore()
     const [cart,setCart] = cartState
+    const [visible,setVisible] = cartLoader
     const [err,setErr] = useState()
     const [loading,setLoading] = useState(true)
     const {checkout,isSpinning,emptyCart} = useCart()
     useEffect(()=>{
         
             const fetchCart = async()=>{
+                setVisible(true)
                 setErr()
                 const res= await commerce.cart.retrieve()
                 setCart(res)
                 setLoading(false)
-                console.log(res)
+                setVisible(false)
             }
             fetchCart()
         
     },[])
     if(loading){
-        {sample.map((i,index)=>{
-            return <CartProducts  loading={loading}/>
-        })}
+        return(
+            <div className={styles.cart_items}>
+                <CartProducts loading/>
+            </div>
+        )
     }
     return(
-        <>
-           {sample.map((i,index)=>{
-            return <CartProducts  loading={true}/>
-        })} 
-        </>
+        <div className={styles.cart_items}>
+            {
+                cart.line_items.map((c)=>{
+                    return <CartProducts product={c}/>
+                })
+            }
+        </div>
     )
+    
 }
 
 export default CartItems;

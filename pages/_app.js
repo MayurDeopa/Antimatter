@@ -22,12 +22,14 @@ function MyApp({ Component, pageProps }) {
   const [toasts,setToasts] = useState([])
   const [progress,setProgress] = useState(false)
   const [path,setPath] = useState(false)
+  const [visible,setVisible] = useState(false)
     const states ={
       userState:[user,setUser],
       cartState:[cart,setCart],
       toastState:[toasts,setToasts],
       drawerState:[drawer,setDrawer],
-      progressState:[progress,setProgress]
+      progressState:[progress,setProgress],
+      cartLoader:[visible,setVisible]
     }
 
   Router.events.on('routeChangeStart',()=>setPath(true))
