@@ -22,7 +22,7 @@ function MyApp({ Component, pageProps }) {
   const [toasts,setToasts] = useState([])
   const [progress,setProgress] = useState(false)
   const [path,setPath] = useState(false)
-  const [visible,setVisible] = useState(false)
+  const [visible,setVisible] = useState(true)
     const states ={
       userState:[user,setUser],
       cartState:[cart,setCart],

@@ -11,11 +11,15 @@ import BasicProgress from "../Loaders/BasicProgress"
 import { useState } from "react"
 import { useStore } from "../../lib/drawer/context/StoreContext"
 
+import {FiLock} from 'react-icons/fi'
+import MainContainer from "../Misc/MainContainer"
+import useCart from "../../lib/drawer/customhooks/useCart"
 
 
 const Cart =({open,action})=>{
     const {cartLoader} = useStore();
     const [visible,setVisible] = cartLoader;
+    const {isEmpty,cart,checkout} = useCart()
     return(
         <Portal
             container={'modal-root'}
@@ -24,7 +28,7 @@ const Cart =({open,action})=>{
                 <div className={open?styles.cart:`${styles.cart} ${styles.cart_hidden}`}>
                         <Form
                             title={"Cart"}
-                            action={()=>setVisible(!visible)}
+                            action={()=>checkout(cart?.hosted_checkout_url)}
                             height='100%'
                         >
                             <BasicProgress
@@ -32,18 +36,21 @@ const Cart =({open,action})=>{
                                 visible={visible}
                                 bgColor={'var(--secondary-theme-color)'}
                             />
-                            <CartItems/>
-                            <div 
-                                style={{
-                                    position:'sticky',
-                                    bottom:'0'
-                                }}
+                            <CartItems/>                        
+                            <MainContainer
+                                direction={'column'}
                             >
+                                <MainContainer>
+                                    <h4  style={{'width':'100%'}}>SubTotal :</h4>
+                                    <p>{visible?'-':cart.subtotal.formatted_with_symbol}</p>
+                                </MainContainer>
                                 <PrimaryButton
                                     text={'Checkout'}
                                     type={'submit'}
+                                    icon={<FiLock/>}
+                                    awaitState={isEmpty?'disabled':'none'}
                                 />
-                            </div>
+                            </MainContainer>
                         </Form>
                     </div>
                     <Modal action={action} hidden={!open}/>

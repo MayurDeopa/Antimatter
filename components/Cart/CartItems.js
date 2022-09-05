@@ -36,6 +36,14 @@ const CartItems =()=>{
         return(
             <div className={styles.cart_items}>
                 <CartProducts loading/>
+                <CartProducts loading/>
+            </div>
+        )
+    }
+    if(!cart.line_items.length){
+        return(
+            <div className={styles.cart_items}>
+                Your cart is empty
             </div>
         )
     }
