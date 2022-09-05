@@ -4,11 +4,13 @@ import Drawer from '../components/Navigations/Drawer'
 
 import { useState ,useEffect} from "react";
 import Cart from './Cart/Cart';
+import { useStore } from '../lib/drawer/context/StoreContext';
 
 
 const PageWrapper =({children,hideNavigation,customClasses,padding})=>{
     const [drawer,setDrawer] = useState(true)
-    const [cartOpen,setCartOpen] = useState(false)
+    const {cartDrawer} = useStore()
+    const [cartOpen,setCartOpen] = cartDrawer
     return(
         <div
             style={{
