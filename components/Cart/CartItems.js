@@ -42,8 +42,8 @@ const CartItems =()=>{
     return(
         <div className={styles.cart_items}>
             {
-                cart.line_items.map((c)=>{
-                    return <CartProducts product={c}/>
+                cart.line_items.map((c,index)=>{
+                    return <CartProducts product={c} key={index}/>
                 })
             }
         </div>
