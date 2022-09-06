@@ -3,6 +3,7 @@ import Image from 'next/image'
 import QuantityPanel from './QuantityPanel'
 import Skeleton from '../Loaders/Skeleton'
 import useCart from '../../lib/drawer/customhooks/useCart'
+import MainContainer from '../Misc/MainContainer'
 
 const CartProducts = ({product,loading})=>{
     const {removeItem} = useCart()
@@ -31,21 +32,46 @@ const CartProducts = ({product,loading})=>{
     }
     else{
         return (
-            <div className={styles.cart_section_logs}>
+            <MainContainer
+                maxWidth={'100%'}
+                direction={'column'}
+            >
+                <div className={styles.cart_section_logs}>
     
-                    <>
                         <Image src={product.image.url}   width={300} height={300} alt=''/>
-                        <QuantityPanel product={product}/>
+                        <MainContainer
+                            direction={'column'}
+                        >
+                            <p style={{'fontWeight':'bolder'}}>{product.product_name}</p>
+                            {product.selected_options.map((o,i)=>{
+                                return (
+                                        <p key={i}>{o.group_name} : {o.option_name}</p>
+                                )
+                            })}
+                        </MainContainer>
+                        
                         <p>{product.line_total.formatted_with_symbol}</p>
+                        
+                        {/*
+                        <QuantityPanel product={product}/>
                         <p 
                             onClick={()=>removeItem(product.id)}
                             className={styles.remove}
                         >
                             Remove
-                        </p>
-                    </>
+                </p>*/}
                     
-            </div>
+                </div>
+                <MainContainer>
+                    <QuantityPanel product={product}/>
+                        <p 
+                            onClick={()=>removeItem(product.id)}
+                            className={styles.remove}
+                        >
+                        Remove
+                    </p>
+                </MainContainer>
+            </MainContainer>
         )
     }
 }

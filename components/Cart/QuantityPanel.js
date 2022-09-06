@@ -9,6 +9,7 @@ const QuantityPanel =({product})=>{
         <MainContainer
             direction={'column'}
             gap={'10px'}
+            width={'50%'}
         >
             <div className={styles.cart_section_log_quantity}>
                 <div className={styles.operator_button} onClick={()=>modifyQty(product.id,product.quantity + 1)}>
@@ -19,11 +20,7 @@ const QuantityPanel =({product})=>{
                     <BiMinus/>
                 </div>
             </div>
-            {product.selected_options.map((o,i)=>{
-                return (
-                        <p key={i}>{o.group_name} : {o.option_name}</p>
-                )
-            })}
+            
         </MainContainer>
     )
 }
