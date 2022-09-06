@@ -3,20 +3,24 @@
 import FunctionalModalForm from "../Misc/FunctionalModalForm"
 import OptInput from "../Misc/OptInput"
 import Portal from "../Portal";
+import Form from "../Misc/Form";
+import MainContainer from "../Misc/MainContainer";
+import Modal from "../Misc/Modal";
 
+import styles from '../../styles/cart.module.css'
 
 const Share=({link,shareIcons,toggleModal,visible})=>{
     return(
         <Portal
             container={'modal-root'}
         >
-            <FunctionalModalForm 
-                visible={visible}
-                maxWidth={'30rem'}
-                title={'Share'}
-                hook={toggleModal}
-            >
-                <OptInput
+            <div id="cart">
+                <div className={visible?styles.cart:`${styles.cart} ${styles.cart_hidden}`}>
+                        <Form
+                            title={"Share"}
+                            height='100%'
+                        >                      
+                            <OptInput
                     isValid
                     
                     value={link}
@@ -39,7 +43,10 @@ const Share=({link,shareIcons,toggleModal,visible})=>{
                     )
                 })}
                 </div>
-            </FunctionalModalForm>
+                        </Form>
+                    </div>
+                    <Modal action={toggleModal} hidden={!visible}/>
+            </div>
         </Portal>
     )
 }

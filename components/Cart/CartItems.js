@@ -12,34 +12,17 @@ import PrimarySpinner from '../Loaders/PrimarySpinner'
 
 
 const CartItems =()=>{
-    const sample = [1]
-    const {cartState,cartLoader} = useStore()
+    const {cartState} = useStore()
     const [cart,setCart] = cartState
-    const [visible,setVisible] = cartLoader
-    const [err,setErr] = useState()
-    const [loading,setLoading] = useState(true)
-    const {checkout,isSpinning,emptyCart} = useCart()
-    useEffect(()=>{
-        
-            const fetchCart = async()=>{
-                setVisible(true)
-                setErr()
-                const res= await commerce.cart.retrieve()
-                setCart(res)
-                setLoading(false)
-                setVisible(false)
-            }
-            fetchCart()
-        
-    },[])
-    if(loading){
+
+    if(!cart){
         return(
             <div className={styles.cart_items}>
-                <CartProducts loading/>
                 <CartProducts loading/>
             </div>
         )
     }
+
     if(!cart.line_items.length){
         return(
             <div className={styles.cart_items}>

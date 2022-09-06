@@ -12,6 +12,7 @@ import Head from 'next/head'
 import Footer from '../components/Navigations/Footer'
 import Progress from '../components/Loaders/Progress'
 import { commerce } from '../lib/drawer/commerce'
+import useCart from '../lib/drawer/customhooks/useCart'
 
  
 function MyApp({ Component, pageProps }) {
@@ -33,7 +34,15 @@ function MyApp({ Component, pageProps }) {
       cartLoader:[visible,setVisible],
       cartDrawer:[cartOpen,setCartOpen]
     }
-
+  useEffect(()=>{
+    const initialRequest = async()=>{
+      setVisible(true)
+      const res= await commerce.cart.retrieve()
+      setCart(res)
+      setVisible(false)
+    }
+    initialRequest()
+  },[])
   Router.events.on('routeChangeStart',()=>setPath(true))
   Router.events.on('routeChangeComplete',()=>setPath(false))
   return (
