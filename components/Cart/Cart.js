@@ -37,20 +37,24 @@ const Cart =({open,action})=>{
                                 bgColor={'var(--secondary-theme-color)'}
                             />
                             <CartItems/>                        
-                            <MainContainer
+                            {
+                                !isEmpty
+                                &&
+                                <MainContainer
                                 direction={'column'}
-                            >
-                                <MainContainer>
-                                    <h4  style={{'width':'100%'}}>SubTotal :</h4>
-                                    <p>{visible?'-':cart.subtotal.formatted_with_symbol}</p>
+                                >
+                                    <MainContainer>
+                                        <h4  style={{'width':'100%'}}>SubTotal :</h4>
+                                        <p>{visible?'-':cart.subtotal.formatted_with_symbol}</p>
+                                    </MainContainer>
+                                    <PrimaryButton
+                                        text={'Checkout'}
+                                        type={'submit'}
+                                        icon={<FiLock/>}
+                                        awaitState={visible?'disabled':'none'}
+                                    /> 
                                 </MainContainer>
-                                <PrimaryButton
-                                    text={'Checkout'}
-                                    type={'submit'}
-                                    icon={<FiLock/>}
-                                    awaitState={isEmpty?'disabled':'none'}
-                                />
-                            </MainContainer>
+                            }
                         </Form>
                     </div>
                     <Modal action={action} hidden={!open}/>

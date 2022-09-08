@@ -38,7 +38,7 @@ const Share=({link,shareIcons,toggleModal,visible})=>{
                             url={s.url}
                             key={i}
                         >
-                            <s.icon size={34} round/>
+                            <s.icon size={40} round/>
                         </s.button>
                     )
                 })}
