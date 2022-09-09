@@ -22,8 +22,15 @@
   left: 0;
   width: 100%;
   z-index: 999;
+  color: var( --primary-text-color);
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 1rem;
   transition: 0.3s ease-in-out;
 }
+
+
 
 .progress_modal{
   position: fixed;

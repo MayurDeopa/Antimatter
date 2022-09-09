@@ -1,6 +1,6 @@
 import styles from '../../styles/Spinner.module.css'
 
-const BasicProgress =({visible,width,position,bgColor,zIndex})=>{
+const BasicProgress =({visible,width,position,bgColor,zIndex,text})=>{
     return(
         <div 
             style={{
@@ -15,6 +15,7 @@ const BasicProgress =({visible,width,position,bgColor,zIndex})=>{
 
                 </div>             
             </div>
+            {text}
         </div>
     )
 }

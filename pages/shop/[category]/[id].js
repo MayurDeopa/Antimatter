@@ -24,7 +24,7 @@ import ProductSlider from "../../../components/Display/ProductSlider";
 import Form from "../../../components/Misc/Form";
 import RadioGroup from "../../../components/Misc/RadioGroup";
 import Share from "../../../components/Display/Share";
-import OptInput from "../../../components/Misc/OptInput";
+import BasicProgress from "../../../components/Loaders/BasicProgress";
 import Select from "../../../components/Misc/Select";
 
 
@@ -56,69 +56,12 @@ const Product =()=>{
                     <title>{"Loading.."}</title>
                 </Head>
                 <PageWrapper>
-                    <MainContainer
-                        width={'100%'}
-                        maxWidth={'100%'}
-                        justify={'flex-start'}
-                    >
-                        <Skeleton
-                            height={'1.4rem'}
-                            width={'9rem'}
-                        />
-                    </MainContainer>
-                        <div className={styles.wrapper}>
-                            <div className={"image_skeleton_aspect"}>
-                                <Skeleton
-                                     height={'100%'}
-                                     width={'100%'}
-                                />
-                            </div>
-                            <article className={styles.details}>
-                                <Skeleton
-                                    height={'1rem'}
-                                    width={'4rem'}
-                                />
-                                <Skeleton
-                                    height={'1rem'}
-                                    width={'5rem'}
-                                />
-                                <Skeleton
-                                    height={'0.8rem'}
-                                    width={'100%'}
-                                />
-                                <Skeleton
-                                    height={'0.8rem'}
-                                    width={'90%'}
-                                />
-                                <Skeleton
-                                    height={'0.8rem'}
-                                    width={'50%'}
-                                />
-                                
-                                <Skeleton
-                                    height={'0.8rem'}
-                                    width={'30%'}
-                                />
-                                <Skeleton
-                                    height={'3rem'}
-                                    width={'100%'}
-                                />
-                                <Skeleton
-                                    height={'3rem'}
-                                    width={'100%'}
-                                />
-                                <div className={styles.buttons_wrapper}>
-                                    <Skeleton
-                                        height={'3rem'}
-                                        width={'min(100%,30rem)'}
-                                    />
-                                    <Skeleton
-                                        height={'3rem'}
-                                        width={'min(100%,30rem)'}
-                                    />
-                                </div>
-                            </article>
-                        </div>    
+                    <BasicProgress
+                        position={'static'}
+                        width={'20rem'}
+                        visible
+                        text={'Fetching product data'}
+                    />  
                 </PageWrapper>    
             </>
         )
@@ -170,8 +113,6 @@ const Product =()=>{
                             title={data.name}
                             headerSide={'flex-start'}
                             action={()=>fetchCart(data.id,1,options)}
-                            
-
                         >
                            <MainContainer
                                 maxWidth={'100%'}

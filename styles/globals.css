@@ -291,8 +291,7 @@ textarea{
 }
 
 .image_skeleton_aspect{
-  width: 90%;
-  aspect-ratio: 5/ 5;
+  width: 100%;
 }
 
 *::-webkit-scrollbar{
