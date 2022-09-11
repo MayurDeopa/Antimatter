@@ -54,7 +54,6 @@ const Cart =({open,action})=>{
                                         styles={{'width':'100%'}}
                                         type={'submit'}
                                         loading={visible}
-                                        buttonType={'secondary'}
                                     />
                                 </MainContainer>
                             }
