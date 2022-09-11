@@ -1,7 +1,7 @@
-import MainContainer from "../components/Misc/MainContainer";
 import PageWrapper from "../components/PageWrapper";
 
-import { useEffect,useCallback, useState } from "react";
+import { useEffect, useState } from "react";
+import { Button } from "material-gas-ui";
 
 
 const About =()=>{
@@ -34,6 +34,7 @@ const About =()=>{
 
                 </div>
             </div>
+            <Button/>
         </PageWrapper>
     )
 }
