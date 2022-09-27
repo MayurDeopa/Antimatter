@@ -1,8 +1,7 @@
 import PageWrapper from "../components/PageWrapper";
 
 import { useEffect, useState } from "react";
-import { Button ,Progress,Tab} from "material-gas-ui";
-import Form from "../components/Misc/Form";
+import { Button ,Drawer,Progress,Tab,Form, Input} from "material-gas-ui";
 
 
 const About =()=>{
@@ -57,7 +56,10 @@ const About =()=>{
                     padding:'5px'
                 }}
             />
-            <Button loading text="Await..."/>
+            <Button text="HELLO" />
+            <Form>
+                <Input/>
+            </Form>
         </PageWrapper>
     )
 }
