@@ -8,9 +8,11 @@
     justify-content: center;
     flex-direction: column;
     height: var(--header-height);
-    background-color: var(  --secondary-theme-light);
+    background-color: rgb(32, 32, 32,0.6);
     color: var(--primary-text-color);
     box-shadow: var(--primary-box-shadow);
+    backdrop-filter: saturate(180%) blur(3px);
+    -webkit-backdrop-filter: saturate(180%) blur(10px);
     transition: all 0.7s ease-in-out;
     z-index: 150;
 }
@@ -129,7 +131,6 @@
 .drawer_groups{
     display: flex;
     flex-direction: column;
-    width: 6rem;
 }
 
 

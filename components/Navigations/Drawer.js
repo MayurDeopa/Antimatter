@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { shop ,company,user} from '../../lib/drawer/draweroptions';
+import { shop ,company} from '../../lib/drawer/draweroptions';
 import styles from '../../styles/Header.module.css'
 
 import FileStructure from '../NestedComponent/FileStructure';
@@ -17,10 +17,6 @@ const Drawer =({state})=>{
                     <FileStructure
                         title={'Company'}
                         items={company}
-                    />
-                    <FileStructure
-                        title={'User'}
-                        items={user}
                     />
                 </div>             
             </nav>
