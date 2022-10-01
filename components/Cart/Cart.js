@@ -32,6 +32,7 @@ const Cart =({open,action})=>{
                         <Form
                             title={"Cart"}
                             height='100%'
+                            action={()=>checkout(cart.id)}
                         >
                             <BasicProgress
                                 width={'100%'}
@@ -49,10 +50,13 @@ const Cart =({open,action})=>{
                                         <h4  style={{'width':'100%'}}>SubTotal :</h4>
                                         <p>{visible?'-':cart.subtotal.formatted_with_symbol}</p>
                                     </MainContainer>
-                                    <LinkBtn
-                                        text={'Checkout'}
-                                        url={`/checkout?id=${cart?.id}`}
-                                    /> 
+                                    <Button
+                                        text="Checkout"
+                                        icon={<FiLock/>}
+                                        type='submit'
+                                        styles={{width:'100%'}}
+                                        loading={visible}
+                                    />
                                 </MainContainer>
                             }
                         </Form>

@@ -5,12 +5,12 @@ import Drawer from '../components/Navigations/Drawer'
 import { useState ,useEffect} from "react";
 import Cart from './Cart/Cart';
 import { useStore } from '../lib/drawer/context/StoreContext';
+import useCart from '../lib/drawer/customhooks/useCart';
 
 
 const PageWrapper =({children,hideNavigation,customClasses,padding})=>{
     const [drawer,setDrawer] = useState(true)
-    const {cartDrawer} = useStore()
-    const [cartOpen,setCartOpen] = cartDrawer
+    const {cartOpen,openCart,closeCart} = useCart()
     return(
         <div
             style={{
@@ -23,14 +23,14 @@ const PageWrapper =({children,hideNavigation,customClasses,padding})=>{
                 <>
                     <Header state={{
                 drawerState:[drawer,setDrawer],
-                cartState:[cartOpen,setCartOpen]
+                cartState:[cartOpen,openCart,closeCart]
             }}/>
             <Drawer state={{
                 drawerState:[drawer,setDrawer],
             }}/>
             <Cart
                 open={cartOpen}
-                action={()=>setCartOpen(false)}
+                action={closeCart}
             />
             
                 </>

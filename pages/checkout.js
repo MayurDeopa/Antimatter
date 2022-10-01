@@ -41,24 +41,20 @@ const Checkout =()=>{
     if(!id){
         return(
             <EmptyState>
-                <Form
-                    title={'Invalid token'}
-                    
-                >
-                    <MainContainer
-                        justify={'center'}
-                        maxWidth={'100%'}
-                    >
-                    <LinkBtn
-                        url={'/cart'}
-                        text='Go to cart'
-                    />
-                    <LinkBtn
-                        url={'/shop'}
-                        text='Start Shopping'
-                    />
-                    </MainContainer>
-                </Form>
+               <Container styles={{
+                display:'flex',
+                alignItems:'center',
+                justifyContent:'center',
+                flexDirection:'column',
+                height:'20rem'
+               }}>
+               <h4 style={{color:'white'}}>Invalid Token</h4>
+               <LinkBtn
+                width={'8rem'}
+                text={'Shop'}
+                url='/'
+               />
+               </Container>
             </EmptyState>
         )
     }
@@ -230,7 +226,18 @@ const Checkout =()=>{
                             maxWidth={'100%'}
                             direction='column'
                         >
-                            
+                            {checkoutData?.live.line_items.map((item,i)=>{
+                                return(
+                                    <CheckoutProduct
+                                        key={i}
+                                        src={item.image.url}
+                                        price={item.price.formatted_with_symbol}
+                                        quantity={item.quantity}
+                                        name={item.name}
+                                        options={item.selected_options}
+                                    />
+                                )
+                            })}
                         </MainContainer>
                         <MainContainer
                             maxWidth={'100%'}
