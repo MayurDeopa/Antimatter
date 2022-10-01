@@ -16,7 +16,8 @@ const OptInput =({type,action,array,value,title,label,disabled,placeholder,maxWi
                 >
                     <div 
                     style={{
-                        maxWidth:maxWidth
+                        maxWidth:maxWidth,
+                        marginBottom:'1rem'
                     }}
                     className={`${styles.group} ${!isValid && colors.error_shadow}`}>
                     <textarea

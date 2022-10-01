@@ -15,6 +15,8 @@ import {FiLock} from 'react-icons/fi'
 import MainContainer from "../Misc/MainContainer"
 import useCart from "../../lib/drawer/customhooks/useCart"
 import { Button } from "material-gas-ui"
+import Link from "next/link"
+import LinkBtn from "../Misc/LinkBtn"
 
 
 const Cart =({open,action})=>{
@@ -29,7 +31,6 @@ const Cart =({open,action})=>{
                 <div className={open?styles.cart:`${styles.cart} ${styles.cart_hidden}`}>
                         <Form
                             title={"Cart"}
-                            action={()=>checkout(cart?.hosted_checkout_url)}
                             height='100%'
                         >
                             <BasicProgress
@@ -48,15 +49,10 @@ const Cart =({open,action})=>{
                                         <h4  style={{'width':'100%'}}>SubTotal :</h4>
                                         <p>{visible?'-':cart.subtotal.formatted_with_symbol}</p>
                                     </MainContainer>
-                                    <Button 
-                                        text="Checkout"
-                                        icon={<FiLock/>}
-                                        styles={{'width':'100%'}}
-                                        type={'submit'}
-                                        loading={visible}
-                                        variant='secondary'
-                                        rippleTimeout={1200}
-                                    />
+                                    <LinkBtn
+                                        text={'Checkout'}
+                                        url={`/checkout?id=${cart?.id}`}
+                                    /> 
                                 </MainContainer>
                             }
                         </Form>
