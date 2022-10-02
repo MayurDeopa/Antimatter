@@ -16,7 +16,7 @@ import Select from '../components/Misc/Select'
 import usePayment from '../lib/drawer/customhooks/usePayment'
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import { Button,Container ,Progress,Modal} from 'material-gas-ui';
+import { Button,Container ,Modal} from 'material-gas-ui';
 import PrimarySpinner from '../components/Loaders/PrimarySpinner';
 
 
@@ -24,7 +24,7 @@ import PrimarySpinner from '../components/Loaders/PrimarySpinner';
 const Checkout =()=>{
     const router = useRouter()
     const {id} = router.query
-    const {validInput,isPaying,paymentGateways,pay,data,setData,setInput,generateToken,checkoutData,fetchCountries,countriesData,fetchStates,states,handleCheckoutCapture} = usePayment()
+    const {isPaying,data,setInput,generateToken,checkoutData,fetchCountries,countriesData,fetchStates,states,handleCheckoutCapture,err,isFetching} = usePayment()
     useEffect(()=>{
         if(!id)return;
         generateToken(id)
@@ -38,6 +38,8 @@ const Checkout =()=>{
     useEffect(()=>{
         if(data.country) fetchStates(checkoutData.id,data.country)
     },[data.country])
+
+    
     if(!id){
         return(
             <EmptyState>
@@ -46,18 +48,74 @@ const Checkout =()=>{
                 alignItems:'center',
                 justifyContent:'center',
                 flexDirection:'column',
-                height:'20rem'
+                height:'30rem'
                }}>
-               <h4 style={{color:'white'}}>Invalid Token</h4>
-               <LinkBtn
-                width={'8rem'}
-                text={'Shop'}
-                url='/'
-               />
+               
+                    <>
+                        <h4 style={{color:'white'}}>Invalid token</h4>
+                        <LinkBtn
+                            width={'8rem'}
+                            text={'Shop'}
+                            url='/'
+                        />
+                    </>
+               
                </Container>
             </EmptyState>
         )
     }
+
+
+    if(err){
+        return(
+            <EmptyState>
+               <Container styles={{
+                display:'flex',
+                alignItems:'center',
+                justifyContent:'center',
+                flexDirection:'column',
+                height:'30rem'
+               }}>
+               {
+                    isFetching
+                    ?
+                    <PrimarySpinner/>
+                    :
+                    <>
+                        <h4 style={{color:'white'}}>Something went wrong</h4>
+                        <LinkBtn
+                            width={'8rem'}
+                            text={'Shop'}
+                            url='/'
+                        />
+                    </>
+               }
+               </Container>
+            </EmptyState>
+        )
+    }
+
+
+    if(isFetching){
+        return(
+            <EmptyState>
+               <Container styles={{
+                display:'flex',
+                alignItems:'center',
+                justifyContent:'center',
+                flexDirection:'column',
+                height:'30rem'
+               }}>
+               
+                    <PrimarySpinner/>
+                    
+               </Container>
+            </EmptyState>
+        )
+    }
+
+
+
     return(
         <PageWrapper
             customClasses={styles.no_padding}
@@ -86,7 +144,7 @@ const Checkout =()=>{
                             align={'center'}     
                         >
                             <OptInput
-                                disabled={isPaying}
+                                
                                placeholder={"First name"}   
                                 action={(e)=>setInput('firstname',e.target.value)}
                                 required={true}
@@ -100,7 +158,7 @@ const Checkout =()=>{
                         >
 
                             <OptInput
-                                disabled={isPaying}
+                                
                                 placeholder={"Last name"}                               
                                 action={(e)=>setInput('lastname',e.target.value)}
                                 required={true}
@@ -114,7 +172,7 @@ const Checkout =()=>{
 
                         >
                             <OptInput
-                                disabled={isPaying}
+                                
                                 placeholder={"Email"}
                                 action={(e)=>setInput('email',e.target.value)}
                                 required={true}
@@ -136,7 +194,7 @@ const Checkout =()=>{
                         <Container
                         >
                             <OptInput
-                                disabled={isPaying}
+                                
                                 placeholder={"Name"}
                                 action={(e)=>setInput('name',e.target.value)}
                                 required={true}
@@ -148,7 +206,7 @@ const Checkout =()=>{
                         <Container
                         >
                             <OptInput
-                                disabled={isPaying}
+                                
                                 placeholder={"City"}
                                 action={(e)=>setInput('town_city',e.target.value)}
                                 required={true}
@@ -161,7 +219,7 @@ const Checkout =()=>{
                     <Container
                     >
                         <OptInput
-                            disabled={isPaying}
+                            
                             maxWidth={'992px'}
                             placeholder={"Address"}
                             type={'textarea'}                            
@@ -178,7 +236,7 @@ const Checkout =()=>{
                         <Container
                         >
                             <Select
-                                disabled={isPaying}
+                                
                                 placeholder={"State"}
                                 action={(e)=>setInput('state',e.target.value)}
                                 required={true}
@@ -193,7 +251,7 @@ const Checkout =()=>{
                             <Container
                             >
                                 <Select
-                                    disabled={isPaying}
+                                    
                                     action={(e)=>setInput('country',e.target.value)}
                                     required
                                     placeholder={'Country'}
@@ -261,12 +319,12 @@ const Checkout =()=>{
                             
                         </MainContainer>
                 </div>
+                {isPaying && (
+                    <Modal>
+                        <PrimarySpinner/>
+                    </Modal>
+                )}
             </div>
-            {isPaying && (
-                <Modal>
-                    <PrimarySpinner/>
-                </Modal>
-            )}
         </PageWrapper>
     )
 }

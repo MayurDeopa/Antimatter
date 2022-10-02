@@ -13,7 +13,7 @@ const Privacy =()=>{
             </Head>
             <Policy title={'Privacy Policy'}>
                 
-                <p>This privacy policy sets out how Mayur Anand Singh Kamla uses and protects any information that you give AntiMatter when you use this website.</p>
+                <p>This privacy policy sets out how Anti Matter uses and protects any information that you give AntiMatter when you use this website.</p>
 
                 <p>AntiMatter is committed to ensuring that your privacy is protected. Should we ask you to provide certain information by which you can be identified when using this website, and then you can be assured that it will only be used in accordance with this privacy statement.</p>
 
