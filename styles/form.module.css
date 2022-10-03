@@ -98,9 +98,10 @@ z
     min-height: 48px;
     border-radius: 4px;
     box-shadow: var(--secondary-box-shadow);
-    background-color: var(--secondary-theme-color);
+    background-color: var(--secondary-theme-light);
     padding-top: 15px;
     padding-right: 4px;
+    margin-bottom: 10px;
     transition: 0.3s ease-in-out;
 }
 

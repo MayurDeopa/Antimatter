@@ -38,7 +38,6 @@ const OptInput =({type,action,array,value,title,label,disabled,placeholder,maxWi
     return(
         <MainContainer
             direction={'column'}
-            height={'71px'}
             maxWidth={'100%'}
         >
             <div 
