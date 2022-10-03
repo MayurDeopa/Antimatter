@@ -95,7 +95,7 @@ z
     display: flex;
     flex-direction: column;
     width: 100%;
-    min-height: 48px;
+    min-height: 2.5rem;
     border-radius: 4px;
     box-shadow: var(--secondary-box-shadow);
     background-color: var(--secondary-theme-light);
@@ -178,7 +178,7 @@ z
     position: absolute;
     pointer-events: none;
     left: 8px;
-    top: 14px;
+    top: 12px;
     transition: 0.2s ease all;
     -moz-transition: 0.2s ease all;
     -webkit-transition: 0.2s ease all;

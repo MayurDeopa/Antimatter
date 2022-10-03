@@ -135,6 +135,14 @@ const Checkout =()=>{
                                     />
                                 )
                             })}
+                            <Form customClasses={styles.discount_form}>
+                                <OptInput
+                                    title={'Discount Code ?'}
+                                    isValid
+                                    required
+                                />
+                                <Button type='submit' variant='secondary' text='Apply' loading/>
+                            </Form>
                              <Container
                         styles={{flexDirection:'column'}}
                             

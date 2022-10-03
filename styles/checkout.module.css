@@ -51,7 +51,11 @@
     font-size: 14px;
 }
 
-
+.discount_form{
+    padding: 0;
+    flex-direction: row;
+    gap: 5px;
+}
 
 .small_container{
     display: flex;
@@ -73,12 +77,9 @@
     display: flex;
     justify-content: space-between !important;
     width: 100%;
-    padding: 5px;
 }
 
-.confirm_price:last-child{
-    border-top: solid 2px var(--secondary-theme-lighter);
-}
+
 
 .product{
     margin-bottom: 10px;
