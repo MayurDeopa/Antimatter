@@ -1,19 +1,15 @@
-import NextNProgress from 'nextjs-progressbar'
+
 import { useState,useEffect } from 'react'
 import StoreContext, { Store } from '../lib/drawer/context/StoreContext'
 import { QueryClientProvider,QueryClient } from 'react-query'
 import '../styles/globals.css'
 import Router from 'next/router'
-import useToken from '../lib/drawer/customhooks/useToken'
-import ModalSpinner from '../components/Loaders/ModalSpinner'
-import Toast from '../components/Misc/Toast'
-import Message from '../components/basic/Message'
-import Head from 'next/head'
+import { ToastContainer } from 'react-toastify'
 import Footer from '../components/Navigations/Footer'
 import Progress from '../components/Loaders/Progress'
 import { commerce } from '../lib/drawer/commerce'
-import useCart from '../lib/drawer/customhooks/useCart'
 
+import 'react-toastify/dist/ReactToastify.min.css'
  
 function MyApp({ Component, pageProps }) {
   const queryClient = new QueryClient()
@@ -58,6 +54,14 @@ function MyApp({ Component, pageProps }) {
         </>
         <Progress
           visible={path}
+        />
+        <ToastContainer 
+          autoClose={5000}
+          position='top-right'
+          hideProgressBar={false}
+          closeOnClick
+          newestOnTop={true}  
+          theme='dark'
         />
       </StoreContext>
     </QueryClientProvider>

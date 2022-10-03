@@ -68,32 +68,6 @@ const Checkout =()=>{
         )
     }
 
-
-    if(err){
-        return(
-            <EmptyState>
-               <Container styles={{
-                display:'flex',
-                alignItems:'center',
-                justifyContent:'center',
-                flexDirection:'column',
-                height:'30rem'
-               }}>
-               
-                        <h4 style={{color:'white'}}>Something went wrong</h4>
-                        <LinkBtn
-                            width={'8rem'}
-                            text={'Shop'}
-                            url='/'
-                        />
-                    
-               
-               </Container>
-            </EmptyState>
-        )
-    }
-
-
     if(isFetching){
         return(
             <div className={styles.skeleton_container}>
@@ -171,7 +145,7 @@ const Checkout =()=>{
                                     checkoutData.code
                                     &&
                                         <Container
-                                            className={styles.confirm_price}
+                                            className={styles.discount_price}
                                         >
                                             <p>Discount </p>
                                             <p> - {checkoutData.discount.amount_saved.formatted_with_symbol}</p>
