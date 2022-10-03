@@ -19,6 +19,8 @@ import { useRouter } from 'next/router';
 import { Button,Container ,Modal} from 'material-gas-ui';
 import PrimarySpinner from '../components/Loaders/PrimarySpinner';
 import CheckoutForm from '../components/Cart/CheckoutForm';
+import CheckoutSkeleton from '../components/Cart/CheckoutSkeleton';
+import Skeleton from '../components/Loaders/Skeleton';
 
 
 
@@ -99,19 +101,26 @@ const Checkout =()=>{
 
     if(isFetching){
         return(
-            <EmptyState>
-               <Container styles={{
-                display:'flex',
-                alignItems:'center',
-                justifyContent:'center',
-                flexDirection:'column',
-                height:'30rem'
-               }}>
-               
-                    <PrimarySpinner/>
-                    
-               </Container>
-            </EmptyState>
+            <div className={styles.skeleton_container}>
+                <Head>
+                    <title>Loading...</title>
+                </Head>
+                <div className={`${styles.checkout_form}`}>
+                        <MainContainer
+                            customClasses={styles.steps_header}
+                            maxWidth={'100%'}
+                            direction='column'
+                        >
+                            <CheckoutSkeleton/>
+                            <CheckoutSkeleton/>
+                            <CheckoutSkeleton/>
+                        </MainContainer>        
+                </div>
+                <Skeleton
+                    height={'50rem'}
+                    width={'30rem'}
+                />
+            </div>
         )
     }
 
@@ -120,6 +129,9 @@ const Checkout =()=>{
     return(
         
             <div className={styles.container}>
+                <Head>
+                    <title>Checkout</title>
+                </Head>
                 <div className={`${styles.checkout_form}`}>
                         <MainContainer
                             customClasses={styles.steps_header}
