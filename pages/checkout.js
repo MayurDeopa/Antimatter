@@ -105,17 +105,7 @@ const Checkout =()=>{
                 <Head>
                     <title>Loading...</title>
                 </Head>
-                <div className={`${styles.checkout_form}`}>
-                        <MainContainer
-                            customClasses={styles.steps_header}
-                            maxWidth={'100%'}
-                            direction='column'
-                        >
-                            <CheckoutSkeleton/>
-                            <CheckoutSkeleton/>
-                            <CheckoutSkeleton/>
-                        </MainContainer>        
-                </div>
+                <CheckoutSkeleton/>
                 <Skeleton
                     height={'50rem'}
                     width={'30rem'}
