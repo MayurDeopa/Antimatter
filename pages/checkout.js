@@ -27,7 +27,7 @@ import Skeleton from '../components/Loaders/Skeleton';
 const Checkout =()=>{
     const router = useRouter()
     const {id} = router.query
-    const {isPaying,data,setInput,generateToken,checkoutData,fetchCountries,countriesData,fetchStates,states,handleCheckoutCapture,err,isFetching} = usePayment()
+    const {isPaying,data,setInput,generateToken,checkoutData,fetchCountries,countriesData,fetchStates,states,handleCheckoutCapture,err,isFetching,handlePayment} = usePayment()
     useEffect(()=>{
         if(!id)return;
         generateToken(id)
@@ -79,20 +79,15 @@ const Checkout =()=>{
                 flexDirection:'column',
                 height:'30rem'
                }}>
-               {
-                    isFetching
-                    ?
-                    <PrimarySpinner/>
-                    :
-                    <>
+               
                         <h4 style={{color:'white'}}>Something went wrong</h4>
                         <LinkBtn
                             width={'8rem'}
                             text={'Shop'}
                             url='/'
                         />
-                    </>
-               }
+                    
+               
                </Container>
             </EmptyState>
         )
@@ -168,7 +163,7 @@ const Checkout =()=>{
                         
                 </div>
                 <CheckoutForm
-                    handleCheckout={handleCheckoutCapture}
+                    handleCheckout={()=>handlePayment(checkoutData.live.total_with_tax.raw)}
                     data={data}
                     states={states}
                     countriesData={countriesData}

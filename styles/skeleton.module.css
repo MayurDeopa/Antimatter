@@ -4,7 +4,6 @@
     justify-content: center;
     max-width: 100%;
     background-color: var(--secondary-theme-lighter);
-    animation: 2s fade linear infinite;
 }
 
 @keyframes skeleton {

@@ -166,6 +166,7 @@ const CheckoutForm = ({handleCheckout,data,handleInput,states,countriesData,chec
                             rippleColor={'white'}
                             type='submit'
                             icon={<FiLock/>}
+                            loading={isPaying}
                         />
                     </Container>
         </Form>
