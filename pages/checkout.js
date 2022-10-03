@@ -27,7 +27,7 @@ import Skeleton from '../components/Loaders/Skeleton';
 const Checkout =()=>{
     const router = useRouter()
     const {id} = router.query
-    const {isPaying,data,setInput,generateToken,checkoutData,fetchCountries,countriesData,fetchStates,states,handleCheckoutCapture,err,isFetching,handlePayment} = usePayment()
+    const {isPaying,data,setInput,generateToken,checkoutData,fetchCountries,countriesData,fetchStates,states,handleCheckoutCapture,err,isFetching,handlePayment,applyDiscount,applyingDiscount} = usePayment()
     useEffect(()=>{
         if(!id)return;
         generateToken(id)
@@ -135,38 +135,56 @@ const Checkout =()=>{
                                     />
                                 )
                             })}
-                            <Form customClasses={styles.discount_form}>
+                            <Form customClasses={styles.discount_form} action={applyDiscount}>
                                 <OptInput
-                                    title={'Discount Code ?'}
+                                    title={'Discount Code'}
                                     isValid
                                     required
+                                    value={data.discount}
+                                    action={(e)=>setInput('discount',e.target.value)}
+                                    disabled={applyingDiscount}
                                 />
-                                <Button type='submit' variant='secondary' text='Apply' loading/>
+                                <Button 
+                                    type='submit' 
+                                    variant='secondary' 
+                                    text={applyingDiscount?'Applying':'Apply'}
+                                    loading={applyingDiscount}
+                                    />
                             </Form>
                              <Container
-                        styles={{flexDirection:'column'}}
-                            
-                        >
-                            <Container
-                                className={styles.confirm_price}
-                            >
-                                <p>Subtotal </p>
-                                <p>{!checkoutData?'-':checkoutData.live.total_with_tax.formatted_with_symbol}</p>
+                                styles={{flexDirection:'column'}}
+                                    
+                                >
+                                <Container
+                                    className={styles.confirm_price}
+                                >
+                                    <p>Subtotal </p>
+                                    <p>{!checkoutData?'-':checkoutData.live.total_with_tax.formatted_with_symbol}</p>
+                                </Container>
+                                <Container
+                                    className={styles.confirm_price}
+                                >
+                                    <p>Delivery </p>
+                                    <p>Free</p>
+                                </Container>
+                                {
+                                    checkoutData.code
+                                    &&
+                                        <Container
+                                            className={styles.confirm_price}
+                                        >
+                                            <p>Discount </p>
+                                            <p> - {checkoutData.discount.amount_saved.formatted_with_symbol}</p>
+                                        </Container>
+                                }
+                                <Container
+                                    className={styles.confirm_price}
+                                >
+                                    <p>Total </p>
+                                    <p>{checkoutData.live.total_with_tax.formatted_with_symbol}</p>
+                                </Container>
+                                
                             </Container>
-                            <Container
-                                 className={styles.confirm_price}
-                            >
-                                <p>Delivery </p>
-                                <p>Free</p>
-                            </Container>
-                            <Container
-                                 className={styles.confirm_price}
-                            >
-                                <p>Total </p>
-                                <p>{checkoutData.live.total_with_tax.formatted_with_symbol}</p>
-                            </Container>
-                            
-                        </Container>
                         </MainContainer>
                         
                 </div>
