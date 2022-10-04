@@ -2,7 +2,6 @@ import PageWrapper from "../components/PageWrapper";
 import Head from "next/head";
 import Policy from "../components/basic/Policy";
 
-
 const About =()=>{
     
     return(
