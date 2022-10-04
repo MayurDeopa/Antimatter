@@ -26,6 +26,7 @@ import RadioGroup from "../../../components/Misc/RadioGroup";
 import Share from "../../../components/Display/Share";
 import BasicProgress from "../../../components/Loaders/BasicProgress";
 import Select from "../../../components/Misc/Select";
+import ProductSkeleton from "../../../components/Display/ProductSkeleton";
 
 
 
@@ -56,25 +57,9 @@ const Product =()=>{
                     <title>{"Loading.."}</title>
                 </Head>
                 <PageWrapper>
-                    <BasicProgress
-                        position={'static'}
-                        width={'20rem'}
-                        visible
-                        text={'Fetching product data'}
-                    />  
+                    <ProductSkeleton/>
                 </PageWrapper>    
             </>
-        )
-    }
-    else if(err){
-        return(
-            <ErrorPopUp>
-                <h3>{err}</h3>
-                <LinkBtn 
-                    url={'/shop'}
-                    text={"Go back"}
-                />
-            </ErrorPopUp>
         )
     }
     else{
