@@ -3,7 +3,6 @@ import image from '../public/hoodie.jpg'
 import Image from 'next/dist/client/image';
 import Link from 'next/link';
 import MainContainer from '../components/Misc/MainContainer'
-import { installRipple } from 'material-gas-ui';
 
 const Card = ({details,link})=>{
     const isProduct = details.price 
