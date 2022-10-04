@@ -13,7 +13,7 @@ const Form =({animated,title,children,width,maxWidth,customClasses,headerSide,ac
                 height:height,
                 maxWidth:maxWidth
             }}
-            className={animated?`${styles.wrapper} ${customClasses} ${styles.pop}`:`${styles.wrapper} ${customClasses}`}
+            className={animated?`  ${customClasses} ${styles.wrapper} ${styles.pop}`:` ${customClasses} ${styles.wrapper} `}
             >
             {
                 title

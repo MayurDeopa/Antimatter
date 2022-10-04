@@ -8,6 +8,7 @@ import { ToastContainer } from 'react-toastify'
 import Footer from '../components/Navigations/Footer'
 import Progress from '../components/Loaders/Progress'
 import { commerce } from '../lib/drawer/commerce'
+import {setScroll} from '../lib/drawer/disableScroll'
 
 import 'react-toastify/dist/ReactToastify.min.css'
  
@@ -39,8 +40,14 @@ function MyApp({ Component, pageProps }) {
     }
     initialRequest()
   },[])
-  Router.events.on('routeChangeStart',()=>setPath(true))
-  Router.events.on('routeChangeComplete',()=>setPath(false))
+  Router.events.on('routeChangeStart',()=>{
+    setScroll(true)
+    setPath(true)
+  })
+  Router.events.on('routeChangeComplete',()=>{
+    setScroll(false)
+    setPath(false)
+  })
   return (
     <QueryClientProvider client={queryClient}>
       <StoreContext states={states}>     

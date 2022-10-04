@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import colors from '../../styles/colors.module.css'
 import styles from '../../styles/form.module.css'
 
@@ -5,7 +6,14 @@ import MainContainer from './MainContainer'
 
 
 const OptInput =({type,action,array,value,title,label,disabled,placeholder,maxWidth,required,isValid,errMsg,name,autoFocus})=>{
-    let setData = action
+
+    const [isInputValid,setIsInputValid] = useState(true)
+
+    const valid =(data)=>{
+        let dataValue = data.length!==0
+        setIsInputValid(dataValue)
+    }
+
     switch(type){
         case "textarea":
             return(
@@ -19,7 +27,7 @@ const OptInput =({type,action,array,value,title,label,disabled,placeholder,maxWi
                         maxWidth:maxWidth,
                         marginBottom:'1rem'
                     }}
-                    className={`${styles.group} ${!isValid && colors.error_shadow}`}>
+                    className={`${styles.group} ${!isInputValid && colors.error_shadow}`}>
                     <textarea
                         autoFocus={autoFocus}
                         onChange={action}
@@ -27,11 +35,12 @@ const OptInput =({type,action,array,value,title,label,disabled,placeholder,maxWi
                         value={value}
                         label={label}
                         disabled={disabled}   
-                        required={required}       
+                        required={required}     
+                        onBlur={()=>valid(value)}  
+                        placeholder={placeholder}
                     />
-                    <p className={styles.label}>{placeholder || title}</p>
                 </div>
-                {!isValid &&<p className={'error_message'}>{errMsg || `${placeholder} is required`}</p>}
+               
                 </MainContainer>
             )
     }
@@ -42,8 +51,9 @@ const OptInput =({type,action,array,value,title,label,disabled,placeholder,maxWi
         >
             <div 
             style={{maxWidth:maxWidth}}
-            className={`${styles.group} ${!isValid && colors.error_shadow}`}>
+            className={`${styles.group} ${!isInputValid && colors.error_shadow}`}>
             <input
+                placeholder={placeholder}
                 autoFocus={autoFocus}
                 type={type}
                 onChange={action}
@@ -52,11 +62,10 @@ const OptInput =({type,action,array,value,title,label,disabled,placeholder,maxWi
                 label={label}
                 name={name}
                 disabled={disabled}    
-                required={required}       
+                required={required} 
+                onBlur ={()=>valid(value)}      
             />
-            <p className={styles.label}>{placeholder || title}</p>
         </div>
-        {!isValid &&<p className={'error_message'}>{errMsg || `${placeholder} is required`}</p>}
         </MainContainer>       
     )
 }

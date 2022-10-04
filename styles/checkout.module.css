@@ -1,3 +1,9 @@
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
 .container{
     display: flex;
     justify-content: center;
@@ -20,7 +26,6 @@
 .no_bg{
     overflow: hidden;
     position: relative;
-    background-color: var(--secondary-theme-lighter);
     border-radius: 4px;
 }
 
@@ -31,7 +36,6 @@
     left: 0;
     right: 0;
     height: 5px;
-    background-color: #1971c2;
 }
 
 .no_padding{
@@ -52,9 +56,9 @@
 }
 
 .discount_form{
-    padding: 0;
-    flex-direction: row;
-    gap: 5px;
+    padding: 0 !important;
+    flex-direction: row !important;
+    gap: 5px !important;
 }
 
 .small_container{
@@ -88,6 +92,20 @@
     margin-bottom: 10px;
 }
 
+.goback{
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    color: var(--primary-text-color);
+    font-size: 16px;
+}
 
 
 @media screen and (max-width:820px) {

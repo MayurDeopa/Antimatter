@@ -98,9 +98,7 @@ z
     min-height: 2.5rem;
     border-radius: 4px;
     box-shadow: var(--secondary-box-shadow);
-    background-color: var(--secondary-theme-light);
-    padding-top: 15px;
-    padding-right: 4px;
+    background-color: transparent;
     margin-bottom: 10px;
     transition: 0.3s ease-in-out;
 }
@@ -114,6 +112,9 @@ z
     color:var(--primary-text-color);
     background-color: transparent;
     border: none;
+    -webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
 }
 
 .radio_container{

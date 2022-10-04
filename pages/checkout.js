@@ -1,8 +1,9 @@
 
-import PageWrapper from '../components/PageWrapper';
 
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import styles from '../styles/checkout.module.css'
+import { FiArrowLeft} from 'react-icons/fi'
+
 
 import EmptyState from '../components/Misc/EmptyState'
 import PrimaryButton from '../components/Loaders/PrimaryButton'
@@ -11,7 +12,6 @@ import Form from '../components/Misc/Form';
 import OptInput from '../components/Misc/OptInput';
 import LinkBtn from '../components/Misc/LinkBtn'
 import CheckoutProduct from '../components/Cart/CheckoutProduct';
-import Select from '../components/Misc/Select'
 
 import usePayment from '../lib/drawer/customhooks/usePayment'
 import Head from 'next/head';
@@ -97,6 +97,14 @@ const Checkout =()=>{
                             maxWidth={'100%'}
                             direction='column'
                         >
+                            <Button 
+                                variant='secondary' 
+                                text='Shop' 
+                                icon={<FiArrowLeft/>} 
+                                action={()=>router.push('/')}
+                                styles={{backgroundColor:'var(--secondary-theme-lighter)',color:'white'}}
+                                rippleColor='white'    
+                            />
                             {checkoutData?.live.line_items.map((item,i)=>{
                                 return(
                                     <CheckoutProduct
@@ -111,9 +119,8 @@ const Checkout =()=>{
                             })}
                             <Form customClasses={styles.discount_form} action={applyDiscount}>
                                 <OptInput
-                                    title={'Discount Code'}
-                                    isValid
                                     required
+                                    placeholder={'Discount code'}
                                     value={data.discount}
                                     action={(e)=>setInput('discount',e.target.value)}
                                     disabled={applyingDiscount}
@@ -121,8 +128,10 @@ const Checkout =()=>{
                                 <Button 
                                     type='submit' 
                                     variant='secondary' 
+                                    styles={{backgroundColor:'var(--secondary-theme-lighter)',color:'white'}}
                                     text={applyingDiscount?'Applying':'Apply'}
                                     loading={applyingDiscount}
+                                    rippleColor='white'
                                     />
                             </Form>
                              <Container

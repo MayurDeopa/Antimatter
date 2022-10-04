@@ -54,7 +54,6 @@ const Select =({options,title,label,disabled,placeholder,maxWidth,required,isVal
                     })
                 }
             </select>
-            <p className={styles.label}>{placeholder || title}</p>
         </div>
         {!isValid &&<p className={'error_message'}>{errMsg || `${placeholder} is required`}</p>}
         </MainContainer>
