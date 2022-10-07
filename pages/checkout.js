@@ -29,6 +29,7 @@ const Checkout =()=>{
     const {id} = router.query
     const {isPaying,data,setInput,generateToken,checkoutData,fetchCountries,countriesData,fetchStates,states,handleCheckoutCapture,err,isFetching,handlePayment,applyDiscount,applyingDiscount} = usePayment()
     useEffect(()=>{
+        console.log(process.env.RAZORPAY_KEY_ID)
         if(!id)return;
         generateToken(id)
         
