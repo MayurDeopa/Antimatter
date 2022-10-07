@@ -105,7 +105,7 @@ const Product =()=>{
                                 customClasses={styles.details_container}
                             >
                                 <p>{data.price.formatted_with_symbol}</p>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequa</p>
+                                {data.description}
                            </MainContainer>
                             {variants.map((v,i)=>{
                                 return(

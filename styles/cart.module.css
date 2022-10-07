@@ -199,6 +199,9 @@
     .order_summary_header,.remove,.cart_section_log_quantity p{
         font-size: 20px;
     }
+    .cart_section_logs p{
+        padding-left: 5px;
+    }
 }
 
 @media screen and (max-width:420px) {
@@ -213,7 +216,7 @@
 
 @media screen and (max-width:350px) {
 
-    .order_summary_header,.remove,.cart_section_log_quantity p{
+    .order_summary_header{
         font-size: 15px;
     }
 }

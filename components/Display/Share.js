@@ -23,7 +23,7 @@ const Share=({link,shareIcons,toggleModal,visible})=>{
             container={'modal-root'}
         >
             <Drawer
-                styles={{backgroundColor:"transparent"}}
+                styles={{backgroundColor:"transparent",maxWidth:'90%'}}
                 open={visible}
                 action={toggleModal}
             >
