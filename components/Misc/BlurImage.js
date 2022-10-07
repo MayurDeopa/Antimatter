@@ -27,7 +27,7 @@ const BlurImage = (props) => {
     }
   }, [props.loading, props.priority]);
 
-  return <Image loading={loading} {...props} />;
+  return <Image loading={loading} {...props} className='pointer'/>;
 };
 
 const isMobileConnection = () => {

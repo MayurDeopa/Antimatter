@@ -4,6 +4,7 @@ import Image from 'next/image'
 import LinkBtn from '../Misc/LinkBtn'
 import {BiRightArrowAlt} from 'react-icons/bi'
 import BlurImage from '../Misc/BlurImage'
+import Link from 'next/link'
 
 const HomeBanner =({d})=>{
   const customCss = JSON.parse(d.containerCss)
@@ -11,22 +12,26 @@ const HomeBanner =({d})=>{
         <div 
         style={customCss}
             className={styles.home_image_container}>
-              <BlurImage
-                src={d.img}
-                width={600}
-                height={600}
-                layout={'intrinsic'}
-              />
-            <div 
-              className={styles.home_image_text}>
-              <h1 className='header'>{d.title}</h1>
-              <p>{d.description}</p>
-              <LinkBtn
-                text={`View Collection`}
-                icon={<BiRightArrowAlt/>}
-                url={d.link}
-                width={'20rem'}
-              />
+              <Link
+                href={'/shop/t-shirts/prod_VKXmwDE8rWorgD'}
+              >
+                <BlurImage
+                  src={d.img}
+                  width={600}
+                  height={600}
+                  layout={'intrinsic'}
+                />
+                </Link>
+              <div 
+                className={styles.home_image_text}>
+                <h1 className='header'>{d.title}</h1>
+                <p>{d.description}</p>
+                <LinkBtn
+                  text={`View Collection`}
+                  icon={<BiRightArrowAlt/>}
+                  url={d.link}
+                  width={'20rem'}
+                />
             </div>
         </div>
     )

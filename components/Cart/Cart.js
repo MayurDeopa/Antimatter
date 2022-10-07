@@ -1,22 +1,15 @@
-import Modal from "../Misc/Modal"
 import Form from '../Misc/Form'    
 
 
-import styles from '../../styles/cart.module.css'
-import OptOnput from "../Misc/OptInput"
-import PrimaryButton from '../Loaders/PrimaryButton'
 import Portal from "../Portal"
 import CartItems from "./CartItems"
 import BasicProgress from "../Loaders/BasicProgress"
-import { useState } from "react"
 import { useStore } from "../../lib/drawer/context/StoreContext"
 
 import {FiLock} from 'react-icons/fi'
 import MainContainer from "../Misc/MainContainer"
 import useCart from "../../lib/drawer/customhooks/useCart"
-import { Button } from "material-gas-ui"
-import Link from "next/link"
-import LinkBtn from "../Misc/LinkBtn"
+import { Button, Drawer } from "material-gas-ui"
 
 
 const Cart =({open,action})=>{
@@ -27,9 +20,16 @@ const Cart =({open,action})=>{
         <Portal
             container={'modal-root'}
         >
-            <div id="cart">
-                <div className={open?styles.cart:`${styles.cart} ${styles.cart_hidden}`}>
-                        <Form
+            <Drawer
+                open={open}
+                action={action}
+                styles={{
+                    backgroundColor:'transparent',
+                    maxWidth:'90%'
+                }}
+                position='right'
+            >
+            <Form
                             title={"Cart"}
                             height='100%'
                             action={()=>checkout(cart.id)}
@@ -60,9 +60,7 @@ const Cart =({open,action})=>{
                                 </MainContainer>
                             }
                         </Form>
-                    </div>
-                    <Modal action={action} hidden={!open}/>
-            </div>
+            </Drawer>
         </Portal>
     )
 }

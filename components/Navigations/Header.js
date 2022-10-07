@@ -10,6 +10,17 @@ const Header =({state})=>{
     return (
         <nav className={`${styles.header_wrapper} ${!isHidden && styles.light_wrapper}`}>
             <nav className={styles.header}>
+            <div onClick={()=>setIsHidden(!isHidden)} className='svg_wrapper' style={{
+                                justifyContent:'flex-start'
+                            }}>
+                                {
+                                    isHidden
+                                    ?
+                                    <FiMenu/>
+                                    :
+                                    <FiX/>
+                                }
+                            </div>
                 <Link href={'/'}>
                     <header className={styles.header_title}>
                         <h2 className='svg_wrapper header_logo'>
@@ -30,19 +41,7 @@ const Header =({state})=>{
                                 <FiShoppingBag/>
                             </div>
                     </li>
-                    <li onClick={()=>setIsHidden(!isHidden)}>
-                            <div className='svg_wrapper' style={{
-                                justifyContent:'flex-start'
-                            }}>
-                                {
-                                    isHidden
-                                    ?
-                                    <FiMenu/>
-                                    :
-                                    <FiX/>
-                                }
-                            </div>
-                    </li>
+
                 </ul>
             </nav>
         </nav>
