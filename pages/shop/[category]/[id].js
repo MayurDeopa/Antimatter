@@ -27,6 +27,7 @@ import Share from "../../../components/Display/Share";
 import BasicProgress from "../../../components/Loaders/BasicProgress";
 import Select from "../../../components/Misc/Select";
 import ProductSkeleton from "../../../components/Display/ProductSkeleton";
+import PrimarySpinner from "../../../components/Loaders/PrimarySpinner";
 
 
 
@@ -57,7 +58,7 @@ const Product =()=>{
                     <title>{"Loading.."}</title>
                 </Head>
                 <PageWrapper>
-                    <ProductSkeleton/>
+                    <PrimarySpinner/>
                 </PageWrapper>    
             </>
         )
@@ -69,7 +70,7 @@ const Product =()=>{
                     <title>{data.name}</title>
                 </Head>
                 <PageWrapper>
-                    <Breadcrumb
+                   {/* <Breadcrumb
                         paths={[
                             {
                                 title:'Shop',
@@ -84,7 +85,7 @@ const Product =()=>{
                                 path:`/shop/${category}/${router.query.id}`
                             }
                         ]}
-                    />
+                    />*/}
                         <div className={styles.wrapper}>
                             {/*<div className={'image_skeleton_aspect'}>
                                 <Image src={data.assets[0].url} layout='intrinsic' height={'600'} width={'600'}/>
