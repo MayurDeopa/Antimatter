@@ -16,14 +16,14 @@ export default function Home({banners}) {
       <Head >
         <title>Anti-Matter</title>
       </Head>
-      {banners.data.map((d,i)=>{
+      {/*banners.data.map((d,i)=>{
           return(
             <HomeBanner
               d={d}
               key={i}
             />
           )
-        })}
+        })*/}
     </PageWrapper>
   )
 }

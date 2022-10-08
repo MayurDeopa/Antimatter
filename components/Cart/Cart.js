@@ -30,6 +30,7 @@ const Cart =({open,action})=>{
                 position='right'
             >
             <Form
+                            backgroundColor={'var( --secondary-theme-color)'}
                             title={"Cart"}
                             height='100%'
                             action={()=>checkout(cart.id)}
@@ -56,6 +57,8 @@ const Cart =({open,action})=>{
                                         type='submit'
                                         styles={{width:'100%'}}
                                         loading={visible}
+                                        rippleColor='white'
+                                        rippleTimeout={600}
                                     />
                                 </MainContainer>
                             }

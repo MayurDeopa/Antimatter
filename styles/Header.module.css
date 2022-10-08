@@ -89,13 +89,14 @@
     background-color: var(--secondary-theme-color);
     color: var(--primary-text-color);
     box-shadow: var(--primary-box-shadow);
-    transition: 0.7s ease-in-out;
+    transition: 0.3s ease-in-out;
     z-index: 100;
     overflow-y: scroll;
 }
 
 .drawer_hidden{
     top:-100%;
+    opacity: 0;
 }
 
 .drawer_header{
@@ -168,12 +169,10 @@
 
 
 .footer_wrapper{
-    position: absolute;
     width: 100%;
     min-height: 3rem;
     padding: 5px;
     margin-top: 5rem;
-    margin-bottom: 5rem;
     display: flex;
     justify-content: center;
     box-shadow: var(--primary-box-shadow);

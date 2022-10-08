@@ -6,6 +6,7 @@ import { useState ,useEffect} from "react";
 import Cart from './Cart/Cart';
 import { useStore } from '../lib/drawer/context/StoreContext';
 import useCart from '../lib/drawer/customhooks/useCart';
+import Footer from './Navigations/Footer';
 
 
 const PageWrapper =({children,hideNavigation,customClasses,padding})=>{
@@ -36,6 +37,7 @@ const PageWrapper =({children,hideNavigation,customClasses,padding})=>{
                 </>
             }
             <div className='mini_wrapper'>{children}</div>
+
         </div>
     )
 }

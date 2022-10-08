@@ -1,9 +1,8 @@
 .wrapper,.skeleton_wrapper{
     width: 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     padding: 0.3rem;
-    gap: 15px;
     max-width: 85rem;
 }
 
@@ -24,7 +23,6 @@
     flex-direction: column;
     align-items: flex-start;
     width: 100%;
-    max-width: 35rem;
     height: 100%;
     gap: 1rem;
     color: var(--primary-text-color);
@@ -60,7 +58,6 @@
     flex-direction: row;
     width: 100%;
     gap: 10px;
-    background-color: var(--secondary-theme-color);
 }
 
 

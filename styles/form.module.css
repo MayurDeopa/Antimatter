@@ -69,8 +69,7 @@ z
     gap: 1.5rem;
     border-radius: 4px;
     color: var(--primary-text-color);
-    background-color: var(--secondary-theme-color);
-    overflow-y: scroll;
+    background-color: transparent;
 }
 
 .form_header{
@@ -118,9 +117,9 @@ z
 }
 
 .radio_container{
-    height: 50px;
+    height: 45px;
     width: 100%;
-    max-width: 10rem;
+    max-width: 6rem;
     position: relative;
     margin-right: 15px;
     display: flex;
@@ -133,7 +132,6 @@ z
     height: 100%;
     width: 100%;
     appearance: none;
-    background-color: transparent;
     margin: 0;
     font: inherit;
     color: currentColor;
@@ -157,13 +155,12 @@ z
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: transparent;
     transition: 0.3s ease-in-out;
 }
 
 
 .radio_background{
-    background-color: var(--secondary-theme-light);
+    background-color: var(--secondary-theme-lighter);;
     color: var(--primary-text-color);
 }
 

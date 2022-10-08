@@ -1,6 +1,6 @@
 import styles from '../../styles/form.module.css'
 
-const Form =({animated,title,children,width,maxWidth,customClasses,headerSide,action,headerBorder,height})=>{
+const Form =({animated,title,children,width,maxWidth,customClasses,headerSide,action,headerBorder,height,backgroundColor})=>{
     const submit =(e)=>{
         e.preventDefault();
         action()
@@ -11,7 +11,8 @@ const Form =({animated,title,children,width,maxWidth,customClasses,headerSide,ac
             style={{
                 width:width,
                 height:height,
-                maxWidth:maxWidth
+                maxWidth:maxWidth,
+                backgroundColor:backgroundColor
             }}
             className={animated?`  ${customClasses} ${styles.wrapper} ${styles.pop}`:` ${customClasses} ${styles.wrapper} `}
             >

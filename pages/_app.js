@@ -57,7 +57,6 @@ function MyApp({ Component, pageProps }) {
             visible={progress}
           />
           <Component {...pageProps}/>
-          <Footer/>
         </>
         <Progress
           visible={path}

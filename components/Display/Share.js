@@ -28,6 +28,7 @@ const Share=({link,shareIcons,toggleModal,visible})=>{
                 action={toggleModal}
             >
                 <Form
+                    backgroundColor={'var( --secondary-theme-color)'}
                     title={"Share"}
                     height='100%'
                     action={handleCopy}

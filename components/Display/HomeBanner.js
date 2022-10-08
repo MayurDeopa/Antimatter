@@ -10,17 +10,18 @@ const HomeBanner =({d})=>{
   const customCss = JSON.parse(d.containerCss)
     return(
         <div 
-        style={customCss}
             className={styles.home_image_container}>
               <Link
                 href={'/shop/t-shirts/prod_VKXmwDE8rWorgD'}
               >
+                <div className={styles.home_image}>
                 <BlurImage
                   src={d.img}
                   width={600}
                   height={600}
                   layout={'intrinsic'}
                 />
+                </div>
                 </Link>
               <div 
                 className={styles.home_image_text}>

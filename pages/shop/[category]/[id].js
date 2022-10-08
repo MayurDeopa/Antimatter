@@ -105,7 +105,7 @@ const Product =()=>{
                                 customClasses={styles.details_container}
                             >
                                 <p>{data.price.formatted_with_symbol}</p>
-                                {data.description}
+                                <div dangerouslySetInnerHTML={{__html:data.description}}></div>
                            </MainContainer>
                             {variants.map((v,i)=>{
                                 return(

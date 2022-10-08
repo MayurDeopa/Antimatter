@@ -17,8 +17,8 @@ const ProductSlider =({images})=>{
                 return(
                     <div className={'image_skeleton_aspect'} key={i}>
                         <Image 
-                            height={900}
-                            width={1000}
+                            height={800}
+                            width={800}
                             src={image.url}
                             className='round'
                         />
