@@ -2,6 +2,7 @@ import styles from '../../styles/Header.module.css'
 import {FiShoppingBag,FiShoppingCart,FiSearch,FiMenu,FiX} from 'react-icons/fi'
 import Link from 'next/link'
 import AntiMatterLogo from '../Display/AntiMatterLogo'
+import { Container } from 'material-gas-ui'
 
 
 
@@ -11,10 +12,22 @@ const Header =({state})=>{
     return (
         <nav className={`${styles.header_wrapper} ${!isHidden && styles.light_wrapper}`}>
             <nav className={styles.header}>
-            <div onClick={()=>setIsHidden(!isHidden)} className='svg_wrapper' style={{
-                                justifyContent:'flex-start'
+            <div  className='svg_wrapper' style={{
+                                justifyContent:'flex-start',
+                                gap:'10px'
                             }}>
-                                <AntiMatterLogo/>
+                               <Link href={'/'}>
+                                 <AntiMatterLogo/>
+                               </Link>
+                               <div onClick={()=>setIsHidden(!isHidden)}>
+                               {
+                                isHidden
+                                ?
+                                <FiMenu/>
+                                :
+                                <FiX/>
+                               }
+                               </div>
                             </div>
                 <Link href={'/'}>
                     <header className={styles.header_title}>

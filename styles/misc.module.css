@@ -88,6 +88,25 @@
     background-color: var(--secondary-theme-lighter);
 }
 
+
+.page_transition{
+    position: fixed;
+    background-color: var(--secondary-theme-color);
+    height: 100vh;
+    width: 100vw;
+    align-items: center;
+    z-index: 1000000000000;
+}
+
+.page_in{
+    animation: pageIn 0.3s ease;
+    animation-fill-mode: forwards;
+}
+
+.page_out{
+    animation: pageOut 0.3s ease-out;
+}
+
 @keyframes scroll {
     0%{
         transform: translateY(100%);
@@ -108,3 +127,22 @@
     }
 }
 
+@keyframes pageIn {
+    0%{
+        bottom: -100vh;
+
+    }
+    100%{
+        bottom: 0;
+    }
+}
+
+@keyframes pageOut {
+    0%{
+        top: 0;
+
+    }
+    100%{
+        top: -100vh;
+    }
+}

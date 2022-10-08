@@ -11,6 +11,8 @@ import { commerce } from '../lib/drawer/commerce'
 import {setScroll} from '../lib/drawer/disableScroll'
 
 import 'react-toastify/dist/ReactToastify.min.css'
+import PageTransitionComponent from '../components/Display/PageTransitionComponent'
+import { useTransition } from 'material-gas-ui'
  
 function MyApp({ Component, pageProps }) {
   const queryClient = new QueryClient()
@@ -41,26 +43,26 @@ function MyApp({ Component, pageProps }) {
     initialRequest()
   },[])
   Router.events.on('routeChangeStart',()=>{
-    setScroll(true)
     setPath(true)
   })
   Router.events.on('routeChangeComplete',()=>{
-    setScroll(false)
     setPath(false)
   })
+
+  const hasTranstioned = useTransition(path,3000)
   return (
     <QueryClientProvider client={queryClient}>
       <StoreContext states={states}>     
-        <>
+      <>
           
           <Progress
             visible={progress}
           />
           <Component {...pageProps}/>
         </>
-        <Progress
+        {/*<Progress
           visible={path}
-        />
+        />*/}
         <ToastContainer 
           autoClose={5000}
           position='top-right'
@@ -69,6 +71,7 @@ function MyApp({ Component, pageProps }) {
           newestOnTop={true}  
           theme='dark'
         />
+        {hasTranstioned && <PageTransitionComponent open={path}/>}
       </StoreContext>
     </QueryClientProvider>
   )

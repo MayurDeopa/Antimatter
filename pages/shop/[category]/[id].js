@@ -130,7 +130,7 @@ const Product =()=>{
                             
                                 <PrimaryButton 
                                     text={"Add to cart"}
-                                    width={'100%'}
+                                    width={'15rem'}
                                     type={'submit'}
                                 />
                             
@@ -138,7 +138,7 @@ const Product =()=>{
                                 awaitState={'none'}
                                 text={"Share"}
                                 action={toggleModal}
-                                width={'100%'}
+                                width={'10rem'}
                             />
                             
                             </div>

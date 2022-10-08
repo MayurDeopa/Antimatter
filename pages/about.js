@@ -17,21 +17,7 @@ const About =()=>{
 
                 Good moments. Good memories. Good products. So you can create a good life.</p>
             </Policy>
-            <div style={{backgroundColor:'gray',height:'30rem',width:'30rem'}}
-                onMouseDown={({target,nativeEvent})=>{
-                    installRipple({
-                        clickedElement:target,
-                        clickPosition:{
-                            top:nativeEvent.offsetY,
-                            left:nativeEvent.offsetX
-                        },
-                        options:{
-                            color:'white',
-                            duration:500
-                        }
-                    })
-                }}
-            >Helo</div>
+           
         </PageWrapper>
     )
 }
