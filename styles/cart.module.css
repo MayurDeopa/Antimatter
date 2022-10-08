@@ -120,8 +120,6 @@
 .cart_section_logs p,.cart_section_log_header p{
     display: flex;
     align-items: center;
-    text-align: center;
-    padding-left: 10px;
 }
 
 .cart_section_logs_product{
@@ -196,9 +194,6 @@
 @media screen and (max-width:500px) {
 
 
-    .order_summary_header,.remove,.cart_section_log_quantity p{
-        font-size: 20px;
-    }
     .cart_section_logs p{
         padding-left: 5px;
     }
