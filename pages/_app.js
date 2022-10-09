@@ -43,23 +43,25 @@ function MyApp({ Component, pageProps }) {
     initialRequest()
   },[])
   Router.events.on('routeChangeStart',()=>{
-    setPath(true)
+      setPath(true)
   })
   Router.events.on('routeChangeComplete',()=>{
     setPath(false)
   })
 
-  const hasTranstioned = useTransition(path,3000)
+  const hasTranstioned = useTransition(path,1000)
   return (
     <QueryClientProvider client={queryClient}>
       <StoreContext states={states}>     
-      <>
+      {!hasTranstioned && (
+        <>
           
-          <Progress
-            visible={progress}
-          />
-          <Component {...pageProps}/>
-        </>
+        <Progress
+          visible={progress}
+        />
+        <Component {...pageProps}/>
+      </>
+      )}
         {/*<Progress
           visible={path}
         />*/}
