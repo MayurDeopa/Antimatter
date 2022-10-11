@@ -4,6 +4,7 @@ import { Button ,Container} from "material-gas-ui";
 import Select from "../Misc/Select";
 import OptInput from "../Misc/OptInput";
 import {FiLock} from 'react-icons/fi'
+import PrimarySpinner from "../Loaders/PrimarySpinner";
 
 const CheckoutForm = ({handleCheckout,data,handleInput,states,countriesData,checkoutToken,isPaying})=>{
     return(
@@ -165,7 +166,7 @@ const CheckoutForm = ({handleCheckout,data,handleInput,states,countriesData,chec
                             rippleTimeout={1000}
                             rippleColor={'white'}
                             type='submit'
-                            icon={<FiLock/>}
+                            icon={isPaying?<PrimarySpinner/>:<FiLock/>}
                             loading={isPaying}
                         />
                     </Container>

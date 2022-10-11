@@ -1,20 +1,24 @@
 import { Button, Container } from "material-gas-ui"
 import {BsFillBagCheckFill} from 'react-icons/bs'
-import PrimarySpinner from "../../components/Loaders/PrimarySpinner"
-
+import Head from "next/head"
 
 import styles from '../../styles/misc.module.css'
-import { useRouter } from "next/router"
+
 
 
 const ThankYou = ()=>{
-    let router = useRouter()
 
 
+    const handleRedirect =()=>{
+        window.location.href = '/'
+    }
     
 
     return(
         <Container  className={styles.thankyou}>
+            <Head>
+                <title>Thank you</title>
+            </Head>
             <Container
                 styles={{
                     flexDirection:'column',
@@ -30,7 +34,7 @@ const ThankYou = ()=>{
                     text="Back to store"
                     rippleColor='white'
                     variant='secondary'
-                    action={()=>router.push('/')}
+                    action={handleRedirect}
                 />
             </Container>
         </Container>
