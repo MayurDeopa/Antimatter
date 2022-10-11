@@ -37,13 +37,13 @@ const Header =({state})=>{
                     </header>
                 </Link>
                 <ul className={styles.header_ul}>
-                    <li>
+                    {/*<li>
                         <Link href={'/shop'}>
                             <div className='svg_wrapper'>
                                 <FiSearch/>
                             </div>
                         </Link>
-                    </li>
+                            </li>*/}
                     <li onClick={()=>setCartOpen(!cartOpen)}>
                             <div className='svg_wrapper'>
                                 <FiShoppingCart/>

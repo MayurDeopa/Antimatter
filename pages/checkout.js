@@ -21,15 +21,15 @@ import PrimarySpinner from '../components/Loaders/PrimarySpinner';
 import CheckoutForm from '../components/Cart/CheckoutForm';
 import CheckoutSkeleton from '../components/Cart/CheckoutSkeleton';
 import Skeleton from '../components/Loaders/Skeleton';
+import ThankYou from '../components/Display/ThankYou';
 
 
 
 const Checkout =()=>{
     const router = useRouter()
     const {id} = router.query
-    const {isPaying,data,setInput,generateToken,checkoutData,fetchCountries,countriesData,fetchStates,states,handleCheckoutCapture,err,isFetching,handlePayment,applyDiscount,applyingDiscount} = usePayment()
+    const {isPaying,data,setInput,generateToken,checkoutData,fetchCountries,countriesData,fetchStates,states,handleCheckoutCapture,err,isFetching,handlePayment,applyDiscount,applyingDiscount,isOrderSucessfull} = usePayment()
     useEffect(()=>{
-        console.log(process.env.RAZORPAY_KEY_ID)
         if(!id)return;
         generateToken(id)
         
@@ -84,7 +84,9 @@ const Checkout =()=>{
         )
     }
 
-
+    if(isOrderSucessfull){
+        return <ThankYou/>
+    }
 
     return(
         

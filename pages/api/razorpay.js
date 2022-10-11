@@ -4,11 +4,12 @@ const shortid = require("shortid");
 import { __DEV_ } from "../../lib/drawer/dev";
 
 export default async function handler(req, res) {
+  console.log(process.env.RAZORPAY_SECRET )
   if (req.method === "POST") {
     // Initialize razorpay object
     const razorpay = new Razorpay({
-      key_id: process.env.RAZORPAY_KEY_ID || "rzp_test_Xo7VXINAoloD9k",
-      key_secret: process.env.RAZORPAY_SECRET || "me4oLPs11wJv47du80n0hMjy",
+      key_id: process.env.RAZORPAY_KEY_ID,
+      key_secret: process.env.RAZORPAY_SECRET ,
     });
 
     // Create an order -> generate the OrderID -> Send it to the Front-end

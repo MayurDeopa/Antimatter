@@ -95,6 +95,7 @@
     height: 100vh;
     width: 100vw;
     align-items: center;
+    flex-direction: column;
     z-index: 1000000000000;
     transition: 0.3s ease-in-out;
 }
@@ -109,7 +110,18 @@
 }
 
 .logo_animation{
-    animation: blink 0.5s linear infinite;
+    animation: blink 1s linear infinite;
+}
+
+.thankyou{
+    color:var(--primary-text-color);
+    justify-content:center !important;
+    flex-direction:column;
+    align-items:center;
+    height:100vh;
+    padding:10px;
+    text-align:center;
+    animation: popUp 0.5s ease-in-out;
 }
 
 @keyframes scroll {
@@ -156,6 +168,18 @@
 
 @keyframes blink {
     50%{
-        opacity: 0.4;
+        opacity: 0.3;
+    }
+}
+
+@keyframes popUp {
+    0%{
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+
+    100%{
+        transform: translateY(0);
+        opacity: 1;
     }
 }
