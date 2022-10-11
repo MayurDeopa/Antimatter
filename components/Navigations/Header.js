@@ -16,9 +16,7 @@ const Header =({state})=>{
                                 justifyContent:'flex-start',
                                 gap:'10px'
                             }}>
-                               <Link href={'/'}>
                                  <AntiMatterLogo/>
-                               </Link>
                                <div onClick={()=>setIsHidden(!isHidden)}>
                                {
                                 isHidden
