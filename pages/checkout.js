@@ -159,7 +159,7 @@ const Checkout =()=>{
                                         <Container
                                             className={styles.discount_price}
                                         >
-                                            <p>Discount </p>
+                                            <p>{checkoutData.code}</p>
                                             <p> - {checkoutData.discount.amount_saved.formatted_with_symbol}</p>
                                         </Container>
                                 }
