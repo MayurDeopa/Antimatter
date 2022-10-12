@@ -161,7 +161,7 @@ const CheckoutForm = ({handleCheckout,data,handleInput,states,countriesData,chec
                     
                     <Container>
                         <Button
-                            text={`Pay ${!checkoutToken?'-':checkoutToken.live.total_with_tax.formatted_with_symbol}`}
+                            text={!isPaying && `Pay ${checkoutToken.live.total_with_tax.formatted_with_symbol}`}
                             styles={{width:'100%'}}
                             rippleTimeout={1000}
                             rippleColor={'white'}

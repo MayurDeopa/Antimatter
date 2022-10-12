@@ -132,7 +132,7 @@ const Checkout =()=>{
                                     type='submit' 
                                     variant='secondary' 
                                     styles={{backgroundColor:'var(--secondary-theme-lighter)',color:'white'}}
-                                    text={applyingDiscount?'Applying':'Apply'}
+                                    text={!applyingDiscount&&'Apply'}
                                     loading={applyingDiscount}
                                     rippleColor='white'
                                     />
@@ -185,11 +185,6 @@ const Checkout =()=>{
                 />
                 
                 
-                {isPaying && (
-                    <Modal>
-                        <PrimarySpinner/>
-                    </Modal>
-                )}
             </div>
     )
 }
