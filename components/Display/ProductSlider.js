@@ -21,6 +21,7 @@ const ProductSlider =({images})=>{
                             width={800}
                             src={image.url}
                             className='round'
+                            alt='Comparison Destroys Personality tee'
                         />
                     </div>
                 )
