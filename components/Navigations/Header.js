@@ -17,15 +17,7 @@ const Header =({state})=>{
                                 gap:'10px'
                             }}>
                                  <AntiMatterLogo/>
-                               <div onClick={()=>setIsHidden(!isHidden)}>
-                               {
-                                isHidden
-                                ?
-                                <FiMenu/>
-                                :
-                                <FiX/>
-                               }
-                               </div>
+                              
                             </div>
                 <Link href={'/'}>
                     <header className={styles.header_title}>
@@ -46,6 +38,17 @@ const Header =({state})=>{
                             <div className='svg_wrapper'>
                                 <FiShoppingCart/>
                             </div>
+                    </li>
+                    <li onClick={()=>setIsHidden(!isHidden)}>
+                    <div className='svg_wrapper'>
+                               {
+                                isHidden
+                                ?
+                                <FiMenu/>
+                                :
+                                <FiX/>
+                               }
+                               </div>
                     </li>
 
                 </ul>

@@ -2,12 +2,12 @@ import styles from '../../styles/misc.module.css'
 
 const AntiMatterLogo =({size,animated})=>{
 
-	let dimension = size || 40
+	let dimension = size || 35
 
     return(
         <div className={animated?styles.logo_animation:'logo'}>
            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="100%" viewBox="0 0 180 180" enableBackground="new 0 0 180 180" xmlSpace="preserve" height={dimension} widths={dimension} >
+ viewBox="0 0 180 180" enableBackground="new 0 0 180 180" xmlSpace="preserve" height={dimension} width={dimension} >
 <path fill="none" opacity="1.000000" stroke="none" 
 	d="
 M95.000000,181.000000 

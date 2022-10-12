@@ -14,7 +14,7 @@
   --secondary-theme-color:#121212;
   --secondary-theme-light:#202020;
   --secondary-theme-lighter:#2c2c2c;
-  --primary-text-color:white;
+  --primary-text-color:rgb(183, 183, 183);
   --primary-box-shadow: rgba(0,0,0,0.1) 0px 1px 3px 0px,rgba(0,0,0,0.06) 0px 1px 2px 0px;
   --secondary-box-shadow:white 0px 0px 0px 1px inset ;
   --success:rgb(4, 202, 120);
@@ -132,7 +132,7 @@ textarea{
 
 .svg_wrapper{
   font-size: 20px;
-  padding: 0.5rem;
+  padding: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -363,7 +363,7 @@ textarea{
     padding: 4px 8px;
     padding-top: 10px;
     padding-bottom: 3rem;
-    background-image: url('https://i.ibb.co/3MqVL3K/web-background-for-phone-users.jpg');
+    background-image: url('https://i.ibb.co/0ZMBXN5/web-background-for-phone-users-1.jpg');
   }
 }
 
