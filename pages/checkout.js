@@ -22,6 +22,7 @@ import CheckoutForm from '../components/Cart/CheckoutForm';
 import CheckoutSkeleton from '../components/Cart/CheckoutSkeleton';
 import Skeleton from '../components/Loaders/Skeleton';
 import ThankYou from '../components/Display/ThankYou';
+import { setScroll } from '../lib/drawer/disableScroll';
 
 
 

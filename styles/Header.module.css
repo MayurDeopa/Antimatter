@@ -183,10 +183,16 @@
     max-width: 105rem;
     width: 100%;
     display: flex;
-    justify-content: space-around;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 
 }
 
+.footer p{
+    margin-top: 7px;
+    cursor: pointer;
+}
 
 @media screen and (max-width:560px) {
     .drawer{

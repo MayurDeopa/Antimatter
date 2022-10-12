@@ -34,6 +34,7 @@
 
 body{
   background-color: var(--secondary-theme-color);
+  scroll-behavior: smooth;
 }
 
 a {
@@ -70,6 +71,7 @@ textarea{
 
 .round{
   border-radius: 8px;
+  
 }
 
 
@@ -165,9 +167,10 @@ textarea{
   width: 100%;
   background-position: center;
   background-attachment: fixed;
-  background-image: url('https://i.ibb.co/2YwY1Rb/Untitled-2.jpg');
-  background-size:100vw 100vh;
+  background-image: url('https://i.ibb.co/0ZMBXN5/web-background-for-phone-users-1.jpg');
+  background-size:40rem 100vh;
   background-repeat: no-repeat;
+  background-color: black;
   padding-top: var(--header-height);
   min-height:100vh;
   margin-left: auto;
@@ -300,6 +303,9 @@ textarea{
 
 .image_skeleton_aspect{
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 *::-webkit-scrollbar{
@@ -348,6 +354,12 @@ textarea{
   }
 }
 
+@keyframes outlineFade {
+  50%{
+    outline-color: #007FFF;
+  }
+}
+
 @media screen and (max-width:750px) {
   .wrap_container{
     grid-template-columns: repeat(2,1fr);
@@ -364,6 +376,7 @@ textarea{
     padding: 4px 8px;
     padding-top: 3rem;
     padding-bottom: 3rem;
+    background-size:100% 100vh;
     background-image: url('https://i.ibb.co/0ZMBXN5/web-background-for-phone-users-1.jpg');
   }
 }

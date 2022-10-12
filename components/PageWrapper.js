@@ -37,6 +37,7 @@ const PageWrapper =({children,hideNavigation,customClasses,padding})=>{
                 </>
             }
             <div className='mini_wrapper'>{children}</div>
+            <Footer/>
 
         </div>
     )

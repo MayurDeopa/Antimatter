@@ -11,6 +11,7 @@ const RadioGroup =({state,handleChange,isChecked,name,action,containerWidth})=>{
                         key={i}
                         className={styles.radio_container}>
                         <input
+                            autoFocus
                             className={styles.radio}
                             type={'radio'}
                             value={r.id}
