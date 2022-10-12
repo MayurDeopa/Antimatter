@@ -10,8 +10,8 @@ const ProductSlider =({images,onClick})=>{
                         <Image 
                             
                             onClick={onClick}
-                            height={700}
-                            width={600}
+                            height={500}
+                            width={500}
                             src={images[0].url}
                             className='round pointer'
                             alt='Comparison Destroys Personality tee'
