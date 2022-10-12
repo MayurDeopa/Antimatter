@@ -16,6 +16,7 @@ const Share=({link,shareIcons,toggleModal,visible})=>{
     const handleCopy = ()=>{
         navigator.clipboard.writeText(link)
         toast.success('Copied to clipboard')
+        toggleModal()
     }
 
     return(
