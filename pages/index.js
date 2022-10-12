@@ -29,10 +29,11 @@ const Product =({data})=>{
     const {open,toggleModal} = useModal()
     const {fetchCart,handleOptions,options} = useCart(data)
     const seo = data.seo
+    console.log(seo)
         return (
             <>
                 <Head>
-                    <title>{seo.name}</title>
+                    <title>{seo.title}</title>
                     <meta
                         name="description"
                         content={seo.description}
