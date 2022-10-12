@@ -19,40 +19,24 @@ import Form from "../components/Misc/Form";
 import RadioGroup from "../components/Misc/RadioGroup";
 import Share from "../components/Display/Share";
 import PrimarySpinner from "../components/Loaders/PrimarySpinner";
+import { commerce } from "../lib/drawer/commerce";
+import { getProductById } from "../services/api/products";
 
 
 
 
-const Product =()=>{
+const Product =({data})=>{
     const {open,toggleModal} = useModal()
-    const [isLoading,setIsLoading] = useState(true)
-    const {fetchCart,getProductData,data,cartMessage,variants,options,handleOptions} = useCart()
-    useEffect(()=>{
-            const fetchProduct =async()=>{
-                await getProductData('prod_VKXmwDE8rWorgD')
-                setIsLoading(false)        
-            }
-            fetchProduct()
-            
-        
-    },[])
-    if(isLoading){
+    const {fetchCart,handleOptions,options} = useCart(data)
+    const seo = data.seo
         return (
             <>
                 <Head>
-                    <title>{"Loading.."}</title>
-                </Head>
-                <PageWrapper>
-                    <PrimarySpinner/>
-                </PageWrapper>    
-            </>
-        )
-    }
-    else{
-        return (
-            <>
-                <Head>
-                    <title>{data.name}</title>
+                    <title>{seo.name}</title>
+                    <meta
+                        name="description"
+                        content={seo.description}
+                    />
                 </Head>
                 <PageWrapper>
                    {/* <Breadcrumb
@@ -93,7 +77,7 @@ const Product =()=>{
                                 <h3>{data.price.formatted_with_symbol}</h3>
                                 <div dangerouslySetInnerHTML={{__html:data.description}}></div>
                            </MainContainer>
-                            {variants.map((v,i)=>{
+                            {data.variant_groups.map((v,i)=>{
                                 return(
                                     <MainContainer
                                         maxWidth={'100%'}
@@ -131,25 +115,29 @@ const Product =()=>{
                     </div>
                     
                         <Share
-                            link={window.location}
+                            link={'https://antimatterclothing.vercel.app'}
                             shareIcons={shareables}
                             toggleModal={toggleModal}
                             visible={open}
                      />
                     
-                    {
-                        cartMessage
-                        &&
-                        <Toast>
-                            <Message
-                                states={cartMessage}
-                            />
-                        </Toast>
-                    }
+                    
                 </PageWrapper>    
             </>
         )
-    }
+    
 }
+
+
+export async function getStaticProps() {
+    const data = await getProductById('prod_VKXmwDE8rWorgD')
+
+    return {
+      props: {
+        data,
+      },
+    }
+  }
+  
 
 export default Product;
