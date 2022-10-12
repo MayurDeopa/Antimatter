@@ -370,7 +370,7 @@ textarea{
 @media screen and (max-width:650px) {
   .image_skeleton_aspect{
     width: 100%;
-    padding: 20px;
+    padding: 40px;
   }
   .wrapper{
     
