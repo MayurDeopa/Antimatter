@@ -3,13 +3,11 @@ import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
 import Image from 'next/image';
 
-const ProductSlider =({images,onClick})=>{
+const ProductSlider =({images})=>{
     return(
 
                     <div className={'image_skeleton_aspect'} >
                         <Image 
-                            
-                            onClick={onClick}
                             height={500}
                             width={500}
                             src={images[0].url}

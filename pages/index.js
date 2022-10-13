@@ -34,9 +34,6 @@ const Product =({data})=>{
     const {fetchCart,handleOptions,options} = useCart(data)
     const seo = data.seo
 
-    const handlePaymentToggle =()=>{
-        togglePayment(!paymentOpen)
-    }
 
     const handleSizeChartToggle =()=>{
         toggleSizeChart(!sizeChartOpen)
@@ -74,7 +71,6 @@ const Product =({data})=>{
                                 <Image src={data.assets[0].url} layout='intrinsic' height={'600'} width={'600'}/>
                             </div>*/}
                             <ProductSlider
-                                onClick={handlePaymentToggle}
                                 images={data.assets}
                         />
                             <div className={styles.description}>
