@@ -12,11 +12,13 @@ const CheckoutProduct =({src,price,quantity,name,options})=>{
             <MainContainer
                 maxWidth={'100%'}
             >
+            <div >
             <Image
                 src={src}
                 width={100}
                 height={100}
             />
+            </div>
             <MainContainer
                 width={'7rem'}
                 direction={'column'}
