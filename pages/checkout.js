@@ -6,7 +6,6 @@ import { FiArrowLeft} from 'react-icons/fi'
 
 
 import EmptyState from '../components/Misc/EmptyState'
-import PrimaryButton from '../components/Loaders/PrimaryButton'
 import MainContainer from '../components/Misc/MainContainer';
 import Form from '../components/Misc/Form';
 import OptInput from '../components/Misc/OptInput';
@@ -17,12 +16,10 @@ import usePayment from '../lib/drawer/customhooks/usePayment'
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { Button,Container ,Modal} from 'material-gas-ui';
-import PrimarySpinner from '../components/Loaders/PrimarySpinner';
 import CheckoutForm from '../components/Cart/CheckoutForm';
 import CheckoutSkeleton from '../components/Cart/CheckoutSkeleton';
 import Skeleton from '../components/Loaders/Skeleton';
 import ThankYou from '../components/Display/ThankYou';
-import { setScroll } from '../lib/drawer/disableScroll';
 
 
 

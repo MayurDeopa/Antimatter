@@ -20,9 +20,7 @@ const Share=({link,shareIcons,toggleModal,visible})=>{
     }
 
     return(
-        <Portal
-            container={'modal-root'}
-        >
+
             <Drawer
                 styles={{backgroundColor:"transparent",maxWidth:'90%'}}
                 open={visible}
@@ -65,7 +63,7 @@ const Share=({link,shareIcons,toggleModal,visible})=>{
                     </div>
                 </Form>
             </Drawer>
-        </Portal>
+
     )
 }
 

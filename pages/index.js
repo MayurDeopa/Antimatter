@@ -4,7 +4,7 @@ import useCart from "../lib/drawer/customhooks/useCart";
 import styles from '../styles/Product.module.css'
 import { shareables } from "../lib/drawer/shareables";
 
-
+import {AiFillInfoCircle} from 'react-icons/ai'
 import PageWrapper from "../components/PageWrapper";
 import Head from 'next/head'
 import PrimaryButton from "../components/Loaders/PrimaryButton";
@@ -21,11 +21,14 @@ import Share from "../components/Display/Share";
 import { getProductById } from "../services/api/products";
 import PaymentDrawer from "../components/Display/PaymentDrawer";
 import { setScroll } from "../lib/drawer/disableScroll";
+import { Button, Container, Drawer } from "material-gas-ui";
+import SizeChart from "../components/Display/SizeChart";
 
 
 
 
 const Product =({data})=>{
+    const [sizeChartOpen,toggleSizeChart] = useState(false)
     const [paymentOpen,togglePayment] = useState(false)
     const {open,toggleModal} = useModal()
     const {fetchCart,handleOptions,options} = useCart(data)
@@ -35,6 +38,10 @@ const Product =({data})=>{
         togglePayment(!paymentOpen)
     }
 
+    const handleSizeChartToggle =()=>{
+        toggleSizeChart(!sizeChartOpen)
+        setScroll(!sizeChartOpen)
+    }
 
         return (
             <>
@@ -82,9 +89,11 @@ const Product =({data})=>{
                             toggleModal={toggleModal}
                             visible={open}
                      />
-                    {paymentOpen && (
-                        <PaymentDrawer
-                        >
+                     <SizeChart
+                        open={sizeChartOpen}
+                        toggle={handleSizeChartToggle}
+                     />
+                    
                             <Form
                                 maxWidth={'30rem'}
                                 customClasses={styles.details}
@@ -106,7 +115,15 @@ const Product =({data})=>{
                                             key={i}
                                             gap={'5px'}
                                         >
+                                           {v.name==='Size' ?(
+                                            <Container styles={{justifyContent:'center',alignItems:'center'}}>
+                                                <p>{v.name}</p>
+                                                <AiFillInfoCircle onClick={handleSizeChartToggle} style={{cursor:'pointer'}}/>
+                                            </Container>
+                                           )
+                                            :
                                             <p>{v.name}</p>
+                                        }
                                             <RadioGroup
                                                 state={v.options}
                                                 name={v.name}
@@ -132,8 +149,7 @@ const Product =({data})=>{
                                 
                                 </div>
                             </Form>
-                        </PaymentDrawer>
-                    )}
+                        
                     
                 </PageWrapper>    
             </>
