@@ -1,7 +1,8 @@
-import { Container, Drawer } from "material-gas-ui";
+import { Button, Container, Drawer } from "material-gas-ui";
 import PrimarySpinner from "../Loaders/PrimarySpinner";
 import Skeleton from "../Loaders/Skeleton";
 import AntiMatterLogo from "./AntiMatterLogo";
+import Image from "next/image";
 
 
 const SizeChart =({open,toggle})=>{
@@ -10,11 +11,10 @@ const SizeChart =({open,toggle})=>{
             open={open}
             action={toggle}
             styles={{
-                backgroundColor:'var(--secondary-theme-color)',
+                backgroundColor:'black',
                 color:'var(--primary-text-color)',
                 width:'100%',
-                height:'40rem',
-                maxHeight:'80%'
+                height:'100%'
             }}
             position='bottom'
         >
@@ -22,18 +22,25 @@ const SizeChart =({open,toggle})=>{
                 width:'100%',
                 height:'100%',
                 alignItems:'center',
-                justifyContent:'center'
+                justifyContent:'center',
+                flexDirection:'column',
             }}>
                 <Container
                     styles={{
                         width:'40rem',
                         maxWidth:'100%',
                         flexDirection:'column',
-                        alignItems:'center'
+                        alignItems:'center',
+                        position:'relative'
                     }}
                 >
-                    <AntiMatterLogo size={45} animated/>
+                    <Image
+                        src={'https://i.ibb.co/bRVgg6F/SIZES2.jpg'}
+                        height={650}
+                        width={1000}
+                    />
                 </Container>
+                <Button action={toggle} text='CLose' styles={{backgroundColor:'var(--secondary-theme-light)'}} rippleColor='white'/>
             </Container>
         </Drawer>
     )

@@ -21,7 +21,7 @@ import Share from "../components/Display/Share";
 import { getProductById } from "../services/api/products";
 import PaymentDrawer from "../components/Display/PaymentDrawer";
 import { setScroll } from "../lib/drawer/disableScroll";
-import { Button, Container, Drawer } from "material-gas-ui";
+import { Button, Container, Drawer, useTransition } from "material-gas-ui";
 import SizeChart from "../components/Display/SizeChart";
 
 
@@ -34,7 +34,7 @@ const Product =({data})=>{
     const {fetchCart,handleOptions,options} = useCart(data)
     const seo = data.seo
 
-
+    const hasTransitioned = useTransition(open,300)
     const handleSizeChartToggle =()=>{
         toggleSizeChart(!sizeChartOpen)
         setScroll(!sizeChartOpen)
