@@ -40,7 +40,7 @@ const SizeChart =({open,toggle})=>{
                         width={1000}
                     />
                 </Container>
-                <Button action={toggle} text='CLose' styles={{backgroundColor:'transparent'}} rippleColor='white'/>
+                <Button action={toggle} text='Close' styles={{backgroundColor:'transparent'}} rippleColor='white'/>
             </Container>
         </Drawer>
     )
