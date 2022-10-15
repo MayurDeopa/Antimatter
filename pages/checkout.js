@@ -20,13 +20,14 @@ import CheckoutForm from '../components/Cart/CheckoutForm';
 import CheckoutSkeleton from '../components/Cart/CheckoutSkeleton';
 import Skeleton from '../components/Loaders/Skeleton';
 import ThankYou from '../components/Display/ThankYou';
+import OrderPending from '../components/Display/OrderPending';
 
 
 
 const Checkout =()=>{
     const router = useRouter()
     const {id} = router.query
-    const {isPaying,data,setInput,generateToken,checkoutData,fetchCountries,countriesData,fetchStates,states,handleCheckoutCapture,err,isFetching,handlePayment,applyDiscount,applyingDiscount,isOrderSucessfull} = usePayment()
+    const {isPaying,data,setInput,generateToken,checkoutData,fetchCountries,countriesData,fetchStates,states,handleCheckoutCapture,err,isFetching,handlePayment,applyDiscount,applyingDiscount,isOrderSucessfull,isOrderAuthorized} = usePayment()
     useEffect(()=>{
         if(!id)return;
         generateToken(id)
@@ -84,6 +85,10 @@ const Checkout =()=>{
 
     if(isOrderSucessfull){
         return <ThankYou/>
+    }
+
+    if(isOrderAuthorized){
+        return <OrderPending/>
     }
 
     return(
