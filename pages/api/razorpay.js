@@ -4,7 +4,6 @@ const shortid = require("shortid");
 import { __DEV_ } from "../../lib/drawer/dev";
 
 export default async function handler(req, res) {
-  console.log(process.env.RAZORPAY_SECRET )
   if (req.method === "POST") {
     // Initialize razorpay object
     const razorpay = new Razorpay({

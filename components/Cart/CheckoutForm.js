@@ -163,7 +163,7 @@ const CheckoutForm = ({handleCheckout,data,handleInput,states,countriesData,chec
                         <Button
                             text={!isPaying && `Pay ${checkoutToken.live.total_with_tax.formatted_with_symbol}`}
                             styles={{width:'100%'}}
-                            rippleTimeout={1000}
+                            rippleTimeout={600}
                             rippleColor={'white'}
                             type='submit'
                             icon={isPaying?<PrimarySpinner/>:<FiLock/>}
