@@ -75,7 +75,10 @@ const Product =({data})=>{
                         />
                             <div className={styles.description}>
                                 <h2>{data.name}</h2>
+                                <Container styles={{width:'10rem'}}>
+                                <h3 style={{textDecoration:'line-through'}}>₹899.00</h3>
                                 <h3>{data.price.formatted_with_symbol}</h3>
+                                </Container>
                             </div>
                     </div>
                     
