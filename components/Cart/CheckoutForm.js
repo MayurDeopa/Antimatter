@@ -94,7 +94,7 @@ const CheckoutForm = ({handleCheckout,data,handleInput,states,countriesData,chec
                         <OptInput
                             
                             maxWidth={'992px'}
-                            placeholder={"Street address"}
+                            placeholder={"Street address (Add your phone number aswell)"}
                             type={'textarea'}                            
                             action={(e)=>handleInput('street',e.target.value)}
                             required={true}
