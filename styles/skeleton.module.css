@@ -3,7 +3,7 @@
     align-items: center;
     justify-content: center;
     max-width: 100%;
-    background-color: var(--primary-theme-lighter);
+    background-color: var(--secondary-theme-lighter);
 }
 
 @keyframes skeleton {

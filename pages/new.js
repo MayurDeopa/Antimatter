@@ -1,5 +1,7 @@
+import { Container } from "material-gas-ui";
 import NewImage from "../components/NewImage";
 import PageWrapper from "../components/PageWrapper"
+import SubHeading from "../components/Typography/SubHeading";
 
 
 import { getProductCategory } from "../services/api/products";
@@ -30,6 +32,13 @@ const NewHome =({data})=>{
                 />
             </div>
             <div className={styles.grid_container}>
+                <Container styles={{
+                    justifyContent:'center'
+                }}>
+                    <SubHeading h={1}>
+                        EDITIORAL LOOKBOOK
+                    </SubHeading>
+                </Container>
                 <div className={styles.wrapper}>
                     <NewImage
                         src={second.url}
@@ -49,6 +58,13 @@ const NewHome =({data})=>{
                         width={fourth.image_dimensions.width}
                     />
                 </div>
+                <Container styles={{
+                    justifyContent:'center'
+                }}>
+                    <SubHeading>
+                        VIEW
+                    </SubHeading>
+                </Container>
             </div>
         </PageWrapper>
     )

@@ -1,0 +1,21 @@
+.sub_heading{
+    font-size: 25px;
+}
+
+@media screen and (max-width:650px) {
+    .sub_heading{
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width:500px) {
+    .sub_heading{
+        font-size: 17px;
+    }
+}
+  
+@media screen and (max-width:350px) {
+    .sub_heading{
+        font-size: 13px;
+    }
+}

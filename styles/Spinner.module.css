@@ -64,13 +64,13 @@
     height: 4px;
     display: block;
     width: 100%;
-    background-color: var(--secondary-theme-lighter);
+    background-color: var(--secondary-theme-light);
     border-radius: 2px;
     background-clip: padding-box;
     overflow: hidden;
   z-index: 999; }
     .progress .indeterminate {
-      background-color: var(--primary-color-light); }
+      background-color: var(--primary-theme-lighter); }
       .progress .indeterminate:before {
         content: '';
         position: absolute;

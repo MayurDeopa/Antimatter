@@ -132,7 +132,7 @@ const Checkout =()=>{
                                 />
                                 <GasButton 
                                     type='submit' 
-                                    variant='primary' 
+                                    variant='secondary' 
                                     text={!applyingDiscount&&'Apply'}
                                     loading={applyingDiscount}
                                     />

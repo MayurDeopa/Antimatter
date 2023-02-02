@@ -29,12 +29,10 @@ import SizeChart from "../components/Display/SizeChart";
 
 const Product =({data})=>{
     const [sizeChartOpen,toggleSizeChart] = useState(false)
-    const [paymentOpen,togglePayment] = useState(false)
     const {open,toggleModal} = useModal()
     const {fetchCart,handleOptions,options} = useCart(data)
     const seo = data.seo
 
-    console.log(data)
 
     const hasTransitioned = useTransition(open,300)
     const handleSizeChartToggle =()=>{

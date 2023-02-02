@@ -9,12 +9,12 @@
 /*p = #141415  #0d0906  #3f3f44*/
 
 :root{
-  --primary-theme-color:#0d0906;
+  --primary-theme-color:#000000;
   --primary-theme-light:rgb(39, 39, 39);
-  --primary-theme-lighter:rgb(199, 199, 199);
+  --primary-theme-lighter:rgb(76, 76, 76);
   --secondary-theme-color:white;
-  --secondary-theme-light:rgb(255, 249, 249);
-  --secondary-theme-lighter:rgb(245, 245, 245);
+  --secondary-theme-light:rgb(216, 216, 216);
+  --secondary-theme-lighter:rgb(191, 191, 191);
   --primary-text-color:rgb(0, 0, 0);
   --primary-box-shadow: rgba(0,0,0,0.1) 0px 1px 3px 0px,rgba(0,0,0,0.06) 0px 1px 2px 0px;
   --secondary-box-shadow:var(--primary-theme-color) 0px 0px 0px 1px inset ;
