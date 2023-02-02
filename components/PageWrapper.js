@@ -9,13 +9,14 @@ import useCart from '../lib/drawer/customhooks/useCart';
 import Footer from './Navigations/Footer';
 
 
-const PageWrapper =({children,hideNavigation,customClasses,padding})=>{
+const PageWrapper =({children,hideNavigation,customClasses,padding,style})=>{
     const [drawer,setDrawer] = useState(true)
     const {cartOpen,openCart,closeCart} = useCart()
     return(
         <div
             style={{
-                padding:padding
+                padding:padding,
+                ...style
             }} 
             className={`wrapper ${customClasses && customClasses}`}>
             {

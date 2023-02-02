@@ -34,6 +34,8 @@ const Product =({data})=>{
     const {fetchCart,handleOptions,options} = useCart(data)
     const seo = data.seo
 
+    console.log(data)
+
     const hasTransitioned = useTransition(open,300)
     const handleSizeChartToggle =()=>{
         toggleSizeChart(!sizeChartOpen)

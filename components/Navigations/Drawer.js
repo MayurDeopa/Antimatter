@@ -1,5 +1,5 @@
 
-import { company} from '../../lib/drawer/draweroptions';
+import { company,shop} from '../../lib/drawer/draweroptions';
 import styles from '../../styles/Header.module.css'
 
 import FileStructure from '../NestedComponent/FileStructure';
@@ -13,6 +13,10 @@ const Drawer =({state})=>{
                     <FileStructure
                         title={'Company'}
                         items={company}
+                    />
+                    <FileStructure
+                        title={'Shop'}
+                        items={shop}
                     />
                 </div>             
             </nav>
