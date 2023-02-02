@@ -16,7 +16,7 @@ const Footer =()=>{
                     <p>Terms</p>
                 </Link>
             </Container>
-            <a href={'https://www.instagram.com/antimatter.cmp/'} target='_blank'>
+            <a href={'https://www.instagram.com/antimatter.cmp/'} target='_blank' rel="noreferrer">
                     <p>Instagram</p>
                 </a>
             <p>© AntiMatter 2022.</p>
