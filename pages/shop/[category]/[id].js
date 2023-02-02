@@ -55,26 +55,7 @@ const Product =({data})=>{
                     />
                 </Head>
                 <PageWrapper>
-                    <Breadcrumb
-                        paths={[
-                            {
-                                title:'Shop',
-                                path:'/shop'
-                            },
-                            {
-                                title:category,
-                                path:`/shop/${category}`
-                            },
-                            {
-                                title:data.name,
-                                path:`/shop/${category}/${router.query.id}`
-                            }
-                        ]}
-                    />
                         <div className={styles.wrapper} >
-                            {/*<div className={'image_skeleton_aspect'}>
-                                <Image src={data.assets[0].url} layout='intrinsic' height={'600'} width={'600'}/>
-                            </div>*/}
                             <ProductSlider
                                 images={data.assets}
                         />
