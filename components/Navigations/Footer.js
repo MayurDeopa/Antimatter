@@ -1,3 +1,4 @@
+import { Container } from 'material-gas-ui';
 import Link from 'next/link';
 import { footer } from '../../lib/drawer/footeroptions';
 import styles from '../../styles/Header.module.css'
@@ -7,13 +8,18 @@ const Footer =()=>{
     return(
         <footer className={styles.footer_wrapper}>
             <div className={styles.footer}>
+            <Container styles={{width:'auto'}}>
+                <Link href={'/about'}>
+                    <p>About</p>
+                </Link>
+                <Link href={'/terms'}>
+                    <p>Terms</p>
+                </Link>
+            </Container>
+            <a href={'https://www.instagram.com/antimatter.cmp/'} target='_blank'>
+                    <p>Instagram</p>
+                </a>
             <p>© AntiMatter 2022.</p>
-            <Link href={'/about'}>
-                <p>About</p>
-            </Link>
-            <Link href={'/terms'}>
-                <p>Terms</p>
-            </Link>
             </div>
         </footer>
     )

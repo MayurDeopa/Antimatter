@@ -4,9 +4,10 @@ import QuantityPanel from './QuantityPanel'
 import Skeleton from '../Loaders/Skeleton'
 import useCart from '../../lib/drawer/customhooks/useCart'
 import MainContainer from '../Misc/MainContainer'
-import { Button } from 'material-gas-ui'
+
 import { useState } from 'react'
-import PrimarySpinner from '../Loaders/PrimarySpinner'
+
+import GasButton from '../Loaders/GasButton'
 
 const CartProducts = ({product,loading})=>{
     const {removeItem} = useCart()
@@ -74,14 +75,12 @@ const CartProducts = ({product,loading})=>{
                 </div>
                 <MainContainer>
                     <QuantityPanel product={product}/>
-                    <Button
-                        styles={{
-                            backgroundColor:'var(--secondary-theme-color)'
-                        }}
+                    <GasButton
                         text={!isLoading &&'Remove' }
                         action={()=>handleRemove(product.id)}
-                        rippleColor='white'
+                        rippleColor='var(--primary-theme-color)'
                         loading ={isLoading}
+                        variant='secondary'
                     />
                 </MainContainer>
             </MainContainer>

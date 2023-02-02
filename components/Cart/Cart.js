@@ -9,7 +9,8 @@ import { useStore } from "../../lib/drawer/context/StoreContext"
 import {FiLock} from 'react-icons/fi'
 import MainContainer from "../Misc/MainContainer"
 import useCart from "../../lib/drawer/customhooks/useCart"
-import { Button, Drawer } from "material-gas-ui"
+import {  Drawer } from "material-gas-ui"
+import GasButton from '../Loaders/GasButton'
 
 
 const Cart =({open,action})=>{
@@ -51,14 +52,14 @@ const Cart =({open,action})=>{
                                         <h4  style={{'width':'100%'}}>SubTotal :</h4>
                                         <p>{visible?'-':cart.subtotal.formatted_with_symbol}</p>
                                     </MainContainer>
-                                    <Button
+                                    <GasButton
                                         text="Checkout"
                                         icon={<FiLock/>}
                                         type='submit'
                                         styles={{width:'100%'}}
                                         loading={visible}
-                                        rippleColor='white'
                                         rippleTimeout={600}
+                                        variant='primary'
                                     />
                                 </MainContainer>
                             }

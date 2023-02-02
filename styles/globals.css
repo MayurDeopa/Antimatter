@@ -9,17 +9,18 @@
 /*p = #141415  #0d0906  #3f3f44*/
 
 :root{
-  --primary-theme-color:white;
-  --primary-color-light:rgb(230, 230, 230);
-  --secondary-theme-color:#121212;
-  --secondary-theme-light:#202020;
-  --secondary-theme-lighter:#2c2c2c;
-  --primary-text-color:rgb(183, 183, 183);
+  --primary-theme-color:#0d0906;
+  --primary-theme-light:rgb(39, 39, 39);
+  --primary-theme-lighter:rgb(199, 199, 199);
+  --secondary-theme-color:white;
+  --secondary-theme-light:rgb(255, 249, 249);
+  --secondary-theme-lighter:rgb(245, 245, 245);
+  --primary-text-color:rgb(0, 0, 0);
   --primary-box-shadow: rgba(0,0,0,0.1) 0px 1px 3px 0px,rgba(0,0,0,0.06) 0px 1px 2px 0px;
-  --secondary-box-shadow:white 0px 0px 0px 1px inset ;
+  --secondary-box-shadow:var(--primary-theme-color) 0px 0px 0px 1px inset ;
   --success:rgb(4, 202, 120);
   --info:rgba(29,161,242,1.00);
-  --error:#dd5d5d;
+  --error:rgb(194, 49, 49);
   --header-height:3rem;
   --drawer-height:auto;
   --header-size:26px;
@@ -165,12 +166,14 @@ textarea{
   gap: 1rem;
   padding: 1.5rem 0;
   width: 100%;
-  background-position: center;
+  /*
+    background-position: center;
   background-attachment: fixed;
   background-image: url('https://i.ibb.co/0ZMBXN5/web-background-for-phone-users-1.jpg');
   background-size:40rem 100vh;
   background-repeat: no-repeat;
   background-color: black;
+  */
   padding-top: var(--header-height);
   min-height:100vh;
   margin-left: auto;
@@ -253,10 +256,13 @@ textarea{
   color: var(--secondary-theme-color);
 }
 
+
+
 .layout{
   position: relative;
   height: 100%;
   width: 100%;
+  
 }
 
 .large_svg{
@@ -372,7 +378,8 @@ textarea{
     width: 100%;
     padding:40px;
   }
-  .wrapper{
+  /*
+    .wrapper{
     
     padding: 4px 8px;
     padding-top: 3rem;
@@ -380,6 +387,7 @@ textarea{
     background-size:100% 100vh;
     background-image: url('https://i.ibb.co/0ZMBXN5/web-background-for-phone-users-1.jpg');
   }
+  */
 }
 
 
@@ -444,17 +452,18 @@ textarea{
   --header-height:3rem;
   --drawer-height:auto;
 
-  --primary-theme-color:white;
-  --primary-color-light:rgb(238, 245, 255);
+   --primary-theme-color:white;
+  --primary-color-light:rgb(230, 230, 230);
   --secondary-theme-color:#121212;
   --secondary-theme-light:#202020;
   --secondary-theme-lighter:#2c2c2c;
-  --primary-text-color:white;
+  --primary-text-color:rgb(183, 183, 183);
   --primary-box-shadow: rgba(0,0,0,0.1) 0px 1px 3px 0px,rgba(0,0,0,0.06) 0px 1px 2px 0px;
-  --secondary-box-shadow:var(--primary-theme-color) 0px 0px 0px 1px inset ;
+  --secondary-box-shadow:white 0px 0px 0px 1px inset ;
   --success:rgb(4, 202, 120);
   --info:rgba(29,161,242,1.00);
   --error:#dd5d5d;
   --header-height:3rem;
   --drawer-height:auto;
+  --header-size:26px;
 */

@@ -68,7 +68,7 @@ function MyApp({ Component, pageProps }) {
           hideProgressBar={false}
           closeOnClick
           newestOnTop={true}  
-          theme='dark'
+          theme='light'
         />
         {hasTranstioned && <PageTransitionComponent open={path}/>}
       </StoreContext>

@@ -8,7 +8,8 @@ import MainContainer from "../Misc/MainContainer";
 import Modal from "../Misc/Modal";
 
 import styles from '../../styles/cart.module.css'
-import { Button, Container, Drawer } from "material-gas-ui";
+import {  Container, Drawer } from "material-gas-ui";
+import GasButton from '../Loaders/GasButton'
 import { toast } from "react-toastify";
 
 const Share=({link,shareIcons,toggleModal,visible})=>{
@@ -37,11 +38,10 @@ const Share=({link,shareIcons,toggleModal,visible})=>{
                         value={link}
                         placeholder={'Link'}
                     />
-                    <Button 
-                        text="Copy" 
-                        styles={{backgroundColor:'var(--secondary-theme-lighter)'}}
-                        rippleColor='white'    
+                    <GasButton 
+                        text="Copy"    
                         type="submit"
+                        variant='secondary'
                     />
                     </Container>
                     <div style={{

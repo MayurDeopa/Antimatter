@@ -21,6 +21,7 @@ import CheckoutSkeleton from '../components/Cart/CheckoutSkeleton';
 import Skeleton from '../components/Loaders/Skeleton';
 import ThankYou from '../components/Display/ThankYou';
 import OrderPending from '../components/Display/OrderPending';
+import GasButton from '../components/Loaders/GasButton';
 
 
 
@@ -103,13 +104,11 @@ const Checkout =()=>{
                             maxWidth={'100%'}
                             direction='column'
                         >
-                            <Button 
+                            <GasButton 
                                 variant='secondary' 
                                 text='Shop' 
                                 icon={<FiArrowLeft/>} 
                                 action={()=>router.push('/')}
-                                styles={{backgroundColor:'var(--secondary-theme-lighter)',color:'white'}}
-                                rippleColor='white'    
                             />
                             {checkoutData?.live.line_items.map((item,i)=>{
                                 return(
@@ -131,13 +130,11 @@ const Checkout =()=>{
                                     action={(e)=>setInput('discount',e.target.value)}
                                     disabled={applyingDiscount}
                                 />
-                                <Button 
+                                <GasButton 
                                     type='submit' 
-                                    variant='secondary' 
-                                    styles={{backgroundColor:'var(--secondary-theme-lighter)',color:'white'}}
+                                    variant='primary' 
                                     text={!applyingDiscount&&'Apply'}
                                     loading={applyingDiscount}
-                                    rippleColor='white'
                                     />
                             </Form>
                              <Container

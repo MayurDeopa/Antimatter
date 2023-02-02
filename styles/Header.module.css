@@ -8,11 +8,11 @@
     justify-content: center;
     flex-direction: column;
     height: var(--header-height);
-    background-color: var(--secondary-theme-color);
+    background-color: transparent;
     color: var(--primary-text-color);
     box-shadow: var(--primary-box-shadow);
-    backdrop-filter: saturate(180%) blur(3px);
-    -webkit-backdrop-filter: saturate(180%) blur(10px);
+    /*backdrop-filter: saturate(180%) blur(3px);
+    -webkit-backdrop-filter: saturate(180%) blur(10px);*/
     transition: all 0.7s ease-in-out;
     z-index: 150;
 }
@@ -175,7 +175,6 @@
     margin-top: 5rem;
     display: flex;
     justify-content: center;
-    box-shadow: var(--primary-box-shadow);
 }
 
 .footer{
