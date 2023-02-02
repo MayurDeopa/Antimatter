@@ -1,18 +1,18 @@
-import styles from '../../styles/Product.module.css'
-import { Carousel } from 'react-responsive-carousel';
-import 'react-responsive-carousel/lib/styles/carousel.min.css'
-import Image from 'next/image';
+
+import NewImage from '../NewImage';
 
 const ProductSlider =({images})=>{
+
+    const mainImage = images[0]
+
     return(
 
                     <div className={'image_skeleton_aspect'} >
-                        <Image 
-                            height={500}
-                            width={500}
-                            src={images[0].url}
-                            className='round pointer'
-                            alt='Comparison Destroys Personality tee'
+                        <NewImage 
+                            height={mainImage.image_dimensions.height}
+                            width={mainImage.image_dimensions.width}
+                            src={mainImage.url}
+                            alt=''
                         />
                     </div>
                 )

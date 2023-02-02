@@ -1,5 +1,5 @@
 
-import { company,shop} from '../../lib/drawer/draweroptions';
+import { company,shop,defaultOptions} from '../../lib/drawer/draweroptions';
 import styles from '../../styles/Header.module.css'
 
 import FileStructure from '../NestedComponent/FileStructure';
@@ -11,12 +11,8 @@ const Drawer =({state})=>{
             <nav className={isHidden?`${styles.drawer_wrapper} ${styles.drawer_hidden}`:styles.drawer_wrapper}>
                 <div className={styles.drawer}>
                     <FileStructure
-                        title={'Company'}
-                        items={company}
-                    />
-                    <FileStructure
-                        title={'Shop'}
-                        items={shop}
+                        title={''}
+                        items={defaultOptions}
                     />
                 </div>             
             </nav>

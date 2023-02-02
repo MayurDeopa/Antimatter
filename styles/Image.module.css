@@ -22,12 +22,17 @@
     padding: 10px 0;
 }
 
+
 .image_wrapper{
     position: relative;
     width: 100%;
-    background-color: var(--secondary-theme-lighter);
+    background-color: transparent;
     transition: 0.3s ease-in-out;
     border: 0px;
+}
+
+.skeleton_wrapper{
+    background-color: var(--secondary-theme-lighter);
 }
 
 .logo_wrapper{
@@ -85,7 +90,32 @@
     cursor: pointer;
 }
 
+.grid_image{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+}
 
+.grid_image_button{
+    text-align: center;
+    position: absolute;
+    bottom: 30%;
+    padding: 7px;
+    width: 10rem;
+    font-weight: bold;
+    max-width: 100%;
+    background-color: var(--secondary-theme-color);
+    color: var(--primary-theme-color);
+    cursor: pointer;
+}
+
+.product_info{
+    width: 100%;
+
+}
 
 @keyframes fade-up {
     0%{

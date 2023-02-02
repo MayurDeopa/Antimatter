@@ -10,8 +10,8 @@
     height: var(--header-height);
     background-color: transparent;
     color: var(--primary-text-color);
-    box-shadow: var(--primary-box-shadow);
-    /*backdrop-filter: saturate(180%) blur(3px);
+    /*box-shadow: var(--primary-box-shadow);
+    backdrop-filter: saturate(180%) blur(3px);
     -webkit-backdrop-filter: saturate(180%) blur(10px);*/
     transition: all 0.7s ease-in-out;
     z-index: 150;
@@ -83,8 +83,8 @@
     position: fixed;
     top: var(--header-height);
     left: 0;
-    right: 0;
-    height: var(--drawer-height);
+    width: 100%;
+    bottom: 0;
     padding: 1rem 20px;
     background-color: var(--secondary-theme-color);
     color: var(--primary-text-color);
@@ -95,7 +95,7 @@
 }
 
 .drawer_hidden{
-    top:-100%;
+    left:-100%;
     opacity: 0;
 }
 
