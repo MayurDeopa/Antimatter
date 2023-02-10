@@ -72,8 +72,8 @@
     position: relative;
     width: 100%;
     display: grid;
-    place-items: center;
-    grid-template-columns: 30% 50% 20%;
+    grid-template-columns: 2fr 3fr 1fr;
+    grid-gap:8px;
     padding: 1.3rem 0.3rem;
 }
 

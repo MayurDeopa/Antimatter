@@ -70,6 +70,16 @@ const CheckoutSkeleton =()=>{
             <Skeleton width={'5rem'} height={'7px'}/>
         </MainContainer>
     </MainContainer>
+    <MainContainer>
+        <Container
+            styles={{
+                flexDirection:'row'
+            }}
+        >
+            <Skeleton height={'2.5rem'} width={'100%'} />
+            <Skeleton height={'2.5rem'} width={'5rem'}/>
+        </Container>
+    </MainContainer>
                         </MainContainer>   
                         <Container
                         styles={{flexDirection:'column'}}

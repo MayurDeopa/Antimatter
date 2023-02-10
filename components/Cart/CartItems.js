@@ -3,13 +3,14 @@ import styles from '../../styles/cart.module.css'
 
 import CartProducts from '../Cart/CartProducts'
 
-import { useContext, useEffect, useState } from 'react'
-import { Store, useStore } from '../../lib/drawer/context/StoreContext'
 
-import useCart from '../../lib/drawer/customhooks/useCart'
-import { commerce } from '../../lib/drawer/commerce'
-import PrimarySpinner from '../Loaders/PrimarySpinner'
+import { useStore } from '../../lib/drawer/context/StoreContext'
 
+import { Button, Container } from 'material-gas-ui'
+
+import LinkBtn from '../Misc/LinkBtn'
+
+import {CgShoppingBag} from 'react-icons/cg'
 
 const CartItems =()=>{
     const {cartState} = useStore()
@@ -26,7 +27,20 @@ const CartItems =()=>{
     if(!cart.line_items.length){
         return(
             <div className={styles.cart_items}>
-                Your cart is empty
+                <Container
+                    styles={{
+                        flexDirection:'column',
+                        alignItems:'center'
+                    }}
+                >
+                    <p>Your cart is empty</p>
+                    <LinkBtn
+                        url={'/'}
+                        text='Start Shopping'
+                        icon={<CgShoppingBag size={20}/>}
+                        width='15rem'
+                    />
+                </Container>
             </div>
         )
     }

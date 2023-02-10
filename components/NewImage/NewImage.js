@@ -33,7 +33,9 @@ const NewImage =(props)=>{
         <div className={containerClass} style={{paddingTop:getAspectRatio(height,width)}}>
             {loading && (
                  <div className={styles.logo_wrapper}>
-                    <BasicProgress visible zIndex={10} position='static' width={'10rem'} bgColor='var(--secondary-theme-light)'/>
+                    <BasicProgress visible zIndex={10} position='static' width={'10rem'} bgColor='var(--secondary-theme-light)' style={{
+                       maxWidth:'70%'
+                    }}/>
                 </div>
             )}
             <Image src={src} alt={alt} layout='fill' className={imageClassName}  onLoadingComplete={()=>setLoading(false)}/>

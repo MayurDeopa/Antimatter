@@ -11,7 +11,8 @@ import MainContainer from "../Misc/MainContainer"
 import useCart from "../../lib/drawer/customhooks/useCart"
 import {  Drawer } from "material-gas-ui"
 import GasButton from '../Loaders/GasButton'
-
+import {MdClose} from 'react-icons/md'
+import Skeleton from '../Loaders/Skeleton'
 
 const Cart =({open,action})=>{
     const {cartLoader} = useStore();
@@ -26,7 +27,7 @@ const Cart =({open,action})=>{
                 action={action}
                 styles={{
                     backgroundColor:'transparent',
-                    maxWidth:'90%'
+                    maxWidth:'100%'
                 }}
                 position='right'
             >
@@ -45,6 +46,7 @@ const Cart =({open,action})=>{
                             {
                                 !isEmpty
                                 &&
+                                cart?
                                 <MainContainer
                                 direction={'column'}
                                 >
@@ -62,7 +64,33 @@ const Cart =({open,action})=>{
                                         variant='primary'
                                     />
                                 </MainContainer>
+                                :
+                                <MainContainer
+                                direction={'column'}
+                                >
+                                    <MainContainer
+                                        justify={'space-between'}
+                                    >
+                                        <Skeleton height={'8px'} width={'4rem'}/>
+                                        <Skeleton height={'8px'} width={'4rem'}/>
+                                    </MainContainer>
+                                    <Skeleton
+                                        height={'2.5rem'}
+                                        width='100%'
+                                    />
+                                </MainContainer>
                             }
+                            <div
+                                style={{
+                                    position:'absolute',
+                                    right:"14px",
+                                    fontSize:'20px',
+                                    cursor:'pointer'
+                                }}
+                                onClick={action}
+                            >
+                                <MdClose/>
+                            </div>
                         </Form>
             </Drawer>
         </Portal>

@@ -12,6 +12,13 @@ import Footer from './Navigations/Footer';
 const PageWrapper =({children,hideNavigation,customClasses,padding,style})=>{
     const [drawer,setDrawer] = useState(true)
     const {cartOpen,openCart,closeCart} = useCart()
+
+    useEffect(()=>{
+        if(cartOpen){
+            closeCart()
+        }
+        return;
+    },[])
     return(
         <div
             style={{

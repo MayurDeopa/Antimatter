@@ -3,7 +3,10 @@
     align-items: center;
     justify-content: center;
     max-width: 100%;
-    background-color: var(--secondary-theme-lighter);
+background-image: linear-gradient(270deg,var(--secondary-theme-color),var(--secondary-theme-light),var(--secondary-theme-lighter),var(--secondary-theme-color));
+    background-size: 200% 100%;
+    animation:skeleton 4s linear infinite;
+    -webkit-animation: skeleton 4s linear infinite;
 }
 
 @keyframes skeleton {

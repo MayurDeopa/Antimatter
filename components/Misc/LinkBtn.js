@@ -6,18 +6,18 @@ import ButtonWrapper from "../Loaders/BtnRipples";
 const LinkBtn =({text,url,children,icon,width})=>{
     return (
         
-            <ButtonWrapper
-                width={width}
-            >
+
                 <Link href={url}>
                 <div 
-                    className={styles.secondary_button}>
+                    style={{
+                        width:width
+                    }}
+                    className={styles.link}>
                     <p>{text}</p>
                     {icon}
                     {children}
                 </div>
                 </Link>
-            </ButtonWrapper>
     )
 }
 

@@ -37,8 +37,25 @@
 }
 
 
+.link{
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 40px;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 4px 16px;
+  max-width: 100%;
+  box-shadow: var(--primary-box-shadow) ;
+  transition: 0.2s ease-in-out;
+}
 
-
+.link:hover{
+  box-shadow: rgba(0,0,0,0.1) 0px 1px 3px 0px,rgba(0,0,0,0.06) 2px 2px 2px 2px;
+}
 
 .await_button,.disabled,.primary_await,.secondary_await{
 opacity: 0.6;

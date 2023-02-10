@@ -88,6 +88,19 @@ const CheckoutForm = ({handleCheckout,data,handleInput,states,countriesData,chec
                                 isValid
                             />
                         </Container>
+                        <Container
+                        >
+                            <OptInput
+                                
+                                placeholder={"Phone Number"}
+                                action={(e)=>handleInput('phone',e.target.value)}
+                                required={true}
+                                title={'phone'}
+                                value={data.phone}
+                                isValid
+                                type={'phone'}
+                            />
+                        </Container>
                     </Container>
                     <Container
                     >
