@@ -256,7 +256,7 @@ textarea{
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  font-size: 50px;
+  gap: 5rem;
   background-color: var(--secondary-theme-color);
   color: var(--primary-theme-color);
 }
