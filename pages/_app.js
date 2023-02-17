@@ -5,7 +5,7 @@ import { QueryClientProvider,QueryClient } from 'react-query'
 import '../styles/globals.css'
 import Router from 'next/router'
 import { ToastContainer } from 'react-toastify'
-
+import Banner from '../components/Banner'
 import Progress from '../components/Loaders/Progress'
 import { commerce } from '../lib/drawer/commerce'
 
@@ -50,6 +50,9 @@ function MyApp({ Component, pageProps }) {
   })
 
   const hasTranstioned = useTransition(path,1000)
+  return(
+    <Banner/>
+  )
   return (
     <QueryClientProvider client={queryClient}>
       <StoreContext states={states}>     

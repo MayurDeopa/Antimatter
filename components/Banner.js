@@ -1,9 +1,10 @@
-import {GiCarnivoreMouth} from 'react-icons/gi'
+import AntiMatterLogo from './Display/AntiMatterLogo';
+import SubHeading from './Typography/SubHeading'
 
 const Banner =()=>{
     return (
         <div className="global_banner">
-            <GiCarnivoreMouth/>
+            <SubHeading>Dropping Soon !! </SubHeading>
         </div>
     )
 }
