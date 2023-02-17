@@ -8,7 +8,7 @@ const Banner =()=>{
             <Head>
                 <title>AntiMatter | Coming Soon !</title>
             </Head>
-            <SubHeading>Dropping Soon !! </SubHeading>
+            <SubHeading>SOON </SubHeading>
         </div>
     )
 }
