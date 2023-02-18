@@ -29,7 +29,7 @@ const sendEmail =async(email)=>{
     }
 }
 
-const Banner =()=>{
+const Banner =()=> {
 
     const [email,setEmail] = useState('')
     const [isLoading,setIsLoading] = useState(false)
