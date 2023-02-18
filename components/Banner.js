@@ -32,18 +32,27 @@ const sendEmail =async(email)=>{
 const Banner =()=>{
 
     const [email,setEmail] = useState('')
-
+    const [isLoading,setIsLoading] = useState(false)
+    const handleSubmit =async(data)=>{
+        setIsLoading(true)
+        await sendEmail(data)
+        setIsLoading(false)
+    }
     return (
         <div className="global_banner">
             <Head>
                 <title>AntiMatter | Coming Soon !</title>
             </Head>
-            <h1 style={{fontSize:'70px'}}>SOON </h1>
-            <Form styles={{boxShadow:'none',gap:'1rem',padding:'5px'}} action={()=>sendEmail(email)}>
+            <h1 style={{fontSize:'80px'}}>SOON </h1>
+            <Form styles={{boxShadow:'none',gap:'1rem',padding:'5px'}} action={()=>handleSubmit(email)}>
                 <p style={{
                     textAlign:'center'
-                }}>Enter your email to get notified!!</p>
-                <Container>
+                }}>Drop your email to get notified!!</p>
+                <Container
+                    styles={{
+                        flexDirection:'column'
+                    }}
+                >
                     
                     <Input 
                         value={email}
@@ -52,14 +61,20 @@ const Banner =()=>{
                         placeholder={'Email'}
                         type='email'
                         required
+                        disabled={isLoading}
                     />
                     <GasButton
                         styles={{
-                            borderRadius:'4px'
+                            borderRadius:'4px',
+                            width:'100%',
+                            backgroundColor:'var(--primary-theme-color)'
                         }}
-                    text='Submit'
-                    disabled={!email.length}
-                    type='submit'
+                        text='Submit'
+                        disabled={!email.length}
+                        type='submit'
+                        loading={isLoading}
+                        rippleColor='var(--secondary-theme-color)'
+                        rippleTimeout={600}
                     />
                 </Container>
             </Form>
