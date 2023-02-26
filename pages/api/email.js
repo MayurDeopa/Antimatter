@@ -14,7 +14,7 @@ export default async (req, res) => {
         if(emailExists){
             return(
                 res.json({
-                    message:'Email already exits',
+                    message:'Email is already registered',
                     success:false
                 })
             )
