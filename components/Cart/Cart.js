@@ -46,7 +46,8 @@ const Cart =({open,action})=>{
                             {
                                 !isEmpty
                                 &&
-                                cart?
+                                cart
+                                &&
                                 <MainContainer
                                 direction={'column'}
                                 >
@@ -64,22 +65,8 @@ const Cart =({open,action})=>{
                                         variant='primary'
                                     />
                                 </MainContainer>
-                                :
-                                <MainContainer
-                                direction={'column'}
-                                >
-                                    <MainContainer
-                                        justify={'space-between'}
-                                    >
-                                        <Skeleton height={'8px'} width={'4rem'}/>
-                                        <Skeleton height={'8px'} width={'4rem'}/>
-                                    </MainContainer>
-                                    <Skeleton
-                                        height={'2.5rem'}
-                                        width='100%'
-                                    />
-                                </MainContainer>
-                            }
+                                }
+                                
                             <div
                                 style={{
                                     position:'absolute',
