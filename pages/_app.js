@@ -50,7 +50,7 @@ function MyApp({ Component, pageProps }) {
   })
 
   const hasTranstioned = useTransition(path,1000)
-  /*return(
+  return(
     <>
       <ToastContainer 
           autoClose={5000}
@@ -62,7 +62,7 @@ function MyApp({ Component, pageProps }) {
         />
       <Banner/>
     </>
-  )*/
+  )
   return (
     <QueryClientProvider client={queryClient}>
       <StoreContext states={states}>     
