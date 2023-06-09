@@ -50,19 +50,9 @@ function MyApp({ Component, pageProps }) {
   })
 
   const hasTranstioned = useTransition(path,1000)
-  return(
-    <>
-      <ToastContainer 
-          autoClose={5000}
-          position='top-right'
-          hideProgressBar={false}
-          closeOnClick
-          newestOnTop={true}  
-          theme='light'
-        />
-      <Banner/>
-    </>
-  )
+  
+
+
   return (
     <QueryClientProvider client={queryClient}>
       <StoreContext states={states}>     
