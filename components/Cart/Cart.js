@@ -31,7 +31,7 @@ const Cart =({open,action})=>{
                 }}
                 position='right'
             >
-            <Form
+                <Form 
                             backgroundColor={'var( --secondary-theme-color)'}
                             title={"Cart"}
                             height='100%'
