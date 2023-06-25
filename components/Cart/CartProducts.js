@@ -49,15 +49,6 @@ const CartProducts = ({product,loading})=>{
                         </MainContainer>
                         
                         <p>{product.line_total.formatted_with_symbol}</p>
-                        
-                        {/*
-                        <QuantityPanel product={product}/>
-                        <p 
-                            onClick={()=>removeItem(product.id)}
-                            className={styles.remove}
-                        >
-                            Remove
-                </p>*/}
                     
                 </div>
                 <MainContainer>
