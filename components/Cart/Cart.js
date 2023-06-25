@@ -37,11 +37,6 @@ const Cart =({open,action})=>{
                             height='100%'
                             action={()=>checkout(cart.id)}
                         >
-                            <BasicProgress
-                                width={'100%'}
-                                visible={visible}
-                                bgColor={'var(--secondary-theme-color)'}
-                            />
                             <CartItems/>                        
                             {
                                 !isEmpty

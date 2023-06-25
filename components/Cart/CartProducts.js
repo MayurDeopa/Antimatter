@@ -12,6 +12,7 @@ import GasButton from '../Loaders/GasButton'
 import { Container } from 'material-gas-ui'
 
 import skeletonStyles from '../../styles/skeleton.module.css'
+import PrimarySpinner from '../Loaders/PrimarySpinner'
 
 const CartProducts = ({product,loading})=>{
     const {removeItem} = useCart()
@@ -24,45 +25,7 @@ const CartProducts = ({product,loading})=>{
 
     if(loading){
         return (
-            <div className={styles.cart_section_logs}>
-    
-                    <>
-                        <div 
-                            style={{
-                                paddingTop: "100%",
-                                height:'100%',
-                                width:'100%'
-                            }}
-                            className={skeletonStyles.wrapper}
-                            >
-                            <Skeleton 
-                                
-                                height={'100%'}
-                                width={'100%'}
-                            />
-                        </div>
-                            
-                        <Container
-                            styles={{
-                                flexDirection:'column',
-                                justifyContent:'start'
-                            }}
-                        >
-                            <Skeleton 
-                                height={'8px'}
-                                width={'min(7rem,100%)'}
-                            />
-                            <Skeleton 
-                            height={'8px'}
-                            width={'min(4rem,100%)'}
-                        />
-                        </Container>
-                        <Skeleton 
-                            height={'8px'}
-                            width={'min(4rem,100%)'}
-                        />
-                    </>
-            </div>
+            <PrimarySpinner/>
         )
     }
     else{
@@ -113,3 +76,45 @@ const CartProducts = ({product,loading})=>{
 }
 
 export default CartProducts;
+
+/*
+<div className={styles.cart_section_logs}>
+    
+                    <>
+                        <div 
+                            style={{
+                                paddingTop: "100%",
+                                height:'100%',
+                                width:'100%'
+                            }}
+                            className={skeletonStyles.wrapper}
+                            >
+                            <Skeleton 
+                                
+                                height={'100%'}
+                                width={'100%'}
+                            />
+                        </div>
+                            
+                        <Container
+                            styles={{
+                                flexDirection:'column',
+                                justifyContent:'start'
+                            }}
+                        >
+                            <Skeleton 
+                                height={'8px'}
+                                width={'min(7rem,100%)'}
+                            />
+                            <Skeleton 
+                            height={'8px'}
+                            width={'min(4rem,100%)'}
+                        />
+                        </Container>
+                        <Skeleton 
+                            height={'8px'}
+                            width={'min(4rem,100%)'}
+                        />
+                    </>
+            </div>
+*/ 
