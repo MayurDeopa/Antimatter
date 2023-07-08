@@ -1,7 +1,4 @@
 import { Button, Container, Drawer } from "material-gas-ui";
-import PrimarySpinner from "../Loaders/PrimarySpinner";
-import Skeleton from "../Loaders/Skeleton";
-import AntiMatterLogo from "./AntiMatterLogo";
 import Image from "next/image";
 
 
@@ -14,7 +11,7 @@ const SizeChart =({open,toggle})=>{
                 backgroundColor:'black',
                 color:'var(--primary-text-color)',
                 width:'100%',
-                height:'100%'
+                height:'80%'
             }}
             position='bottom'
         >

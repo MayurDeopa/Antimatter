@@ -13,6 +13,7 @@ import {  Drawer } from "material-gas-ui"
 import GasButton from '../Loaders/GasButton'
 import {MdClose} from 'react-icons/md'
 import Skeleton from '../Loaders/Skeleton'
+import CartDrawer from './CartDrawer'
 
 const Cart =({open,action})=>{
     const {cartLoader} = useStore();
@@ -22,14 +23,9 @@ const Cart =({open,action})=>{
         <Portal
             container={'modal-root'}
         >
-            <Drawer
+            <CartDrawer
                 open={open}
                 action={action}
-                styles={{
-                    backgroundColor:'transparent',
-                    maxWidth:'100%'
-                }}
-                position='right'
             >
                 <Form 
                             backgroundColor={'var( --secondary-theme-color)'}
@@ -74,7 +70,7 @@ const Cart =({open,action})=>{
                                 <MdClose/>
                             </div>
                         </Form>
-            </Drawer>
+            </CartDrawer>
         </Portal>
     )
 }
