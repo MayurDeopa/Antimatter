@@ -16,7 +16,7 @@ const CartDrawer =({children,open,action,styles,position})=>{
                 maxWidth:'100%',
                     height:'90%',
                         backgroundColor:'transparent',
-                width:'30rem'
+                width:'100%'
                 }}
                 position='bottom'
             >
