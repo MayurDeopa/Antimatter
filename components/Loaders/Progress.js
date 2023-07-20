@@ -1,16 +1,36 @@
-import styles from '../../styles/Spinner.module.css'
+import { Portal, useTransition } from 'material-gas-ui';
+import Modal from '../Misc/Modal';
+import LinearIndefiniteProgress from './LinearIndefiniteProgress';
+
 
 const Progress =({visible})=>{
-    return(
-        <div className={`${styles.progress_wrapper} ${visible?styles.progress_active:styles.progress_hidden}`}>
-            <div className={styles.progress}>
-                <div className={styles.indeterminate}>
 
-                </div>
-            </div>
-            <div className={visible?`${styles.progress_modal}`:`${styles.progress_modal} ${styles.modal_hidden}`}/>
-        </div>
+    let modalContentStyles ={
+        backgroundColor:'var(--secondary-theme-color)',
+        padding:'1rem',
+        borderRadius:'16px',
+        width:'15rem',
+        maxWidth:'90%',
+        height:'5rem',
+        display:'flex',
+        flexDirection:'column',
+        justifyContent:'center',
+    }
+
+    const hasTransitioned = useTransition(visible,400)
+
+    return(
+        hasTransitioned && (
+            <Portal>
+                <Modal open={visible}>
+                    <span style={modalContentStyles}>
+                        <LinearIndefiniteProgress/>
+                    </span>
+                </Modal>
+            </Portal>
+        )
     )
+
 }
 
 export default Progress;

@@ -13,6 +13,7 @@ import { Container } from 'material-gas-ui'
 
 import skeletonStyles from '../../styles/skeleton.module.css'
 import PrimarySpinner from '../Loaders/PrimarySpinner'
+import LinearIndefiniteProgress from '../Loaders/LinearIndefiniteProgress'
 
 const CartProducts = ({product,loading})=>{
     const {removeItem} = useCart()
@@ -23,9 +24,23 @@ const CartProducts = ({product,loading})=>{
         setIsLoading(false)
     }
 
+    let progressWrapper ={
+        backgroundColor:'var(--secondary-theme-color)',
+        padding:'1rem',
+        borderRadius:'16px',
+        width:'15rem',
+        maxWidth:'90%',
+        height:'5rem',
+        display:'flex',
+        flexDirection:'column',
+        justifyContent:'center',
+    }
+
     if(loading){
         return (
-            <PrimarySpinner/>
+            <span style={progressWrapper}>
+                <LinearIndefiniteProgress/>
+            </span>
         )
     }
     else{

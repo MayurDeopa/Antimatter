@@ -4,8 +4,7 @@ import FunctionalModalForm from "../Misc/FunctionalModalForm"
 import OptInput from "../Misc/OptInput"
 import Portal from "../Portal";
 import Form from "../Misc/Form";
-import MainContainer from "../Misc/MainContainer";
-import Modal from "../Misc/Modal";
+import CartDrawer from "../Cart/CartDrawer";
 
 import styles from '../../styles/cart.module.css'
 import {  Container, Drawer } from "material-gas-ui";
@@ -22,7 +21,7 @@ const Share=({link,shareIcons,toggleModal,visible})=>{
 
     return(
 
-            <Drawer
+            <CartDrawer
                 styles={{backgroundColor:"transparent",maxWidth:'90%'}}
                 open={visible}
                 action={toggleModal}
@@ -62,7 +61,7 @@ const Share=({link,shareIcons,toggleModal,visible})=>{
                     })}
                     </div>
                 </Form>
-            </Drawer>
+            </CartDrawer>
 
     )
 }

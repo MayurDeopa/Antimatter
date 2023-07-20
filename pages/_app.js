@@ -51,9 +51,7 @@ function MyApp({ Component, pageProps }) {
 
   const hasTranstioned = useTransition(path,1000)
 
-  return(
-    <Banner/>
-  )
+
 
   return (
     <QueryClientProvider client={queryClient}>
