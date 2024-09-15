@@ -35,7 +35,7 @@ import NewProductSlider from '../../../components/Display/NewProductSlider';
 const Product = ({ data }) => {
     const [sizeChartOpen, toggleSizeChart] = useState(false)
 
-
+    const productImages = [...data.assets,...data.assets,...data.assets]
     
     const { open, toggleModal } = useModal()
     
@@ -52,7 +52,17 @@ const Product = ({ data }) => {
         setScroll(!sizeChartOpen)
     }
 
+    const onPreviousProductImage = ()=>{
+        let curr = activeImage - 1
+        if(curr<0)setActiveImage(productImages.length - 1)
+        else setActiveImage(curr)
+    }
 
+    const onNextProductImage = ()=>{
+        let curr = activeImage + 1
+        if(curr>=productImages.length)setActiveImage(0)
+        else setActiveImage(curr)
+    }
 
     return (
         <>
@@ -65,12 +75,14 @@ const Product = ({ data }) => {
             </Head>
             <PageWrapper>
                 <div className={styles.wrapper} >
-                    <div style={{display:'flex',flexDirection:'column'}}>
+                    <div style={{display:'flex',flexDirection:'column',width:'100%',maxWidth:'30rem'}}>
                         <ProductSlider
-                            images={data.assets}    
+                            image={productImages[activeImage]} 
+                            onNext={onNextProductImage}   
+                            onPrev={onPreviousProductImage}
                         />
                         <NewProductSlider
-                            images={[...data.assets,...data.assets,...data.assets,...data.assets]}
+                            images={productImages}
                             activeImage={activeImage}
                             onClick={(image,index)=>setActiveImage(index)}
                         />

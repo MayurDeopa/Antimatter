@@ -1,18 +1,31 @@
 
 import NewImage from '../NewImage';
 
-const ProductSlider =({images})=>{
+import {MdNavigateNext,MdNavigateBefore} from 'react-icons/md'
 
-    const mainImage = images[0]
+import styles from '../../styles/productslider.module.css'
+import { Button } from 'material-gas-ui';
+
+const ProductSlider =({image,onNext,onPrev})=>{
+
+    const mainImage = image
 
     return(
         <div className={'image_skeleton_aspect'} >
-            <NewImage 
-                height={mainImage.image_dimensions.height}
-                width={mainImage.image_dimensions.width}
-                src={mainImage.url}
-                alt=''
-            />
+            <div className={styles.slider_button} style={{left:0}}>
+                <Button styles={{backgroundColor:'var(--primary-theme-color)'}} rippleColor='white' text={<MdNavigateBefore size={40}/>} action={onPrev}/>
+            </div>
+            <div style={{width:'100%'}}>
+                <NewImage 
+                    height={mainImage.image_dimensions.height}
+                    width={mainImage.image_dimensions.width}
+                    src={mainImage.url}
+                    alt=''
+                />
+            </div>
+            <div className={styles.slider_button} style={{right:0}}>
+               <Button styles={{backgroundColor:'var(--primary-theme-color)'}} rippleColor='white' text={ <MdNavigateNext size={40}/>} action={onNext}/>
+            </div>
         </div>
     )
 

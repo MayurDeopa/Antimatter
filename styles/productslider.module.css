@@ -39,3 +39,15 @@
 .image_active::before{
     border-color: black;
 }
+
+.slider_button{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    bottom: 0;
+    width: 40px;
+    background-color: transparent;
+    z-index: 10;
+}
