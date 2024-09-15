@@ -136,7 +136,8 @@ z
     font: inherit;
     color: currentColor;
     border:none;
-    border-radius: 50%;
+    /* border-radius: 50%; */
+    /* border-radius: 8px; */
     cursor: pointer;
     transition: 0.2s ease-in-out;
     z-index: 20;
@@ -149,7 +150,7 @@ z
     left: 0;
     right: 0;
     bottom: 0;
-    border-radius: 32px;
+    border-radius: 0px;
     border :solid 6px var(--secondary-theme-color);
     outline: solid 2px transparent;
     display: flex;

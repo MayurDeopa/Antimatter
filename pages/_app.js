@@ -51,9 +51,7 @@ function MyApp({ Component, pageProps }) {
 
   const hasTranstioned = useTransition(path,1000)
 
-  return(
-    <Banner/>
-  )
+  
 
   return (
     <QueryClientProvider client={queryClient}>
@@ -61,9 +59,9 @@ function MyApp({ Component, pageProps }) {
       {!hasTranstioned && (
         <>
           
-        <Progress
+        {/* <Progress
           visible={progress}
-        />
+        /> */}
         <Component {...pageProps}/>
       </>
       )}

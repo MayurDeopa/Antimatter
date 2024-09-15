@@ -6,16 +6,15 @@ const ProductSlider =({images})=>{
     const mainImage = images[0]
 
     return(
-
-                    <div className={'image_skeleton_aspect'} >
-                        <NewImage 
-                            height={mainImage.image_dimensions.height}
-                            width={mainImage.image_dimensions.width}
-                            src={mainImage.url}
-                            alt=''
-                        />
-                    </div>
-                )
+        <div className={'image_skeleton_aspect'} >
+            <NewImage 
+                height={mainImage.image_dimensions.height}
+                width={mainImage.image_dimensions.width}
+                src={mainImage.url}
+                alt=''
+            />
+        </div>
+    )
 
 }
 

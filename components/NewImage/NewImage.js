@@ -28,9 +28,11 @@ const NewImage =(props)=>{
     const containerClass = loading?`${styles.image_wrapper} ${styles.skeleton_wrapper}`:styles.image_wrapper
 
     const imageClassName = loading?`${styles.image} ${styles.image_hidden}`:styles.image
-
+// <div className={containerClass} style={{aspectRatio:`${width}/${height}`}}>
     return(
         <div className={containerClass} style={{paddingTop:getAspectRatio(height,width)}}>
+            
+        
             {/*loading && (
                  <div className={styles.logo_wrapper}>
                     <BasicProgress visible zIndex={10} position='static' width={'10rem'} bgColor='var(--secondary-theme-light)' style={{

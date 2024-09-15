@@ -7,6 +7,7 @@ import SubHeading from "../components/Typography/SubHeading";
 import { getProductCategory } from "../services/api/products";
 
 import styles from '../styles/Image.module.css'
+import Link from "next/link";
 
 const NewHome =({data})=>{
 
@@ -15,7 +16,7 @@ const NewHome =({data})=>{
     let second = stock.assets[1]
     let third = stock.assets[2]
     let fourth = stock.assets[3]
-
+    
     return(
         <PageWrapper
             style={{
@@ -62,7 +63,9 @@ const NewHome =({data})=>{
                     justifyContent:'center'
                 }}>
                     <SubHeading thickness={'100'}> 
+                       <Link href={'/shop'}>
                         VIEW
+                       </Link>
                     </SubHeading>
                 </Container>
             </div>

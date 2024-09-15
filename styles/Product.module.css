@@ -1,9 +1,9 @@
 .wrapper,.skeleton_wrapper{
     width: 100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
-    align-items: center;
+    /* align-items: center; */
     padding: 0.3rem;
     max-width: 85rem;
 }
@@ -34,10 +34,10 @@
 .description{
     width: 100%;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+    flex-direction: row;
+    /* align-items: center; */
+    justify-content: space-around;
+    /* text-align: center; */
     color: var(--primary-text-color);
 }
 
@@ -60,7 +60,7 @@
     padding: 5px;
     border-radius: 4px;
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     justify-content: center;
 }
 
@@ -101,6 +101,11 @@
     }
     .details{
         max-width: 100%;
+    }
+    .description{
+        flex-direction: column;
+        /* justify-content: center; */
+        align-items: center;
     }
 }
 

@@ -1,4 +1,4 @@
-import { Portal, useTransition } from 'material-gas-ui';
+import { Portal, Spinner, useTransition } from 'material-gas-ui';
 import Modal from '../Misc/Modal';
 import LinearIndefiniteProgress from './LinearIndefiniteProgress';
 
@@ -24,7 +24,7 @@ const Progress =({visible})=>{
             <Portal>
                 <Modal open={visible}>
                     <span style={modalContentStyles}>
-                        <LinearIndefiniteProgress/>
+                       {Math.random()>0.5? <LinearIndefiniteProgress/>:<div style={{display:'flex',justifyContent:'center'}}><Spinner size={40} color='black'/></div>}
                     </span>
                 </Modal>
             </Portal>
