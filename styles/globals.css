@@ -189,6 +189,7 @@ textarea{
   height: 100%;
   background-color:white;
   animation: fade 0.3s ease-in-out;
+  box-shadow: var(--primary-box-shadow);
   z-index: 10;
 }
 
